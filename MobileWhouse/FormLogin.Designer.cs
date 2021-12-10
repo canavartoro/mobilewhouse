@@ -38,9 +38,9 @@
             this.chkRememberMe = new System.Windows.Forms.CheckBox();
             this.lblbuild = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnSettings = new MobileWhouse.GUI.ColourButton();
             this.btnOkey = new MobileWhouse.GUI.ColourButton();
             this.btnCancel = new MobileWhouse.GUI.ColourButton();
-            this.btnSettings = new MobileWhouse.GUI.ColourButton();
             this.SuspendLayout();
             // 
             // label1
@@ -115,8 +115,25 @@
             this.pictureBox1.Size = new System.Drawing.Size(211, 72);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             // 
+            // btnSettings
+            // 
+            this.btnSettings.Alignment = MobileWhouse.GUI.ImageAlignment.Center;
+            this.btnSettings.BackColor = System.Drawing.Color.Empty;
+            this.btnSettings.ForeColor = System.Drawing.Color.Empty;
+            this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
+            this.btnSettings.Location = new System.Drawing.Point(101, 190);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.NormalBtnColour = System.Drawing.Color.LightYellow;
+            this.btnSettings.NormalTxtColour = System.Drawing.Color.Blue;
+            this.btnSettings.PushedBtnColour = System.Drawing.Color.Blue;
+            this.btnSettings.PushedTxtColour = System.Drawing.Color.Yellow;
+            this.btnSettings.Size = new System.Drawing.Size(37, 27);
+            this.btnSettings.TabIndex = 24;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            // 
             // btnOkey
             // 
+            this.btnOkey.Alignment = MobileWhouse.GUI.ImageAlignment.Right;
             this.btnOkey.BackColor = System.Drawing.Color.Empty;
             this.btnOkey.ForeColor = System.Drawing.Color.Empty;
             this.btnOkey.Image = ((System.Drawing.Image)(resources.GetObject("btnOkey.Image")));
@@ -133,6 +150,7 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
             this.btnCancel.BackColor = System.Drawing.Color.Empty;
             this.btnCancel.ForeColor = System.Drawing.Color.Empty;
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
@@ -146,21 +164,6 @@
             this.btnCancel.TabIndex = 22;
             this.btnCancel.Text = "İptal";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnSettings
-            // 
-            this.btnSettings.BackColor = System.Drawing.Color.Empty;
-            this.btnSettings.ForeColor = System.Drawing.Color.Empty;
-            this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
-            this.btnSettings.Location = new System.Drawing.Point(101, 190);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.NormalBtnColour = System.Drawing.Color.LightYellow;
-            this.btnSettings.NormalTxtColour = System.Drawing.Color.Blue;
-            this.btnSettings.PushedBtnColour = System.Drawing.Color.Blue;
-            this.btnSettings.PushedTxtColour = System.Drawing.Color.Yellow;
-            this.btnSettings.Size = new System.Drawing.Size(37, 27);
-            this.btnSettings.TabIndex = 24;
-            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // FormLogin
             // 

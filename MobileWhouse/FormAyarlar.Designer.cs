@@ -28,17 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAyarlar));
             this.txtURL = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnKaydet = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnupdate = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.textAppServ = new System.Windows.Forms.TextBox();
             this.cmbLog = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtraporurl = new System.Windows.Forms.TextBox();
+            this.btnCancel = new MobileWhouse.GUI.ColourButton();
+            this.btnKaydet = new MobileWhouse.GUI.ColourButton();
+            this.btnupdate = new MobileWhouse.GUI.ColourButton();
             this.SuspendLayout();
             // 
             // txtURL
@@ -55,33 +56,6 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 20);
             this.label1.Text = "Service URL";
-            // 
-            // btnKaydet
-            // 
-            this.btnKaydet.Location = new System.Drawing.Point(164, 205);
-            this.btnKaydet.Name = "btnKaydet";
-            this.btnKaydet.Size = new System.Drawing.Size(72, 20);
-            this.btnKaydet.TabIndex = 7;
-            this.btnKaydet.Text = "Kaydet";
-            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(3, 205);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(72, 20);
-            this.btnCancel.TabIndex = 10;
-            this.btnCancel.Text = "Iptal";
-            this.btnCancel.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnupdate
-            // 
-            this.btnupdate.Location = new System.Drawing.Point(3, 234);
-            this.btnupdate.Name = "btnupdate";
-            this.btnupdate.Size = new System.Drawing.Size(233, 33);
-            this.btnupdate.TabIndex = 12;
-            this.btnupdate.Text = "Program Güncelle";
-            this.btnupdate.Click += new System.EventHandler(this.btnupdate_Click);
             // 
             // label2
             // 
@@ -132,23 +106,74 @@
             this.txtraporurl.TabIndex = 8;
             this.txtraporurl.Text = "http://localhost:62624/";
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
+            this.btnCancel.BackColor = System.Drawing.Color.Empty;
+            this.btnCancel.ForeColor = System.Drawing.Color.Empty;
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
+            this.btnCancel.Location = new System.Drawing.Point(3, 196);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.NormalBtnColour = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnCancel.NormalTxtColour = System.Drawing.Color.Black;
+            this.btnCancel.PushedBtnColour = System.Drawing.Color.Blue;
+            this.btnCancel.PushedTxtColour = System.Drawing.Color.Yellow;
+            this.btnCancel.Size = new System.Drawing.Size(87, 29);
+            this.btnCancel.TabIndex = 19;
+            this.btnCancel.Text = "Iptal";
+            this.btnCancel.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnKaydet
+            // 
+            this.btnKaydet.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
+            this.btnKaydet.BackColor = System.Drawing.Color.Empty;
+            this.btnKaydet.ForeColor = System.Drawing.Color.Empty;
+            this.btnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("btnKaydet.Image")));
+            this.btnKaydet.Location = new System.Drawing.Point(118, 196);
+            this.btnKaydet.Name = "btnKaydet";
+            this.btnKaydet.NormalBtnColour = System.Drawing.Color.LightYellow;
+            this.btnKaydet.NormalTxtColour = System.Drawing.Color.Blue;
+            this.btnKaydet.PushedBtnColour = System.Drawing.Color.Blue;
+            this.btnKaydet.PushedTxtColour = System.Drawing.Color.Yellow;
+            this.btnKaydet.Size = new System.Drawing.Size(118, 29);
+            this.btnKaydet.TabIndex = 20;
+            this.btnKaydet.Text = "Kaydet";
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
+            // 
+            // btnupdate
+            // 
+            this.btnupdate.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
+            this.btnupdate.BackColor = System.Drawing.Color.Empty;
+            this.btnupdate.ForeColor = System.Drawing.Color.Empty;
+            this.btnupdate.Image = ((System.Drawing.Image)(resources.GetObject("btnupdate.Image")));
+            this.btnupdate.Location = new System.Drawing.Point(3, 240);
+            this.btnupdate.Name = "btnupdate";
+            this.btnupdate.NormalBtnColour = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(224)))), ((int)(((byte)(255)))));
+            this.btnupdate.NormalTxtColour = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnupdate.PushedBtnColour = System.Drawing.Color.Blue;
+            this.btnupdate.PushedTxtColour = System.Drawing.Color.Yellow;
+            this.btnupdate.Size = new System.Drawing.Size(233, 35);
+            this.btnupdate.TabIndex = 21;
+            this.btnupdate.Text = "Program Güncelle";
+            this.btnupdate.Click += new System.EventHandler(this.btnupdate_Click);
+            // 
             // FormAyarlar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(240, 320);
+            this.Controls.Add(this.btnupdate);
+            this.Controls.Add(this.btnKaydet);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbLog);
-            this.Controls.Add(this.btnupdate);
-            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtraporurl);
             this.Controls.Add(this.textAppServ);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtURL);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnKaydet);
             this.Location = new System.Drawing.Point(0, 0);
             this.Name = "FormAyarlar";
             this.Text = "Ayarlar";
@@ -162,15 +187,15 @@
 
         private System.Windows.Forms.TextBox txtURL;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnKaydet;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnupdate;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textAppServ;
         private System.Windows.Forms.ComboBox cmbLog;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtraporurl;
+        private MobileWhouse.GUI.ColourButton btnCancel;
+        private MobileWhouse.GUI.ColourButton btnKaydet;
+        private MobileWhouse.GUI.ColourButton btnupdate;
 
     }
 }

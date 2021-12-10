@@ -121,6 +121,7 @@ namespace MobileWhouse.GUI
         Color m_NormalTxtColour = Color.Blue;
         Color m_PushedBtnColour = Color.Blue;
         Color m_PushedTxtColour = Color.Yellow;
+        private ImageAlignment imageAlignment = ImageAlignment.Left;
         private System.Drawing.Image image;
 
         public enum States
@@ -132,7 +133,7 @@ namespace MobileWhouse.GUI
         States m_state;
         #endregion
 
-
+#if !NETCFDESIGNTIME
         public System.Drawing.Image Image
         {
             get
@@ -144,7 +145,19 @@ namespace MobileWhouse.GUI
                 this.image = value;
             }
         }
+#endif
 
+        public ImageAlignment Alignment
+        {
+            get
+            {
+                return this.imageAlignment;
+            }
+            set
+            {
+                this.imageAlignment = value;
+            }
+        }
 
         #region Public Services
         public ColourButton()
@@ -202,12 +215,26 @@ namespace MobileWhouse.GUI
             graphics.FillRectangle(brush, 0, 0, Width, Height);
             graphics.DrawRectangle(pen, 0, 0, Width - 1, Height - 1);
 
+#if !NETCFDESIGNTIME
             if (this.image != null)
             {
                 Rectangle rectangle;
-                //int x = (base.Width - this.image.Width) / 2;
-                //int y = (base.Height - this.image.Height) / 2;
-                int _x = 2, _y = 2;
+                int _x = 0, _y = 0;
+                if (imageAlignment == ImageAlignment.Center)
+                {
+                    _x = (base.Width - this.image.Width) / 2;
+                    _y = (base.Height - this.image.Height) / 2;
+                }
+                else if (imageAlignment == ImageAlignment.Left)
+                {
+                    _y = (base.Height - this.image.Height) / 2;
+                    _x = 2;
+                }
+                else
+                {
+                    _x = (base.Width - (this.image.Width + 2));
+                    _y = (base.Height - this.image.Height) / 2;
+                }
                 if (m_state != States.Pushed)
                 {
                     rectangle = new Rectangle(_x, _y, this.image.Width, this.image.Height);
@@ -220,6 +247,7 @@ namespace MobileWhouse.GUI
                 imageAttr.SetColorKey(this.BackgroundImageColor(this.image), this.BackgroundImageColor(this.image));
                 graphics.DrawImage(this.image, rectangle, 0, 0, this.image.Width, this.image.Height, GraphicsUnit.Pixel, imageAttr);
             }
+#endif
 
             //Create a font based on the default font
             int fontHeight = 10;
@@ -247,6 +275,13 @@ namespace MobileWhouse.GUI
             Bitmap bitmap = new Bitmap(image);
             return bitmap.GetPixel(0, 0);
         }
+    }
+
+    public enum ImageAlignment
+    {
+        Left,
+        Center,
+        Right
     }
 
 }
