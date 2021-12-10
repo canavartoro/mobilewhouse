@@ -1,0 +1,48 @@
+http://10.0.0.250:400/WebService/MW/MobileWhouse.asmx
+
+terminal
+te.123456
+
+h04
+PC-00000001
+
+Y02
+PC-00000004
+
+H02
+PC-00000002
+
+H03
+PC-00000003
+
+whouse code karisim, 3683
+
+kaynak	D-021
+hedef	D-030
+
+
+Y02 C1 OR 00000 0001
+154044
+KGM
+
+H04 PP BY 0000
+124589
+KGM
+
+ustunpls\administrator
+UstunPlastik2015
+
+TransferWorderCollection
+M00 020 07KT0002
+131513
+ADET
+
+UYM-220885
+
+trax.MaterielDistributedType,GNL.MaterielDistributedType.Equal
+
+trax.PrdTransferStatus,GNL.PrdTransferStatus.Planlı
+
+trax.WorderMatrlTrnTraceType,GNL.WorderMaterialTransferTraceType.Mamul
+
+trax.WorderMatrlTrnType,GNL.WorderMaterialTransferType.TalepleMalzemeTransferi

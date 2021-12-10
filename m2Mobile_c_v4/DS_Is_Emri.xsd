@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DS_Is_Emri" targetNamespace="http://tempuri.org/DS_Is_Emri.xsd" xmlns:mstns="http://tempuri.org/DS_Is_Emri.xsd" xmlns="http://tempuri.org/DS_Is_Emri.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DS_Is_Emri" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DS_Is_Emri" msprop:Generator_DataSetName="DS_Is_Emri" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Dt_Onaylı_Is_Emri" msprop:Generator_UserTableName="Dt_Onaylı_Is_Emri" msprop:Generator_RowDeletedName="Dt_Onaylı_Is_EmriRowDeleted" msprop:Generator_RowChangedName="Dt_Onaylı_Is_EmriRowChanged" msprop:Generator_RowClassName="Dt_Onaylı_Is_EmriRow" msprop:Generator_RowChangingName="Dt_Onaylı_Is_EmriRowChanging" msprop:Generator_RowEvArgName="Dt_Onaylı_Is_EmriRowChangeEvent" msprop:Generator_RowEvHandlerName="Dt_Onaylı_Is_EmriRowChangeEventHandler" msprop:Generator_TableClassName="Dt_Onaylı_Is_EmriDataTable" msprop:Generator_TableVarName="tableDt_Onaylı_Is_Emri" msprop:Generator_RowDeletingName="Dt_Onaylı_Is_EmriRowDeleting" msprop:Generator_TablePropName="Dt_Onaylı_Is_Emri">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IsEmri_Tar" msprop:Generator_UserColumnName="IsEmri_Tar" msprop:Generator_ColumnVarNameInTable="columnIsEmri_Tar" msprop:Generator_ColumnPropNameInRow="IsEmri_Tar" msprop:Generator_ColumnPropNameInTable="IsEmri_TarColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="IsEmri_No" msprop:Generator_UserColumnName="IsEmri_No" msprop:Generator_ColumnVarNameInTable="columnIsEmri_No" msprop:Generator_ColumnPropNameInRow="IsEmri_No" msprop:Generator_ColumnPropNameInTable="IsEmri_NoColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Stk_Kod" msprop:Generator_UserColumnName="Stk_Kod" msprop:Generator_ColumnVarNameInTable="columnStk_Kod" msprop:Generator_ColumnPropNameInRow="Stk_Kod" msprop:Generator_ColumnPropNameInTable="Stk_KodColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Stk_Adı" msprop:Generator_UserColumnName="Stk_Adı" msprop:Generator_ColumnVarNameInTable="columnStk_Adı" msprop:Generator_ColumnPropNameInRow="Stk_Adı" msprop:Generator_ColumnPropNameInTable="Stk_AdıColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="IsEmri_Tipi" msprop:Generator_UserColumnName="IsEmri_Tipi" msprop:Generator_ColumnVarNameInTable="columnIsEmri_Tipi" msprop:Generator_ColumnPropNameInRow="IsEmri_Tipi" msprop:Generator_ColumnPropNameInTable="IsEmri_TipiColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Rota_Op_Adı" msprop:Generator_UserColumnName="Rota_Op_Adı" msprop:Generator_ColumnVarNameInTable="columnRota_Op_Adı" msprop:Generator_ColumnPropNameInRow="Rota_Op_Adı" msprop:Generator_ColumnPropNameInTable="Rota_Op_AdıColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Id" msprop:Generator_UserColumnName="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Dt_Isemri_Detayları" msprop:Generator_UserTableName="Dt_Isemri_Detayları" msprop:Generator_RowDeletedName="Dt_Isemri_DetaylarıRowDeleted" msprop:Generator_RowChangedName="Dt_Isemri_DetaylarıRowChanged" msprop:Generator_RowClassName="Dt_Isemri_DetaylarıRow" msprop:Generator_RowChangingName="Dt_Isemri_DetaylarıRowChanging" msprop:Generator_RowEvArgName="Dt_Isemri_DetaylarıRowChangeEvent" msprop:Generator_RowEvHandlerName="Dt_Isemri_DetaylarıRowChangeEventHandler" msprop:Generator_TableClassName="Dt_Isemri_DetaylarıDataTable" msprop:Generator_TableVarName="tableDt_Isemri_Detayları" msprop:Generator_RowDeletingName="Dt_Isemri_DetaylarıRowDeleting" msprop:Generator_TablePropName="Dt_Isemri_Detayları">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Stok_Kodu" msprop:Generator_UserColumnName="Stok_Kodu" msprop:Generator_ColumnVarNameInTable="columnStok_Kodu" msprop:Generator_ColumnPropNameInRow="Stok_Kodu" msprop:Generator_ColumnPropNameInTable="Stok_KoduColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Stok_Adı" msprop:Generator_UserColumnName="Stok_Adı" msprop:Generator_ColumnVarNameInTable="columnStok_Adı" msprop:Generator_ColumnPropNameInRow="Stok_Adı" msprop:Generator_ColumnPropNameInTable="Stok_AdıColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Net_Miktar" msprop:Generator_UserColumnName="Net_Miktar" msprop:Generator_ColumnVarNameInTable="columnNet_Miktar" msprop:Generator_ColumnPropNameInRow="Net_Miktar" msprop:Generator_ColumnPropNameInTable="Net_MiktarColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Ok_Miktar" msprop:Generator_UserColumnName="Ok_Miktar" msprop:Generator_ColumnVarNameInTable="columnOk_Miktar" msprop:Generator_ColumnPropNameInRow="Ok_Miktar" msprop:Generator_ColumnPropNameInTable="Ok_MiktarColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Tip" msprop:Generator_UserColumnName="Tip" msprop:Generator_ColumnVarNameInTable="columnTip" msprop:Generator_ColumnPropNameInRow="Tip" msprop:Generator_ColumnPropNameInTable="TipColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="ItemId" msprop:Generator_UserColumnName="ItemId" msprop:Generator_ColumnPropNameInRow="ItemId" msprop:Generator_ColumnVarNameInTable="columnItemId" msprop:Generator_ColumnPropNameInTable="ItemIdColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Raf_Kodu" msprop:Generator_UserColumnName="Raf_Kodu" msprop:Generator_ColumnPropNameInRow="Raf_Kodu" msprop:Generator_ColumnVarNameInTable="columnRaf_Kodu" msprop:Generator_ColumnPropNameInTable="Raf_KoduColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

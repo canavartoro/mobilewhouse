@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="UstunWebService.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="tracelavel" Type="System.Diagnostics.TraceLevel" Scope="Application">
+      <Value Profile="(Default)">Verbose</Value>
+    </Setting>
+    <Setting Name="UyumUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://oratest.ofis.uyumcloud.com/</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

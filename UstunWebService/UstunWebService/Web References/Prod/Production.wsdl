@@ -1,0 +1,3022 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetPrdGobalInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfPrdGobalParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceRequestOfPrdGobalParam">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="tns:Token" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:PrdGobalParam" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attachment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Token">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BranchCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BranchId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CoId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BranchDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeviceId" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PrdGobalParam">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PrdGobalType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrdGobalId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrdGobalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrdGobalName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrdGobalId2" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrdGobalCode2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrdGobalName2" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrdGobalId3" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrdGobalId4" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPrdGobalInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPrdGobalInfoResult" type="tns:ServiceResultOfListOfPrdGobalInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceResultOfListOfPrdGobalInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:ArrayOfPrdGobalInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPage" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPrdGobalInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PrdGobalInfo" nillable="true" type="tns:PrdGobalInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PrdGobalInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PrdGobalId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrdGobalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrdGobalName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrdGobalId2" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrdGobalCode2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrdGobalName2" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrdGobalId3" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrdGobalCode3" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrdGobalId4" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrdGobalCode4" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrdGobalId5" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrdGobalCode5" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetWstationOutInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfPrdGobalParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWstationOutInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWstationOutInfoResult" type="tns:ServiceResultOfListOfWstationOutInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceResultOfListOfWstationOutInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:ArrayOfWstationOutInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPage" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfWstationOutInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WstationOutInfo" nillable="true" type="tns:WstationOutInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WstationOutInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="WstationId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="WstationCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WstationDesc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EntityId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntityCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ByOutputWhouseOutsourceId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OutputWhouseOutsourceCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsWoMaterialTrailing" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorderMatrlTrnType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChangeMatrlTrnType" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransferDocTraId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransferDocTraCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetOrderOutsideInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfOrderOutsideParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceRequestOfOrderOutsideParam">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="tns:Token" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:OrderOutsideParam" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attachment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrderOutsideParam">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="WstationId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EntityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorderMId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorderNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrderMId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderDocNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OperationNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OperationId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OperationCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetOrderOutsideInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrderOutsideInfoResult" type="tns:ServiceResultOfListOfOrderOutsideInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceResultOfListOfOrderOutsideInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:ArrayOfOrderOutsideInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPage" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfOrderOutsideInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OrderOutsideInfo" nillable="true" type="tns:OrderOutsideInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrderOutsideInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="WstationId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrderMId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderDocNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrderDId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrderLineNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SourceApp" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WoOutsideMId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="WoOutsideDocNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WoOutsideDId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WoOutsideLineNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OperationNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WoOutsideOperationId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="WoOutsideOperationCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnitCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrderQty" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeliveryDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxQtySend" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="SendQty" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyTrailing" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetWorderMInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfWorderMParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceRequestOfWorderMParam">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="tns:Token" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:WorderMParam" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attachment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WorderMParam">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="WorderNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WoOpenDate1" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="WoOpenDate2" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WoTypeId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsTransfer" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetWorderMInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWorderMInfoResult" type="tns:ServiceResultOfListOfWorderMInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceResultOfListOfWorderMInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:ArrayOfWorderMInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPage" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfWorderMInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WorderMInfo" nillable="true" type="tns:WorderMInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WorderMInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorderNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WoOpenDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="WoTypeId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="WoTypeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WoTypeDesc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BomMId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RouteMId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProductRouteMId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OperationId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OperationNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Qty" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnitCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyTrailing" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyMan" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyManNet" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetWorderOpDInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfWorderOpDParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceRequestOfWorderOpDParam">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="tns:Token" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:WorderOpDParam" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attachment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WorderOpDParam">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="WcenterId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WstationId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorderMId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorderNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OperationCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OperationDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetWorderOpDInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWorderOpDInfoResult" type="tns:ServiceResultOfListOfWorderOpDInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceResultOfListOfWorderOpDInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:ArrayOfWorderOpDInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPage" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfWorderOpDInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WorderOpDInfo" nillable="true" type="tns:WorderOpDInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WorderOpDInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="WorderMId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorderNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorderMQty" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnitCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorderOpDId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorderOpQtyMan" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyAvailable" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="OperationNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OperationId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OperationCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OperationDesc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorderType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DrawingNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ColorId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProductRouteMId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShortFileName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LongFileName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WstationList" type="tns:ArrayOfWstationOperationAvail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfWstationOperationAvail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WstationOperationAvail" nillable="true" type="tns:WstationOperationAvail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WstationOperationAvail">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="WstationId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="WstationCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WstationDesc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OperationId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OperationCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPRDWoTypeInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfWoTypeInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceRequestOfWoTypeInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="tns:Token" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:WoTypeInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attachment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WoTypeInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="WoTypeCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorderMatrlTrnType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorderMatrlTrnTraceType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChangeMatrlTrnType" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="TrnDocTraId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrnDocTraCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorderType" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPRDWoTypeInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPRDWoTypeInfoResult" type="tns:ServiceResultOfListOfWoTypeInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceResultOfListOfWoTypeInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:ArrayOfWoTypeInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPage" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfWoTypeInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WoTypeInfo" nillable="true" type="tns:WoTypeInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPackageItemInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfInt32" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceRequestOfInt32">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="tns:Token" />
+          <s:element minOccurs="1" maxOccurs="1" name="Value" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attachment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPackageItemInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPackageItemInfoResult" type="tns:ServiceResultOfListOfItemInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceResultOfListOfItemInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:ArrayOfItemInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPage" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfItemInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ItemInfo" nillable="true" type="tns:ItemInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ItemInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:NameIdItem">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="PackageDetailType" type="tns:PackageDetailType" />
+              <s:element minOccurs="1" maxOccurs="1" name="Qty" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="ItemDimInfos" type="tns:ArrayOfItemDimInfo" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description2" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="StokMultiplier" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="ReadUnitId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReadUnitCode" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ItemAttr1Id" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ItemAttr2Id" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ItemAttr3Id" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ItemAttr4Id" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ItemAttributeCode1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ItemAttributeCode2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ItemAttributeCode3" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ItemAttributeCode4" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="QualityId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="QualityCode" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="LotId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="LotCode" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ColorId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ColorCode" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="PackageTypeId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="WhouseId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="BwhUnitCode" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="BwhQtyPrm" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="LastWayyBillUnitPrice" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtyMinSo" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="ToleranceMaxSo" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="DimCard2Used" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="NameIdItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnitCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="InventoryStatus" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ToleranceMaxPo" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyMaxInv" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="SerialMId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SerialNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsIsLocNegative" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="PackageDetailType">
+        <s:restriction base="s:string">
+          <s:enumeration value="A" />
+          <s:enumeration value="S" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfItemDimInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ItemDimInfo" nillable="true" type="tns:ItemDimInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ItemDimInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DimCardId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DimCardCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DimCardName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Ispassive" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DimNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Qty" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="LineNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BwhD2QtyPrm" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TransferMCreate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfTransferMInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceRequestOfTransferMInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="tns:Token" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:TransferMInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attachment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TransferMInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaterielDistributedType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocTraId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WoTypeId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChangeMatrlTrnType" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsTransferDCreate" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="WhouseId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransferWhouseId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorderMatrlTrnType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorderMatrlTrnTraceType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UsId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsOut" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransferWorderList" type="tns:ArrayOfTransferWorderInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTransferWorderInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TransferWorderInfo" nillable="true" type="tns:TransferWorderInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TransferWorderInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="LineNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorderMId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorderItemId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyTrailing" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorderMQty" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TransferMCreateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TransferMCreateResult" type="tns:ServiceResultOfTransferMInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceResultOfTransferMInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:TransferMInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPage" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="OutsideTrailingMCreate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfOutsideTrailingMInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceRequestOfOutsideTrailingMInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="tns:Token" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:OutsideTrailingMInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attachment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OutsideTrailingMInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaterielDistributedType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OutsideMessagingType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OutsideVirtualStockAdd" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransferDocTraId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WstationId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EntityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsWoMaterialTrailing" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="WhouseId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OutWhouseId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OutWhouseCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WayBilDocNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorderMatrlTrnType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UsId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsTransferDCreate" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="OutsideTrailingDList" type="tns:ArrayOfOutsideTrailingDInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfOutsideTrailingDInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OutsideTrailingDInfo" nillable="true" type="tns:OutsideTrailingDInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OutsideTrailingDInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="LineNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrderMId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrderDId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SourceApp" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WoOutsideMId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WoOutsideDId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WoOutsideOperationId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OperationNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxQtySend" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyTrailing" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="OutsideTrailingMCreateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OutsideTrailingMCreateResult" type="tns:ServiceResultOfOutsideTrailingMInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceResultOfOutsideTrailingMInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:OutsideTrailingMInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPage" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="WorderAcOpCreate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfWorderAcOpInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceRequestOfWorderAcOpInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="tns:Token" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:WorderAcOpInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attachment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WorderAcOpInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorderMId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorderOpDId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AWstationId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Qty" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ShiftsId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorderAcOpParamList" type="tns:ArrayOfWorderAcOpParamInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorderBreakList" type="tns:ArrayOfWorderBreakInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorderEmployeeList" type="tns:ArrayOfWorderEmployeeInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorderScrapProductList" type="tns:ArrayOfWorderScrapProductInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorderScrapMaterialList" type="tns:ArrayOfWorderScrapMaterialInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorderScrapOtherInfoList" type="tns:ArrayOfWorderScrapOtherInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorderScrapByProductInfoList" type="tns:ArrayOfWorderScrapByProductInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorderScrapDemonteProductInfoList" type="tns:ArrayOfWorderScrapDemonteProductInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorderReworkProductInfoList" type="tns:ArrayOfWorderReworkProductInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorderReworkMaterialList" type="tns:ArrayOfWorderReworkMaterialInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorderReworkOtherList" type="tns:ArrayOfWorderReworkOtherInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorderReworkByProductInfoList" type="tns:ArrayOfWorderReworkByProductInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorderReworkDemonteProductInfoList" type="tns:ArrayOfWorderReworkDemonteProductInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfWorderAcOpParamInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WorderAcOpParamInfo" nillable="true" type="tns:WorderAcOpParamInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WorderAcOpParamInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IsWorderBreak" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsWorderEmployee" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsWorderScrapProduct" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsWorderScrapMaterial" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsWorderScrapOther" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsWorderScrapByProduct" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsWorderScrapDemonteProduct" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsWorderReworkProduct" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsWorderReworkMaterial" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsWorderReworkOther" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsWorderReworkByProduct" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsWorderReworkDemonteProduct" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfWorderBreakInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WorderBreakInfo" nillable="true" type="tns:WorderBreakInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WorderBreakInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="LineNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BreakReasonId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge3" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfWorderEmployeeInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WorderEmployeeInfo" nillable="true" type="tns:WorderEmployeeInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WorderEmployeeInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="LineNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EmployeeSlcType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrdEmployeeId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfWorderScrapProductInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WorderScrapProductInfo" nillable="true" type="tns:WorderScrapProductInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WorderScrapProductInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UserLineNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ScrapResultType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ScrapReasonId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyScrap" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WhouseId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge3" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfWorderScrapMaterialInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WorderScrapMaterialInfo" nillable="true" type="tns:WorderScrapMaterialInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WorderScrapMaterialInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="WorderBomDId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserLineNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ScrapResultType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SourceItemId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SourceBomMId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ScrapReasonId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyScrap" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WhouseId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge3" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfWorderScrapOtherInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WorderScrapOtherInfo" nillable="true" type="tns:WorderScrapOtherInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WorderScrapOtherInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UserLineNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ScrapResultType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DiffItemId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ScrapReasonId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyScrapDiff" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DiffUnitId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WhouseId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge3" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfWorderScrapByProductInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WorderScrapByProductInfo" nillable="true" type="tns:WorderScrapByProductInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WorderScrapByProductInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="WorderBomDId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserLineNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ScrapResultType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SourceItemId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SourceBomMId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ScrapReasonId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyScrap" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WhouseId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge3" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfWorderScrapDemonteProductInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WorderScrapDemonteProductInfo" nillable="true" type="tns:WorderScrapDemonteProductInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WorderScrapDemonteProductInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="WorderBomDId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserLineNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ScrapResultType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SourceItemId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SourceBomMId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ScrapReasonId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyScrap" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WhouseId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge3" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfWorderReworkProductInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WorderReworkProductInfo" nillable="true" type="tns:WorderReworkProductInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WorderReworkProductInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UserLineNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReworkResultType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReworkReasonId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Qty" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WhouseId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge3" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfWorderReworkMaterialInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WorderReworkMaterialInfo" nillable="true" type="tns:WorderReworkMaterialInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WorderReworkMaterialInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="WorderBomDId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserLineNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReworkResultType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SourceItemId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SourceBomMId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReworkReasonId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Qty" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WhouseId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge3" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfWorderReworkOtherInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WorderReworkOtherInfo" nillable="true" type="tns:WorderReworkOtherInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WorderReworkOtherInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UserLineNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReworkResultType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DiffItemId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReworkReasonId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyDiff" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DiffUnitId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WhouseId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge3" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfWorderReworkByProductInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WorderReworkByProductInfo" nillable="true" type="tns:WorderReworkByProductInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WorderReworkByProductInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="WorderBomDId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserLineNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReworkResultType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SourceItemId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SourceBomMId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReworkReasonId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Qty" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WhouseId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge3" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfWorderReworkDemonteProductInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WorderReworkDemonteProductInfo" nillable="true" type="tns:WorderReworkDemonteProductInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WorderReworkDemonteProductInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="WorderBomDId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserLineNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReworkResultType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SourceItemId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SourceBomMId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReworkReasonId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Qty" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WhouseId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge3" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="WorderAcOpCreateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WorderAcOpCreateResult" type="tns:ServiceResultOfWorderAcOpInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceResultOfWorderAcOpInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:WorderAcOpInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPage" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="WorderAcOpDelete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfWorderAcOpInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WorderAcOpDeleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WorderAcOpDeleteResult" type="tns:ServiceResultOfWorderAcOpInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ItemMSerialCreate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfItemMForSerial" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceRequestOfItemMForSerial">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="tns:Token" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:ItemMForSerial" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attachment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ItemMForSerial">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DocTra" type="tns:DocTra" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CoId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BranchId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BranchCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocNumberDId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocTraId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocTraCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocTraName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EntityId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntityCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntityName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SourceApp" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PurchaseSales" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SourceMId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SourceDId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WhouseId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="WhouseCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Whouse2Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Whouse2Code" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address3" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TownId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountryId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZipCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SerialInfo" type="tns:ArrayOfSerialInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemDForSerial" type="tns:ArrayOfItemDForSerial" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DocTra">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocTraCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocTraDesc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PurchaseSales" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsNotItemRecord" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="InvoiceType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsreasonMondatory" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsTransfer" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSerialInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SerialInfo" nillable="true" type="tns:SerialInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SerialInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="InventoryStatus" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SerialInfoM" type="tns:ArrayOfSerialInfoM" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSerialInfoM">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SerialInfoM" nillable="true" type="tns:SerialInfoM" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SerialInfoM">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="LineNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SerialInfoId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Qty" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="SerialQty" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="WhouseId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="WhouseCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Whouse2Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Whouse2Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SerialInfoD" type="tns:ArrayOfSerialInfoD" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSerialInfoD">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SerialInfoD" nillable="true" type="tns:SerialInfoD" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SerialInfoD">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SerialNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SerialMId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SerialInfoMId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SourceDId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfItemDForSerial">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ItemDForSerial" nillable="true" type="tns:ItemDForSerial" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ItemDForSerial">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CoId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BranchId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BranchCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WhouseId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="WhouseCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LineType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DCardId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DCardCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DCardName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyPrm" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Qty" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SourceDId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SourceMId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SourceApp" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TempId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PlusMinus" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TPlusMinus" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Barcode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BarcodeType" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ItemMSerialCreateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ItemMSerialCreateResult" type="tns:ServiceResultOfItemMForSerial" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceResultOfItemMForSerial">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:ItemMForSerial" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPage" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InsertItemMInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfItemMForSerial" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertItemMInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertItemMInfoResult" type="tns:ServiceResultOfInt32" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceResultOfInt32">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Value" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPage" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetStokTurleri">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfBoolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceRequestOfBoolean">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="tns:Token" />
+          <s:element minOccurs="1" maxOccurs="1" name="Value" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attachment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetStokTurleriResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStokTurleriResult" type="tns:ServiceResultOfListOfItemWithName" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceResultOfListOfItemWithName">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:ArrayOfItemWithName" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPage" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfItemWithName">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ItemWithName" nillable="true" type="tns:ItemWithName" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ItemWithName">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:NameIdItem">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="SerialControl">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfSerialObj" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceRequestOfSerialObj">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="tns:Token" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:SerialObj" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attachment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SerialObj">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BranchId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CoId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SerialNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WhouseId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="WhouseCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Whouse2Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Whouse2Code" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="InventoryStatus" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SerialControlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SerialControlResult" type="tns:ServiceResultOfBoolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceResultOfBoolean">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Value" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPage" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetWorderBomDInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfWorderMInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceRequestOfWorderMInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="tns:Token" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:WorderMInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attachment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetWorderBomDInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWorderBomDInfoResult" type="tns:ServiceResultOfListOfWorderBomDInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceResultOfListOfWorderBomDInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:ArrayOfWorderBomDInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPage" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfWorderBomDInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WorderBomDInfo" nillable="true" type="tns:WorderBomDInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WorderBomDInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorderMId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorderNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorderMQty" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="LineNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnitCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OperationId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OperationNo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OperationCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyBaseBom" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyNet" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CycleCountMCreate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfCycleCountMParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceRequestOfCycleCountMParam">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="tns:Token" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:CycleCountMParam" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attachment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CycleCountMParam">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DocNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="WhouseId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsCountWithLocation" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Note1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteLarge" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CycleCountDList" type="tns:ArrayOfCycleCountDParam" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCycleCountDParam">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CycleCountDParam" nillable="true" type="tns:CycleCountDParam" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CycleCountDParam">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BwhLocationId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyPrm" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ColorId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LotId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QualityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PackageTypeId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemAttribute1Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemAttribute2Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemAttribute3Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SerialMId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SerialNo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CycleCountMCreateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CycleCountMCreateResult" type="tns:ServiceResultOfInt32" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfInt32" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRequestResult" type="tns:ServiceResultOfListOfRequestInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceResultOfListOfRequestInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:ArrayOfRequestInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPage" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRequestInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RequestInfo" nillable="true" type="tns:RequestInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RequestInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PlanNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PlanDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRequestDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfInt32" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRequestDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRequestDetailsResult" type="tns:ServiceResultOfListOfRequestDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceResultOfListOfRequestDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:ArrayOfRequestDetails" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPage" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRequestDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RequestDetails" nillable="true" type="tns:RequestDetails" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RequestDetails">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CheckAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DispatchedAmount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="DispatchingWarehouse" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DispatchingWarehouseId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReadAmount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnitCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestWhouseId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestWhouseCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SerialMId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LotId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QualityId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SaveDispatch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfDispatchInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceRequestOfDispatchInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="tns:Token" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:DispatchInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attachment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DispatchInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DispatchDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocTraId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DispatchNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WhouseId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Details" type="tns:ArrayOfRequestDetails" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocNumberDId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Note1" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SaveDispatchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveDispatchResult" type="tns:ServiceResultOfBoolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SavePlan">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfPlanInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceRequestOfPlanInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="tns:Token" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:PlanInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attachment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PlanInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PlanCoId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PlanBranchId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PlanWhouseId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocTraId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ShippingDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="WhouseId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConfirmDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConfirmNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Details" type="tns:ArrayOfPlanInfoDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPlanInfoDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PlanInfoDetail" nillable="true" type="tns:PlanInfoDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PlanInfoDetail">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:OrderDInfo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="UnitPrice" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="CurTraId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="QtyConfirm" type="s:decimal" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="OrderDInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WhouseId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="WhouseCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WhouseDesc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EntityId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntityCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntityName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ShippingDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeliveryDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DcardId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DcardCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DcardName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DcardManuelName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Qty" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyTotal" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtySent" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyShipping" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyRemaining" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyEndRead" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="LineType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemUnitId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemUnitCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CoId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BranchId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BranchCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WoOutsideMId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorderNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WoItemId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WoOutsideDId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OperationId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OperationNo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OperationCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestStatus" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AlternativeNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemAttr1Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemAttr1Code" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemAttr2Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemAttr2Code" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemAttr3Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemAttr3Code" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QualityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LotId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PackageTypeId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackageTypeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LotCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ColorId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ColorCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WoOutsourceOverType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WoOutsourceOverPercent" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ToleranceMaxPo" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ToleranceMinPo" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="TempCoDocTraInvoiceId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TempCoDocTraCodeInvoice" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TempCoDocTraIdWaybill" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TempCoDocTraCodeWaybill" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TempCoDocTraWaybillTransfer" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SavePlanResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SavePlanResult" type="tns:ServiceResultOfBoolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocTraCodes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfDocTraSelectParam" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceRequestOfDocTraSelectParam">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="tns:Token" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:DocTraSelectParam" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attachment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DocTraSelectParam">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DocTraCodeFilter" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BranchId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CoId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SourceApplication" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="InventoryStatus" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PurchaseSales" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="InvoiceType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="GetIsreasonMondatory" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsreasonMondatory" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDocTraCodesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDocTraCodesResult" type="tns:ServiceResultOfListOfDocTra" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceResultOfListOfDocTra">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:ArrayOfDocTra" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPage" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDocTra">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DocTra" nillable="true" type="tns:DocTra" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAccepts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfInt32" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAcceptsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAcceptsResult" type="tns:ServiceResultOfListOfAcceptInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceResultOfListOfAcceptInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:ArrayOfAcceptInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPage" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAcceptInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AcceptInfo" nillable="true" type="tns:AcceptInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AcceptInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocNo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAcceptDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfInt32" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAcceptDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAcceptDetailsResult" type="tns:ServiceResultOfListOfRequestDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveAccepts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfDispatchInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveAcceptsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveAcceptsResult" type="tns:ServiceResultOfBoolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MobSaveQuickStartSaveAcOpEmp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfMobSaveQuickStartSaveAcOpIn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceRequestOfMobSaveQuickStartSaveAcOpIn">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="tns:Token" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:MobSaveQuickStartSaveAcOpIn" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attachment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MobSaveQuickStartSaveAcOpIn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PrdSourceApp" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorderMId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorderOpDId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AWstationId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrdEmployeeId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MobSaveQuickStartSaveAcOpEmpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MobSaveQuickStartSaveAcOpEmpResult" type="tns:MobServiceResultOfBoolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MobServiceResultOfBoolean">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NeedLogin" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Value" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPage" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsSubmittals" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ObjectId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ObjectHashCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ObjectQualifiedName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ObjectCollectionHashCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ObjectCollectionQualifiedName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MobSaveQuickEndSaveAcOpEmp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfMobSaveQuickEndSaveAcOpIn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceRequestOfMobSaveQuickEndSaveAcOpIn">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="tns:Token" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:MobSaveQuickEndSaveAcOpIn" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attachment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MobSaveQuickEndSaveAcOpIn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="WorderAcOpId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrdEmployeeId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Qty" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductOrMaterialScrapList" type="tns:ArrayOfProductOrMaterialScrap" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfProductOrMaterialScrap">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProductOrMaterialScrap" nillable="true" type="tns:ProductOrMaterialScrap" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProductOrMaterialScrap">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ScrapReasonType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WorderBomDId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ScrapReasonId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ScrapQty" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MobSaveQuickEndSaveAcOpEmpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MobSaveQuickEndSaveAcOpEmpResult" type="tns:MobServiceResultOfBoolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MobSaveQuickStartSaveWorderBreak">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:MobServiceRequestOfMobSaveQuickStartWorderBreakIn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MobServiceRequestOfMobSaveQuickStartWorderBreakIn">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:MobSaveQuickStartWorderBreakIn" />
+          <s:element minOccurs="1" maxOccurs="1" name="Top" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attachment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MobSaveQuickStartWorderBreakIn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="WorderAcOpId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrdEmployeeId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BreakReasonId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MobSaveQuickStartSaveWorderBreakResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MobSaveQuickStartSaveWorderBreakResult" type="tns:MobServiceResultOfBoolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MobSaveQuickStartEndWorderBreak">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:MobServiceRequestOfMobSaveQuickEndWorderBreakIn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MobServiceRequestOfMobSaveQuickEndWorderBreakIn">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:MobSaveQuickEndWorderBreakIn" />
+          <s:element minOccurs="1" maxOccurs="1" name="Top" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attachment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MobSaveQuickEndWorderBreakIn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="WorderBreakId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrdEmployeeId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BreakReasonId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MobSaveQuickStartEndWorderBreakResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MobSaveQuickStartEndWorderBreakResult" type="tns:MobServiceResultOfBoolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDonationCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceRequestOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="tns:Token" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attachment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDonationCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDonationCardResult" type="tns:ServiceResultOfDonationCardInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceResultOfDonationCardInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:DonationCardInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPage" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DonationCardInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Surname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdentifyNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountryId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TownId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetProjectCodes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfDateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceRequestOfDateTime">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="tns:Token" />
+          <s:element minOccurs="1" maxOccurs="1" name="Value" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attachment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetProjectCodesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProjectCodesResult" type="tns:ServiceResultOfListOfItemWithName" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveInKindClassification">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfInKindClassificationInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceRequestOfInKindClassificationInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="tns:Token" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:InKindClassificationInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attachment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InKindClassificationInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DocDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DonationId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DonationCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProjectMId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WhouseId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CoId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BranchId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocTraId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Details" type="tns:ArrayOfInKindDetails" />
+          <s:element minOccurs="1" maxOccurs="1" name="EntityId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInKindDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="InKindDetails" nillable="true" type="tns:InKindDetails" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InKindDetails">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ItemId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemGrpId1" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemGrpId2" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Qty" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitPrice" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="QualityId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SaveInKindClassificationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveInKindClassificationResult" type="tns:ServiceResultOfBoolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveInKindDonation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="tns:ServiceRequestOfInKindDonationInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceRequestOfInKindDonationInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="tns:Token" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="tns:InKindDonationInfo" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageSize" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attachment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InKindDonationInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DocDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DonationId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProjectMId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TownId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CityId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountryId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Details" type="tns:ArrayOfInKindDetails" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SaveInKindDonationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveInKindDonationResult" type="tns:ServiceResultOfBoolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetPrdGobalInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPrdGobalInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetPrdGobalInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPrdGobalInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWstationOutInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWstationOutInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetWstationOutInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWstationOutInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderOutsideInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrderOutsideInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderOutsideInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrderOutsideInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWorderMInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWorderMInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetWorderMInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWorderMInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWorderOpDInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWorderOpDInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetWorderOpDInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWorderOpDInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPRDWoTypeInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPRDWoTypeInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetPRDWoTypeInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPRDWoTypeInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPackageItemInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPackageItemInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetPackageItemInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPackageItemInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TransferMCreateSoapIn">
+    <wsdl:part name="parameters" element="tns:TransferMCreate" />
+  </wsdl:message>
+  <wsdl:message name="TransferMCreateSoapOut">
+    <wsdl:part name="parameters" element="tns:TransferMCreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="OutsideTrailingMCreateSoapIn">
+    <wsdl:part name="parameters" element="tns:OutsideTrailingMCreate" />
+  </wsdl:message>
+  <wsdl:message name="OutsideTrailingMCreateSoapOut">
+    <wsdl:part name="parameters" element="tns:OutsideTrailingMCreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="WorderAcOpCreateSoapIn">
+    <wsdl:part name="parameters" element="tns:WorderAcOpCreate" />
+  </wsdl:message>
+  <wsdl:message name="WorderAcOpCreateSoapOut">
+    <wsdl:part name="parameters" element="tns:WorderAcOpCreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="WorderAcOpDeleteSoapIn">
+    <wsdl:part name="parameters" element="tns:WorderAcOpDelete" />
+  </wsdl:message>
+  <wsdl:message name="WorderAcOpDeleteSoapOut">
+    <wsdl:part name="parameters" element="tns:WorderAcOpDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ItemMSerialCreateSoapIn">
+    <wsdl:part name="parameters" element="tns:ItemMSerialCreate" />
+  </wsdl:message>
+  <wsdl:message name="ItemMSerialCreateSoapOut">
+    <wsdl:part name="parameters" element="tns:ItemMSerialCreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertItemMInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertItemMInfo" />
+  </wsdl:message>
+  <wsdl:message name="InsertItemMInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertItemMInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStokTurleriSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStokTurleri" />
+  </wsdl:message>
+  <wsdl:message name="GetStokTurleriSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStokTurleriResponse" />
+  </wsdl:message>
+  <wsdl:message name="SerialControlSoapIn">
+    <wsdl:part name="parameters" element="tns:SerialControl" />
+  </wsdl:message>
+  <wsdl:message name="SerialControlSoapOut">
+    <wsdl:part name="parameters" element="tns:SerialControlResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWorderBomDInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWorderBomDInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetWorderBomDInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWorderBomDInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CycleCountMCreateSoapIn">
+    <wsdl:part name="parameters" element="tns:CycleCountMCreate" />
+  </wsdl:message>
+  <wsdl:message name="CycleCountMCreateSoapOut">
+    <wsdl:part name="parameters" element="tns:CycleCountMCreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRequestDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRequestDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetRequestDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRequestDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveDispatchSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveDispatch" />
+  </wsdl:message>
+  <wsdl:message name="SaveDispatchSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveDispatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SavePlanSoapIn">
+    <wsdl:part name="parameters" element="tns:SavePlan" />
+  </wsdl:message>
+  <wsdl:message name="SavePlanSoapOut">
+    <wsdl:part name="parameters" element="tns:SavePlanResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDocTraCodesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDocTraCodes" />
+  </wsdl:message>
+  <wsdl:message name="GetDocTraCodesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDocTraCodesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAcceptsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAccepts" />
+  </wsdl:message>
+  <wsdl:message name="GetAcceptsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAcceptsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAcceptDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAcceptDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetAcceptDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAcceptDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveAcceptsSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveAccepts" />
+  </wsdl:message>
+  <wsdl:message name="SaveAcceptsSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveAcceptsResponse" />
+  </wsdl:message>
+  <wsdl:message name="MobSaveQuickStartSaveAcOpEmpSoapIn">
+    <wsdl:part name="parameters" element="tns:MobSaveQuickStartSaveAcOpEmp" />
+  </wsdl:message>
+  <wsdl:message name="MobSaveQuickStartSaveAcOpEmpSoapOut">
+    <wsdl:part name="parameters" element="tns:MobSaveQuickStartSaveAcOpEmpResponse" />
+  </wsdl:message>
+  <wsdl:message name="MobSaveQuickEndSaveAcOpEmpSoapIn">
+    <wsdl:part name="parameters" element="tns:MobSaveQuickEndSaveAcOpEmp" />
+  </wsdl:message>
+  <wsdl:message name="MobSaveQuickEndSaveAcOpEmpSoapOut">
+    <wsdl:part name="parameters" element="tns:MobSaveQuickEndSaveAcOpEmpResponse" />
+  </wsdl:message>
+  <wsdl:message name="MobSaveQuickStartSaveWorderBreakSoapIn">
+    <wsdl:part name="parameters" element="tns:MobSaveQuickStartSaveWorderBreak" />
+  </wsdl:message>
+  <wsdl:message name="MobSaveQuickStartSaveWorderBreakSoapOut">
+    <wsdl:part name="parameters" element="tns:MobSaveQuickStartSaveWorderBreakResponse" />
+  </wsdl:message>
+  <wsdl:message name="MobSaveQuickStartEndWorderBreakSoapIn">
+    <wsdl:part name="parameters" element="tns:MobSaveQuickStartEndWorderBreak" />
+  </wsdl:message>
+  <wsdl:message name="MobSaveQuickStartEndWorderBreakSoapOut">
+    <wsdl:part name="parameters" element="tns:MobSaveQuickStartEndWorderBreakResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationCardSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDonationCard" />
+  </wsdl:message>
+  <wsdl:message name="GetDonationCardSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDonationCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProjectCodesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProjectCodes" />
+  </wsdl:message>
+  <wsdl:message name="GetProjectCodesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProjectCodesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveInKindClassificationSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveInKindClassification" />
+  </wsdl:message>
+  <wsdl:message name="SaveInKindClassificationSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveInKindClassificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveInKindDonationSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveInKindDonation" />
+  </wsdl:message>
+  <wsdl:message name="SaveInKindDonationSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveInKindDonationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ProductionSoap">
+    <wsdl:operation name="GetPrdGobalInfo">
+      <wsdl:input message="tns:GetPrdGobalInfoSoapIn" />
+      <wsdl:output message="tns:GetPrdGobalInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWstationOutInfo">
+      <wsdl:input message="tns:GetWstationOutInfoSoapIn" />
+      <wsdl:output message="tns:GetWstationOutInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderOutsideInfo">
+      <wsdl:input message="tns:GetOrderOutsideInfoSoapIn" />
+      <wsdl:output message="tns:GetOrderOutsideInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorderMInfo">
+      <wsdl:input message="tns:GetWorderMInfoSoapIn" />
+      <wsdl:output message="tns:GetWorderMInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorderOpDInfo">
+      <wsdl:input message="tns:GetWorderOpDInfoSoapIn" />
+      <wsdl:output message="tns:GetWorderOpDInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPRDWoTypeInfo">
+      <wsdl:input message="tns:GetPRDWoTypeInfoSoapIn" />
+      <wsdl:output message="tns:GetPRDWoTypeInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPackageItemInfo">
+      <wsdl:input message="tns:GetPackageItemInfoSoapIn" />
+      <wsdl:output message="tns:GetPackageItemInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TransferMCreate">
+      <wsdl:input message="tns:TransferMCreateSoapIn" />
+      <wsdl:output message="tns:TransferMCreateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OutsideTrailingMCreate">
+      <wsdl:input message="tns:OutsideTrailingMCreateSoapIn" />
+      <wsdl:output message="tns:OutsideTrailingMCreateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WorderAcOpCreate">
+      <wsdl:input message="tns:WorderAcOpCreateSoapIn" />
+      <wsdl:output message="tns:WorderAcOpCreateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WorderAcOpDelete">
+      <wsdl:input message="tns:WorderAcOpDeleteSoapIn" />
+      <wsdl:output message="tns:WorderAcOpDeleteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ItemMSerialCreate">
+      <wsdl:input message="tns:ItemMSerialCreateSoapIn" />
+      <wsdl:output message="tns:ItemMSerialCreateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertItemMInfo">
+      <wsdl:input message="tns:InsertItemMInfoSoapIn" />
+      <wsdl:output message="tns:InsertItemMInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStokTurleri">
+      <wsdl:input message="tns:GetStokTurleriSoapIn" />
+      <wsdl:output message="tns:GetStokTurleriSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SerialControl">
+      <wsdl:input message="tns:SerialControlSoapIn" />
+      <wsdl:output message="tns:SerialControlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorderBomDInfo">
+      <wsdl:input message="tns:GetWorderBomDInfoSoapIn" />
+      <wsdl:output message="tns:GetWorderBomDInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CycleCountMCreate">
+      <wsdl:input message="tns:CycleCountMCreateSoapIn" />
+      <wsdl:output message="tns:CycleCountMCreateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRequest">
+      <wsdl:input message="tns:GetRequestSoapIn" />
+      <wsdl:output message="tns:GetRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestDetails">
+      <wsdl:input message="tns:GetRequestDetailsSoapIn" />
+      <wsdl:output message="tns:GetRequestDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveDispatch">
+      <wsdl:input message="tns:SaveDispatchSoapIn" />
+      <wsdl:output message="tns:SaveDispatchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SavePlan">
+      <wsdl:input message="tns:SavePlanSoapIn" />
+      <wsdl:output message="tns:SavePlanSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocTraCodes">
+      <wsdl:input message="tns:GetDocTraCodesSoapIn" />
+      <wsdl:output message="tns:GetDocTraCodesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccepts">
+      <wsdl:input message="tns:GetAcceptsSoapIn" />
+      <wsdl:output message="tns:GetAcceptsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAcceptDetails">
+      <wsdl:input message="tns:GetAcceptDetailsSoapIn" />
+      <wsdl:output message="tns:GetAcceptDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveAccepts">
+      <wsdl:input message="tns:SaveAcceptsSoapIn" />
+      <wsdl:output message="tns:SaveAcceptsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MobSaveQuickStartSaveAcOpEmp">
+      <wsdl:input message="tns:MobSaveQuickStartSaveAcOpEmpSoapIn" />
+      <wsdl:output message="tns:MobSaveQuickStartSaveAcOpEmpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MobSaveQuickEndSaveAcOpEmp">
+      <wsdl:input message="tns:MobSaveQuickEndSaveAcOpEmpSoapIn" />
+      <wsdl:output message="tns:MobSaveQuickEndSaveAcOpEmpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MobSaveQuickStartSaveWorderBreak">
+      <wsdl:input message="tns:MobSaveQuickStartSaveWorderBreakSoapIn" />
+      <wsdl:output message="tns:MobSaveQuickStartSaveWorderBreakSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MobSaveQuickStartEndWorderBreak">
+      <wsdl:input message="tns:MobSaveQuickStartEndWorderBreakSoapIn" />
+      <wsdl:output message="tns:MobSaveQuickStartEndWorderBreakSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationCard">
+      <wsdl:input message="tns:GetDonationCardSoapIn" />
+      <wsdl:output message="tns:GetDonationCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectCodes">
+      <wsdl:input message="tns:GetProjectCodesSoapIn" />
+      <wsdl:output message="tns:GetProjectCodesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveInKindClassification">
+      <wsdl:input message="tns:SaveInKindClassificationSoapIn" />
+      <wsdl:output message="tns:SaveInKindClassificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveInKindDonation">
+      <wsdl:input message="tns:SaveInKindDonationSoapIn" />
+      <wsdl:output message="tns:SaveInKindDonationSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ProductionHttpGet" />
+  <wsdl:portType name="ProductionHttpPost" />
+  <wsdl:binding name="ProductionSoap" type="tns:ProductionSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPrdGobalInfo">
+      <soap:operation soapAction="http://tempuri.org/GetPrdGobalInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWstationOutInfo">
+      <soap:operation soapAction="http://tempuri.org/GetWstationOutInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderOutsideInfo">
+      <soap:operation soapAction="http://tempuri.org/GetOrderOutsideInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorderMInfo">
+      <soap:operation soapAction="http://tempuri.org/GetWorderMInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorderOpDInfo">
+      <soap:operation soapAction="http://tempuri.org/GetWorderOpDInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPRDWoTypeInfo">
+      <soap:operation soapAction="http://tempuri.org/GetPRDWoTypeInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackageItemInfo">
+      <soap:operation soapAction="http://tempuri.org/GetPackageItemInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransferMCreate">
+      <soap:operation soapAction="http://tempuri.org/TransferMCreate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OutsideTrailingMCreate">
+      <soap:operation soapAction="http://tempuri.org/OutsideTrailingMCreate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WorderAcOpCreate">
+      <soap:operation soapAction="http://tempuri.org/WorderAcOpCreate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WorderAcOpDelete">
+      <soap:operation soapAction="http://tempuri.org/WorderAcOpDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ItemMSerialCreate">
+      <soap:operation soapAction="http://tempuri.org/ItemMSerialCreate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertItemMInfo">
+      <soap:operation soapAction="http://tempuri.org/InsertItemMInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStokTurleri">
+      <soap:operation soapAction="http://tempuri.org/GetStokTurleri" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SerialControl">
+      <soap:operation soapAction="http://tempuri.org/SerialControl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorderBomDInfo">
+      <soap:operation soapAction="http://tempuri.org/GetWorderBomDInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CycleCountMCreate">
+      <soap:operation soapAction="http://tempuri.org/CycleCountMCreate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequest">
+      <soap:operation soapAction="http://tempuri.org/GetRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestDetails">
+      <soap:operation soapAction="http://tempuri.org/GetRequestDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDispatch">
+      <soap:operation soapAction="http://tempuri.org/SaveDispatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePlan">
+      <soap:operation soapAction="http://tempuri.org/SavePlan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocTraCodes">
+      <soap:operation soapAction="http://tempuri.org/GetDocTraCodes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccepts">
+      <soap:operation soapAction="http://tempuri.org/GetAccepts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAcceptDetails">
+      <soap:operation soapAction="http://tempuri.org/GetAcceptDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveAccepts">
+      <soap:operation soapAction="http://tempuri.org/SaveAccepts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MobSaveQuickStartSaveAcOpEmp">
+      <soap:operation soapAction="http://tempuri.org/MobSaveQuickStartSaveAcOpEmp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MobSaveQuickEndSaveAcOpEmp">
+      <soap:operation soapAction="http://tempuri.org/MobSaveQuickEndSaveAcOpEmp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MobSaveQuickStartSaveWorderBreak">
+      <soap:operation soapAction="http://tempuri.org/MobSaveQuickStartSaveWorderBreak" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MobSaveQuickStartEndWorderBreak">
+      <soap:operation soapAction="http://tempuri.org/MobSaveQuickStartEndWorderBreak" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationCard">
+      <soap:operation soapAction="http://tempuri.org/GetDonationCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectCodes">
+      <soap:operation soapAction="http://tempuri.org/GetProjectCodes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveInKindClassification">
+      <soap:operation soapAction="http://tempuri.org/SaveInKindClassification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveInKindDonation">
+      <soap:operation soapAction="http://tempuri.org/SaveInKindDonation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ProductionSoap12" type="tns:ProductionSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPrdGobalInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetPrdGobalInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWstationOutInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetWstationOutInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderOutsideInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetOrderOutsideInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorderMInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetWorderMInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorderOpDInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetWorderOpDInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPRDWoTypeInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetPRDWoTypeInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPackageItemInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetPackageItemInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransferMCreate">
+      <soap12:operation soapAction="http://tempuri.org/TransferMCreate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OutsideTrailingMCreate">
+      <soap12:operation soapAction="http://tempuri.org/OutsideTrailingMCreate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WorderAcOpCreate">
+      <soap12:operation soapAction="http://tempuri.org/WorderAcOpCreate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WorderAcOpDelete">
+      <soap12:operation soapAction="http://tempuri.org/WorderAcOpDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ItemMSerialCreate">
+      <soap12:operation soapAction="http://tempuri.org/ItemMSerialCreate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertItemMInfo">
+      <soap12:operation soapAction="http://tempuri.org/InsertItemMInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStokTurleri">
+      <soap12:operation soapAction="http://tempuri.org/GetStokTurleri" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SerialControl">
+      <soap12:operation soapAction="http://tempuri.org/SerialControl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorderBomDInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetWorderBomDInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CycleCountMCreate">
+      <soap12:operation soapAction="http://tempuri.org/CycleCountMCreate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequest">
+      <soap12:operation soapAction="http://tempuri.org/GetRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetRequestDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDispatch">
+      <soap12:operation soapAction="http://tempuri.org/SaveDispatch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePlan">
+      <soap12:operation soapAction="http://tempuri.org/SavePlan" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocTraCodes">
+      <soap12:operation soapAction="http://tempuri.org/GetDocTraCodes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccepts">
+      <soap12:operation soapAction="http://tempuri.org/GetAccepts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAcceptDetails">
+      <soap12:operation soapAction="http://tempuri.org/GetAcceptDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveAccepts">
+      <soap12:operation soapAction="http://tempuri.org/SaveAccepts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MobSaveQuickStartSaveAcOpEmp">
+      <soap12:operation soapAction="http://tempuri.org/MobSaveQuickStartSaveAcOpEmp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MobSaveQuickEndSaveAcOpEmp">
+      <soap12:operation soapAction="http://tempuri.org/MobSaveQuickEndSaveAcOpEmp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MobSaveQuickStartSaveWorderBreak">
+      <soap12:operation soapAction="http://tempuri.org/MobSaveQuickStartSaveWorderBreak" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MobSaveQuickStartEndWorderBreak">
+      <soap12:operation soapAction="http://tempuri.org/MobSaveQuickStartEndWorderBreak" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationCard">
+      <soap12:operation soapAction="http://tempuri.org/GetDonationCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProjectCodes">
+      <soap12:operation soapAction="http://tempuri.org/GetProjectCodes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveInKindClassification">
+      <soap12:operation soapAction="http://tempuri.org/SaveInKindClassification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveInKindDonation">
+      <soap12:operation soapAction="http://tempuri.org/SaveInKindDonation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ProductionHttpGet" type="tns:ProductionHttpGet">
+    <http:binding verb="GET" />
+  </wsdl:binding>
+  <wsdl:binding name="ProductionHttpPost" type="tns:ProductionHttpPost">
+    <http:binding verb="POST" />
+  </wsdl:binding>
+  <wsdl:service name="Production">
+    <wsdl:port name="ProductionSoap" binding="tns:ProductionSoap">
+      <soap:address location="http://10.0.0.250:400/WebService/MW/Production.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ProductionSoap12" binding="tns:ProductionSoap12">
+      <soap12:address location="http://10.0.0.250:400/WebService/MW/Production.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ProductionHttpGet" binding="tns:ProductionHttpGet">
+      <http:address location="http://10.0.0.250:400/WebService/MW/Production.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ProductionHttpPost" binding="tns:ProductionHttpPost">
+      <http:address location="http://10.0.0.250:400/WebService/MW/Production.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,12 @@
+http://ermaswebservice.ofis.uyumcloud.com/service.asmx
+
+\\192.168.71.29\ermaswebservice
+.\ermas
+!1qazwsx
+
+
+http://oratest.ofis.uyumcloud.com/webservice/trm/uterminalservices.asmx
+
+\\192.168.71.29\KmkWebService
+
+http://kmkwebservice.ofis.uyumcloud.com/

@@ -1,0 +1,512 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7467F2DA-A144-490B-AE78-46234F97FB14}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>m2Mobile_c_v4</RootNamespace>
+    <AssemblyName>m2Mobile_c_v4</AssemblyName>
+    <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PlatformFamilyName>PocketPC</PlatformFamilyName>
+    <PlatformID>4118C335-430C-497f-BE48-11C3316B135E</PlatformID>
+    <OSVersion>5.01</OSVersion>
+    <DeployDirSuffix>m2Mobile_c_v4</DeployDirSuffix>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <NativePlatformName>Windows Mobile 5.0 Pocket PC SDK</NativePlatformName>
+    <FormFactorID>
+    </FormFactorID>
+    <StartupObject>
+    </StartupObject>
+    <ApplicationIcon>run.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;$(PlatformFamilyName)</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;$(PlatformFamilyName)</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.WindowsCE.Forms" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Data.cs" />
+    <Compile Include="Classes\FormParameters.cs" />
+    <Compile Include="Classes\Menu.cs" />
+    <Compile Include="Classes\SysDefinitions.cs" />
+    <Compile Include="DataSet1.cs">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet2.cs">
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Ds_Isemri_Rafli.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ds_Isemri_Rafli.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS_Is_Emri.cs">
+      <DependentUpon>DS_Is_Emri.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS_Stok_Sorgula.cs">
+      <DependentUpon>DS_Stok_Sorgula.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmArama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Ayarlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Depo_Stk_Sorgula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Giris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Irsaliye.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Irsaliye.designer.cs">
+      <DependentUpon>Frm_Irsaliye.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Isemri_Raf_Cikis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Isemri_Raf_Cikis.Designer.cs">
+      <DependentUpon>Frm_Isemri_Raf_Cikis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_MalKabul.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_MalKabul.Designer.cs">
+      <DependentUpon>Frm_MalKabul.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_StnSiparisi_Detay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Isemri_Malz_Cikis_Detayi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Ith_Gum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Ith_Gum_Detay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Isemri_Malz_Cikis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_StnSiparisi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmArama.resx">
+      <DependentUpon>FrmArama.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Depo_Stk_Sorgula.resx">
+      <DependentUpon>Frm_Depo_Stk_Sorgula.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Isemri_Raf_Cikis.resx">
+      <DependentUpon>Frm_Isemri_Raf_Cikis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_StnSiparisi_Detay.resx">
+      <DependentUpon>Frm_StnSiparisi_Detay.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Isemri_Malz_Cikis_Detayi.resx">
+      <DependentUpon>Frm_Isemri_Malz_Cikis_Detayi.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Ith_Gum.resx">
+      <DependentUpon>Frm_Ith_Gum.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Ith_Gum_Detay.resx">
+      <DependentUpon>Frm_Ith_Gum_Detay.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Isemri_Malz_Cikis.resx">
+      <DependentUpon>Frm_Isemri_Malz_Cikis.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Menu.resx">
+      <DependentUpon>Frm_Menu.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_StnSiparisi.resx">
+      <DependentUpon>Frm_StnSiparisi.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Languages\en-US.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Languages\Tr_TR.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Tr_TR.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Languages\en-US.Designer.cs" />
+    <Compile Include="Resources\Languages\Tr_TR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Tr_TR.resx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Web References\WebReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://erp.adell.com/webservice/trm/uterminalservices.asmx">
+      <UrlBehavior>Static</UrlBehavior>
+      <RelPath>Web References\WebReference\</RelPath>
+      <UpdateFromURL>http://erp.adell.com/webservice/trm/uterminalservices.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>
+      </CachedAppSettingsObjectName>
+      <CachedSettingsPropName>
+      </CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet2.xsc">
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet2.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet2.xss">
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_Isemri_Rafli.xsc">
+      <DependentUpon>Ds_Isemri_Rafli.xsd</DependentUpon>
+    </None>
+    <None Include="Ds_Isemri_Rafli.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Ds_Isemri_Rafli.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Ds_Isemri_Rafli.xss">
+      <DependentUpon>Ds_Isemri_Rafli.xsd</DependentUpon>
+    </None>
+    <None Include="DS_Is_Emri.xsc">
+      <DependentUpon>DS_Is_Emri.xsd</DependentUpon>
+    </None>
+    <None Include="DS_Is_Emri.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_Is_Emri.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_Is_Emri.xss">
+      <DependentUpon>DS_Is_Emri.xsd</DependentUpon>
+    </None>
+    <None Include="DS_Stok_Sorgula.xsc">
+      <DependentUpon>DS_Stok_Sorgula.xsd</DependentUpon>
+    </None>
+    <None Include="DS_Stok_Sorgula.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_Stok_Sorgula.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_Stok_Sorgula.xss">
+      <DependentUpon>DS_Stok_Sorgula.xsd</DependentUpon>
+    </None>
+    <None Include="m2Mobile_c_v4Attributes.xmta" />
+    <None Include="Web References\WebReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfArrayOfCurrencyInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfArrayOfEmployeeEarningMock.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfArrayOfSalesPersonInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfAssetCardInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfBoolean.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfDecimal.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfInt32.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfItemInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfItemPickingDetailResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfItemPickingInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfItemPickingParam.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfListOfDepoListOut.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfListOfDepoStokOutParam.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfListOfDepot.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfListOfDocTra.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfListOfGetItemListOutResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfListOfInt32.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfListOfNameIdItem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfListOfOrderDInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfListOfOrderMInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfListOfRafSayimDetay.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfListOfRafSayimFisi.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfListOfReferralDetailInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfListOfReferralInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfListOfStokRafInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfListOfTrmActualImpDOutParam.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfListOfTrmActualImpMOutParam.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfListOfTrmCoEntityOutParam.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfListOfTrmDocTraOutParam.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfListOfTrmOrderMOutParam.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfListOfTrmOutsideOrderDOutParam.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfListOfTrmTransferDOutParam.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfListOfTrmWorderBomDMaterialOutParam.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfListOfTrmWorderMOutParam.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfListOfTrmWorderOpDOutParam.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfListOfTrmWstationEmployeesOutParam.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfListOfTrmWStationOutParam.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfListOfUTrmOrderDListOutParam.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfListOfWorkPlace.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfLoginResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfMblTermParamResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfNameIdItem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfPackageDetail.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfPackageInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfPackageTraInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfRafHareketM.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfRafSayimFisi.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfStokHareketM.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfString.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfTrmTransferMOutParam.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\ServiceResultOfTrmWorderAcOpOutParams.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WebReference\uterminalservices.disco" />
+    <None Include="Web References\WebReference\uterminalservices.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="build.txt" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Ayarlar.resx">
+      <DependentUpon>Frm_Ayarlar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Giris.resx">
+      <DependentUpon>Frm_Giris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Irsaliye.resx">
+      <DependentUpon>Frm_Irsaliye.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_MalKabul.resx">
+      <DependentUpon>Frm_MalKabul.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="FormParameters.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="run.ico" />
+    <Content Include="SysDef.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TermMenu.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}">
+        <HostingProcess disable="1" />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>SET VARA=%25time:~0,2%25%25date:~12,2%25%25time:~3,2%25%25date:~4,2%25%25date:~7,2%25
+SET VARB=%25VARA:.=%25
+ECHO %25VARB%25 &gt; "$(ProjectDir)\build.txt"</PreBuildEvent>
+    <PostBuildEvent>IF NOT EXIST %25tmp%25\building.txt (
+	ECHO *.Designer.cs &gt;%25tmp%25\building.txt
+                   ECHO .Designer.cs &gt;&gt;%25tmp%25\building.txt
+)
+xcopy "$(SolutionDir)m2Mobile_c_v4"\*cs "$(SolutionDir)m2Mobile_c_v4.Win"\*.cs /S/F/E/R/Y/K /D /J /EXCLUDE:%25tmp%25\building.txt
+xcopy "$(SolutionDir)m2Mobile_c_v4"\*cs "$(SolutionDir)m2Mobile_c_v4.Win"\*.cs /d /s /y /c</PostBuildEvent>
+  </PropertyGroup>
+</Project>

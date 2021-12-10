@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SendDirectReport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="reportId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="printerName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="typeName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="methodName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendDirectReportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendDirectReportResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportPdf">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userPassword" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="reportCode" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="procecureName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameterField" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameterValue" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetReportPdfResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReportPdfResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReport1Pdf">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="reportCode" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="reportGUID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pageCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sessionId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceResultOfArrayOfByte">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetReport1PdfResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReport1PdfResult" type="tns:ServiceResultOfArrayOfByte" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendDirectReport2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="printerName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userPassword" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="reportCode" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="procecureName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameterField" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameterValue" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendDirectReport2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendDirectReport2Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrinters">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPrintersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPrintersResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendDirectReportSoapIn">
+    <wsdl:part name="parameters" element="tns:SendDirectReport" />
+  </wsdl:message>
+  <wsdl:message name="SendDirectReportSoapOut">
+    <wsdl:part name="parameters" element="tns:SendDirectReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReportPdfSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportPdf" />
+  </wsdl:message>
+  <wsdl:message name="GetReportPdfSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportPdfResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReport1PdfSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReport1Pdf" />
+  </wsdl:message>
+  <wsdl:message name="GetReport1PdfSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReport1PdfResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendDirectReport2SoapIn">
+    <wsdl:part name="parameters" element="tns:SendDirectReport2" />
+  </wsdl:message>
+  <wsdl:message name="SendDirectReport2SoapOut">
+    <wsdl:part name="parameters" element="tns:SendDirectReport2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetPrintersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPrinters" />
+  </wsdl:message>
+  <wsdl:message name="GetPrintersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPrintersResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ReportWebServiceSoap">
+    <wsdl:operation name="SendDirectReport">
+      <wsdl:input message="tns:SendDirectReportSoapIn" />
+      <wsdl:output message="tns:SendDirectReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportPdf">
+      <wsdl:input message="tns:GetReportPdfSoapIn" />
+      <wsdl:output message="tns:GetReportPdfSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReport1Pdf">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Repor 1 Formatındaki raporları PDF olarak dönmek için</wsdl:documentation>
+      <wsdl:input message="tns:GetReport1PdfSoapIn" />
+      <wsdl:output message="tns:GetReport1PdfSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendDirectReport2">
+      <wsdl:input message="tns:SendDirectReport2SoapIn" />
+      <wsdl:output message="tns:SendDirectReport2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrinters">
+      <wsdl:input message="tns:GetPrintersSoapIn" />
+      <wsdl:output message="tns:GetPrintersSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ReportWebServiceSoap" type="tns:ReportWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendDirectReport">
+      <soap:operation soapAction="http://tempuri.org/SendDirectReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportPdf">
+      <soap:operation soapAction="http://tempuri.org/GetReportPdf" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReport1Pdf">
+      <soap:operation soapAction="http://tempuri.org/GetReport1Pdf" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendDirectReport2">
+      <soap:operation soapAction="http://tempuri.org/SendDirectReport2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrinters">
+      <soap:operation soapAction="http://tempuri.org/GetPrinters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ReportWebServiceSoap12" type="tns:ReportWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendDirectReport">
+      <soap12:operation soapAction="http://tempuri.org/SendDirectReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportPdf">
+      <soap12:operation soapAction="http://tempuri.org/GetReportPdf" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReport1Pdf">
+      <soap12:operation soapAction="http://tempuri.org/GetReport1Pdf" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendDirectReport2">
+      <soap12:operation soapAction="http://tempuri.org/SendDirectReport2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrinters">
+      <soap12:operation soapAction="http://tempuri.org/GetPrinters" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ReportWebService">
+    <wsdl:port name="ReportWebServiceSoap" binding="tns:ReportWebServiceSoap">
+      <soap:address location="http://localhost:62624/WriteWebService/ReportWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ReportWebServiceSoap12" binding="tns:ReportWebServiceSoap12">
+      <soap12:address location="http://localhost:62624/WriteWebService/ReportWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

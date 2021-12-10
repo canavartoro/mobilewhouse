@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetBwhItemInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tokenJson" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filterJson" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBwhItemInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBwhItemInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppLogSave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="applog" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppLogSaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AppLogSaveResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppVersion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="version" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AppVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AppVersionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetBwhItemInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBwhItemInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetBwhItemInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBwhItemInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AppLogSaveSoapIn">
+    <wsdl:part name="parameters" element="tns:AppLogSave" />
+  </wsdl:message>
+  <wsdl:message name="AppLogSaveSoapOut">
+    <wsdl:part name="parameters" element="tns:AppLogSaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="AppVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:AppVersion" />
+  </wsdl:message>
+  <wsdl:message name="AppVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:AppVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBwhItemInfoHttpGetIn">
+    <wsdl:part name="tokenJson" type="s:string" />
+    <wsdl:part name="filterJson" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBwhItemInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AppLogSaveHttpGetIn">
+    <wsdl:part name="applog" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AppLogSaveHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AppVersionHttpGetIn">
+    <wsdl:part name="version" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AppVersionHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBwhItemInfoHttpPostIn">
+    <wsdl:part name="tokenJson" type="s:string" />
+    <wsdl:part name="filterJson" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBwhItemInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AppLogSaveHttpPostIn">
+    <wsdl:part name="applog" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AppLogSaveHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AppVersionHttpPostIn">
+    <wsdl:part name="version" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AppVersionHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="GetBwhItemInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Depo Stok Bilgisi</wsdl:documentation>
+      <wsdl:input message="tns:GetBwhItemInfoSoapIn" />
+      <wsdl:output message="tns:GetBwhItemInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AppLogSave">
+      <wsdl:input message="tns:AppLogSaveSoapIn" />
+      <wsdl:output message="tns:AppLogSaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AppVersion">
+      <wsdl:input message="tns:AppVersionSoapIn" />
+      <wsdl:output message="tns:AppVersionSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiceHttpGet">
+    <wsdl:operation name="GetBwhItemInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Depo Stok Bilgisi</wsdl:documentation>
+      <wsdl:input message="tns:GetBwhItemInfoHttpGetIn" />
+      <wsdl:output message="tns:GetBwhItemInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AppLogSave">
+      <wsdl:input message="tns:AppLogSaveHttpGetIn" />
+      <wsdl:output message="tns:AppLogSaveHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AppVersion">
+      <wsdl:input message="tns:AppVersionHttpGetIn" />
+      <wsdl:output message="tns:AppVersionHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiceHttpPost">
+    <wsdl:operation name="GetBwhItemInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Depo Stok Bilgisi</wsdl:documentation>
+      <wsdl:input message="tns:GetBwhItemInfoHttpPostIn" />
+      <wsdl:output message="tns:GetBwhItemInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AppLogSave">
+      <wsdl:input message="tns:AppLogSaveHttpPostIn" />
+      <wsdl:output message="tns:AppLogSaveHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AppVersion">
+      <wsdl:input message="tns:AppVersionHttpPostIn" />
+      <wsdl:output message="tns:AppVersionHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetBwhItemInfo">
+      <soap:operation soapAction="http://tempuri.org/GetBwhItemInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppLogSave">
+      <soap:operation soapAction="http://tempuri.org/AppLogSave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppVersion">
+      <soap:operation soapAction="http://tempuri.org/AppVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetBwhItemInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetBwhItemInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppLogSave">
+      <soap12:operation soapAction="http://tempuri.org/AppLogSave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppVersion">
+      <soap12:operation soapAction="http://tempuri.org/AppVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceHttpGet" type="tns:ServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetBwhItemInfo">
+      <http:operation location="/GetBwhItemInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppLogSave">
+      <http:operation location="/AppLogSave" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppVersion">
+      <http:operation location="/AppVersion" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceHttpPost" type="tns:ServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetBwhItemInfo">
+      <http:operation location="/GetBwhItemInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppLogSave">
+      <http:operation location="/AppLogSave" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AppVersion">
+      <http:operation location="/AppVersion" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://10.0.0.250:2002/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://10.0.0.250:2002/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceHttpGet" binding="tns:ServiceHttpGet">
+      <http:address location="http://10.0.0.250:2002/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceHttpPost" binding="tns:ServiceHttpPost">
+      <http:address location="http://10.0.0.250:2002/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

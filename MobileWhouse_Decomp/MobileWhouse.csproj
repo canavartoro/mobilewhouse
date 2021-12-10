@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>local</ProjectType>
+    <ProjectVersion>7.10.377</ProjectVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BA4B107C-A23F-4E57-AF6D-8C6D7A0EE151}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <AssemblyName>MobileWhouse</AssemblyName>
+    <OutputType>WinExe</OutputType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=x86" />
+    <Reference Include="System.EnterpriseServices, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=x86" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Drawing" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="MobileWhouse\FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MobileWhouse\Controls\BaseControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MobileWhouse\Controls\RafHareketiControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MobileWhouse\Controls\PaletOlusturmaControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MobileWhouse\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MobileWhouse\Dilogs\FormSelectItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MobileWhouse\Dilogs\FormSelectRaf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MobileWhouse\Controls\SelectSayimType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MobileWhouse\Properties\Settings.cs" />
+    <Compile Include="MobileWhouse\Program.cs" />
+    <Compile Include="MobileWhouse\FormAyarlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MobileWhouse\Controls\StokHareketiControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MobileWhouse\Controls\StokRafDurumuControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MobileWhouse\ClientApplication.cs" />
+    <Compile Include="MobileWhouse\Controls\SayimControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MobileWhouse\Dilogs\FormSelectSayim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MobileWhouse\Dilogs\FormSelectHareketKod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MobileWhouse\Dilogs\FormSelectDepot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MobileWhouse\Dilogs\FormSelectIrsaliyeTur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MobileWhouse\Dilogs\FormSelectSevkiyat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MobileWhouse\Controls\MainScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MobileWhouse\Controls\BarkodTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MobileWhouse\Controls\RafTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MobileWhouse\Controls\IrsaliyeOlusturControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MobileWhouse\Properties\Resources.cs" />
+    <Compile Include="MobileWhouse\Controls\SevkiyatControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MobileWhouse\Controls\DepoTransferControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MobileWhouse\Controls\DecimalTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MobileWhouse\Controls\AcikBelgeSilControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Web References\UyumConnector\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="MobileWhouse.Dilogs.FormSelectHareketKod.resources" />
+    <EmbeddedResource Include="MobileWhouse.Dilogs.FormSelectDepot.resources" />
+    <EmbeddedResource Include="MobileWhouse.Controls.StokRafDurumuControl.resources" />
+    <EmbeddedResource Include="MobileWhouse.Controls.DepoTransferControl.resources" />
+    <EmbeddedResource Include="MobileWhouse.Controls.SelectSayimType.resources" />
+    <EmbeddedResource Include="MobileWhouse.Controls.SayimControl.resources" />
+    <EmbeddedResource Include="MobileWhouse.Controls.BaseControl.resources" />
+    <EmbeddedResource Include="MobileWhouse.Properties.Resources.resources" />
+    <EmbeddedResource Include="MobileWhouse.Dilogs.FormSelectRaf.resources" />
+    <EmbeddedResource Include="MobileWhouse.FormLogin.resources" />
+    <EmbeddedResource Include="MobileWhouse.Controls.MainScreen.resources" />
+    <EmbeddedResource Include="MobileWhouse.Controls.AcikBelgeSilControl.resources" />
+    <EmbeddedResource Include="MobileWhouse.Dilogs.FormSelectSevkiyat.resources" />
+    <EmbeddedResource Include="MobileWhouse.Dilogs.FormSelectIrsaliyeTur.resources" />
+    <EmbeddedResource Include="MobileWhouse.Dilogs.FormSelectSayim.resources" />
+    <EmbeddedResource Include="MobileWhouse.Controls.PaletOlusturmaControl.resources" />
+    <EmbeddedResource Include="MobileWhouse.Controls.IrsaliyeOlusturControl.resources" />
+    <EmbeddedResource Include="MobileWhouse.FormMain.resources" />
+    <EmbeddedResource Include="MobileWhouse.FormAyarlar.resources" />
+    <EmbeddedResource Include="MobileWhouse.Dilogs.FormSelectItem.resources" />
+    <EmbeddedResource Include="MobileWhouse.Controls.StokHareketiControl.resources" />
+    <EmbeddedResource Include="MobileWhouse.Controls.SevkiyatControl.resources" />
+    <EmbeddedResource Include="MobileWhouse.Controls.RafHareketiControl.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://pgtest.ofis.uyumcloud.com/WebService/MW/MobileWhouse.asmx">
+      <UrlBehavior>Static</UrlBehavior>
+      <RelPath>Web References\UyumConnector\</RelPath>
+      <UpdateFromURL>http://pgtest.ofis.uyumcloud.com/WebService/MW/MobileWhouse.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>MobileWhouse_UyumConnector_MobileWhouse</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\UyumConnector\MobileWhouse.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\UyumConnector\MobileWhouse.disco" />
+    <None Include="Web References\UyumConnector\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfBoolean.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfDataTable.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfInt32.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfItemInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfItemPickingDetailInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfItemPickingDetailResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfItemPickingInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfItemPickingParam.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfListOfBWHItemInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfListOfCoEntityInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfListOfDepot.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfListOfDocTra.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfListOfInt32.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfListOfItemInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfListOfItemMInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfListOfItemWithName.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfListOfNameIdItem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfListOfOrderDInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfListOfOrderMInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfListOfRafSayimDetay.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfListOfRafSayimFisi.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfListOfReferralDetailInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfListOfReferralInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfListOfSelectActualImpMForBwhInM.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfListOfSevkiyatInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfListOfStokRafInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfLoginResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfNameIdItem.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfPackageDetail.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfPackageDetailResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfPackageInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfPackageTraMInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfPaketSayimResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfRafHareketM.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfRafSayimFisi.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfStokHareketM.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumConnector\ServiceResultOfString.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+</Project>

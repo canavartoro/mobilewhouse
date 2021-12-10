@@ -1,0 +1,292 @@
+ Uyum uyum = new Uyum();
+            uyum.CreateUserId = 11364;
+            uyum.UpdateUserId = 11364;
+            uyum.CreateDate = DateTime.Now;
+            uyum.UpdateDate = DateTime.Now;
+            uyum.BranchCode = "MUKADDES";
+            uyum.BranchDesc = "MUKADDES";
+            uyum.BranchId = 6399;
+            uyum.CoCode = "MUKADDES";
+            uyum.CoDesc = "MUKADDES";
+            uyum.CoId = 2408;
+            uyum.WhouseDesc = "A Depo";
+            uyum.WhouseCode = "D001";
+            uyum.WhouseId = 3127;
+            uyum.PackageOperationType = "Giriş";
+            uyum.InventoryStatus = "Giriş";
+            uyum.SourceApp = "Ambalaj";
+            uyum.DocDate = DateTime.Today;
+            uyum.DocNo = "PTT-00001";
+            uyum.DocTraDesc = "Ambalaj-Giriş";
+            uyum.DocTraCode = "Ambalaj-Giriş";
+            uyum.DocTraId = 1403;
+            uyum.UyumDetailItem = new UyumDetailItem();
+            uyum.UyumDetailItem.CreateUserId = 11364;
+            uyum.UyumDetailItem.UpdateUserId = 11364;
+            uyum.UyumDetailItem.CreateDate = DateTime.Now;
+            uyum.UyumDetailItem.UpdateDate = DateTime.Now;
+            uyum.UyumDetailItem.ItemCode = "MS0.002";
+            uyum.UyumDetailItem.ItemCode2 = "MS0.002";
+            uyum.UyumDetailItem.ItemId = 101178;
+            uyum.UyumDetailItem.ItemName = "Caffe Mocha";
+            uyum.UyumDetailItem.LineNo = 10;
+            uyum.UyumDetailItem.PackageTraMId = 611;
+            uyum.UyumDetailItem.Qty = 2;
+            uyum.UyumDetailItem.UnitCode = "Adet";
+            uyum.UyumDetailItem.UnitId = 164;
+            uyum.UyumDetailItem.PackageDetailType = "S";
+            uyum.UyumDetailItem.PackageMId = 0;
+            uyum.UyumDetailItem.PackageMNo = 0;
+            uyum.UyumDetailItem.DcardId = 101178;
+            uyum.UyumDetailItem.DcardCode = "MS0.002";
+            uyum.UyumDetailItem.DcardName = "Caffe Mocha";
+            uyum.UyumDetailItem.PackageOperationType = "Giriş";
+            uyum.UyumDetailItem.CoId = 2408;
+            uyum.UyumDetailItem.BranchId = 6399;
+
+            saving.UyumWebService service = new saving.UyumWebService();
+
+http://oralive.ofis.uyumcloud.com/WebService/UyumWebService.asmx
+
+            saving.UyumServiceRequestOfString Context = new saving.UyumServiceRequestOfString();
+            Context.Token = new saving.UyumToken();
+            Context.Token.UserName = "huseyin.celik";
+            Context.Token.Password = "!1qazwsx";
+            //            Context.Value = @"<Uyum Type=""INV.PackageTraM, INV"">
+            //	<UyumDetailItem DetailProperty=""PackageTraDCollection"">
+            //		<CreateUserId>11364</CreateUserId>
+            //		<UpdateUserId>11364</UpdateUserId>
+            //		<CreateDate>05.11.2020 17:09:46</CreateDate>
+            //		<UpdateDate>02.07.2021 13:20:15</UpdateDate>
+            //		<ItemCode>MS0.002</ItemCode>
+            //		<ItemCode2>MS0.002</ItemCode2>
+            //		<ItemId>101178</ItemId>
+            //		<ItemName>Caffe Mocha</ItemName>
+            //		<LineNo>10</LineNo>
+            //		<PackageTraMId>611</PackageTraMId>
+            //		<Qty>2</Qty>
+            //		<UnitCode>Adet</UnitCode>
+            //		<UnitId>164</UnitId>
+            //		<PackageDetailType>S</PackageDetailType>
+            //		<PackageMId>509</PackageMId>
+            //		<PackageMNo>2010</PackageMNo>
+            //		<DcardId>101178</DcardId>
+            //		<DcardCode>MS0.002</DcardCode>
+            //		<DcardName>Caffe Mocha</DcardName>
+            //		<PackageOperationType>Giriş</PackageOperationType>
+            //		<CoId>2408</CoId>
+            //		<BranchId>6399</BranchId>
+            //	</UyumDetailItem>
+            //	<CreateUserId>11364</CreateUserId>
+            //	<UpdateUserId>11364</UpdateUserId>
+            //	<CreateDate>05.11.2020 17:09:46</CreateDate>
+            //	<UpdateDate>02.07.2021 13:20:14</UpdateDate>
+            //	<BranchCode>MUKADDES</BranchCode>
+            //	<BranchDesc>MUKADDES</BranchDesc>
+            //	<BranchId>6399</BranchId>
+            //	<CoCode>MUKADDES</CoCode>
+            //	<CoDesc>MUKADDES</CoDesc>
+            //	<CoId>2408</CoId>
+            //	<WhouseDesc>A Depo</WhouseDesc>
+            //	<DocDate>05.11.2020 00:00:00</DocDate>
+            //	<DocNo>PTT-00002</DocNo>
+            //	<DocTraCode>Ambalaj-Giriş</DocTraCode>
+            //	<DocTraId>1403</DocTraId>
+            //	<DocTraDesc>Ambalaj-Giriş</DocTraDesc>
+            //	<WhouseCode>D001</WhouseCode>
+            //	<WhouseId>3127</WhouseId>
+            //	<PackageOperationType>Giriş</PackageOperationType>
+            //	<InventoryStatus>Giriş</InventoryStatus>
+            //	<SourceApp>Ambalaj</SourceApp>
+            //</Uyum>";
+
+            //XmlSerializer serializer = new XmlSerializer(typeof(Uyum));
+            //using (StringReader reader = new StringReader(xml))
+            //{
+            //    var obj = (Uyum)serializer.Deserialize(reader);
+            //}
+
+            using (StringWriter stringWriter = new System.IO.StringWriter())
+            {
+                var serializer = new XmlSerializer(typeof(Uyum));
+                serializer.Serialize(stringWriter, uyum);
+                Context.Value = stringWriter.ToString();
+            }
+
+
+            saving.UyumServiceResponseOfString responseOfString = service.SaveUyumObjectFromXML(Context);
+            if (responseOfString != null)
+            {
+            }
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Schema;
+using System.Xml.Serialization;
+
+namespace WindowsFormsApp3
+{
+    [XmlType("PackageTraDCollection")]
+   
+    [XmlRoot(ElementName = "UyumDetailItem")]
+    public class UyumDetailItem
+    {
+
+        [XmlElement(ElementName = "CreateUserId")]
+        public int CreateUserId { get; set; }
+
+        [XmlElement(ElementName = "UpdateUserId")]
+        public int UpdateUserId { get; set; }
+
+        [XmlElement(ElementName = "CreateDate")]
+        public DateTime CreateDate { get; set; }
+
+        [XmlElement(ElementName = "UpdateDate")]
+        public DateTime UpdateDate { get; set; }
+
+        [XmlElement(ElementName = "ItemCode")]
+        public string ItemCode { get; set; }
+
+        [XmlElement(ElementName = "ItemCode2")]
+        public string ItemCode2 { get; set; }
+
+        [XmlElement(ElementName = "ItemId")]
+        public int ItemId { get; set; }
+
+        [XmlElement(ElementName = "ItemName")]
+        public string ItemName { get; set; }
+
+        [XmlElement(ElementName = "LineNo")]
+        public int LineNo { get; set; }
+
+        [XmlElement(ElementName = "PackageTraMId")]
+        public int PackageTraMId { get; set; }
+
+        [XmlElement(ElementName = "Qty")]
+        public int Qty { get; set; }
+
+        [XmlElement(ElementName = "UnitCode")]
+        public string UnitCode { get; set; }
+
+        [XmlElement(ElementName = "UnitId")]
+        public int UnitId { get; set; }
+
+        [XmlElement(ElementName = "PackageDetailType")]
+        public string PackageDetailType { get; set; }
+
+        [XmlElement(ElementName = "PackageMId")]
+        public int PackageMId { get; set; }
+
+        [XmlElement(ElementName = "PackageMNo")]
+        public int PackageMNo { get; set; }
+
+        [XmlElement(ElementName = "DcardId")]
+        public int DcardId { get; set; }
+
+        [XmlElement(ElementName = "DcardCode")]
+        public string DcardCode { get; set; }
+
+        [XmlElement(ElementName = "DcardName")]
+        public string DcardName { get; set; }
+
+        [XmlElement(ElementName = "PackageOperationType")]
+        public string PackageOperationType { get; set; }
+
+        [XmlElement(ElementName = "CoId")]
+        public int CoId { get; set; }
+
+        [XmlElement(ElementName = "BranchId")]
+        public int BranchId { get; set; }
+
+        [XmlAttribute(AttributeName = "DetailProperty")]
+        public string DetailProperty { get; set; } = "PackageTraDCollection";
+
+        [XmlText]
+        public string Text { get; set; }
+    }
+
+    [XmlType("INV.PackageTraM, INV")]
+    [XmlRoot(ElementName = "Uyum")]
+    public class Uyum
+    {
+        //[XmlAttribute("Type:PackageTraDCollection")]
+     
+        [XmlElement(ElementName = "UyumDetailItem")]
+        public UyumDetailItem UyumDetailItem { get; set; }
+
+        [XmlElement(ElementName = "CreateUserId")]
+        public int CreateUserId { get; set; }
+
+        [XmlElement(ElementName = "UpdateUserId")]
+        public int UpdateUserId { get; set; }
+
+        [XmlElement(ElementName = "CreateDate")]
+        public DateTime CreateDate { get; set; }
+
+        [XmlElement(ElementName = "UpdateDate")]
+        public DateTime UpdateDate { get; set; }
+
+        [XmlElement(ElementName = "BranchCode")]
+        public string BranchCode { get; set; }
+
+        [XmlElement(ElementName = "BranchDesc")]
+        public string BranchDesc { get; set; }
+
+        [XmlElement(ElementName = "BranchId")]
+        public int BranchId { get; set; }
+
+        [XmlElement(ElementName = "CoCode")]
+        public string CoCode { get; set; }
+
+        [XmlElement(ElementName = "CoDesc")]
+        public string CoDesc { get; set; }
+
+        [XmlElement(ElementName = "CoId")]
+        public int CoId { get; set; }
+
+        [XmlElement(ElementName = "WhouseDesc")]
+        public string WhouseDesc { get; set; }
+
+        [XmlElement(ElementName = "DocDate")]
+        public DateTime DocDate { get; set; }
+
+        [XmlElement(ElementName = "DocNo")]
+        public string DocNo { get; set; }
+
+        [XmlElement(ElementName = "DocTraCode")]
+        public string DocTraCode { get; set; }
+
+        [XmlElement(ElementName = "DocTraId")]
+        public int DocTraId { get; set; }
+
+        [XmlElement(ElementName = "DocTraDesc")]
+        public string DocTraDesc { get; set; }
+
+        [XmlElement(ElementName = "WhouseCode")]
+        public string WhouseCode { get; set; }
+
+        [XmlElement(ElementName = "WhouseId")]
+        public int WhouseId { get; set; }
+
+        [XmlElement(ElementName = "PackageOperationType")]
+        public string PackageOperationType { get; set; }
+
+        [XmlElement(ElementName = "InventoryStatus")]
+        public string InventoryStatus { get; set; }
+
+        [XmlElement(ElementName = "SourceApp")]
+        public string SourceApp { get; set; }
+
+        //[XmlElement("Type")]
+        [XmlAttribute(AttributeName = "Type")]
+        public string Type { get; set; } = "INV.PackageTraM, INV";
+
+        [XmlText]
+        public string Text { get; set; }
+    }
+}

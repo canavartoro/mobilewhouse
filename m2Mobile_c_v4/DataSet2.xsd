@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet2" targetNamespace="http://tempuri.org/DataSet2.xsd" xmlns:mstns="http://tempuri.org/DataSet2.xsd" xmlns="http://tempuri.org/DataSet2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DataSet2" msprop:Generator_DataSetName="DataSet2" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Dt_Ithalat_Gum_Cikis" msprop:Generator_UserTableName="Dt_Ithalat_Gum_Cikis" msprop:Generator_RowDeletedName="Dt_Ithalat_Gum_CikisRowDeleted" msprop:Generator_RowChangedName="Dt_Ithalat_Gum_CikisRowChanged" msprop:Generator_RowClassName="Dt_Ithalat_Gum_CikisRow" msprop:Generator_RowChangingName="Dt_Ithalat_Gum_CikisRowChanging" msprop:Generator_RowEvArgName="Dt_Ithalat_Gum_CikisRowChangeEvent" msprop:Generator_RowEvHandlerName="Dt_Ithalat_Gum_CikisRowChangeEventHandler" msprop:Generator_TableClassName="Dt_Ithalat_Gum_CikisDataTable" msprop:Generator_TableVarName="tableDt_Ithalat_Gum_Cikis" msprop:Generator_RowDeletingName="Dt_Ithalat_Gum_CikisRowDeleting" msprop:Generator_TablePropName="Dt_Ithalat_Gum_Cikis">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Fiili_Ith_Tar" msprop:Generator_UserColumnName="Fiili_Ith_Tar" msprop:Generator_ColumnPropNameInRow="Fiili_Ith_Tar" msprop:Generator_ColumnVarNameInTable="columnFiili_Ith_Tar" msprop:Generator_ColumnPropNameInTable="Fiili_Ith_TarColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Yukleme_No" msprop:Generator_UserColumnName="Yukleme_No" msprop:Generator_ColumnPropNameInRow="Yukleme_No" msprop:Generator_ColumnVarNameInTable="columnYukleme_No" msprop:Generator_ColumnPropNameInTable="Yukleme_NoColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Dosya_No" msprop:Generator_UserColumnName="Dosya_No" msprop:Generator_ColumnPropNameInRow="Dosya_No" msprop:Generator_ColumnVarNameInTable="columnDosya_No" msprop:Generator_ColumnPropNameInTable="Dosya_NoColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Cari_Adı" msprop:Generator_UserColumnName="Cari_Adı" msprop:Generator_ColumnPropNameInRow="Cari_Adı" msprop:Generator_ColumnVarNameInTable="columnCari_Adı" msprop:Generator_ColumnPropNameInTable="Cari_AdıColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Beyan_No" msprop:Generator_UserColumnName="Beyan_No" msprop:Generator_ColumnPropNameInRow="Beyan_No" msprop:Generator_ColumnVarNameInTable="columnBeyan_No" msprop:Generator_ColumnPropNameInTable="Beyan_NoColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Id" msprop:Generator_UserColumnName="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DT_Ith_Detaylar" msprop:Generator_UserTableName="DT_Ith_Detaylar" msprop:Generator_RowDeletedName="DT_Ith_DetaylarRowDeleted" msprop:Generator_RowChangedName="DT_Ith_DetaylarRowChanged" msprop:Generator_RowClassName="DT_Ith_DetaylarRow" msprop:Generator_RowChangingName="DT_Ith_DetaylarRowChanging" msprop:Generator_RowEvArgName="DT_Ith_DetaylarRowChangeEvent" msprop:Generator_RowEvHandlerName="DT_Ith_DetaylarRowChangeEventHandler" msprop:Generator_TableClassName="DT_Ith_DetaylarDataTable" msprop:Generator_TableVarName="tableDT_Ith_Detaylar" msprop:Generator_RowDeletingName="DT_Ith_DetaylarRowDeleting" msprop:Generator_TablePropName="DT_Ith_Detaylar">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Stok_Kod" msprop:Generator_UserColumnName="Stok_Kod" msprop:Generator_ColumnPropNameInRow="Stok_Kod" msprop:Generator_ColumnVarNameInTable="columnStok_Kod" msprop:Generator_ColumnPropNameInTable="Stok_KodColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Stok_Adı" msprop:Generator_UserColumnName="Stok_Adı" msprop:Generator_ColumnPropNameInRow="Stok_Adı" msprop:Generator_ColumnVarNameInTable="columnStok_Adı" msprop:Generator_ColumnPropNameInTable="Stok_AdıColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Kalan_Mik" msprop:Generator_UserColumnName="Kalan_Mik" msprop:Generator_ColumnPropNameInRow="Kalan_Mik" msprop:Generator_ColumnVarNameInTable="columnKalan_Mik" msprop:Generator_ColumnPropNameInTable="Kalan_MikColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Ok_Mik" msprop:Generator_UserColumnName="Ok_Mik" msprop:Generator_ColumnPropNameInRow="Ok_Mik" msprop:Generator_ColumnVarNameInTable="columnOk_Mik" msprop:Generator_ColumnPropNameInTable="Ok_MikColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Gum_Cek_Mik" msprop:Generator_UserColumnName="Gum_Cek_Mik" msprop:Generator_ColumnPropNameInRow="Gum_Cek_Mik" msprop:Generator_ColumnVarNameInTable="columnGum_Cek_Mik" msprop:Generator_ColumnPropNameInTable="Gum_Cek_MikColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Depo_Kod" msprop:Generator_UserColumnName="Depo_Kod" msprop:Generator_ColumnPropNameInRow="Depo_Kod" msprop:Generator_ColumnVarNameInTable="columnDepo_Kod" msprop:Generator_ColumnPropNameInTable="Depo_KodColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Depo_Adı" msprop:Generator_UserColumnName="Depo_Adı" msprop:Generator_ColumnPropNameInRow="Depo_Adı" msprop:Generator_ColumnVarNameInTable="columnDepo_Adı" msprop:Generator_ColumnPropNameInTable="Depo_AdıColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="mId" msprop:Generator_UserColumnName="mId" msprop:Generator_ColumnPropNameInRow="mId" msprop:Generator_ColumnVarNameInTable="columnmId" msprop:Generator_ColumnPropNameInTable="mIdColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="dId" msprop:Generator_UserColumnName="dId" msprop:Generator_ColumnVarNameInTable="columndId" msprop:Generator_ColumnPropNameInRow="dId" msprop:Generator_ColumnPropNameInTable="dIdColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

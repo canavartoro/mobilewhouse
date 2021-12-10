@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DataSet1" msprop:Generator_DataSetName="DataSet1" msprop:EnableTableAdapterManager="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Dt_SatinAlma" msprop:Generator_UserTableName="Dt_SatinAlma" msprop:Generator_RowDeletedName="Dt_SatinAlmaRowDeleted" msprop:Generator_RowChangedName="Dt_SatinAlmaRowChanged" msprop:Generator_RowClassName="Dt_SatinAlmaRow" msprop:Generator_RowChangingName="Dt_SatinAlmaRowChanging" msprop:Generator_RowEvArgName="Dt_SatinAlmaRowChangeEvent" msprop:Generator_RowEvHandlerName="Dt_SatinAlmaRowChangeEventHandler" msprop:Generator_TableClassName="Dt_SatinAlmaDataTable" msprop:Generator_TableVarName="tableDt_SatinAlma" msprop:Generator_RowDeletingName="Dt_SatinAlmaRowDeleting" msprop:Generator_TablePropName="Dt_SatinAlma">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Cari_Adı" msdata:Caption="Cari Adı" msprop:Generator_UserColumnName="Cari_Adı" msprop:Generator_ColumnPropNameInRow="Cari_Adı" msprop:Generator_ColumnVarNameInTable="columnCari_Adı" msprop:Generator_ColumnPropNameInTable="Cari_AdıColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Sat_Temsilcisi" msdata:Caption="Sat.Temsilcisi" msprop:Generator_UserColumnName="Sat_Temsilcisi" msprop:Generator_ColumnPropNameInRow="Sat_Temsilcisi" msprop:Generator_ColumnVarNameInTable="columnSat_Temsilcisi" msprop:Generator_ColumnPropNameInTable="Sat_TemsilcisiColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="EntityID" msprop:Generator_UserColumnName="EntityID" msprop:Generator_ColumnPropNameInRow="EntityID" msprop:Generator_ColumnVarNameInTable="columnEntityID" msprop:Generator_ColumnPropNameInTable="EntityIDColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="DocTraId" msprop:Generator_UserColumnName="DocTraId" msprop:Generator_ColumnVarNameInTable="columnDocTraId" msprop:Generator_ColumnPropNameInRow="DocTraId" msprop:Generator_ColumnPropNameInTable="DocTraIdColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Dt_Detaylar" msprop:Generator_UserTableName="Dt_Detaylar" msprop:Generator_RowDeletedName="Dt_DetaylarRowDeleted" msprop:Generator_RowChangedName="Dt_DetaylarRowChanged" msprop:Generator_RowClassName="Dt_DetaylarRow" msprop:Generator_RowChangingName="Dt_DetaylarRowChanging" msprop:Generator_RowEvArgName="Dt_DetaylarRowChangeEvent" msprop:Generator_RowEvHandlerName="Dt_DetaylarRowChangeEventHandler" msprop:Generator_TableClassName="Dt_DetaylarDataTable" msprop:Generator_TableVarName="tableDt_Detaylar" msprop:Generator_RowDeletingName="Dt_DetaylarRowDeleting" msprop:Generator_TablePropName="Dt_Detaylar">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Stk_Kod" msprop:Generator_UserColumnName="Stk_Kod" msprop:Generator_ColumnPropNameInRow="Stk_Kod" msprop:Generator_ColumnVarNameInTable="columnStk_Kod" msprop:Generator_ColumnPropNameInTable="Stk_KodColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Stk_Adı" msprop:Generator_UserColumnName="Stk_Adı" msprop:Generator_ColumnPropNameInRow="Stk_Adı" msprop:Generator_ColumnVarNameInTable="columnStk_Adı" msprop:Generator_ColumnPropNameInTable="Stk_AdıColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Sip_Kal_Mik" msprop:Generator_UserColumnName="Sip_Kal_Mik" msprop:Generator_ColumnPropNameInRow="Sip_Kal_Mik" msprop:Generator_ColumnVarNameInTable="columnSip_Kal_Mik" msprop:Generator_ColumnPropNameInTable="Sip_Kal_MikColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Ok_Miktarı" msprop:Generator_UserColumnName="Ok_Miktarı" msprop:Generator_ColumnVarNameInTable="columnOk_Miktarı" msprop:Generator_ColumnPropNameInRow="Ok_Miktarı" msprop:Generator_ColumnPropNameInTable="Ok_MiktarıColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Sip_Tar" msprop:Generator_UserColumnName="Sip_Tar" msprop:Generator_ColumnPropNameInRow="Sip_Tar" msprop:Generator_ColumnVarNameInTable="columnSip_Tar" msprop:Generator_ColumnPropNameInTable="Sip_TarColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Sip_Sevk_Miktarı" msprop:Generator_UserColumnName="Sip_Sevk_Miktarı" msprop:Generator_ColumnPropNameInRow="Sip_Sevk_Miktarı" msprop:Generator_ColumnVarNameInTable="columnSip_Sevk_Miktarı" msprop:Generator_ColumnPropNameInTable="Sip_Sevk_MiktarıColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Dty_Kod" msprop:Generator_UserColumnName="Dty_Kod" msprop:Generator_ColumnVarNameInTable="columnDty_Kod" msprop:Generator_ColumnPropNameInRow="Dty_Kod" msprop:Generator_ColumnPropNameInTable="Dty_KodColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Dty_RefNo" msprop:Generator_UserColumnName="Dty_RefNo" msprop:Generator_ColumnVarNameInTable="columnDty_RefNo" msprop:Generator_ColumnPropNameInRow="Dty_RefNo" msprop:Generator_ColumnPropNameInTable="Dty_RefNoColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="DcardId" msprop:Generator_UserColumnName="DcardId" msprop:Generator_ColumnPropNameInRow="DcardId" msprop:Generator_ColumnVarNameInTable="columnDcardId" msprop:Generator_ColumnPropNameInTable="DcardIdColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Dty_Adı" msprop:Generator_UserColumnName="Dty_Adı" msprop:Generator_ColumnVarNameInTable="columnDty_Adı" msprop:Generator_ColumnPropNameInRow="Dty_Adı" msprop:Generator_ColumnPropNameInTable="Dty_AdıColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="MaxTolerance" msprop:Generator_UserColumnName="MaxTolerance" msprop:Generator_ColumnVarNameInTable="columnMaxTolerance" msprop:Generator_ColumnPropNameInRow="MaxTolerance" msprop:Generator_ColumnPropNameInTable="MaxToleranceColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Cari_Adı" msprop:Generator_UserColumnName="Cari_Adı" msprop:Generator_ColumnPropNameInRow="Cari_Adı" msprop:Generator_ColumnVarNameInTable="columnCari_Adı" msprop:Generator_ColumnPropNameInTable="Cari_AdıColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="temp_dt" msprop:Generator_UserTableName="temp_dt" msprop:Generator_RowDeletedName="temp_dtRowDeleted" msprop:Generator_RowChangedName="temp_dtRowChanged" msprop:Generator_RowClassName="temp_dtRow" msprop:Generator_RowChangingName="temp_dtRowChanging" msprop:Generator_RowEvArgName="temp_dtRowChangeEvent" msprop:Generator_RowEvHandlerName="temp_dtRowChangeEventHandler" msprop:Generator_TableClassName="temp_dtDataTable" msprop:Generator_TableVarName="tabletemp_dt" msprop:Generator_RowDeletingName="temp_dtRowDeleting" msprop:Generator_TablePropName="temp_dt">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Cari_Adı" msdata:Caption="Cari Adı" msprop:Generator_UserColumnName="Cari_Adı" msprop:Generator_ColumnPropNameInRow="Cari_Adı" msprop:Generator_ColumnVarNameInTable="columnCari_Adı" msprop:Generator_ColumnPropNameInTable="Cari_AdıColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Sat_Temsilcisi" msdata:Caption="Sat.Temsilcisi" msprop:Generator_UserColumnName="Sat_Temsilcisi" msprop:Generator_ColumnPropNameInRow="Sat_Temsilcisi" msprop:Generator_ColumnVarNameInTable="columnSat_Temsilcisi" msprop:Generator_ColumnPropNameInTable="Sat_TemsilcisiColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="EntityID" msprop:Generator_UserColumnName="EntityID" msprop:Generator_ColumnPropNameInRow="EntityID" msprop:Generator_ColumnVarNameInTable="columnEntityID" msprop:Generator_ColumnPropNameInTable="EntityIDColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
