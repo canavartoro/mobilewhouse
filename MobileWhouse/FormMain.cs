@@ -41,6 +41,7 @@ namespace MobileWhouse
                 else
                 {
                     _ButtonPanel.Visible = true;
+                    _ButtonPanel.Focus();
                 }
             }
         }
@@ -53,6 +54,18 @@ namespace MobileWhouse
             _ButtonPanel.MainForm = this;
             _ButtonPanel.Dock = DockStyle.Fill;
             _ButtonPanel.Parent = pnlContainer;
+            if (Utility.IsWindowsCE)
+            {
+                _ButtonPanel.KeyUp += new KeyEventHandler(_ButtonPanel.BaseControl_KeyUp);
+                foreach (Control c in _ButtonPanel.Controls)
+                {
+                    if (c.GetType().ToString().Equals("System.Windows.Forms.Button"))
+                    {
+                        c.KeyUp += new KeyEventHandler(_ButtonPanel.BaseControl_KeyUp);
+                    }
+                }
+            }
+            _ButtonPanel.Focus();
         }
 
         public void ShowControl(BaseControl control)

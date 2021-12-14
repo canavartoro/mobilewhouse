@@ -32,15 +32,15 @@
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
             this.btnSelect = new System.Windows.Forms.Button();
             this.btnIrsaliye = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.eName = new System.Windows.Forms.TextBox();
-            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
             this.SuspendLayout();
             // 
             // lvwItems
@@ -77,6 +77,26 @@
             this.columnHeader1.Text = "Cari Adı";
             this.columnHeader1.Width = 60;
             // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Hareket_Tar";
+            this.columnHeader4.Width = 60;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Sat_Temsilcisi";
+            this.columnHeader5.Width = 60;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Teslim_Tar";
+            this.columnHeader6.Width = 60;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "RefNo";
+            this.columnHeader7.Width = 60;
+            // 
             // btnSelect
             // 
             this.btnSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -95,7 +115,7 @@
             this.btnIrsaliye.Name = "btnIrsaliye";
             this.btnIrsaliye.Size = new System.Drawing.Size(72, 20);
             this.btnIrsaliye.TabIndex = 2;
-            this.btnIrsaliye.Text = "İrsaliye";
+            this.btnIrsaliye.Text = "Seç";
             this.btnIrsaliye.Visible = false;
             this.btnIrsaliye.Click += new System.EventHandler(this.btnIrsaliye_Click);
             // 
@@ -123,26 +143,6 @@
             this.eName.Size = new System.Drawing.Size(183, 21);
             this.eName.TabIndex = 5;
             this.eName.TextChanged += new System.EventHandler(this.eName_TextChanged);
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Hareket_Tar";
-            this.columnHeader4.Width = 60;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Sat_Temsilcisi";
-            this.columnHeader5.Width = 60;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Teslim_Tar";
-            this.columnHeader6.Width = 60;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "RefNo";
-            this.columnHeader7.Width = 60;
             // 
             // FormSelectStnSiparisi
             // 

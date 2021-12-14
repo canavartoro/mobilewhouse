@@ -29,7 +29,8 @@ namespace MobileWhouse.Controls.PRD
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnkapat = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MalzemeTalepSevkControl));
+            this.btnkapat = new MobileWhouse.GUI.UButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.listtalep = new System.Windows.Forms.ListView();
@@ -43,7 +44,7 @@ namespace MobileWhouse.Controls.PRD
             this.columnHeader13 = new System.Windows.Forms.ColumnHeader();
             this.txtarama = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnarama = new System.Windows.Forms.Button();
+            this.btnarama = new MobileWhouse.GUI.UButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lblbilgi = new System.Windows.Forms.Label();
             this.listbarkod = new System.Windows.Forms.ListView();
@@ -60,15 +61,12 @@ namespace MobileWhouse.Controls.PRD
             this.txtmiktar = new MobileWhouse.GUI.TextBoxNumeric();
             this.txtbarkod = new System.Windows.Forms.TextBox();
             this.btnraf = new System.Windows.Forms.Button();
-            this.btndepo = new System.Windows.Forms.Button();
             this.txtraf = new MobileWhouse.Controls.RafTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtdepo = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btnkaydet = new System.Windows.Forms.Button();
+            this.btnkaydet = new MobileWhouse.GUI.UButton();
             this.datebelge = new System.Windows.Forms.DateTimePicker();
             this.txtaciklama = new System.Windows.Forms.TextBox();
             this.txtbelgeno = new System.Windows.Forms.TextBox();
@@ -83,9 +81,17 @@ namespace MobileWhouse.Controls.PRD
             // 
             // btnkapat
             // 
+            this.btnkapat.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
+            this.btnkapat.BackColor = System.Drawing.Color.Empty;
             this.btnkapat.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnkapat.ForeColor = System.Drawing.Color.Empty;
+            this.btnkapat.Image = ((System.Drawing.Image)(resources.GetObject("btnkapat.Image")));
             this.btnkapat.Location = new System.Drawing.Point(0, 295);
             this.btnkapat.Name = "btnkapat";
+            this.btnkapat.NormalBtnColour = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnkapat.NormalTxtColour = System.Drawing.Color.Blue;
+            this.btnkapat.PushedBtnColour = System.Drawing.Color.Blue;
+            this.btnkapat.PushedTxtColour = System.Drawing.Color.Yellow;
             this.btnkapat.Size = new System.Drawing.Size(240, 25);
             this.btnkapat.TabIndex = 0;
             this.btnkapat.Text = "Kapat";
@@ -193,9 +199,16 @@ namespace MobileWhouse.Controls.PRD
             // 
             // btnarama
             // 
+            this.btnarama.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
             this.btnarama.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnarama.BackColor = System.Drawing.Color.Empty;
+            this.btnarama.ForeColor = System.Drawing.Color.Empty;
             this.btnarama.Location = new System.Drawing.Point(183, 3);
             this.btnarama.Name = "btnarama";
+            this.btnarama.NormalBtnColour = System.Drawing.Color.LightYellow;
+            this.btnarama.NormalTxtColour = System.Drawing.Color.Blue;
+            this.btnarama.PushedBtnColour = System.Drawing.Color.Blue;
+            this.btnarama.PushedTxtColour = System.Drawing.Color.Yellow;
             this.btnarama.Size = new System.Drawing.Size(50, 20);
             this.btnarama.TabIndex = 0;
             this.btnarama.Text = "Ara";
@@ -211,11 +224,8 @@ namespace MobileWhouse.Controls.PRD
             this.tabPage2.Controls.Add(this.txtmiktar);
             this.tabPage2.Controls.Add(this.txtbarkod);
             this.tabPage2.Controls.Add(this.btnraf);
-            this.tabPage2.Controls.Add(this.btndepo);
             this.tabPage2.Controls.Add(this.txtraf);
             this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.txtdepo);
-            this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Location = new System.Drawing.Point(0, 0);
@@ -287,7 +297,7 @@ namespace MobileWhouse.Controls.PRD
             // 
             // btnmiktar
             // 
-            this.btnmiktar.Location = new System.Drawing.Point(141, 72);
+            this.btnmiktar.Location = new System.Drawing.Point(141, 48);
             this.btnmiktar.Name = "btnmiktar";
             this.btnmiktar.Size = new System.Drawing.Size(32, 20);
             this.btnmiktar.TabIndex = 13;
@@ -296,7 +306,7 @@ namespace MobileWhouse.Controls.PRD
             // 
             // chksil
             // 
-            this.chksil.Location = new System.Drawing.Point(198, 72);
+            this.chksil.Location = new System.Drawing.Point(198, 48);
             this.chksil.Name = "chksil";
             this.chksil.Size = new System.Drawing.Size(42, 20);
             this.chksil.TabIndex = 11;
@@ -305,7 +315,7 @@ namespace MobileWhouse.Controls.PRD
             // btnbarkod
             // 
             this.btnbarkod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnbarkod.Location = new System.Drawing.Point(206, 50);
+            this.btnbarkod.Location = new System.Drawing.Point(206, 26);
             this.btnbarkod.Name = "btnbarkod";
             this.btnbarkod.Size = new System.Drawing.Size(32, 20);
             this.btnbarkod.TabIndex = 7;
@@ -316,7 +326,7 @@ namespace MobileWhouse.Controls.PRD
             // 
             this.txtmiktar.AllowSpace = false;
             this.txtmiktar.BackColor = System.Drawing.Color.SkyBlue;
-            this.txtmiktar.Location = new System.Drawing.Point(77, 72);
+            this.txtmiktar.Location = new System.Drawing.Point(77, 48);
             this.txtmiktar.Name = "txtmiktar";
             this.txtmiktar.Size = new System.Drawing.Size(63, 21);
             this.txtmiktar.TabIndex = 1;
@@ -328,7 +338,7 @@ namespace MobileWhouse.Controls.PRD
             this.txtbarkod.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtbarkod.BackColor = System.Drawing.SystemColors.Info;
-            this.txtbarkod.Location = new System.Drawing.Point(77, 50);
+            this.txtbarkod.Location = new System.Drawing.Point(77, 26);
             this.txtbarkod.Name = "txtbarkod";
             this.txtbarkod.Size = new System.Drawing.Size(128, 21);
             this.txtbarkod.TabIndex = 0;
@@ -337,65 +347,40 @@ namespace MobileWhouse.Controls.PRD
             // btnraf
             // 
             this.btnraf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnraf.Location = new System.Drawing.Point(206, 27);
+            this.btnraf.Location = new System.Drawing.Point(206, 3);
             this.btnraf.Name = "btnraf";
             this.btnraf.Size = new System.Drawing.Size(32, 20);
             this.btnraf.TabIndex = 2;
             this.btnraf.Text = "...";
             this.btnraf.Click += new System.EventHandler(this.btnraf_Click);
             // 
-            // btndepo
-            // 
-            this.btndepo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btndepo.Location = new System.Drawing.Point(206, 3);
-            this.btndepo.Name = "btndepo";
-            this.btndepo.Size = new System.Drawing.Size(32, 20);
-            this.btndepo.TabIndex = 2;
-            this.btndepo.Text = "...";
-            this.btndepo.Click += new System.EventHandler(this.btndepo_Click);
-            // 
             // txtraf
             // 
             this.txtraf.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtraf.Location = new System.Drawing.Point(77, 27);
+            this.txtraf.IsRaf = 1;
+            this.txtraf.Location = new System.Drawing.Point(77, 3);
             this.txtraf.Name = "txtraf";
             this.txtraf.Size = new System.Drawing.Size(128, 21);
             this.txtraf.TabIndex = 1;
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(0, 28);
+            this.label3.Location = new System.Drawing.Point(0, 4);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(85, 20);
-            this.label3.Text = "Kaynak Raf";
-            // 
-            // txtdepo
-            // 
-            this.txtdepo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtdepo.Location = new System.Drawing.Point(77, 3);
-            this.txtdepo.Name = "txtdepo";
-            this.txtdepo.Size = new System.Drawing.Size(128, 21);
-            this.txtdepo.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(0, 4);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 20);
-            this.label2.Text = "Kaynak Depo";
+            this.label3.Text = "Raf Kodu";
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(0, 49);
+            this.label4.Location = new System.Drawing.Point(0, 25);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(85, 20);
             this.label4.Text = "Barkod";
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(0, 72);
+            this.label5.Location = new System.Drawing.Point(0, 48);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(85, 20);
             this.label5.Text = "Miktar";
@@ -416,10 +401,18 @@ namespace MobileWhouse.Controls.PRD
             // 
             // btnkaydet
             // 
+            this.btnkaydet.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
             this.btnkaydet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnkaydet.BackColor = System.Drawing.Color.Empty;
+            this.btnkaydet.ForeColor = System.Drawing.Color.Empty;
+            this.btnkaydet.Image = ((System.Drawing.Image)(resources.GetObject("btnkaydet.Image")));
             this.btnkaydet.Location = new System.Drawing.Point(3, 240);
             this.btnkaydet.Name = "btnkaydet";
+            this.btnkaydet.NormalBtnColour = System.Drawing.Color.LightYellow;
+            this.btnkaydet.NormalTxtColour = System.Drawing.Color.Blue;
+            this.btnkaydet.PushedBtnColour = System.Drawing.Color.Blue;
+            this.btnkaydet.PushedTxtColour = System.Drawing.Color.Yellow;
             this.btnkaydet.Size = new System.Drawing.Size(222, 26);
             this.btnkaydet.TabIndex = 5;
             this.btnkaydet.Text = "Kaydet";
@@ -491,24 +484,21 @@ namespace MobileWhouse.Controls.PRD
 
         #endregion
 
-        private System.Windows.Forms.Button btnkapat;
+        private UButton btnkapat;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TextBox txtarama;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnarama;
+        private UButton btnarama;
         private System.Windows.Forms.ListView listtalep;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.Button btnraf;
-        private System.Windows.Forms.Button btndepo;
         private MobileWhouse.Controls.RafTextBox txtraf;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtdepo;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtbarkod;
         private TextBoxNumeric txtmiktar;
@@ -529,7 +519,7 @@ namespace MobileWhouse.Controls.PRD
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtaciklama;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btnkaydet;
+        private GUI.UButton btnkaydet;
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.ColumnHeader columnHeader11;
         private System.Windows.Forms.ColumnHeader columnHeader12;

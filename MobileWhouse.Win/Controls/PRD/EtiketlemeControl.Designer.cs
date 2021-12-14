@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnKapat = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EtiketlemeControl));
             this.label1 = new System.Windows.Forms.Label();
             this.txtistasyon = new System.Windows.Forms.TextBox();
             this.btnistasyon = new System.Windows.Forms.Button();
@@ -41,19 +41,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtbarkod = new System.Windows.Forms.TextBox();
             this.printetiketleme = new MobileWhouse.GUI.PrintControl();
-            this.btnyazdir = new MobileWhouse.GUI.ColourButton();
+            this.btnyazdir = new MobileWhouse.GUI.UButton();
+            this.btnCancel = new MobileWhouse.GUI.UButton();
             this.SuspendLayout();
-            // 
-            // btnKapat
-            // 
-            this.btnKapat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnKapat.Location = new System.Drawing.Point(3, 277);
-            this.btnKapat.Name = "btnKapat";
-            this.btnKapat.Size = new System.Drawing.Size(233, 40);
-            this.btnKapat.TabIndex = 1;
-            this.btnKapat.Text = "Kapat";
-            this.btnKapat.Click += new System.EventHandler(this.btnKapat_Click);
             // 
             // label1
             // 
@@ -155,6 +145,7 @@
             // 
             // btnyazdir
             // 
+            this.btnyazdir.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
             this.btnyazdir.BackColor = System.Drawing.Color.Empty;
             this.btnyazdir.ForeColor = System.Drawing.Color.Empty;
             this.btnyazdir.Location = new System.Drawing.Point(151, 78);
@@ -168,10 +159,28 @@
             this.btnyazdir.Text = "Yazdır";
             this.btnyazdir.Click += new System.EventHandler(this.btnyazdir_Click);
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
+            this.btnCancel.BackColor = System.Drawing.Color.Empty;
+            this.btnCancel.ForeColor = System.Drawing.Color.Empty;
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
+            this.btnCancel.Location = new System.Drawing.Point(3, 277);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.NormalBtnColour = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnCancel.NormalTxtColour = System.Drawing.Color.Black;
+            this.btnCancel.PushedBtnColour = System.Drawing.Color.Blue;
+            this.btnCancel.PushedTxtColour = System.Drawing.Color.Yellow;
+            this.btnCancel.Size = new System.Drawing.Size(233, 40);
+            this.btnCancel.TabIndex = 23;
+            this.btnCancel.Text = "Kapat";
+            this.btnCancel.Click += new System.EventHandler(this.btnKapat_Click);
+            // 
             // EtiketlemeControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.printetiketleme);
             this.Controls.Add(this.txtadet);
             this.Controls.Add(this.txtkoliici);
@@ -184,7 +193,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtistasyon);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnKapat);
             this.Controls.Add(this.btnyazdir);
             this.Name = "EtiketlemeControl";
             this.Size = new System.Drawing.Size(240, 320);
@@ -194,7 +202,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnKapat;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtistasyon;
         private System.Windows.Forms.Button btnistasyon;
@@ -207,6 +214,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtbarkod;
         private MobileWhouse.GUI.PrintControl printetiketleme;
-        private MobileWhouse.GUI.ColourButton btnyazdir;
+        private MobileWhouse.GUI.UButton btnyazdir;
+        private MobileWhouse.GUI.UButton btnCancel;
     }
 }

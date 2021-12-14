@@ -235,6 +235,20 @@ namespace MobileWhouse.Models
             }
         }
 
+        private bool AddWorderAcBomDListField;
+        /// <remarks/>
+        public bool AddWorderAcBomDList
+        {
+            get
+            {
+                return this.AddWorderAcBomDListField;
+            }
+            set
+            {
+                this.AddWorderAcBomDListField = value;
+            }
+        }
+
         private int worderMUnitIdField;
         /// <remarks/>
         public int WorderMUnitId
@@ -1588,6 +1602,7 @@ namespace MobileWhouse.Models
                     uretim.Qty = worderacops[i].qty_net;
                     uretim.QtyNet = worderacops[i].qty_net;
                     uretim.UnitId = worderacops[i].unit_id;
+                    uretim.AddWorderAcBomDList = true;
                     if (worderacops[i].Employee != null && worderacops[i].Employee.Count > 0)
                     {
                         uretim.Iscilik = new UretimIscilik[worderacops[i].Employee.Count];

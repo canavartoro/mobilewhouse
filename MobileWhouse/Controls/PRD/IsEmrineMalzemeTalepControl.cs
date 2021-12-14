@@ -73,7 +73,7 @@ namespace MobileWhouse.Controls.PRD
                                 gereken += qty;
                                 onhand += hand;
                             }
-                            lblbilgi.Text = string.Concat("Satır Sayısı:,", res.Value.Rows.Count, ", Gereken:", gereken.ToString("#.###"));
+                            //lblbilgi.Text = string.Concat("Satır Sayısı:,", res.Value.Rows.Count, ", Gereken:", gereken.ToString("#.###"));
                         }
                     }
                 }
@@ -163,7 +163,7 @@ namespace MobileWhouse.Controls.PRD
                 transferM.WhouseId = depo.Id;
                 transferM.TransferWorderList = new MobileWhouse.ProdConnector.TransferWorderInfo[listisemri.Items.Count];
                 transferM.IsOut = false;
-                transferM.IsTransferDCreate = checkTransfer.Checked;
+                //transferM.IsTransferDCreate = checkTransfer.Checked;
 
                 for (int i = 0; i < listisemri.Items.Count; i++)
                 {
@@ -194,7 +194,7 @@ namespace MobileWhouse.Controls.PRD
                     else
                     {
                         Screens.Info(string.Concat("Belge kaydedildi, Id:", res.Value.Id, ", No:", res.Value.DocNo));
-                        lblbilgi.Text = string.Concat("Id:", res.Value.Id, ", No:", res.Value.DocNo);
+                        //lblbilgi.Text = string.Concat("Id:", res.Value.Id, ", No:", res.Value.DocNo);
                         depo = null;
                         worderM = null;
                         listisemri.Items.Clear();

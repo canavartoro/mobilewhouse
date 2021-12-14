@@ -44,8 +44,8 @@
             this.cmbvardiya = new MobileWhouse.GUI.ComboControl();
             this.cmddurusneden = new MobileWhouse.GUI.ComboControl();
             this.cmbpersonel = new MobileWhouse.GUI.ComboControl();
-            this.btnKapat = new MobileWhouse.GUI.ColourButton();
-            this.btntamam = new MobileWhouse.GUI.ColourButton();
+            this.btnKapat = new MobileWhouse.GUI.UButton();
+            this.btntamam = new MobileWhouse.GUI.UButton();
             this.SuspendLayout();
             // 
             // btnistasyon
@@ -245,7 +245,7 @@
         private MobileWhouse.GUI.ComboControl cmbvardiya;
         private MobileWhouse.GUI.ComboControl cmddurusneden;
         private MobileWhouse.GUI.ComboControl cmbpersonel;
-        private MobileWhouse.GUI.ColourButton btnKapat;
-        private MobileWhouse.GUI.ColourButton btntamam;
+        private MobileWhouse.GUI.UButton btnKapat;
+        private MobileWhouse.GUI.UButton btntamam;
     }
 }

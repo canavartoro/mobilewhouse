@@ -40,19 +40,13 @@ namespace MobileWhouse.Util
         {
             get
             {
-                return AppDomain.CurrentDomain.FriendlyName.Equals("DefaultDomain");
+                //return AppDomain.CurrentDomain.FriendlyName.Equals("DefaultDomain");
                 //return Application.ExecutablePath.IndexOf("devenv.exe", StringComparison.OrdinalIgnoreCase) > -1;
-                //return System.Diagnostics.Process.GetCurrentProcess().ToString().IndexOf("devenv", StringComparison.OrdinalIgnoreCase) > -1;
+                return System.Diagnostics.Process.GetCurrentProcess().ToString().IndexOf("devenv", StringComparison.OrdinalIgnoreCase) > -1;
 #if !PocketPC
                 if (System.ComponentModel.LicenseUsageMode.Designtime == System.ComponentModel.LicenseManager.UsageMode) return false;
 #endif
-                var procName = Assembly.GetExecutingAssembly().GetName().Name.ToLower();
-                Logger.I(procName);
-                return "devenv" != procName //WinForms app in VS IDE
-                    && "xdesproc" != procName //WPF app in VS IDE/Blend
-                    && "blend" != procName //WinForms app in Blend
-                    //other IDE's process name if you detected by log from above
-                    ;
+              
             }
         }
 

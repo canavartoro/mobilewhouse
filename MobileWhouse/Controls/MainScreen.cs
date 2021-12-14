@@ -17,35 +17,8 @@ namespace MobileWhouse.Controls
         public MainScreen()
         {
             InitializeComponent();
-            if (Utility.IsWindowsCE)
-            {
-                this.KeyUp += new KeyEventHandler(MainScreen_KeyUp);
-                foreach (Control c in this.Controls)
-                {
-                    c.KeyUp += new KeyEventHandler(MainScreen_KeyUp);
-                }
-            }
             ClientApplication.Instance.SelectedDepotChanged += new EventHandler(OnSelectedDepotChanged);
-            lblversion.Text = string.Concat("V:", Program.Versiyon, " B:", Program.BuildNumber(), Screen.PrimaryScreen.WorkingArea.Width, "X", Screen.PrimaryScreen.WorkingArea.Height);
-        }
-
-        void MainScreen_KeyUp(object sender, KeyEventArgs e)
-        {
-
-            if (e.KeyCode == Keys.D1)
-            {
-                MainForm.ShowControl(new IsEmrineMalzemeTalepControl());
-            }
-            else if (e.KeyCode == Keys.D2)
-            {
-                MainForm.ShowControl(new MalzemeTalepSevkControl());
-            }
-            else
-            {
-                btnStokHareketi.Text = string.Concat("KeyCode:", e.KeyCode, ",KeyData:", e.KeyData, ",KeyValue:", e.KeyValue);
-                btnRafHareketi.Text = string.Concat("Alt:", e.Alt, ",Control:", e.Control, ",Shift:", e.Shift);
-            }
-
+            lblversion.Text = string.Concat("V:", Program.Versiyon, " B:", Program.BuildNumber());
         }
 
         void OnSelectedDepotChanged(object sender, EventArgs e)
@@ -191,7 +164,7 @@ namespace MobileWhouse.Controls
 
         private void btnambalaj_Click(object sender, EventArgs e)
         {
-            MainForm.ShowControl(new AmbalajOlusturmaControl());
+            MainForm.ShowControl(new AmbalajMenuControl());
         }
 
         private void btnayar_Click(object sender, EventArgs e)

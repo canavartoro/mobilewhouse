@@ -32,6 +32,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="OpenNETCF, Version=2.3.0.39, Culture=neutral, PublicKeyToken=e60dbea84bb431b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MobileWhouse\Dependence\OpenNETCF.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenNETCF.Net, Version=2.3.0.39, Culture=neutral, PublicKeyToken=e60dbea84bb431b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MobileWhouse\Dependence\OpenNETCF.Net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -52,11 +60,23 @@
     <Compile Include="Controls\AcikBelgeSilControl.Designer.cs">
       <DependentUpon>AcikBelgeSilControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\AmbalajMenuControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AmbalajMenuControl.Designer.cs">
+      <DependentUpon>AmbalajMenuControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\AmbalajOlusturmaControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\AmbalajOlusturmaControl.Designer.cs">
       <DependentUpon>AmbalajOlusturmaControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AmbalajTraControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AmbalajTraControl.Designer.cs">
+      <DependentUpon>AmbalajTraControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\BarkodTextBox.cs">
       <SubType>Component</SubType>
@@ -329,9 +349,6 @@
     <Compile Include="Forms\FormTus.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\ColourButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="GUI\ComboControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -350,20 +367,12 @@
     <Compile Include="GUI\UButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="GUI\UButton.Designer.cs">
-      <DependentUpon>UButton.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\UImageButtonTransparent.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\UImageButtonTransparent.Designer.cs">
-      <DependentUpon>UImageButtonTransparent.cs</DependentUpon>
-    </Compile>
     <Compile Include="Log\Logger.cs" />
     <Compile Include="Log\TextWriterTraceListener.cs" />
     <Compile Include="Models\AmbalajHareket.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\DataSourceType.cs" />
+    <Compile Include="Models\DepotExtention.cs" />
     <Compile Include="Models\invd_item.cs" />
     <Compile Include="Models\package_m.cs" />
     <Compile Include="Models\prdt_worder_bom_d.cs" />
@@ -451,10 +460,6 @@
       <DependentUpon>FormAyarlar.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormLogin.resx">
-      <DependentUpon>FormLogin.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -473,6 +478,7 @@
     <Compile Include="Updater\UpdateHelper.cs" />
     <Compile Include="Util\AppCache.cs" />
     <Compile Include="Util\AppConfig.cs" />
+    <Compile Include="Util\DeviceUtil.cs" />
     <Compile Include="Util\FileHelper.cs" />
     <Compile Include="Util\ReflectionHelper.cs" />
     <Compile Include="Util\Screens.cs" />
@@ -770,8 +776,29 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Web References\ReportServ\ReportWebService.disco" />
+    <EmbeddedResource Include="Controls\AmbalajMenuControl.resx">
+      <DependentUpon>AmbalajMenuControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\AmbalajOlusturmaControl.resx">
+      <DependentUpon>AmbalajOlusturmaControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\AmbalajTraControl.resx">
+      <DependentUpon>AmbalajTraControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\PRD\IsEmriBaslatControl.resx">
       <DependentUpon>IsEmriBaslatControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PRD\KarisimUretimControl.resx">
+      <DependentUpon>KarisimUretimControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PRD\MalzemeTalepSevkControl.resx">
+      <DependentUpon>MalzemeTalepSevkControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\QLT\QLTControl.resx">
+      <DependentUpon>QLTControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\PrintControl.resx">
       <DependentUpon>PrintControl.cs</DependentUpon>

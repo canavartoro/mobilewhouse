@@ -12,6 +12,12 @@ namespace MobileWhouse.Util
     {
         const string CACHEFILENAME = "appcache.ini";
 
+        public static int ReadCacheInt(string key, int dvalue)
+        {
+            string sval = ReadCache(key, dvalue.ToString());
+            return StringUtil.ToInteger(sval);
+        }
+
         public static string ReadCache(string key, string dvalue)
         {
             try

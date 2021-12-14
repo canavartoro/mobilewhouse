@@ -47,7 +47,7 @@
             this.btnisemri = new System.Windows.Forms.Button();
             this.btnistasyon = new System.Windows.Forms.Button();
             this.txtstokkod = new System.Windows.Forms.TextBox();
-            this.btnbaslat = new MobileWhouse.GUI.ColourButton();
+            this.btnbaslat = new MobileWhouse.GUI.UButton();
             this.SuspendLayout();
             // 
             // btnKapat
@@ -251,6 +251,6 @@
         private System.Windows.Forms.TextBox txtstokkod;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ImageList img;
-        private MobileWhouse.GUI.ColourButton btnbaslat;
+        private MobileWhouse.GUI.UButton btnbaslat;
     }
 }

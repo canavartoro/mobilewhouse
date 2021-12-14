@@ -28,20 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnok = new System.Windows.Forms.Button();
-            this.btncancel = new System.Windows.Forms.Button();
+            this.btnok = new MobileWhouse.GUI.UButton();
+            this.btncancel = new MobileWhouse.GUI.UButton();
             this.textdetail = new System.Windows.Forms.TextBox();
             this.textCaption = new System.Windows.Forms.Label();
             this.pictureIcon = new System.Windows.Forms.PictureBox();
-            this.btnsend = new System.Windows.Forms.Button();
+            this.btnsend = new MobileWhouse.GUI.UButton();
             this.SuspendLayout();
             // 
             // btnok
             // 
+            this.btnok.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
             this.btnok.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnok.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnok.BackColor = System.Drawing.Color.Empty;
+            this.btnok.ForeColor = System.Drawing.Color.Empty;
+            this.btnok.Image = null;
             this.btnok.Location = new System.Drawing.Point(162, 244);
             this.btnok.Name = "btnok";
+            this.btnok.NormalBtnColour = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnok.NormalTxtColour = System.Drawing.Color.Blue;
+            this.btnok.PushedBtnColour = System.Drawing.Color.Blue;
+            this.btnok.PushedTxtColour = System.Drawing.Color.Yellow;
             this.btnok.Size = new System.Drawing.Size(61, 27);
             this.btnok.TabIndex = 0;
             this.btnok.Text = "TAMAM";
@@ -49,12 +56,19 @@
             // 
             // btncancel
             // 
+            this.btncancel.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
             this.btncancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btncancel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btncancel.BackColor = System.Drawing.Color.Empty;
+            this.btncancel.ForeColor = System.Drawing.Color.Empty;
+            this.btncancel.Image = null;
             this.btncancel.Location = new System.Drawing.Point(17, 244);
             this.btncancel.Name = "btncancel";
+            this.btncancel.NormalBtnColour = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btncancel.NormalTxtColour = System.Drawing.Color.Black;
+            this.btncancel.PushedBtnColour = System.Drawing.Color.Blue;
+            this.btncancel.PushedTxtColour = System.Drawing.Color.Yellow;
             this.btncancel.Size = new System.Drawing.Size(69, 27);
-            this.btncancel.TabIndex = 1;
+            this.btncancel.TabIndex = 20;
             this.btncancel.Text = "VAZGEÇ";
             this.btncancel.Click += new System.EventHandler(this.btncancel_Click);
             // 
@@ -91,11 +105,18 @@
             // 
             // btnsend
             // 
+            this.btnsend.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
             this.btnsend.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnsend.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnsend.BackColor = System.Drawing.Color.Empty;
+            this.btnsend.ForeColor = System.Drawing.Color.Empty;
+            this.btnsend.Image = null;
             this.btnsend.Location = new System.Drawing.Point(88, 244);
             this.btnsend.Name = "btnsend";
+            this.btnsend.NormalBtnColour = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnsend.NormalTxtColour = System.Drawing.Color.Blue;
+            this.btnsend.PushedBtnColour = System.Drawing.Color.Blue;
+            this.btnsend.PushedTxtColour = System.Drawing.Color.Yellow;
             this.btnsend.Size = new System.Drawing.Size(72, 27);
             this.btnsend.TabIndex = 5;
             this.btnsend.Text = "BİLDİR";
@@ -108,11 +129,11 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(238, 295);
+            this.Controls.Add(this.btncancel);
             this.Controls.Add(this.btnsend);
             this.Controls.Add(this.pictureIcon);
             this.Controls.Add(this.textCaption);
             this.Controls.Add(this.textdetail);
-            this.Controls.Add(this.btncancel);
             this.Controls.Add(this.btnok);
             this.Name = "FormMesaj";
             this.Text = "Dikkat";
@@ -123,12 +144,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnok;
-        private System.Windows.Forms.Button btncancel;
+        private MobileWhouse.GUI.UButton btnok;
         private System.Windows.Forms.TextBox textdetail;
         private System.Windows.Forms.Label textCaption;
         private System.Windows.Forms.PictureBox pictureIcon;
-        private System.Windows.Forms.Button btnsend;
+        private MobileWhouse.GUI.UButton btnsend;
+        private MobileWhouse.GUI.UButton btncancel;
 
     }
 }

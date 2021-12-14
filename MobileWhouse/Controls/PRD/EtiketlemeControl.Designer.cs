@@ -41,8 +41,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtbarkod = new System.Windows.Forms.TextBox();
             this.printetiketleme = new MobileWhouse.GUI.PrintControl();
-            this.btnyazdir = new MobileWhouse.GUI.ColourButton();
-            this.btnCancel = new MobileWhouse.GUI.ColourButton();
+            this.btnyazdir = new MobileWhouse.GUI.UButton();
+            this.btnCancel = new MobileWhouse.GUI.UButton();
             this.SuspendLayout();
             // 
             // label1
@@ -214,7 +214,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtbarkod;
         private MobileWhouse.GUI.PrintControl printetiketleme;
-        private MobileWhouse.GUI.ColourButton btnyazdir;
-        private MobileWhouse.GUI.ColourButton btnCancel;
+        private MobileWhouse.GUI.UButton btnyazdir;
+        private MobileWhouse.GUI.UButton btnCancel;
     }
 }

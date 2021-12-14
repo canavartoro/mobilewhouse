@@ -64,5 +64,18 @@ namespace MobileWhouse
         {
             cmbLog.SelectedIndex = AppConfig.Default.TraceLevel;
         }
+
+        private void btnbilgi_Click(object sender, EventArgs e)
+        {
+            StringBuilder sbilgi = new StringBuilder();
+            sbilgi.AppendFormat("Versiyon:{0}, Derleme:{1}", Program.Versiyon, Program.BuildNumber());
+            sbilgi.Append(Environment.NewLine);
+            sbilgi.AppendFormat("Cihaz İp:{0}", DeviceUtil.IpGetir());
+            sbilgi.Append(Environment.NewLine);
+            sbilgi.AppendFormat("Cihaz Id:{0}", DeviceUtil.GetDeviceId());
+            sbilgi.Append(Environment.NewLine);
+            sbilgi.AppendFormat("Ekran yükseklik:{0}, genişlik:{1}", Screen.PrimaryScreen.WorkingArea.Height, Screen.PrimaryScreen.WorkingArea.Width);
+            Screens.Info(sbilgi.ToString());
+        }
     }
 }

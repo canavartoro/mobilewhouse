@@ -15,6 +15,10 @@ using MobileWhouse.Log;
 
 namespace MobileWhouse.Controls.PRD
 {
+    /// <summary>
+    /// Silme durumunda tuketilen ambalaj icin geri alma yok. bir yontem bulunaacak
+    /// Personel eklenecek
+    /// </summary>
     public partial class KarisimUretimControl : BaseControl
     {
         private const string CACHENAME = "kmiktar";
@@ -326,10 +330,78 @@ namespace MobileWhouse.Controls.PRD
                 context.Value.WstationId = wstation.PrdGobalId;
                 context.Value.Qty = worder_acop.qty_net;
                 context.Value.UnitId = worder_acop.unit_id;
+                StringBuilder snode = new StringBuilder();
+                for (int loop = 0; loop < listBarkod.Items.Count; loop++)
+                {
+                    MobileWhouse.UTermConnector.PackageDetail package = listBarkod.Items[loop].Tag as MobileWhouse.UTermConnector.PackageDetail;
+                    snode.AppendFormat("{0}{1}", loop > 0 ? "," : "", package.PackageNo);
+                }
+                context.Value.Note = snode.ToString();
+
                 MobileWhouse.UyumSave.ServiceResultOfBoolean result = ClientApplication.Instance.SaveServ.SavePrdWorderAcOp(context);
                 if (result.Result)
                 {
-                    MobileWhouse.ProdConnector.ServiceRequestOfPackageTraMInfo param = new MobileWhouse.ProdConnector.ServiceRequestOfPackageTraMInfo();
+                    AmbalajHareket ambhareket = new AmbalajHareket();
+                    ambhareket.CoId = ClientApplication.Instance.Token.CoId;
+                    ambhareket.BranchId = ClientApplication.Instance.Token.BranchId;
+                    ambhareket.WhouseId = ClientApplication.Instance.SelectedDepot.Id;
+                    ambhareket.WhouseCode = ClientApplication.Instance.SelectedDepot.Code;
+
+                    ambhareket.DocNo =
+                    ambhareket.PackageNo = DateTime.Now.ToString("yyMMddHHmmssfff");
+                    ambhareket.PackageOperationType = "Giriş";
+                    ambhareket.InventoryStatus = "Giriş";
+                    ambhareket.SourceApp = "Ambalaj";
+                    ambhareket.PTypes = "Empty";
+                    ambhareket.Qty = worder_acop.qty_net;
+                    ambhareket.DocDate = DateTime.Today;
+                    ambhareket.DocTraId = AppCache.ReadCacheInt("DocTraId", 2866);
+                    ambhareket.SourceMId = StringUtil.ToInteger(result.Message);
+                    ambhareket.UyumDetailItem = new AmbalajHareketDetail[1];
+                    ambhareket.UyumDetailItem[0] = new AmbalajHareketDetail();
+                    ambhareket.UyumDetailItem[0].AddString01 = worder_acop.worder_no;
+                    ambhareket.UyumDetailItem[0].ItemId = worder_acop.item_id;
+                    ambhareket.UyumDetailItem[0].ItemCode = worder_acop.item_code;
+                    ambhareket.UyumDetailItem[0].LineNo = 10;
+                    ambhareket.UyumDetailItem[0].Qty = worder_acop.qty_net;
+                    ambhareket.UyumDetailItem[0].UnitId = worder_acop.unit_id;
+                    ambhareket.UyumDetailItem[0].PackageDetailType = "S";
+                    ambhareket.UyumDetailItem[0].DcardId = worder_acop.item_id;
+                    ambhareket.UyumDetailItem[0].DcardCode = worder_acop.item_code;
+                    ambhareket.UyumDetailItem[0].PackageOperationType = "Giriş";
+
+                    for (int loop = 0; loop < listBarkod.Items.Count; loop++)
+                    {
+                        decimal qty = StringUtil.ToDecimal(listBarkod.Items[loop].SubItems[5].Text);
+                        MobileWhouse.UTermConnector.PackageDetail package = listBarkod.Items[loop].Tag as MobileWhouse.UTermConnector.PackageDetail;
+                        UpdatePackage(package.PackageDId, qty);
+                    }
+
+                    MobileWhouse.UyumSave.UyumServiceRequestOfString Context = new MobileWhouse.UyumSave.UyumServiceRequestOfString();
+                    Context.Token = new MobileWhouse.UyumSave.UyumToken();
+                    Context.Token.UserName = ClientApplication.Instance.Token.UserName;
+                    Context.Token.Password = ClientApplication.Instance.Token.Password;
+                    Context.Value = ambhareket.ToXml();
+
+                    MobileWhouse.UyumSave.UyumServiceResponseOfString resp = ClientApplication.Instance.SaveServ.SaveUyumObjectFromXML(Context);
+                    if (!resp.Success)
+                    {
+                        Screens.Error(resp.Message);
+                    }
+                    else
+                    {
+                        if (printkarisim.IsSelectPrinter)
+                        {
+                            AmbalajHareket hareket = BaseModel.FromXml(typeof(AmbalajHareket), resp.Value) as AmbalajHareket;
+                            if (hareket != null)
+                            {
+                                printkarisim.Print(221120315362129, "RPP_INV_9009", "pitemmid", hareket.Id);
+                            }
+                        }
+                        ClearForm();
+                    }
+
+                    /*MobileWhouse.ProdConnector.ServiceRequestOfPackageTraMInfo param = new MobileWhouse.ProdConnector.ServiceRequestOfPackageTraMInfo();
                     param.Token = ClientApplication.Instance.ProdToken;
                     param.Value = new MobileWhouse.ProdConnector.PackageTraMInfo();
                     param.Value.Whouse2Id = ClientApplication.Instance.SelectedDepot.Id;
@@ -342,11 +414,16 @@ namespace MobileWhouse.Controls.PRD
 
                     for (int loop = 0; loop < listBarkod.Items.Count; loop++)
                     {
+                        decimal qty = StringUtil.ToDecimal(listBarkod.Items[loop].SubItems[5].Text);
+
                         MobileWhouse.UTermConnector.PackageDetail package = listBarkod.Items[loop].Tag as MobileWhouse.UTermConnector.PackageDetail;
+
+                        UpdatePackage(package.PackageDId, qty);
+
                         param.Value.Details[loop] = new MobileWhouse.ProdConnector.PackageTraDInfo();
                         param.Value.Details[loop].ItemId = package.ItemInfo.Id;
-                        param.Value.Details[loop].PackageMNo = package.PackageNo;
-                        param.Value.Details[loop].Qty = StringUtil.ToDecimal(listBarkod.Items[loop].SubItems[5].Text);
+                        //param.Value.Details[loop].PackageMNo = package.PackageNo;
+                        param.Value.Details[loop].Qty = qty;
                         param.Value.Details[loop].UnitId = package.ItemInfo.UnitId;
                         param.Value.Details[loop].SourceMId = param.Value.SourceMId;
                         //param.Value.Details[loop].SourceDId = worderacops[i].Packages[loop].worder_m_id;
@@ -359,7 +436,7 @@ namespace MobileWhouse.Controls.PRD
                     else
                     {
                         Screens.Error(res.Message);
-                    }
+                    }*/
                 }
                 else
                 {
@@ -373,6 +450,30 @@ namespace MobileWhouse.Controls.PRD
             finally
             {
                 Screens.HideWait();
+            }
+        }
+
+        private void UpdatePackage(int packageId, decimal qty)
+        {
+            try
+            {
+                MobileWhouse.UyumConnector.ServiceRequestOfString param = new MobileWhouse.UyumConnector.ServiceRequestOfString();
+                param.Token = ClientApplication.Instance.Token;
+                param.Value = string.Concat("UPDATE uyumsoft.invd_package_m SET qty = qty - ", qty.ToString(Statics.DECIMAL_STRING_FORMAT), ", revort = CASE WHEN qty - ", qty.ToString(Statics.DECIMAL_STRING_FORMAT), " <= 0 THEN 1 ELSE revort END WHERE package_id = '", packageId, "'");
+                Logger.I(param.Value);
+
+                MobileWhouse.UyumConnector.ServiceResultOfDataTable res = ClientApplication.Instance.Service.ExecuteSQL(param);
+                if (res != null)
+                {
+                    if (res.Result == false)
+                    {
+                        MobileWhouse.Util.Screens.Error(string.Concat("Sunucu hatası:", res.Message));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MobileWhouse.Util.Screens.Error(ex);
             }
         }
     }

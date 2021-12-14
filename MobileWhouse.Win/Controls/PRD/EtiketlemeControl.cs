@@ -229,6 +229,11 @@ namespace MobileWhouse.Controls.PRD
             //    Cursor.Current = Cursors.Default;
             //}
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

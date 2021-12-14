@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AmbalajOlusturmaControl));
             this.label1 = new System.Windows.Forms.Label();
             this.txtPaletNo = new System.Windows.Forms.TextBox();
-            this.btnYeniPalet = new System.Windows.Forms.Button();
+            this.btnYeniPalet = new MobileWhouse.GUI.UButton();
             this.label2 = new System.Windows.Forms.Label();
             this.txtStok = new MobileWhouse.Controls.BarkodTextBox();
             this.txtRaf = new MobileWhouse.Controls.RafTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dcQty = new MobileWhouse.Controls.DecimalTextBox();
-            this.btnClose = new System.Windows.Forms.Button();
+            this.btnClose = new MobileWhouse.GUI.UButton();
             this.printPaletctrl = new MobileWhouse.GUI.PrintControl();
             this.label4 = new System.Windows.Forms.Label();
             this.textCari = new System.Windows.Forms.TextBox();
@@ -77,8 +78,16 @@
             // 
             // btnYeniPalet
             // 
+            this.btnYeniPalet.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
+            this.btnYeniPalet.BackColor = System.Drawing.Color.Empty;
+            this.btnYeniPalet.ForeColor = System.Drawing.Color.Empty;
+            this.btnYeniPalet.Image = ((System.Drawing.Image)(resources.GetObject("btnYeniPalet.Image")));
             this.btnYeniPalet.Location = new System.Drawing.Point(35, 191);
             this.btnYeniPalet.Name = "btnYeniPalet";
+            this.btnYeniPalet.NormalBtnColour = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnYeniPalet.NormalTxtColour = System.Drawing.Color.Blue;
+            this.btnYeniPalet.PushedBtnColour = System.Drawing.Color.Blue;
+            this.btnYeniPalet.PushedTxtColour = System.Drawing.Color.Yellow;
             this.btnYeniPalet.Size = new System.Drawing.Size(158, 26);
             this.btnYeniPalet.TabIndex = 8;
             this.btnYeniPalet.Text = "Kaydet";
@@ -130,9 +139,17 @@
             // 
             // btnClose
             // 
+            this.btnClose.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
+            this.btnClose.BackColor = System.Drawing.Color.Empty;
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnClose.ForeColor = System.Drawing.Color.Empty;
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
             this.btnClose.Location = new System.Drawing.Point(0, 284);
             this.btnClose.Name = "btnClose";
+            this.btnClose.NormalBtnColour = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnClose.NormalTxtColour = System.Drawing.Color.Blue;
+            this.btnClose.PushedBtnColour = System.Drawing.Color.Blue;
+            this.btnClose.PushedTxtColour = System.Drawing.Color.Yellow;
             this.btnClose.Size = new System.Drawing.Size(240, 36);
             this.btnClose.TabIndex = 62;
             this.btnClose.Text = "Kapat";
@@ -295,7 +312,7 @@
             this.tabPage2.Controls.Add(this.printPaletctrl);
             this.tabPage2.Location = new System.Drawing.Point(0, 0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(232, 258);
+            this.tabPage2.Size = new System.Drawing.Size(240, 261);
             this.tabPage2.Text = "Ayarlar";
             // 
             // AmbalajOlusturmaControl
@@ -318,13 +335,13 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtPaletNo;
-        private System.Windows.Forms.Button btnYeniPalet;
+        private GUI.UButton btnYeniPalet;
         private System.Windows.Forms.Label label2;
         private BarkodTextBox txtStok;
         private RafTextBox txtRaf;
         private System.Windows.Forms.Label label3;
         private DecimalTextBox dcQty;
-        private System.Windows.Forms.Button btnClose;
+        private GUI.UButton btnClose;
         private MobileWhouse.GUI.PrintControl printPaletctrl;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textCari;

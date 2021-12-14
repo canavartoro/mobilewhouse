@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnKapat = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KarisimUretimControl));
+            this.btnKapat = new MobileWhouse.GUI.UButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.listRecete = new System.Windows.Forms.ListView();
@@ -38,7 +39,7 @@
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader11 = new System.Windows.Forms.ColumnHeader();
-            this.btndegistir = new System.Windows.Forms.Button();
+            this.btndegistir = new MobileWhouse.GUI.UButton();
             this.txtkoliici = new MobileWhouse.GUI.TextBoxNumeric();
             this.label3 = new System.Windows.Forms.Label();
             this.btnistasyon = new System.Windows.Forms.Button();
@@ -49,7 +50,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.printkarisim = new MobileWhouse.GUI.PrintControl();
             this.lblbilgi = new System.Windows.Forms.Label();
-            this.btnyazdir = new System.Windows.Forms.Button();
+            this.btnyazdir = new MobileWhouse.GUI.UButton();
             this.listBarkod = new System.Windows.Forms.ListView();
             this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
@@ -68,9 +69,17 @@
             // 
             // btnKapat
             // 
+            this.btnKapat.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
+            this.btnKapat.BackColor = System.Drawing.Color.Empty;
             this.btnKapat.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnKapat.ForeColor = System.Drawing.Color.Empty;
+            this.btnKapat.Image = ((System.Drawing.Image)(resources.GetObject("btnKapat.Image")));
             this.btnKapat.Location = new System.Drawing.Point(0, 292);
             this.btnKapat.Name = "btnKapat";
+            this.btnKapat.NormalBtnColour = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnKapat.NormalTxtColour = System.Drawing.Color.Black;
+            this.btnKapat.PushedBtnColour = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(128)))));
+            this.btnKapat.PushedTxtColour = System.Drawing.Color.Yellow;
             this.btnKapat.Size = new System.Drawing.Size(240, 28);
             this.btnKapat.TabIndex = 1;
             this.btnKapat.Text = "Kapat";
@@ -152,10 +161,18 @@
             // 
             // btndegistir
             // 
+            this.btndegistir.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
             this.btndegistir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btndegistir.Location = new System.Drawing.Point(150, 51);
+            this.btndegistir.BackColor = System.Drawing.Color.Empty;
+            this.btndegistir.ForeColor = System.Drawing.Color.Empty;
+            this.btndegistir.Image = ((System.Drawing.Image)(resources.GetObject("btndegistir.Image")));
+            this.btndegistir.Location = new System.Drawing.Point(141, 51);
             this.btndegistir.Name = "btndegistir";
-            this.btndegistir.Size = new System.Drawing.Size(85, 23);
+            this.btndegistir.NormalBtnColour = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btndegistir.NormalTxtColour = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btndegistir.PushedBtnColour = System.Drawing.Color.Blue;
+            this.btndegistir.PushedTxtColour = System.Drawing.Color.Yellow;
+            this.btndegistir.Size = new System.Drawing.Size(94, 23);
             this.btndegistir.TabIndex = 15;
             this.btndegistir.Text = "Değiştir";
             this.btndegistir.Click += new System.EventHandler(this.btndegistir_Click);
@@ -168,7 +185,7 @@
             this.txtkoliici.BackColor = System.Drawing.Color.SkyBlue;
             this.txtkoliici.Location = new System.Drawing.Point(81, 51);
             this.txtkoliici.Name = "txtkoliici";
-            this.txtkoliici.Size = new System.Drawing.Size(67, 21);
+            this.txtkoliici.Size = new System.Drawing.Size(57, 21);
             this.txtkoliici.TabIndex = 13;
             this.txtkoliici.Text = "0.00";
             // 
@@ -255,10 +272,18 @@
             // 
             // btnyazdir
             // 
+            this.btnyazdir.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
             this.btnyazdir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnyazdir.Location = new System.Drawing.Point(160, 61);
+            this.btnyazdir.BackColor = System.Drawing.Color.Empty;
+            this.btnyazdir.ForeColor = System.Drawing.Color.Empty;
+            this.btnyazdir.Image = ((System.Drawing.Image)(resources.GetObject("btnyazdir.Image")));
+            this.btnyazdir.Location = new System.Drawing.Point(142, 61);
             this.btnyazdir.Name = "btnyazdir";
-            this.btnyazdir.Size = new System.Drawing.Size(75, 25);
+            this.btnyazdir.NormalBtnColour = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(224)))), ((int)(((byte)(255)))));
+            this.btnyazdir.NormalTxtColour = System.Drawing.Color.Blue;
+            this.btnyazdir.PushedBtnColour = System.Drawing.Color.Blue;
+            this.btnyazdir.PushedTxtColour = System.Drawing.Color.Yellow;
+            this.btnyazdir.Size = new System.Drawing.Size(93, 25);
             this.btnyazdir.TabIndex = 50;
             this.btnyazdir.Text = "Yazdir";
             this.btnyazdir.Click += new System.EventHandler(this.btnyazdir_Click);
@@ -314,9 +339,9 @@
             // chksil
             // 
             this.chksil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chksil.Location = new System.Drawing.Point(110, 63);
+            this.chksil.Location = new System.Drawing.Point(101, 63);
             this.chksil.Name = "chksil";
-            this.chksil.Size = new System.Drawing.Size(55, 20);
+            this.chksil.Size = new System.Drawing.Size(46, 20);
             this.chksil.TabIndex = 48;
             this.chksil.Text = "Sil";
             // 
@@ -365,7 +390,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnKapat;
+        private MobileWhouse.GUI.UButton btnKapat;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -376,7 +401,7 @@
         private System.Windows.Forms.Label label1;
         private MobileWhouse.GUI.TextBoxNumeric txtkoliici;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btndegistir;
+        private MobileWhouse.GUI.UButton btndegistir;
         private System.Windows.Forms.ListView listRecete;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
@@ -387,7 +412,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckBox chksil;
         private System.Windows.Forms.ListView listBarkod;
-        private System.Windows.Forms.Button btnyazdir;
+        private MobileWhouse.GUI.UButton btnyazdir;
         private System.Windows.Forms.Label lblbilgi;
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private MobileWhouse.GUI.PrintControl printkarisim;

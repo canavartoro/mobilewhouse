@@ -578,6 +578,7 @@
         <s:sequence>
           <s:element minOccurs="1" maxOccurs="1" name="TransferDId" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="BwhLocationOutId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BwhLocationInId" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="PackageMId" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="LotId" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="PackageMNo" type="s:string" />
@@ -2584,7 +2585,7 @@
       <wsdl:output message="tns:SaveFreeBreakWorderSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="SaveWorderScrap">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">İşemrinden Bağımsız Duruş Girişleri </wsdl:documentation>
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">İşemrinden Hurda Girişleri </wsdl:documentation>
       <wsdl:input message="tns:SaveWorderScrapSoapIn" />
       <wsdl:output message="tns:SaveWorderScrapSoapOut" />
     </wsdl:operation>

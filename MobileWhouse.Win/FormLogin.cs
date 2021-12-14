@@ -57,6 +57,12 @@ namespace MobileWhouse
                 ServiceResultOfLoginResult result = ClientApplication.Instance.Service.Login(token);
                 if (result.Result)
                 {
+                    if ((result.Value.ServerDate.Date != DateTime.Now.Date && result.Value.ServerDate.Hour != DateTime.Now.Hour) &&
+                        Screens.Question(string.Concat("Cihaz tarihi ve sistem tarihi farklı. Sistem Tarih:", result.Value.ServerDate, ", Cihaz tarihi güncellensin mi?")))
+                    {
+                        DeviceUtil.SetDatetime(result.Value.ServerDate.ToString("dd.MM.yyyy HH:mm:ss"));
+                    }
+
                     ClientApplication.Instance.ClientToken = result.Value;
                     token.Value.BranchId = result.Value.BranchId;
                     token.Value.CoId = result.Value.CoId;
@@ -116,12 +122,21 @@ namespace MobileWhouse
         private void FormLogin_Load(object sender, EventArgs e)
         {
             lblbuild.Text = string.Concat("V:", Program.Versiyon, " B:", Program.BuildNumber());
-            FileHelper.DeleteFile("uyumsoft.zip");//eski guncelleme dosyasini kaldir
+            ClearupdFiles();
         }
 
         private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 13) btnOkey_Click(btnOkey, EventArgs.Empty);
+        }
+
+        private void ClearupdFiles()
+        {
+            FileHelper.DeleteFile("uyumsoft.zip");//eski guncelleme dosyasini kaldir
+            FileHelper.DeleteFile("Ionic.Zip.dll");
+            FileHelper.DeleteFile("Ionic.Zip.CF.dll");
+            FileHelper.DeleteFile("MobileWhouseUpdater.exe");
+            FileHelper.DeleteFile("MobileWhouseUpdater.Win.exe");
         }
     }
 }

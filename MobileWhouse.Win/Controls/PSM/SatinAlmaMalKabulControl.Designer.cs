@@ -36,15 +36,12 @@
             this.Chk_Delete = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader8 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader9 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.Tx_IrsaliyeSeri = new System.Windows.Forms.TextBox();
@@ -133,15 +130,12 @@
             this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView1.Columns.Add(this.columnHeader1);
-            this.listView1.Columns.Add(this.columnHeader2);
             this.listView1.Columns.Add(this.columnHeader3);
             this.listView1.Columns.Add(this.columnHeader4);
-            this.listView1.Columns.Add(this.columnHeader5);
-            this.listView1.Columns.Add(this.columnHeader6);
             this.listView1.Columns.Add(this.columnHeader7);
-            this.listView1.Columns.Add(this.columnHeader8);
-            this.listView1.Columns.Add(this.columnHeader9);
+            this.listView1.Columns.Add(this.columnHeader6);
+            this.listView1.Columns.Add(this.columnHeader1);
+            this.listView1.Columns.Add(this.columnHeader2);
             this.listView1.FullRowSelect = true;
             this.listView1.Location = new System.Drawing.Point(3, 60);
             this.listView1.Name = "listView1";
@@ -149,50 +143,35 @@
             this.listView1.TabIndex = 0;
             this.listView1.View = System.Windows.Forms.View.Details;
             // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Stok Kod";
+            this.columnHeader3.Width = 60;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Stok Ad";
+            this.columnHeader4.Width = 110;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Okunan";
+            this.columnHeader7.Width = 60;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Sip Miktar";
+            this.columnHeader6.Width = 60;
+            // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Dty Kod";
-            this.columnHeader1.Width = 60;
+            this.columnHeader1.Width = 70;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Dty_Adı";
             this.columnHeader2.Width = 70;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Stk_Kod";
-            this.columnHeader3.Width = 60;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Stk_Adı";
-            this.columnHeader4.Width = 110;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Sip_Sevk_Miktarı";
-            this.columnHeader5.Width = 60;
-            // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Sip_Kal_Mik";
-            this.columnHeader6.Width = 60;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "Ok_Miktarı";
-            this.columnHeader7.Width = 60;
-            // 
-            // columnHeader8
-            // 
-            this.columnHeader8.Text = "Dty_RefNo";
-            this.columnHeader8.Width = 60;
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "DcardId";
-            this.columnHeader9.Width = 60;
             // 
             // label5
             // 
@@ -306,11 +285,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.CheckBox Chk_Delete;
         private System.Windows.Forms.Label label1;
         private MobileWhouse.GUI.TextBoxNumeric textBox1;

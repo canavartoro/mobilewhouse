@@ -37,9 +37,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtraporurl = new System.Windows.Forms.TextBox();
-            this.btnCancel = new MobileWhouse.GUI.ColourButton();
-            this.btnKaydet = new MobileWhouse.GUI.ColourButton();
-            this.btnupdate = new MobileWhouse.GUI.ColourButton();
+            this.btnCancel = new MobileWhouse.GUI.UButton();
+            this.btnKaydet = new MobileWhouse.GUI.UButton();
+            this.btnupdate = new MobileWhouse.GUI.UButton();
+            this.btnbilgi = new MobileWhouse.GUI.UButton();
             this.SuspendLayout();
             // 
             // txtURL
@@ -129,13 +130,13 @@
             this.btnKaydet.BackColor = System.Drawing.Color.Empty;
             this.btnKaydet.ForeColor = System.Drawing.Color.Empty;
             this.btnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("btnKaydet.Image")));
-            this.btnKaydet.Location = new System.Drawing.Point(118, 196);
+            this.btnKaydet.Location = new System.Drawing.Point(142, 196);
             this.btnKaydet.Name = "btnKaydet";
             this.btnKaydet.NormalBtnColour = System.Drawing.Color.LightYellow;
             this.btnKaydet.NormalTxtColour = System.Drawing.Color.Blue;
             this.btnKaydet.PushedBtnColour = System.Drawing.Color.Blue;
             this.btnKaydet.PushedTxtColour = System.Drawing.Color.Yellow;
-            this.btnKaydet.Size = new System.Drawing.Size(118, 29);
+            this.btnKaydet.Size = new System.Drawing.Size(94, 29);
             this.btnKaydet.TabIndex = 20;
             this.btnKaydet.Text = "Kaydet";
             this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
@@ -157,12 +158,29 @@
             this.btnupdate.Text = "Program Güncelle";
             this.btnupdate.Click += new System.EventHandler(this.btnupdate_Click);
             // 
+            // btnbilgi
+            // 
+            this.btnbilgi.Alignment = MobileWhouse.GUI.ImageAlignment.Center;
+            this.btnbilgi.BackColor = System.Drawing.Color.Empty;
+            this.btnbilgi.ForeColor = System.Drawing.Color.Empty;
+            this.btnbilgi.Image = ((System.Drawing.Image)(resources.GetObject("btnbilgi.Image")));
+            this.btnbilgi.Location = new System.Drawing.Point(96, 196);
+            this.btnbilgi.Name = "btnbilgi";
+            this.btnbilgi.NormalBtnColour = System.Drawing.Color.LightYellow;
+            this.btnbilgi.NormalTxtColour = System.Drawing.Color.Blue;
+            this.btnbilgi.PushedBtnColour = System.Drawing.Color.Blue;
+            this.btnbilgi.PushedTxtColour = System.Drawing.Color.Yellow;
+            this.btnbilgi.Size = new System.Drawing.Size(40, 29);
+            this.btnbilgi.TabIndex = 26;
+            this.btnbilgi.Click += new System.EventHandler(this.btnbilgi_Click);
+            // 
             // FormAyarlar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(240, 320);
+            this.Controls.Add(this.btnbilgi);
             this.Controls.Add(this.btnupdate);
             this.Controls.Add(this.btnKaydet);
             this.Controls.Add(this.btnCancel);
@@ -193,9 +211,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtraporurl;
-        private MobileWhouse.GUI.ColourButton btnCancel;
-        private MobileWhouse.GUI.ColourButton btnKaydet;
-        private MobileWhouse.GUI.ColourButton btnupdate;
+        private MobileWhouse.GUI.UButton btnCancel;
+        private MobileWhouse.GUI.UButton btnKaydet;
+        private MobileWhouse.GUI.UButton btnupdate;
+        private MobileWhouse.GUI.UButton btnbilgi;
 
     }
 }

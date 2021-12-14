@@ -11221,6 +11221,8 @@ namespace MobileWhouse.ProdConnector {
         
         private int bwhLocationOutIdField;
         
+        private int bwhLocationInIdField;
+        
         private int packageMIdField;
         
         private int lotIdField;
@@ -11262,6 +11264,16 @@ namespace MobileWhouse.ProdConnector {
             }
             set {
                 this.bwhLocationOutIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int BwhLocationInId {
+            get {
+                return this.bwhLocationInIdField;
+            }
+            set {
+                this.bwhLocationInIdField = value;
             }
         }
         

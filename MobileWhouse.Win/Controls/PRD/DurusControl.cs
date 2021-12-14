@@ -243,5 +243,15 @@ WHERE SH.BRANCH_ID = {0} AND SH.CO_ID = {1} ", ClientApplication.Instance.Client
                 Cursor.Current = Cursors.Default;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnKaydet_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AmbalajOlusturmaControl));
             this.label1 = new System.Windows.Forms.Label();
             this.txtPaletNo = new System.Windows.Forms.TextBox();
-            this.btnYeniPalet = new System.Windows.Forms.Button();
+            this.btnYeniPalet = new MobileWhouse.GUI.UButton();
             this.label2 = new System.Windows.Forms.Label();
             this.txtStok = new MobileWhouse.Controls.BarkodTextBox();
             this.txtRaf = new MobileWhouse.Controls.RafTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dcQty = new MobileWhouse.Controls.DecimalTextBox();
-            this.btnClose = new System.Windows.Forms.Button();
+            this.btnClose = new MobileWhouse.GUI.UButton();
             this.printPaletctrl = new MobileWhouse.GUI.PrintControl();
             this.label4 = new System.Windows.Forms.Label();
             this.textCari = new System.Windows.Forms.TextBox();
@@ -64,21 +65,28 @@
             this.label1.Location = new System.Drawing.Point(4, 165);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 20);
+            this.label1.TabIndex = 80;
             this.label1.Text = "Plt";
             // 
             // txtPaletNo
             // 
             this.txtPaletNo.Location = new System.Drawing.Point(35, 164);
             this.txtPaletNo.Name = "txtPaletNo";
-            this.txtPaletNo.Size = new System.Drawing.Size(129, 21);
+            this.txtPaletNo.Size = new System.Drawing.Size(129, 20);
             this.txtPaletNo.TabIndex = 1;
             this.txtPaletNo.TabStop = false;
             this.txtPaletNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPaletNo_KeyPress);
             // 
             // btnYeniPalet
             // 
+            this.btnYeniPalet.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
+            this.btnYeniPalet.Image = ((System.Drawing.Image)(resources.GetObject("btnYeniPalet.Image")));
             this.btnYeniPalet.Location = new System.Drawing.Point(35, 191);
             this.btnYeniPalet.Name = "btnYeniPalet";
+            this.btnYeniPalet.NormalBtnColour = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnYeniPalet.NormalTxtColour = System.Drawing.Color.Blue;
+            this.btnYeniPalet.PushedBtnColour = System.Drawing.Color.Blue;
+            this.btnYeniPalet.PushedTxtColour = System.Drawing.Color.Yellow;
             this.btnYeniPalet.Size = new System.Drawing.Size(158, 26);
             this.btnYeniPalet.TabIndex = 8;
             this.btnYeniPalet.Text = "Kaydet";
@@ -89,24 +97,27 @@
             this.label2.Location = new System.Drawing.Point(4, 57);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 20);
+            this.label2.TabIndex = 85;
             this.label2.Text = "Stok";
             // 
             // txtStok
             // 
             this.txtStok.DepoId = 0;
             this.txtStok.IsRaf = 0;
+            this.txtStok.IsTransfer = false;
             this.txtStok.Location = new System.Drawing.Point(35, 57);
             this.txtStok.Name = "txtStok";
-            this.txtStok.Size = new System.Drawing.Size(129, 21);
+            this.txtStok.Size = new System.Drawing.Size(129, 20);
             this.txtStok.TabIndex = 2;
             // 
             // txtRaf
             // 
             this.txtRaf.DepoId = 0;
             this.txtRaf.IsRaf = 1;
+            this.txtRaf.IsTransfer = false;
             this.txtRaf.Location = new System.Drawing.Point(35, 31);
             this.txtRaf.Name = "txtRaf";
-            this.txtRaf.Size = new System.Drawing.Size(158, 21);
+            this.txtRaf.Size = new System.Drawing.Size(158, 20);
             this.txtRaf.TabIndex = 1;
             // 
             // label3
@@ -114,13 +125,14 @@
             this.label3.Location = new System.Drawing.Point(4, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 20);
+            this.label3.TabIndex = 82;
             this.label3.Text = "Raf";
             // 
             // dcQty
             // 
             this.dcQty.Location = new System.Drawing.Point(170, 57);
             this.dcQty.Name = "dcQty";
-            this.dcQty.Size = new System.Drawing.Size(65, 21);
+            this.dcQty.Size = new System.Drawing.Size(65, 20);
             this.dcQty.TabIndex = 3;
             this.dcQty.Value = new decimal(new int[] {
             0,
@@ -130,9 +142,15 @@
             // 
             // btnClose
             // 
+            this.btnClose.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
             this.btnClose.Location = new System.Drawing.Point(0, 284);
             this.btnClose.Name = "btnClose";
+            this.btnClose.NormalBtnColour = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnClose.NormalTxtColour = System.Drawing.Color.Blue;
+            this.btnClose.PushedBtnColour = System.Drawing.Color.Blue;
+            this.btnClose.PushedTxtColour = System.Drawing.Color.Yellow;
             this.btnClose.Size = new System.Drawing.Size(240, 36);
             this.btnClose.TabIndex = 62;
             this.btnClose.Text = "Kapat";
@@ -150,13 +168,14 @@
             this.label4.Location = new System.Drawing.Point(4, 85);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 20);
+            this.label4.TabIndex = 86;
             this.label4.Text = "Cari";
             // 
             // textCari
             // 
             this.textCari.Location = new System.Drawing.Point(35, 84);
             this.textCari.Name = "textCari";
-            this.textCari.Size = new System.Drawing.Size(158, 21);
+            this.textCari.Size = new System.Drawing.Size(158, 20);
             this.textCari.TabIndex = 4;
             this.textCari.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textCari_KeyPress);
             // 
@@ -174,13 +193,14 @@
             this.label5.Location = new System.Drawing.Point(4, 112);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 20);
+            this.label5.TabIndex = 81;
             this.label5.Text = "Not";
             // 
             // textAciklama
             // 
             this.textAciklama.Location = new System.Drawing.Point(35, 111);
             this.textAciklama.Name = "textAciklama";
-            this.textAciklama.Size = new System.Drawing.Size(200, 21);
+            this.textAciklama.Size = new System.Drawing.Size(200, 20);
             this.textAciklama.TabIndex = 6;
             // 
             // tabControl1
@@ -217,9 +237,10 @@
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.dcQty);
             this.tabPage1.Controls.Add(this.label8);
-            this.tabPage1.Location = new System.Drawing.Point(0, 0);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(240, 261);
+            this.tabPage1.Size = new System.Drawing.Size(232, 258);
+            this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Ambalaj";
             // 
             // numAmb
@@ -228,7 +249,7 @@
             this.numAmb.BackColor = System.Drawing.Color.LightCyan;
             this.numAmb.Location = new System.Drawing.Point(195, 164);
             this.numAmb.Name = "numAmb";
-            this.numAmb.Size = new System.Drawing.Size(38, 21);
+            this.numAmb.Size = new System.Drawing.Size(38, 20);
             this.numAmb.TabIndex = 79;
             this.numAmb.Text = "1";
             // 
@@ -254,7 +275,7 @@
             // 
             this.txthareket.Location = new System.Drawing.Point(35, 7);
             this.txthareket.Name = "txthareket";
-            this.txthareket.Size = new System.Drawing.Size(158, 21);
+            this.txthareket.Size = new System.Drawing.Size(158, 20);
             this.txthareket.TabIndex = 0;
             this.txthareket.TabStop = false;
             this.txthareket.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textCari_KeyPress);
@@ -263,7 +284,7 @@
             // 
             this.txtdepo.Location = new System.Drawing.Point(35, 138);
             this.txtdepo.Name = "txtdepo";
-            this.txtdepo.Size = new System.Drawing.Size(158, 21);
+            this.txtdepo.Size = new System.Drawing.Size(158, 20);
             this.txtdepo.TabIndex = 72;
             this.txtdepo.TabStop = false;
             this.txtdepo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textCari_KeyPress);
@@ -273,6 +294,7 @@
             this.label6.Location = new System.Drawing.Point(4, 8);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(37, 20);
+            this.label6.TabIndex = 83;
             this.label6.Text = "Tür";
             // 
             // label7
@@ -280,6 +302,7 @@
             this.label7.Location = new System.Drawing.Point(4, 139);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(37, 20);
+            this.label7.TabIndex = 84;
             this.label7.Text = "Depo";
             // 
             // label8
@@ -287,15 +310,17 @@
             this.label8.Location = new System.Drawing.Point(161, 165);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(32, 20);
+            this.label8.TabIndex = 87;
             this.label8.Text = "X";
             this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.printPaletctrl);
-            this.tabPage2.Location = new System.Drawing.Point(0, 0);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Size = new System.Drawing.Size(232, 258);
+            this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Ayarlar";
             // 
             // AmbalajOlusturmaControl
@@ -309,6 +334,7 @@
             this.OnLoad += new System.EventHandler(this.AmbalajOlusturmaControl_OnLoad);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -318,13 +344,13 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtPaletNo;
-        private System.Windows.Forms.Button btnYeniPalet;
+        private GUI.UButton btnYeniPalet;
         private System.Windows.Forms.Label label2;
         private BarkodTextBox txtStok;
         private RafTextBox txtRaf;
         private System.Windows.Forms.Label label3;
         private DecimalTextBox dcQty;
-        private System.Windows.Forms.Button btnClose;
+        private GUI.UButton btnClose;
         private MobileWhouse.GUI.PrintControl printPaletctrl;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textCari;

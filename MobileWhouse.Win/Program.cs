@@ -6,6 +6,7 @@ using System.Reflection;
 using System.IO;
 using System.Xml.Serialization;
 using MobileWhouse.Models;
+using System.Globalization;
 
 namespace MobileWhouse
 {
@@ -19,6 +20,11 @@ namespace MobileWhouse
         [MTAThread]
         static void Main()
         {
+#if !PocketPC
+            System.Threading.Thread.CurrentThread.CurrentCulture =
+            System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
+#endif
+
             ClientApplication application = new ClientApplication();
             application.Run();
         }

@@ -38,9 +38,9 @@
             this.chkRememberMe = new System.Windows.Forms.CheckBox();
             this.lblbuild = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnSettings = new MobileWhouse.GUI.ColourButton();
-            this.btnOkey = new MobileWhouse.GUI.ColourButton();
-            this.btnCancel = new MobileWhouse.GUI.ColourButton();
+            this.btnSettings = new MobileWhouse.GUI.UButton();
+            this.btnOkey = new MobileWhouse.GUI.UButton();
+            this.btnCancel = new MobileWhouse.GUI.UButton();
             this.SuspendLayout();
             // 
             // label1
@@ -203,8 +203,8 @@
         private System.Windows.Forms.CheckBox chkRememberMe;
         private System.Windows.Forms.Label lblbuild;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private MobileWhouse.GUI.ColourButton btnCancel;
-        private MobileWhouse.GUI.ColourButton btnOkey;
-        private MobileWhouse.GUI.ColourButton btnSettings;
+        private MobileWhouse.GUI.UButton btnCancel;
+        private MobileWhouse.GUI.UButton btnOkey;
+        private MobileWhouse.GUI.UButton btnSettings;
     }
 }

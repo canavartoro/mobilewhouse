@@ -39,15 +39,16 @@
             this.Btn_Exit = new System.Windows.Forms.Button();
             this.Chk_Delete = new System.Windows.Forms.CheckBox();
             this.tx_Location_Label = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Btn_Save
             // 
             this.Btn_Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_Save.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.Btn_Save.Location = new System.Drawing.Point(172, 4);
+            this.Btn_Save.Location = new System.Drawing.Point(179, 4);
             this.Btn_Save.Name = "Btn_Save";
-            this.Btn_Save.Size = new System.Drawing.Size(65, 18);
+            this.Btn_Save.Size = new System.Drawing.Size(58, 18);
             this.Btn_Save.TabIndex = 27;
             this.Btn_Save.Text = "Kaydet";
             this.Btn_Save.Click += new System.EventHandler(this.Btn_Save_Click);
@@ -99,7 +100,7 @@
             // tx_LocationCode
             // 
             this.tx_LocationCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.tx_LocationCode.Location = new System.Drawing.Point(42, 256);
+            this.tx_LocationCode.Location = new System.Drawing.Point(53, 256);
             this.tx_LocationCode.Name = "tx_LocationCode";
             this.tx_LocationCode.Size = new System.Drawing.Size(131, 21);
             this.tx_LocationCode.TabIndex = 48;
@@ -107,18 +108,19 @@
             // Tx_Barcode
             // 
             this.Tx_Barcode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Tx_Barcode.Location = new System.Drawing.Point(3, 283);
+            this.Tx_Barcode.BackColor = System.Drawing.Color.Yellow;
+            this.Tx_Barcode.Location = new System.Drawing.Point(53, 283);
             this.Tx_Barcode.Name = "Tx_Barcode";
-            this.Tx_Barcode.Size = new System.Drawing.Size(170, 21);
+            this.Tx_Barcode.Size = new System.Drawing.Size(131, 21);
             this.Tx_Barcode.TabIndex = 45;
             // 
             // Btn_Exit
             // 
             this.Btn_Exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Btn_Exit.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
-            this.Btn_Exit.Location = new System.Drawing.Point(172, 26);
+            this.Btn_Exit.Location = new System.Drawing.Point(179, 26);
             this.Btn_Exit.Name = "Btn_Exit";
-            this.Btn_Exit.Size = new System.Drawing.Size(65, 21);
+            this.Btn_Exit.Size = new System.Drawing.Size(58, 21);
             this.Btn_Exit.TabIndex = 47;
             this.Btn_Exit.Text = "Çıkış";
             this.Btn_Exit.Click += new System.EventHandler(this.Btn_Exit_Click);
@@ -126,7 +128,7 @@
             // Chk_Delete
             // 
             this.Chk_Delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Chk_Delete.Location = new System.Drawing.Point(179, 283);
+            this.Chk_Delete.Location = new System.Drawing.Point(190, 283);
             this.Chk_Delete.Name = "Chk_Delete";
             this.Chk_Delete.Size = new System.Drawing.Size(50, 20);
             this.Chk_Delete.TabIndex = 46;
@@ -139,6 +141,14 @@
             this.tx_Location_Label.Name = "tx_Location_Label";
             this.tx_Location_Label.Size = new System.Drawing.Size(40, 20);
             this.tx_Location_Label.Text = "Raf";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.Location = new System.Drawing.Point(3, 283);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 20);
+            this.label1.Text = "Barkod";
             // 
             // SayimPackageControl
             // 
@@ -155,6 +165,7 @@
             this.Controls.Add(this.Lbl_Date);
             this.Controls.Add(this.Dt_DocDate);
             this.Controls.Add(this.tx_Location_Label);
+            this.Controls.Add(this.label1);
             this.Name = "SayimPackageControl";
             this.Size = new System.Drawing.Size(240, 320);
             this.OnLoad += new System.EventHandler(this.SayimPackageControl_OnLoad);
@@ -175,5 +186,6 @@
         private System.Windows.Forms.Button Btn_Exit;
         private System.Windows.Forms.CheckBox Chk_Delete;
         private System.Windows.Forms.Label tx_Location_Label;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -1,107 +1,142 @@
 ﻿using System;
-using System.Collections;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
+using System.Windows;
 using System.Windows.Forms;
+using System.Drawing;
 using System.Drawing.Imaging;
+#if NETCFDESIGNTIME
+	using System.ComponentModel;
+#endif
 
 namespace MobileWhouse.GUI
 {
-    public partial class UButton : Control
+    public class UButton : Control
     {
-        private bool bPushed = false;
+        /// <summary>
+        /// Button that behaves the same as the standard button,
+        /// but has properties for button colour and text colour
+        /// for both normal state and pushed state.
+        /// </summary>
+        #region Control Attributes
+        //Remove two unwanted properties: BackColor and ForeColor
+#if NETCFDESIGNTIME
+			[Browsable(false)]
+			[EditorBrowsable(EditorBrowsableState.Never)]
+#endif
+        public override Color BackColor
+        {
+            set
+            { ;}
+            get
+            { return new Color(); }
+        }
+#if NETCFDESIGNTIME
+			[Browsable(false)]
+			[EditorBrowsable(EditorBrowsableState.Never)]
+#endif
+        public override Color ForeColor
+        {
+            set
+            { ;}
+            get
+            { return new Color(); }
+        }
+
+        //Now add the properties for the four colours we do want:
+        //	NormalBtnColour
+        //	NormalTxtColour
+        //	PushedBtnColour
+        //	PushedTxtColour
+#if NETCFDESIGNTIME
+			[Category("Appearance")]
+			[DefaultValue(3)]
+			[Description("The normal colour of the button.")]
+#endif
+        public Color NormalBtnColour
+        {
+            set
+            {
+                m_NormalBtnColour = value;
+                Invalidate();
+            }
+            get
+            {
+                return m_NormalBtnColour;
+            }
+        }
+#if NETCFDESIGNTIME
+			[Category("Appearance")]
+			[DefaultValue(3)]
+			[Description("The normal colour of the button text.")]
+#endif
+        public Color NormalTxtColour
+        {
+            set
+            {
+                m_NormalTxtColour = value;
+                Invalidate();
+            }
+            get
+            {
+                return m_NormalTxtColour;
+            }
+        }
+#if NETCFDESIGNTIME
+			[Category("Appearance")]
+			[DefaultValue(3)]
+			[Description("The colour of the button when clicked.")]
+#endif
+        public Color PushedBtnColour
+        {
+            set
+            {
+                m_PushedBtnColour = value;
+                Invalidate();
+            }
+            get
+            {
+                return m_PushedBtnColour;
+            }
+        }
+#if NETCFDESIGNTIME
+			[Category("Appearance")]
+			[DefaultValue(3)]
+			[Description("The colour of the button text when clicked.")]
+#endif
+        public Color PushedTxtColour
+        {
+            set
+            {
+                m_PushedTxtColour = value;
+                Invalidate();
+            }
+            get
+            {
+                return m_PushedTxtColour;
+            }
+        }
+        #endregion
+
+        #region Attributes
+        Color m_NormalBtnColour = Color.LightYellow;
+        Color m_NormalTxtColour = Color.Blue;
+        Color m_PushedBtnColour = Color.Blue;
+        Color m_PushedTxtColour = Color.Yellow;
+        private ImageAlignment imageAlignment = ImageAlignment.Left;
         private System.Drawing.Image image;
-        private Bitmap m_bmpOffscreen;
 
-        public UButton()
+        public enum States
         {
-            base.Size = new Size(0x15, 0x15);
+            Normal,
+            Pushed
         }
 
-        private Color BackgroundImageColor(System.Drawing.Image image)
-        {
-            Bitmap bitmap = new Bitmap(image);
-            return bitmap.GetPixel(0, 0);
-        }
+        States m_state;
+        #endregion
 
-        public void close_image()
-        {
-            this.Dispose(true);
-        }
-
-        protected override void OnMouseDown(MouseEventArgs e)
-        {
-            this.bPushed = true;
-            base.Invalidate();
-        }
-
-        protected override void OnMouseUp(MouseEventArgs e)
-        {
-            this.bPushed = false;
-            base.Invalidate();
-        }
-
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            Brush brush;
-            if (this.m_bmpOffscreen == null)
-            {
-                this.m_bmpOffscreen = new Bitmap(base.ClientSize.Width, base.ClientSize.Height);
-            }
-            Graphics graphics = Graphics.FromImage(this.m_bmpOffscreen);
-            graphics.Clear(this.BackColor);
-            if (!this.bPushed)
-            {
-                brush = new SolidBrush(base.Parent.BackColor);
-            }
-            else
-            {
-                brush = new SolidBrush(Color.WhiteSmoke);
-            }
-            graphics.FillRectangle(brush, base.ClientRectangle);
-            if (this.image != null)
-            {
-                Rectangle rectangle;
-                //int x = (base.Width - this.image.Width) / 2;
-                //int y = (base.Height - this.image.Height) / 2;
-                int x = 2, y = 2;
-                if (!this.bPushed)
-                {
-                    rectangle = new Rectangle(x, y, this.image.Width, this.image.Height);
-                }
-                else
-                {
-                    rectangle = new Rectangle(x, y, this.image.Width, this.image.Height);
-                }
-                ImageAttributes imageAttr = new ImageAttributes();
-                imageAttr.SetColorKey(this.BackgroundImageColor(this.image), this.BackgroundImageColor(this.image));
-                graphics.DrawImage(this.image, rectangle, 0, 0, this.image.Width, this.image.Height, GraphicsUnit.Pixel, imageAttr);
-            }
-            if (this.bPushed)
-            {
-                Rectangle clientRectangle = base.ClientRectangle;
-                clientRectangle.Width--;
-                clientRectangle.Height--;
-                graphics.DrawRectangle(new Pen(Color.Red), clientRectangle);
-            }
-            e.Graphics.DrawImage(this.m_bmpOffscreen, 0, 0);
-
-            if (!string.IsNullOrEmpty(Text))
-            {
-                SizeF size = e.Graphics.MeasureString(Text, Font);
-                e.Graphics.DrawString(Text, Font, new SolidBrush(ForeColor),
-                    (this.ClientSize.Width - size.Width) / 2,
-                    (this.ClientSize.Height - size.Height) / 2);
-            }
-
-            base.OnPaint(e);
-        }
-
-        protected override void OnPaintBackground(PaintEventArgs e)
-        {
-        }
-
+#if NETCFDESIGNTIME
+			[Browsable(false)]
+			[EditorBrowsable(EditorBrowsableState.Never)]
+#endif
         public System.Drawing.Image Image
         {
             get
@@ -114,123 +149,162 @@ namespace MobileWhouse.GUI
             }
         }
 
-        /*
-        public UButton()
-        {
-            if (_image == null)
-            {
-                _image = Properties.Resources.ok;
-                this.Size = new Size(32, 32);
-                this.Text = string.Empty;
-                this.TextUzaklik = 25;
-            }
-        }
-
-        private bool pressed = false;
-        private int _TextUzaklik = 25;
-        private UButtonType _ButtonType = UButtonType.Ok;
-        private Image _image;
-
-        public int TextUzaklik
-        {
-            get { return _TextUzaklik; }
-            set
-            {
-                _TextUzaklik = value;
-            }
-        }
-
-        public Image Image
+        public ImageAlignment Alignment
         {
             get
             {
-                return this._image;
+                return this.imageAlignment;
             }
             set
             {
-                this._image = value;
+                this.imageAlignment = value;
             }
         }
 
-        public UButtonType ButtonType
+        #region Public Services
+        public UButton()
         {
-            get { return _ButtonType; }
-            set
-            {
-                _ButtonType = value;
-
-                switch (_ButtonType)
-                {
-                    case UButtonType.Ok:
-                        _image = Properties.Resources.ok;
-                        break;
-                    case UButtonType.Cancel:
-                        _image = Properties.Resources.err;
-                        break;
-                    default:
-                        break;
-                }
-
-                this.Invalidate();
-            }
+            m_state = States.Normal;
         }
+        #endregion
 
-        protected override void OnMouseDown(MouseEventArgs e)
+        #region Protected/Private Services
+        protected override void OnMouseDown(System.Windows.Forms.MouseEventArgs e)
         {
-            this.pressed = true;
-            this.Invalidate();
+            m_state = States.Pushed;
+            // button receives input focus
+            Focus();
             base.OnMouseDown(e);
+            Invalidate();
         }
 
-        protected override void OnMouseUp(MouseEventArgs e)
+        protected override void OnMouseUp(System.Windows.Forms.MouseEventArgs e)
         {
-            this.pressed = false;
-            this.Invalidate();
+            m_state = States.Normal;
             base.OnMouseUp(e);
-        }
-
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            if (this._image != null)
-                e.Graphics.DrawImage(this._image, 0, 0);
-
-            if (this.Text.Length > 0)
-            {
-                SizeF size = e.Graphics.MeasureString(this.Text, this.Font);
-
-                Color foreColor = this.Enabled != true ? Color.Gray : Color.Black;
-
-                e.Graphics.DrawString(this.Text,
-                    this.Font,
-
-                    new SolidBrush(foreColor),
-                    ((this.ClientSize.Width + TextUzaklik) - size.Width) / 2,
-                    (this.ClientSize.Height - size.Height) / 2);
-            }
-
-            if (!pressed)
-            {
-                e.Graphics.DrawRectangle(new Pen(Color.Black), 0, 0,
-                   this.ClientSize.Width - 1, this.ClientSize.Height - 1);
-            }
-            else
-            {
-                for (int i = 0; i < 2; i++)
-                {
-                    e.Graphics.DrawRectangle(new Pen(Color.Blue), i, i,
-                          this.ClientSize.Width - 2, this.ClientSize.Height - 2);
-                }
-            }
-
-            base.OnPaint(e);
+            Invalidate();
         }
 
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            ((Control)this).Invalidate();
+            Invalidate();
         }
 
-        */
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            Graphics graphics = e.Graphics;
+
+            Pen pen;
+            SolidBrush brush;
+            SolidBrush textBrush;
+
+            //Work out the colours that we should be using for the text and background
+            if (m_state == States.Normal)
+            {
+                brush = new SolidBrush(m_NormalBtnColour);
+                textBrush = new SolidBrush(m_NormalTxtColour);
+                pen = new Pen(m_NormalTxtColour);
+            }
+            else
+            {
+                brush = new SolidBrush(m_PushedBtnColour);
+                textBrush = new SolidBrush(m_PushedTxtColour);
+                pen = new Pen(m_PushedTxtColour);
+            }
+
+            //Draw a rectangle and fill the inside
+            graphics.FillRectangle(brush, 0, 0, Width, Height);
+            graphics.DrawRectangle(pen, 0, 0, Width - 1, Height - 1);
+
+            try
+            {
+                if (this.image != null)
+                {
+                    Rectangle rectangle;
+                    int _x = 0, _y = 0;
+                    if (imageAlignment == ImageAlignment.Center)
+                    {
+                        _x = (base.Width - this.image.Width) / 2;
+                        _y = (base.Height - this.image.Height) / 2;
+                    }
+                    else if (imageAlignment == ImageAlignment.Left)
+                    {
+                        _y = (base.Height - this.image.Height) / 2;
+                        _x = 2;
+                    }
+                    else if (imageAlignment == ImageAlignment.TopCenter)
+                    {
+                        _y = 2;
+                        _x = (base.Width - this.image.Width) / 2;
+                    }
+                    else if (imageAlignment == ImageAlignment.BottomCenter)
+                    {
+                        _y = (base.Height - this.image.Height + 2);
+                        _x = (base.Width - this.image.Width) / 2;
+                    }
+                    else
+                    {
+                        _x = (base.Width - (this.image.Width + 2));
+                        _y = (base.Height - this.image.Height) / 2;
+                    }
+                    if (m_state != States.Pushed)
+                    {
+                        rectangle = new Rectangle(_x, _y, this.image.Width, this.image.Height);
+                    }
+                    else
+                    {
+                        rectangle = new Rectangle(_x, _y, this.image.Width, this.image.Height);
+                    }
+                    ImageAttributes imageAttr = new ImageAttributes();
+                    imageAttr.SetColorKey(this.BackgroundImageColor(this.image), this.BackgroundImageColor(this.image));
+                    graphics.DrawImage(this.image, rectangle, 0, 0, this.image.Width, this.image.Height, GraphicsUnit.Pixel, imageAttr);
+                }
+            }
+            catch { ;}
+
+            //Create a font based on the default font
+            int fontHeight = 10;
+            Font font = new Font(FontFamily.GenericSerif, fontHeight, FontStyle.Bold);
+
+            //Find out the size of the text
+            SizeF textSize = new SizeF();
+            textSize = e.Graphics.MeasureString(Text, font);
+
+            //Work out how to position the text centrally
+            float x = 0, y = 0;
+            if (textSize.Width < Width)
+                x = (Width - textSize.Width) / 2;
+            if (textSize.Height < Height)
+                y = (Height - textSize.Height) / 2;
+
+            //Draw the text in the centre of the button using the default font
+            graphics.DrawString(Text, font, textBrush, x, y);
+        }
+
+        #endregion
+
+        private Color BackgroundImageColor(System.Drawing.Image image)
+        {
+            Bitmap bitmap = new Bitmap(image);
+            return bitmap.GetPixel(0, 0);
+        }
     }
+
+    public enum ImageAlignment
+    {
+        Left,
+        Center,
+        Right,
+        TopLeft,
+        TopCenter,
+        TopRight,
+        MiddleLeft,
+        MiddleCenter,
+        MiddleRight,
+        BottomLeft,
+        BottomCenter,
+        BottomRight
+    }
+
 }

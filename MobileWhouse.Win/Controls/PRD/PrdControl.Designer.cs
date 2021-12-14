@@ -49,7 +49,7 @@
             this.btnisemritalep.Name = "btnisemritalep";
             this.btnisemritalep.Size = new System.Drawing.Size(234, 20);
             this.btnisemritalep.TabIndex = 0;
-            this.btnisemritalep.Text = "İş Emrine Malzeme Talebi";
+            this.btnisemritalep.Text = "İş Emrine Malzeme Talebi (1)";
             this.btnisemritalep.Click += new System.EventHandler(this.btnisemritalep_Click);
             // 
             // btntalepsevk
@@ -60,7 +60,7 @@
             this.btntalepsevk.Name = "btntalepsevk";
             this.btntalepsevk.Size = new System.Drawing.Size(234, 20);
             this.btntalepsevk.TabIndex = 0;
-            this.btntalepsevk.Text = "Malzeme Talebi Sevk";
+            this.btntalepsevk.Text = "Malzeme Talebi Sevk (2)";
             this.btntalepsevk.Click += new System.EventHandler(this.btntalepsevk_Click);
             // 
             // btnisemribaslat
@@ -71,7 +71,7 @@
             this.btnisemribaslat.Name = "btnisemribaslat";
             this.btnisemribaslat.Size = new System.Drawing.Size(234, 20);
             this.btnisemribaslat.TabIndex = 0;
-            this.btnisemribaslat.Text = "İş Emri Başlatma";
+            this.btnisemribaslat.Text = "İş Emri Başlatma (3)";
             this.btnisemribaslat.Click += new System.EventHandler(this.btnisemribaslat_Click);
             // 
             // btnuretimgiris
@@ -82,7 +82,7 @@
             this.btnuretimgiris.Name = "btnuretimgiris";
             this.btnuretimgiris.Size = new System.Drawing.Size(234, 20);
             this.btnuretimgiris.TabIndex = 0;
-            this.btnuretimgiris.Text = "Üretim Girişi";
+            this.btnuretimgiris.Text = "Üretim Girişi (5)";
             this.btnuretimgiris.Click += new System.EventHandler(this.btnuretimgiris_Click);
             // 
             // btnkolietiket
@@ -93,7 +93,7 @@
             this.btnkolietiket.Name = "btnkolietiket";
             this.btnkolietiket.Size = new System.Drawing.Size(234, 20);
             this.btnkolietiket.TabIndex = 0;
-            this.btnkolietiket.Text = "Koli Etiketi Basma";
+            this.btnkolietiket.Text = "Koli Etiketi Basma (4)";
             this.btnkolietiket.Click += new System.EventHandler(this.btnkolietiket_Click);
             // 
             // btnhurdaetiket
@@ -104,7 +104,7 @@
             this.btnhurdaetiket.Name = "btnhurdaetiket";
             this.btnhurdaetiket.Size = new System.Drawing.Size(234, 20);
             this.btnhurdaetiket.TabIndex = 0;
-            this.btnhurdaetiket.Text = "Hurda Etiketi Basma";
+            this.btnhurdaetiket.Text = "Hurda Etiketi Basma (7)";
             this.btnhurdaetiket.Click += new System.EventHandler(this.btnhurdaetiket_Click);
             // 
             // btndurus
@@ -115,7 +115,7 @@
             this.btndurus.Name = "btndurus";
             this.btndurus.Size = new System.Drawing.Size(234, 20);
             this.btndurus.TabIndex = 0;
-            this.btndurus.Text = "Duruş Tanımlama";
+            this.btndurus.Text = "Duruş Tanımlama (6)";
             this.btndurus.Click += new System.EventHandler(this.btndurus_Click);
             // 
             // btnhurdatartim
@@ -126,7 +126,7 @@
             this.btnhurdatartim.Name = "btnhurdatartim";
             this.btnhurdatartim.Size = new System.Drawing.Size(234, 20);
             this.btnhurdatartim.TabIndex = 0;
-            this.btnhurdatartim.Text = "Hurda Tartım";
+            this.btnhurdatartim.Text = "Hurda Tartım (8)";
             this.btnhurdatartim.Click += new System.EventHandler(this.btnhurdatartim_Click);
             // 
             // btnKapat
@@ -148,7 +148,7 @@
             this.btnkarisim.Name = "btnkarisim";
             this.btnkarisim.Size = new System.Drawing.Size(234, 20);
             this.btnkarisim.TabIndex = 0;
-            this.btnkarisim.Text = "Karışım Üretimi";
+            this.btnkarisim.Text = "Karışım Üretimi (9)";
             this.btnkarisim.Click += new System.EventHandler(this.btnkarisim_Click);
             // 
             // btngeri
@@ -159,7 +159,7 @@
             this.btngeri.Name = "btngeri";
             this.btngeri.Size = new System.Drawing.Size(234, 30);
             this.btngeri.TabIndex = 1;
-            this.btngeri.Text = "Ana Menü";
+            this.btngeri.Text = "Ana Menü (Shift+0)";
             this.btngeri.Click += new System.EventHandler(this.btngeri_Click);
             // 
             // PrdControl

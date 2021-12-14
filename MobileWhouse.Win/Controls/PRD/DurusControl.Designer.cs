@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnKapat = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DurusControl));
             this.btnistasyon = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtistasyon = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtaciklama = new System.Windows.Forms.TextBox();
-            this.btntamam = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dateStart = new System.Windows.Forms.DateTimePicker();
             this.dateEnd = new System.Windows.Forms.DateTimePicker();
@@ -45,16 +44,9 @@
             this.cmbvardiya = new MobileWhouse.GUI.ComboControl();
             this.cmddurusneden = new MobileWhouse.GUI.ComboControl();
             this.cmbpersonel = new MobileWhouse.GUI.ComboControl();
+            this.btnKapat = new MobileWhouse.GUI.UButton();
+            this.btntamam = new MobileWhouse.GUI.UButton();
             this.SuspendLayout();
-            // 
-            // btnKapat
-            // 
-            this.btnKapat.Location = new System.Drawing.Point(4, 247);
-            this.btnKapat.Name = "btnKapat";
-            this.btnKapat.Size = new System.Drawing.Size(116, 39);
-            this.btnKapat.TabIndex = 1;
-            this.btnKapat.Text = "Kapat";
-            this.btnKapat.Click += new System.EventHandler(this.btnKapat_Click);
             // 
             // btnistasyon
             // 
@@ -100,15 +92,6 @@
             this.txtaciklama.Name = "txtaciklama";
             this.txtaciklama.Size = new System.Drawing.Size(154, 68);
             this.txtaciklama.TabIndex = 40;
-            // 
-            // btntamam
-            // 
-            this.btntamam.Location = new System.Drawing.Point(126, 247);
-            this.btntamam.Name = "btntamam";
-            this.btntamam.Size = new System.Drawing.Size(109, 39);
-            this.btntamam.TabIndex = 41;
-            this.btntamam.Text = "Kaydet";
-            this.btntamam.Click += new System.EventHandler(this.btntamam_Click);
             // 
             // label2
             // 
@@ -183,23 +166,57 @@
             this.cmbpersonel.Size = new System.Drawing.Size(154, 22);
             this.cmbpersonel.TabIndex = 76;
             // 
+            // btnKapat
+            // 
+            this.btnKapat.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
+            this.btnKapat.BackColor = System.Drawing.Color.Empty;
+            this.btnKapat.ForeColor = System.Drawing.Color.Empty;
+            this.btnKapat.Image = ((System.Drawing.Image)(resources.GetObject("btnKapat.Image")));
+            this.btnKapat.Location = new System.Drawing.Point(4, 247);
+            this.btnKapat.Name = "btnKapat";
+            this.btnKapat.NormalBtnColour = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnKapat.NormalTxtColour = System.Drawing.Color.Black;
+            this.btnKapat.PushedBtnColour = System.Drawing.Color.Blue;
+            this.btnKapat.PushedTxtColour = System.Drawing.Color.Yellow;
+            this.btnKapat.Size = new System.Drawing.Size(116, 39);
+            this.btnKapat.TabIndex = 84;
+            this.btnKapat.Text = "Kapat";
+            this.btnKapat.Click += new System.EventHandler(this.btnKapat_Click);
+            // 
+            // btntamam
+            // 
+            this.btntamam.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
+            this.btntamam.BackColor = System.Drawing.Color.Empty;
+            this.btntamam.ForeColor = System.Drawing.Color.Empty;
+            this.btntamam.Image = ((System.Drawing.Image)(resources.GetObject("btntamam.Image")));
+            this.btntamam.Location = new System.Drawing.Point(126, 247);
+            this.btntamam.Name = "btntamam";
+            this.btntamam.NormalBtnColour = System.Drawing.Color.LightYellow;
+            this.btntamam.NormalTxtColour = System.Drawing.Color.Blue;
+            this.btntamam.PushedBtnColour = System.Drawing.Color.Blue;
+            this.btntamam.PushedTxtColour = System.Drawing.Color.Yellow;
+            this.btntamam.Size = new System.Drawing.Size(109, 39);
+            this.btntamam.TabIndex = 85;
+            this.btntamam.Text = "Kaydet";
+            this.btntamam.Click += new System.EventHandler(this.btntamam_Click);
+            // 
             // DurusControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.Controls.Add(this.btntamam);
+            this.Controls.Add(this.btnKapat);
             this.Controls.Add(this.cmbpersonel);
             this.Controls.Add(this.cmddurusneden);
             this.Controls.Add(this.cmbvardiya);
             this.Controls.Add(this.dateEnd);
             this.Controls.Add(this.dateStart);
-            this.Controls.Add(this.btntamam);
             this.Controls.Add(this.txtaciklama);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnistasyon);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtistasyon);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnKapat);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -213,14 +230,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnKapat;
         private System.Windows.Forms.Button btnistasyon;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtistasyon;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtaciklama;
-        private System.Windows.Forms.Button btntamam;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateStart;
         private System.Windows.Forms.DateTimePicker dateEnd;
@@ -230,5 +245,7 @@
         private MobileWhouse.GUI.ComboControl cmbvardiya;
         private MobileWhouse.GUI.ComboControl cmddurusneden;
         private MobileWhouse.GUI.ComboControl cmbpersonel;
+        private MobileWhouse.GUI.UButton btnKapat;
+        private MobileWhouse.GUI.UButton btntamam;
     }
 }

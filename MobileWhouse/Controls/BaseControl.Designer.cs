@@ -28,7 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.timerLoader = new System.Windows.Forms.Timer();
             this.SuspendLayout();
+            // 
+            // timerLoader
+            // 
+            this.timerLoader.Enabled = true;
+            this.timerLoader.Tick += new System.EventHandler(this.timerLoader_Tick);
             // 
             // BaseControl
             // 
@@ -36,11 +42,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.Name = "BaseControl";
             this.Size = new System.Drawing.Size(240, 294);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.BaseControl_Paint);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer timerLoader;
     }
 }

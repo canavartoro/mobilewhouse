@@ -42,14 +42,12 @@
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.btnkaydet = new System.Windows.Forms.Button();
-            this.lblbilgi = new System.Windows.Forms.Label();
             this.txtstokkod = new System.Windows.Forms.TextBox();
             this.txtdepoad = new System.Windows.Forms.TextBox();
             this.txtmiktar = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnsil = new System.Windows.Forms.Button();
             this.btnekle = new System.Windows.Forms.Button();
-            this.checkTransfer = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -77,21 +75,21 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(0, 27);
+            this.label2.Location = new System.Drawing.Point(0, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 20);
             this.label2.Text = "Depo:";
             // 
             // txtdepo
             // 
-            this.txtdepo.Location = new System.Drawing.Point(49, 27);
+            this.txtdepo.Location = new System.Drawing.Point(49, 29);
             this.txtdepo.Name = "txtdepo";
             this.txtdepo.Size = new System.Drawing.Size(59, 21);
             this.txtdepo.TabIndex = 1;
             // 
             // btndepo
             // 
-            this.btndepo.Location = new System.Drawing.Point(109, 25);
+            this.btndepo.Location = new System.Drawing.Point(109, 29);
             this.btndepo.Name = "btndepo";
             this.btndepo.Size = new System.Drawing.Size(20, 22);
             this.btndepo.TabIndex = 3;
@@ -119,9 +117,9 @@
             this.listisemri.Columns.Add(this.columnHeader3);
             this.listisemri.Columns.Add(this.columnHeader4);
             this.listisemri.FullRowSelect = true;
-            this.listisemri.Location = new System.Drawing.Point(3, 86);
+            this.listisemri.Location = new System.Drawing.Point(3, 80);
             this.listisemri.Name = "listisemri";
-            this.listisemri.Size = new System.Drawing.Size(234, 203);
+            this.listisemri.Size = new System.Drawing.Size(234, 209);
             this.listisemri.TabIndex = 7;
             this.listisemri.View = System.Windows.Forms.View.Details;
             // 
@@ -160,15 +158,6 @@
             this.btnkaydet.Text = "Kaydet";
             this.btnkaydet.Click += new System.EventHandler(this.btnkaydet_Click);
             // 
-            // lblbilgi
-            // 
-            this.lblbilgi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblbilgi.Location = new System.Drawing.Point(3, 69);
-            this.lblbilgi.Name = "lblbilgi";
-            this.lblbilgi.Size = new System.Drawing.Size(234, 17);
-            this.lblbilgi.Text = "Satır Sayısı:0, Gereken:0";
-            // 
             // txtstokkod
             // 
             this.txtstokkod.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
@@ -182,7 +171,7 @@
             // 
             this.txtdepoad.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtdepoad.Location = new System.Drawing.Point(131, 27);
+            this.txtdepoad.Location = new System.Drawing.Point(131, 29);
             this.txtdepoad.Name = "txtdepoad";
             this.txtdepoad.Size = new System.Drawing.Size(106, 21);
             this.txtdepoad.TabIndex = 11;
@@ -190,7 +179,7 @@
             // txtmiktar
             // 
             this.txtmiktar.BackColor = System.Drawing.Color.SkyBlue;
-            this.txtmiktar.Location = new System.Drawing.Point(49, 50);
+            this.txtmiktar.Location = new System.Drawing.Point(49, 54);
             this.txtmiktar.Name = "txtmiktar";
             this.txtmiktar.Size = new System.Drawing.Size(83, 21);
             this.txtmiktar.TabIndex = 15;
@@ -198,14 +187,14 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(0, 51);
+            this.label3.Location = new System.Drawing.Point(0, 55);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 20);
             this.label3.Text = "Miktar:";
             // 
             // btnsil
             // 
-            this.btnsil.Location = new System.Drawing.Point(154, 50);
+            this.btnsil.Location = new System.Drawing.Point(154, 54);
             this.btnsil.Name = "btnsil";
             this.btnsil.Size = new System.Drawing.Size(83, 21);
             this.btnsil.TabIndex = 17;
@@ -214,27 +203,17 @@
             // 
             // btnekle
             // 
-            this.btnekle.Location = new System.Drawing.Point(133, 49);
+            this.btnekle.Location = new System.Drawing.Point(131, 53);
             this.btnekle.Name = "btnekle";
             this.btnekle.Size = new System.Drawing.Size(20, 22);
             this.btnekle.TabIndex = 3;
             this.btnekle.Text = "...";
             this.btnekle.Click += new System.EventHandler(this.btnekle_Click);
             // 
-            // checkTransfer
-            // 
-            this.checkTransfer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.checkTransfer.Location = new System.Drawing.Point(67, 292);
-            this.checkTransfer.Name = "checkTransfer";
-            this.checkTransfer.Size = new System.Drawing.Size(101, 20);
-            this.checkTransfer.TabIndex = 22;
-            this.checkTransfer.Text = "Transfer Yap";
-            // 
             // IsEmrineMalzemeTalepControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.Controls.Add(this.checkTransfer);
             this.Controls.Add(this.btnsil);
             this.Controls.Add(this.txtmiktar);
             this.Controls.Add(this.txtdepoad);
@@ -250,7 +229,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtisemrino);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblbilgi);
             this.Name = "IsEmrineMalzemeTalepControl";
             this.Size = new System.Drawing.Size(240, 320);
             this.ResumeLayout(false);
@@ -272,7 +250,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.Button btnkaydet;
-        private System.Windows.Forms.Label lblbilgi;
         private System.Windows.Forms.TextBox txtstokkod;
         private System.Windows.Forms.TextBox txtdepoad;
         private System.Windows.Forms.ColumnHeader columnHeader5;
@@ -280,7 +257,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnsil;
         private System.Windows.Forms.Button btnekle;
-        private System.Windows.Forms.CheckBox checkTransfer;
 
     }
 }

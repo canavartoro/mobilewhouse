@@ -221,40 +221,59 @@
         }
     </script>
 </head>
-<body>
-    <form id="form1" runat="server">
+<body style="padding:0px;margin:0px;">
+    <form id="form1" runat="server" style="padding:0px;margin:0px;">
         <div>
-            <div style="width: 89%; margin-top: 10px; margin-left: 10px; height: 40px; background: #cccccc; text-align: center; color: black; padding: 8px;">
+            <div style="width: 98%; margin-top: 5px;  height: 40px; background: #cccccc; text-align: center; color: black; padding: 8px;">
                 Hata Log Kayıtları
             </div>
-            <div style="width: 100%; display: flex; margin-top: 5px; margin-left: 10px; height: 600px;">
-                <div style="width: 15%; border: 1px solid #cccccc; overflow: auto;">
-                    <asp:TreeView runat="server" ID="treelogs" style="height:75%;width:100%;"
+            <div style="width: 100%; display: flex; margin-top: 5px; ">
+                <div id="sol" style="border: 1px solid #cccccc; overflow: auto;">
+                    <asp:TreeView runat="server" ID="treelogs" style="width:400px;"
                         OnSelectedNodeChanged="treelogs_SelectedNodeChanged" 
                         EnableClientScript="true" ShowExpandCollapse="true">
                         <Nodes>
                         </Nodes>
                     </asp:TreeView>
-                    <div style="width:100%;height:20%;padding:8px;">
+                    <div id="sag" style="padding:8px;">
                         <p>Program kurulumu için önce <strong>MWS.CAB</strong> dosyasını indirin ve cihaza kurun</p>
-                        <ul>
+                        <ol type="1">
                             <li><a href="MWS.CAB">Kurulum Dosyası İndir</a></li>
-                            <li style="list-style-type: square"><a href="uyumsoft.zip">Güncelleme Dosyası İndir</a></li>
-                        </ul>
+                            <li><a href="uyumsoft.zip">Güncelleme Dosyası İndir</a></li>
+                            <li><a href="NETCFv1.WM.ARMV4I.CAB">NETCF for Windows Mobile indir</a></li>
+                            <li><a href="NETCFv2.wce5.armv4i.cab">Windows CE ARM indir</a></li>
+                            <li><a href="sql.wce5.armv4i.CAB">Windows CE.NET Framework (ARM) indir</a></li>
+                            <li ><a href="System_SR_ENU.cab">Windows CE.NET Frame Work indir</a></li>
+                        </ol>
                     </div>
                 </div>
-                <div style="width: 75%; border: 1px solid #cccccc; margin-left: 2px;">
+                <div style="width: 83%; border: 1px solid #cccccc; margin-left: 2px;">
                     <asp:Label runat="server" ID="lblerror"></asp:Label>
                 </div>
             </div>
-            <div style="width: 89%; margin-top: 10px; margin-left: 10px; height: 20px; background: #f3f1f1; text-align: right; color: black; padding: 2px;">
-                <asp:TextBox runat="server" ID="txtversion" Width="120px" />
-                <asp:Button runat="server" ID="btnversion" Text="Versiyon Güncelle" OnClick="btnversion_Click" />
-                <asp:FileUpload runat="server" ID="fileapk" Width="320" />
+            <div style="width: 98%; margin-top: 10px; height: 20px; background: #f3f1f1; text-align: right; color: black; padding: 2px;">
+                <asp:TextBox runat="server" ID="txtversion" Width="50px" />
+                <asp:Button runat="server" ID="btnversion" Text="Versiyon Güncelle" OnClick="btnversion_Click"  Width="150px" />
+                <asp:FileUpload runat="server" ID="fileapk" Width="200" />
                 <asp:Button runat="server" ID="btnupload" Text="Dosya Yükle" OnClick="btnupload_Click" />
                 <asp:Button runat="server" ID="btnsil" Text="Seçilen Dosyayı Sil" OnClick="btnsil_Click" />
             </div>
         </div>
     </form>
+<script>
+if(window.innerWidth>300)
+{
+	var tut = document.getElementById('sol');
+	tut.style.width = '15%';
+	tut = document.getElementById('sag');
+	tut.style.width = '85%';
+}else{
+	var tut = document.getElementById('sol');
+	tut.style.width = '99%';
+	tut = document.getElementById('sag');
+	tut.style.width = '1%';
+}
+
+</script>
 </body>
 </html>

@@ -26,10 +26,10 @@ namespace MobileWhouse.Controls.PRD
         public MalzemeTalepSevkControl()
         {
             InitializeComponent();
+            txtraf.DepoId = ClientApplication.Instance.SelectedDepot.Id;
         }
 
         private DataRow selectedWorderOut = null;
-        private MobileWhouse.UyumConnector.Depot kaynakdepo = null;
         private MobileWhouse.UyumConnector.NameIdItem _SelectedRaf;
         MobileWhouse.UTermConnector.PackageDetail package = null;
 
@@ -293,22 +293,6 @@ UYUMSOFT.PRDT_WORDER_M ON PRDT_TRANSFER_D.WORDER_M_ID = PRDT_WORDER_M.WORDER_M_I
             }
         }
 
-        private void btndepo_Click(object sender, EventArgs e)
-        {
-            using (FormSelectDepot form = new FormSelectDepot())
-            {
-                form._OnlyWithLocation = false;
-                form.DepotId = ClientApplication.Instance.SelectedDepot.Id;
-                if (form.ShowDialog() == DialogResult.OK
-                    && form.Selected != null)
-                {
-                    kaynakdepo = form.Selected;
-                    txtdepo.Text = kaynakdepo.Code;
-                    txtraf.DepoId = kaynakdepo.Id;
-                }
-            }
-        }
-
         public override void OnRafBarkod(MobileWhouse.UyumConnector.NameIdItem raf)
         {
             base.OnRafBarkod(raf);
@@ -330,7 +314,7 @@ UYUMSOFT.PRDT_WORDER_M ON PRDT_TRANSFER_D.WORDER_M_ID = PRDT_WORDER_M.WORDER_M_I
                     MobileWhouse.UTermConnector.ServiceRequestOfItemPickingParam _Ipp = new MobileWhouse.UTermConnector.ServiceRequestOfItemPickingParam();
                     _Ipp.Token = ClientApplication.Instance.UTermToken;
                     _Ipp.Value = new MobileWhouse.UTermConnector.ItemPickingParam();
-                    _Ipp.Value.WhouseId = kaynakdepo.Id;
+                    _Ipp.Value.WhouseId = ClientApplication.Instance.SelectedDepot.Id;
                     _Ipp.Value.PackageNo = barkod;
 
                     MobileWhouse.UTermConnector.ServiceResultOfPackageDetail result = ClientApplication.Instance.UTermService.GetPackageInfo(_Ipp);
@@ -395,14 +379,7 @@ UYUMSOFT.PRDT_WORDER_M ON PRDT_TRANSFER_D.WORDER_M_ID = PRDT_WORDER_M.WORDER_M_I
 
         private void btnraf_Click(object sender, EventArgs e)
         {
-            if (kaynakdepo == null)
-            {
-                Screens.Error("Kaynak Depo seçilmedi!");
-                btndepo_Click(btndepo, EventArgs.Empty);
-                return;
-            }
-
-            using (FormSelectRaf form = new FormSelectRaf(kaynakdepo))
+            using (FormSelectRaf form = new FormSelectRaf(ClientApplication.Instance.SelectedDepot))
             {
                 if (form.ShowDialog() == DialogResult.OK)
                 {
@@ -442,23 +419,27 @@ UYUMSOFT.PRDT_WORDER_M ON PRDT_TRANSFER_D.WORDER_M_ID = PRDT_WORDER_M.WORDER_M_I
                 param.Value.WhouseId = StringUtil.ToInteger(selectedWorderOut["WHOUSE_ID"]);
                 param.Value.WoTypeId = StringUtil.ToInteger(selectedWorderOut["WO_TYPE_ID"]);
                 //param.Value.DocTraId = 1332;
-
-                param.Value.TransferWorderList = new MobileWhouse.ProdConnector.TransferWorderInfo[listbarkod.Items.Count];
+                List<MobileWhouse.ProdConnector.TransferWorderInfo> details = new List<MobileWhouse.ProdConnector.TransferWorderInfo>();
                 for (int i = 0; i < listbarkod.Items.Count; i++)
                 {
                     TalepDetayInf detay = listbarkod.Items[i].Tag as TalepDetayInf;
-
-                    param.Value.TransferWorderList[i] = new MobileWhouse.ProdConnector.TransferWorderInfo();
-                    param.Value.TransferWorderList[i].TransferDId = detay.TRANSFER_D_ID;
-                    param.Value.TransferWorderList[i].WorderItemId = detay.WORDER_ITEM_ID;
-                    param.Value.TransferWorderList[i].WorderMId = detay.WORDER_M_ID;
-                    param.Value.TransferWorderList[i].WorderMQty = detay.WORDER_QTY;
-                    param.Value.TransferWorderList[i].WorderUnitId = detay.WORDER_UNIT_ID;
-                    param.Value.TransferWorderList[i].BwhLocationOutId = detay.LOCATION_ID;
-                    param.Value.TransferWorderList[i].PackageMId = detay.PACKAGE_M_ID;
-                    param.Value.TransferWorderList[i].PackageMNo = detay.PACKAGE_NO;
-                    param.Value.TransferWorderList[i].QtyTrailing = detay.QTY_READ;
+                    if (detay.QTY_READ > 0)
+                    {
+                        MobileWhouse.ProdConnector.TransferWorderInfo detail = new MobileWhouse.ProdConnector.TransferWorderInfo();
+                        detail.TransferDId = detay.TRANSFER_D_ID;
+                        detail.WorderItemId = detay.WORDER_ITEM_ID;
+                        detail.WorderMId = detay.WORDER_M_ID;
+                        detail.WorderMQty = detay.WORDER_QTY;
+                        detail.WorderUnitId = detay.WORDER_UNIT_ID;
+                        detail.BwhLocationOutId = 166;//detay.LOCATION_ID;
+                        detail.BwhLocationInId = 168;//detay.LOCATION_ID;
+                        detail.PackageMId = detay.PACKAGE_M_ID;
+                        detail.PackageMNo = detay.PACKAGE_NO;
+                        detail.QtyTrailing = detay.QTY_READ;
+                        details.Add(detail);
+                    }
                 }
+                param.Value.TransferWorderList = details.ToArray();
 
                 MobileWhouse.ProdConnector.ServiceResultOfTransferMInfo result = ClientApplication.Instance.ProdService.PrdTransfer(param);
                 if (result != null)
@@ -467,10 +448,8 @@ UYUMSOFT.PRDT_WORDER_M ON PRDT_TRANSFER_D.WORDER_M_ID = PRDT_WORDER_M.WORDER_M_I
                     {
                         Screens.Info("İşlem tamamlandı");
                         selectedWorderOut = null;
-                        kaynakdepo = null;
                         _SelectedRaf = null;
                         txtaciklama.Text = "";
-                        txtdepo.Text = "";
                         txtraf.Text = "";
                         listbarkod.Items.Clear();
                         listtalep.Items.Clear();

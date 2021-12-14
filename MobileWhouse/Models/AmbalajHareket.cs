@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 using System.Text;
+using MobileWhouse.Util;
 
 namespace MobileWhouse.Models
 {
@@ -161,7 +162,7 @@ namespace MobileWhouse.Models
         public string DocDateString
         {
             get { return this.DocDate.ToString("dd.MM.yyyy HH:mm:ss"); }
-            set { this.DocDate = DateTime.Parse(value); }
+            set { this.DocDate = StringUtil.ToDatetime(value); }
         }
 
         private string docNoField;
@@ -441,6 +442,20 @@ namespace MobileWhouse.Models
             set
             {
                 this.depthField = value;
+            }
+        }
+
+        private int sourceMIdField;
+        /// <remarks/>
+        public int SourceMId
+        {
+            get
+            {
+                return this.sourceMIdField;
+            }
+            set
+            {
+                this.sourceMIdField = value;
             }
         }
 

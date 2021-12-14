@@ -37,6 +37,8 @@ namespace MobileWhouse.Controls.PSM
         {
             try
             {
+                Screens.ShowWait();
+
                 listView1.BeginUpdate();
                 listView1.Items.Clear();
 
@@ -60,14 +62,12 @@ namespace MobileWhouse.Controls.PSM
                     {
                         ListViewItem item = new ListViewItem();
                         item.Tag = orderDInfo.Value[i];
-                        item.Text = orderDInfo.Value[i].WhouseCode;
-                        item.SubItems.Add(orderDInfo.Value[i].WhouseDesc);
-                        item.SubItems.Add(orderDInfo.Value[i].EntityName);
-                        item.SubItems.Add(orderDInfo.Value[i].DcardCode);
+                        item.Text = orderDInfo.Value[i].DcardCode;
                         item.SubItems.Add(orderDInfo.Value[i].DcardName);
-                        item.SubItems.Add(orderDInfo.Value[i].QtyShipping.ToString(Statics.DECIMAL_STRING_FORMAT));
-                        item.SubItems.Add(orderDInfo.Value[i].QtyRemaining.ToString(Statics.DECIMAL_STRING_FORMAT));
                         item.SubItems.Add("0");
+                        item.SubItems.Add(orderDInfo.Value[i].QtyRemaining.ToString(Statics.DECIMAL_STRING_FORMAT));
+                        item.SubItems.Add(orderDInfo.Value[i].WhouseCode);
+                        item.SubItems.Add(orderDInfo.Value[i].WhouseDesc);
                         listView1.Items.Add(item);
                     }
                 }
@@ -79,6 +79,7 @@ namespace MobileWhouse.Controls.PSM
             finally
             {
                 listView1.EndUpdate();
+                Screens.HideWait();
             }
         }
 
