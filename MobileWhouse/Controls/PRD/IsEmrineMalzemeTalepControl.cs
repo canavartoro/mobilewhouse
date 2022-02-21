@@ -9,10 +9,12 @@ using System.Windows.Forms;
 using MobileWhouse.Dilogs;
 using MobileWhouse.Util;
 using System.Globalization;
+using MobileWhouse.Attributes;
 
 namespace MobileWhouse.Controls.PRD
 {
     //"PRDT_TRANSFER_M ( PrdTransferMCollection )" PrdTransferM.xml		İş Emrine Bağlı Talep Girişi
+    [UyumModule("PRD001", "MobileWhouse.Controls.PRD.IsEmrineMalzemeTalepControl", "İş Emrine Malzeme Talebi")]
     public partial class IsEmrineMalzemeTalepControl : BaseControl
     {
         public IsEmrineMalzemeTalepControl()
@@ -31,7 +33,7 @@ namespace MobileWhouse.Controls.PRD
                 sbSqlString.Append("SELECT B.ITEM_ID,I.ITEM_CODE,I.ITEM_NAME,B.UNIT_ID,U.UNIT_CODE,B.QTY_BASE_BOM QTY,COALESCE(BWH.QTY_PRM,0) ONHAND, ");
                 sbSqlString.Append("B.WORDER_BOM_D_ID,B.BOM_LINE_TYPE,B.LINE_NO,B.WHOUSE_ID,W.WHOUSE_CODE ");
                 sbSqlString.Append("FROM PRDT_WORDER_BOM_D B INNER JOIN INVD_ITEM I ON B.ITEM_ID = I.ITEM_ID INNER JOIN ");
-                sbSqlString.Append("INVD_UNIT U ON B.UNIT_ID = U.UNIT_ID INNER JOIN INVD_WHOUSE W ON B.WHOUSE_ID = W.WHOUSE_ID LEFT JOIN ");
+                sbSqlString.Append("INVD_UNIT U ON B.UNIT_ID = U.UNIT_ID LEFT JOIN INVD_WHOUSE W ON B.WHOUSE_ID = W.WHOUSE_ID LEFT JOIN ");
                 sbSqlString.Append("INVD_BWH_ITEM_D BWH ON B.ITEM_ID = BWH.ITEM_ID AND B.WHOUSE_ID = BWH.WHOUSE_ID ");
                 sbSqlString.AppendFormat("WHERE B.BRANCH_ID = {0} AND B.CO_ID = {1} ", ClientApplication.Instance.Token.BranchId, ClientApplication.Instance.Token.CoId);
                 sbSqlString.AppendFormat(" AND B.WORDER_M_ID = {0} ", worderM.Id);
@@ -90,37 +92,7 @@ namespace MobileWhouse.Controls.PRD
 
         private void btnkapat_Click(object sender, EventArgs e)
         {
-            MainForm.ShowControl(null);
-        }
-
-        private void btndepo_Click(object sender, EventArgs e)
-        {
-            using (FormSelectDepot form = new FormSelectDepot())
-            {
-                form._OnlyWithLocation = false;
-                form.DepotId = ClientApplication.Instance.SelectedDepot.Id;
-                if (form.ShowDialog() == DialogResult.OK
-                    && form.Selected != null)
-                {
-                    depo = form.Selected;
-                    txtdepo.Text = depo.Code;
-                    txtdepoad.Text = depo.Name;
-                }
-            }
-        }
-
-        private void btnisemri_Click(object sender, EventArgs e)
-        {
-            using (FormSelectWorder frm = new FormSelectWorder())
-            {
-                if (frm.ShowDialog() == DialogResult.OK && frm.WorderM != null)
-                {
-                    worderM = frm.WorderM;
-                    txtisemrino.Text = worderM.WorderNo;
-                    txtstokkod.Text = string.Concat(worderM.ItemCode, " ", worderM.ItemName);
-                    GetRecete();
-                }
-            }
+            MainForm.ShowControl(new PRD.PrdControl());
         }
 
         private void btnkaydet_Click(object sender, EventArgs e)
@@ -199,10 +171,8 @@ namespace MobileWhouse.Controls.PRD
                         worderM = null;
                         listisemri.Items.Clear();
                         txtmiktar.Text = "";
-                        txtdepo.Text = "";
-                        txtdepoad.Text = "";
-                        txtisemrino.Text = "";
-                        txtstokkod.Text = "";
+                        txtdepo.SetText("");
+                        txtisemrino.SetText("");
                     }
                 }
             }
@@ -260,6 +230,22 @@ namespace MobileWhouse.Controls.PRD
                 }
                 listisemri.EndUpdate();
             }
+        }
+
+        private void txtisemrino_OnSelected(object sender, object obj)
+        {
+            worderM = obj as MobileWhouse.ProdConnector.WorderMInfo;
+            if (worderM != null)
+            {
+                txtisemrino.Text = worderM.WorderNo;
+                //txtstokkod.Text = string.Concat(worderM.ItemCode, " ", worderM.ItemName);
+                GetRecete();
+            }
+        }
+
+        private void txtdepo_OnSelected(object sender, object obj)
+        {
+            depo = obj as MobileWhouse.UyumConnector.Depot;
         }
     }
 }

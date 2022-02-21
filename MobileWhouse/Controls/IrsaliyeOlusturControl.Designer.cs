@@ -219,6 +219,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "IrsaliyeOlusturControl";
+            this.Size = new System.Drawing.Size(496, 331);
             this.ResumeLayout(false);
 
         }

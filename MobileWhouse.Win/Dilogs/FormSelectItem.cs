@@ -35,6 +35,8 @@ namespace MobileWhouse.Dilogs
         {
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
+
                 ServiceRequestOfSelectParam param = new ServiceRequestOfSelectParam();
                 param.Token = ClientApplication.Instance.Token;
                 param.Value = new SelectParam();
@@ -64,6 +66,7 @@ namespace MobileWhouse.Dilogs
             finally
             {
                 lvwStok.EndUpdate();
+                Cursor.Current = Cursors.Default;
             }
         }
 

@@ -7,6 +7,7 @@ using OpenNETCF.Net.NetworkInformation;
 using System.Runtime.InteropServices;
 using System.Globalization;
 using System.IO;
+using System.Windows.Forms;
 
 namespace MobileWhouse.Util
 {
@@ -217,6 +218,17 @@ namespace MobileWhouse.Util
             catch (Exception)
             {
             }
+        }
+
+        internal static string GetDeviceInfo()
+        {
+            StringBuilder sbilgi = new StringBuilder();
+            sbilgi.AppendFormat("Versiyon:{0}, Derleme:{1}", Program.Versiyon, Program.BuildNumber()).AppendLine();
+            sbilgi.AppendFormat("Cihaz İp:{0}", DeviceUtil.IpGetir()).AppendLine();
+            sbilgi.AppendFormat("Cihaz Id:{0}", DeviceUtil.GetDeviceId()).AppendLine();
+            sbilgi.AppendFormat("Ekran yükseklik:{0}, genişlik:{1}", Screen.PrimaryScreen.WorkingArea.Height, Screen.PrimaryScreen.WorkingArea.Width).AppendLine();
+            sbilgi.AppendFormat("Platform:{0}, Versiyon:{1}", Environment.OSVersion.Platform.ToString(), Environment.OSVersion.Version.ToString()).AppendLine().AppendLine();
+            return sbilgi.ToString();
         }
     }
 

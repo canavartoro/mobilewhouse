@@ -100,7 +100,7 @@ namespace MobileWhouse.Controls
         {
             if (Screens.Question("Çıkmak İstediğinizden Emin Misiniz ?"))
             {
-                MainForm.ShowControl(null);
+                MainForm.ShowControl(new SelectSayimType());
             }
         }
 

@@ -811,6 +811,7 @@
         <s:sequence>
           <s:element minOccurs="1" maxOccurs="1" name="WorderBomDId" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="UserLineNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LineNo" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="ScrapResultType" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="SourceItemId" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="DiffItemId" type="s:int" />
@@ -1972,6 +1973,7 @@
           <s:element minOccurs="1" maxOccurs="1" name="ItemPickingMID" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="Oneri" type="s:boolean" />
           <s:element minOccurs="1" maxOccurs="1" name="SourceMId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PackageMQty" nillable="true" type="s:decimal" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfPackageTraDInfo">

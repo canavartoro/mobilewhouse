@@ -32,6 +32,7 @@
             // 
             // ComboControl
             // 
+            this.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             this.ParentChanged += new System.EventHandler(this.ComboControl_ParentChanged);
             this.ResumeLayout(false);
 

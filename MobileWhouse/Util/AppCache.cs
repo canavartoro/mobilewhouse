@@ -25,7 +25,7 @@ namespace MobileWhouse.Util
                 if (File.Exists(string.Concat(Util.Utility.AppPath, "\\", CACHEFILENAME)))
                 {
                     List<string> list = new List<string>();
-                    using (StreamReader reader = new StreamReader(string.Concat(Util.Utility.AppPath, "\\", CACHEFILENAME), Encoding.GetEncoding(1252)))
+                    using (StreamReader reader = new StreamReader(string.Concat(Util.Utility.AppPath, "\\", CACHEFILENAME), Encoding.GetEncoding("Windows-1254"))) //Encoding.GetEncoding(1252)))
                     {
                         string str;
                         while ((str = reader.ReadLine()) != null)
@@ -60,9 +60,9 @@ namespace MobileWhouse.Util
 
         private static void WriteAll(List<string> lines)
         {
-            using (FileStream stream = new FileStream(string.Concat(Util.Utility.AppPath, "\\", CACHEFILENAME), FileMode.Open, FileAccess.Write, FileShare.Read))
+            using (FileStream stream = new FileStream(string.Concat(Util.Utility.AppPath, "\\", CACHEFILENAME), FileMode.OpenOrCreate, FileAccess.Write, FileShare.Read))
             {
-                using (StreamWriter writer = new StreamWriter(stream))
+                using (StreamWriter writer = new StreamWriter(stream, Encoding.GetEncoding("Windows-1254")))
                 {
                     foreach (string strln in lines)
                     {
@@ -80,7 +80,7 @@ namespace MobileWhouse.Util
                 if (File.Exists(string.Concat(Util.Utility.AppPath, "\\", CACHEFILENAME)))
                 {
                     List<string> list = new List<string>();
-                    using (StreamReader reader = new StreamReader(string.Concat(Util.Utility.AppPath, "\\", CACHEFILENAME), Encoding.GetEncoding(1252)))
+                    using (StreamReader reader = new StreamReader(string.Concat(Util.Utility.AppPath, "\\", CACHEFILENAME), Encoding.GetEncoding("Windows-1254")))
                     {
                         bool newrow = true;
                         string str;

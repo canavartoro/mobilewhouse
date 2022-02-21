@@ -790,7 +790,7 @@
     <value>0, 0</value>
   </data>
   <data name="tabPage4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>232, 294</value>
+    <value>240, 297</value>
   </data>
   <data name="tabPage4.Text" xml:space="preserve">
     <value>Adres</value>
@@ -826,7 +826,7 @@
     <value>0, 0</value>
   </data>
   <data name="lvwOther.Size" type="System.Drawing.Size, System.Drawing">
-    <value>232, 294</value>
+    <value>240, 297</value>
   </data>
   <data name="lvwOther.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -847,7 +847,7 @@
     <value>0, 0</value>
   </data>
   <data name="tabPage6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>232, 294</value>
+    <value>240, 297</value>
   </data>
   <data name="tabPage6.Text" xml:space="preserve">
     <value>Raf Stok</value>
@@ -871,7 +871,7 @@
     <value>False</value>
   </data>
   <data name="btnSil.Location" type="System.Drawing.Point, System.Drawing">
-    <value>156, 273</value>
+    <value>164, 276</value>
   </data>
   <data name="btnSil.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 20</value>
@@ -949,7 +949,7 @@
     <value>3, -1</value>
   </data>
   <data name="lvwOkutulanlar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 268</value>
+    <value>232, 271</value>
   </data>
   <data name="lvwOkutulanlar.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -970,7 +970,7 @@
     <value>0, 0</value>
   </data>
   <data name="tabPage3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>232, 294</value>
+    <value>240, 297</value>
   </data>
   <data name="tabPage3.Text" xml:space="preserve">
     <value>Okutulan</value>

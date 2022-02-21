@@ -133,10 +133,10 @@ namespace MobileWhouse.GUI
         States m_state;
         #endregion
 
-#if NETCFDESIGNTIME
-			[Browsable(false)]
-			[EditorBrowsable(EditorBrowsableState.Never)]
-#endif
+//#if NETCFDESIGNTIME
+//            [Browsable(false)]
+//            [EditorBrowsable(EditorBrowsableState.Never)]
+//#endif
         public System.Drawing.Image Image
         {
             get

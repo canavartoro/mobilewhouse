@@ -20,6 +20,12 @@ namespace MobileWhouse.Dilogs
             get { return _SourceApplication; }
             set { _SourceApplication = value; }
         }
+        private int _purchase_sales = -1;
+        public int PurchaseSales
+        {
+            get { return _purchase_sales; }
+            set { _purchase_sales = value; }
+        }
 
         public DocTra Selected
         {
@@ -49,6 +55,8 @@ namespace MobileWhouse.Dilogs
         {
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
+
                 if (_SourceApplication == 0)
                 {
 
@@ -80,9 +88,14 @@ namespace MobileWhouse.Dilogs
                 }
                 else
                 {
+                    StringBuilder sql = new StringBuilder();
+                    sql.Append(string.Concat(@"SELECT DESCRIPTION ""DocTraDesc"", DOC_TRA_ID ""Id"",  DOC_TRA_CODE ""DocTraCode"", INVENTORY_STATUS ""Status"" FROM GNLD_DOC_TRA WHERE GNLD_DOC_TRA.SOURCE_APP = ", _SourceApplication));
+                    if (_purchase_sales > 0)
+                        sql.Append(" AND GNLD_DOC_TRA.PURCHASE_SALES = ").Append(_purchase_sales);
+
                     ServiceRequestOfString param = new ServiceRequestOfString();
                     param.Token = ClientApplication.Instance.Token;
-                    param.Value = string.Concat(@"SELECT DESCRIPTION ""DocTraDesc"", DOC_TRA_ID ""Id"",  DOC_TRA_CODE ""DocTraCode"", INVENTORY_STATUS ""Status"" FROM GNLD_DOC_TRA WHERE GNLD_DOC_TRA.SOURCE_APP = ", _SourceApplication);
+                    param.Value = sql.ToString();
 
                     ServiceResultOfDataTable restbl = ClientApplication.Instance.Service.ExecuteSQL(param);
                     if (!restbl.Result)
@@ -115,6 +128,7 @@ namespace MobileWhouse.Dilogs
             finally
             {
                 lswDocTra.EndUpdate();
+                Cursor.Current = Cursors.Default;
             }
         }
 

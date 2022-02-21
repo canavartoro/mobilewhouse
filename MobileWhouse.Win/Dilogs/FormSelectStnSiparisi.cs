@@ -41,13 +41,13 @@ namespace MobileWhouse.Dilogs
             _Depot = depot;
             if (_Depot == null)
             {
-                btnSelect.Visible = false ;
-                btnIrsaliye.Visible = true ;
+                btnSelect.Visible = false;
+                btnIrsaliye.Visible = true;
             }
             else
             {
                 btnSelect.Visible = true;
-                btnIrsaliye.Visible = false ;
+                btnIrsaliye.Visible = false;
             }
         }
 
@@ -61,12 +61,14 @@ namespace MobileWhouse.Dilogs
         {
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
+
                 lvwItems.BeginUpdate();
                 lvwItems.Items.Clear();
 
                 ServiceRequestOfOrderMParam param = new ServiceRequestOfOrderMParam();
                 param.Token = ClientApplication.Instance.UTermToken;
-                param.Value = new  OrderMParam();
+                param.Value = new OrderMParam();
                 param.Value.PurchaseSales = 1;
                 param.Value.WhouseId = ClientApplication.Instance.SelectedDepot.Id;
                 param.Value.PageSize = 500;
@@ -99,6 +101,7 @@ namespace MobileWhouse.Dilogs
             finally
             {
                 lvwItems.EndUpdate();
+                Cursor.Current = Cursors.Default;
             }
         }
 
@@ -110,8 +113,11 @@ namespace MobileWhouse.Dilogs
 
         private void btnIrsaliye_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.OK;
-            Close();
+            if (lvwItems.SelectedIndices.Count > 0)
+            {
+                DialogResult = DialogResult.OK;
+                Close();
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -129,8 +135,13 @@ namespace MobileWhouse.Dilogs
         {
             //if (eName.Text.Length > 2)
             //{
-                _LoadData();
+            _LoadData();
             //}
+        }
+
+        private void lvwItems_ItemActivate(object sender, EventArgs e)
+        {
+            btnIrsaliye_Click(btnIrsaliye, EventArgs.Empty);
         }
     }
 }

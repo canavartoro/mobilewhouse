@@ -30,11 +30,6 @@
         {
             this.btnKapat = new System.Windows.Forms.Button();
             this.btnkaydet = new System.Windows.Forms.Button();
-            this.btnistasyon = new System.Windows.Forms.Button();
-            this.txtisemri = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtistasyon = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnbarkod = new System.Windows.Forms.Button();
             this.txtbarkod = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -47,8 +42,9 @@
             this.lblbilgi = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.secistasyon = new MobileWhouse.GUI.ULookupEdit();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.uretimgirisprint = new MobileWhouse.GUI.PrintControl();
+            this.uretimgirisprint = new MobileWhouse.GUI.UPrintControl();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -67,59 +63,16 @@
             // btnkaydet
             // 
             this.btnkaydet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnkaydet.Location = new System.Drawing.Point(170, 77);
+            this.btnkaydet.Location = new System.Drawing.Point(170, 57);
             this.btnkaydet.Name = "btnkaydet";
             this.btnkaydet.Size = new System.Drawing.Size(67, 20);
             this.btnkaydet.TabIndex = 62;
             this.btnkaydet.Text = "Kaydet";
             this.btnkaydet.Click += new System.EventHandler(this.btnkaydet_Click);
             // 
-            // btnistasyon
-            // 
-            this.btnistasyon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnistasyon.Location = new System.Drawing.Point(203, 3);
-            this.btnistasyon.Name = "btnistasyon";
-            this.btnistasyon.Size = new System.Drawing.Size(34, 20);
-            this.btnistasyon.TabIndex = 0;
-            this.btnistasyon.Text = "...";
-            this.btnistasyon.Click += new System.EventHandler(this.btnistasyon_Click);
-            // 
-            // txtisemri
-            // 
-            this.txtisemri.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtisemri.BackColor = System.Drawing.SystemColors.Control;
-            this.txtisemri.Location = new System.Drawing.Point(74, 27);
-            this.txtisemri.Name = "txtisemri";
-            this.txtisemri.Size = new System.Drawing.Size(163, 21);
-            this.txtisemri.TabIndex = 55;
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(7, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 20);
-            this.label2.Text = "İş Emri No";
-            // 
-            // txtistasyon
-            // 
-            this.txtistasyon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtistasyon.Location = new System.Drawing.Point(74, 3);
-            this.txtistasyon.Name = "txtistasyon";
-            this.txtistasyon.Size = new System.Drawing.Size(128, 21);
-            this.txtistasyon.TabIndex = 54;
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(7, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 20);
-            this.label1.Text = "İstasyon";
-            // 
             // btnbarkod
             // 
-            this.btnbarkod.Location = new System.Drawing.Point(207, 51);
+            this.btnbarkod.Location = new System.Drawing.Point(206, 32);
             this.btnbarkod.Name = "btnbarkod";
             this.btnbarkod.Size = new System.Drawing.Size(30, 20);
             this.btnbarkod.TabIndex = 71;
@@ -128,7 +81,8 @@
             // 
             // txtbarkod
             // 
-            this.txtbarkod.Location = new System.Drawing.Point(74, 51);
+            this.txtbarkod.BackColor = System.Drawing.Color.Linen;
+            this.txtbarkod.Location = new System.Drawing.Point(73, 32);
             this.txtbarkod.Name = "txtbarkod";
             this.txtbarkod.Size = new System.Drawing.Size(132, 21);
             this.txtbarkod.TabIndex = 1;
@@ -136,14 +90,14 @@
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(9, 50);
+            this.label4.Location = new System.Drawing.Point(8, 31);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(85, 20);
             this.label4.Text = "Barkod";
             // 
             // chksil
             // 
-            this.chksil.Location = new System.Drawing.Point(121, 78);
+            this.chksil.Location = new System.Drawing.Point(121, 58);
             this.chksil.Name = "chksil";
             this.chksil.Size = new System.Drawing.Size(45, 19);
             this.chksil.TabIndex = 73;
@@ -158,9 +112,9 @@
             this.listView1.Columns.Add(this.columnHeader2);
             this.listView1.Columns.Add(this.columnHeader3);
             this.listView1.Columns.Add(this.columnHeader4);
-            this.listView1.Location = new System.Drawing.Point(0, 103);
+            this.listView1.Location = new System.Drawing.Point(0, 83);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(240, 162);
+            this.listView1.Size = new System.Drawing.Size(240, 182);
             this.listView1.TabIndex = 74;
             this.listView1.View = System.Windows.Forms.View.Details;
             // 
@@ -186,7 +140,7 @@
             // 
             // lblbilgi
             // 
-            this.lblbilgi.Location = new System.Drawing.Point(3, 78);
+            this.lblbilgi.Location = new System.Drawing.Point(3, 58);
             this.lblbilgi.Name = "lblbilgi";
             this.lblbilgi.Size = new System.Drawing.Size(119, 20);
             this.lblbilgi.Text = "Satır sayısı 0";
@@ -204,22 +158,36 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.secistasyon);
             this.tabPage1.Controls.Add(this.listView1);
             this.tabPage1.Controls.Add(this.lblbilgi);
-            this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.btnbarkod);
             this.tabPage1.Controls.Add(this.txtbarkod);
-            this.tabPage1.Controls.Add(this.txtistasyon);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.btnkaydet);
-            this.tabPage1.Controls.Add(this.txtisemri);
-            this.tabPage1.Controls.Add(this.btnistasyon);
-            this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.chksil);
             this.tabPage1.Location = new System.Drawing.Point(0, 0);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Size = new System.Drawing.Size(240, 265);
             this.tabPage1.Text = "Üretim";
+            // 
+            // secistasyon
+            // 
+            this.secistasyon.DataFieldName = "";
+            this.secistasyon.DataType = MobileWhouse.Enums.DataSourceType.Uretim_IsEmri_Istasyon;
+            this.secistasyon.Description = "";
+            this.secistasyon.FilterCondition = "";
+            this.secistasyon.LabelText = "İstasyon";
+            this.secistasyon.LabelWidth = 70;
+            this.secistasyon.Location = new System.Drawing.Point(2, 2);
+            this.secistasyon.Name = "secistasyon";
+            this.secistasyon.PurchaseSales = -1;
+            this.secistasyon.RememberValue = false;
+            this.secistasyon.ShowDescription = false;
+            this.secistasyon.ShowLabelText = false;
+            this.secistasyon.Size = new System.Drawing.Size(235, 27);
+            this.secistasyon.SourceApplication = 0;
+            this.secistasyon.TabIndex = 77;
             // 
             // tabPage2
             // 
@@ -231,10 +199,11 @@
             // 
             // uretimgirisprint
             // 
-            this.uretimgirisprint.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uretimgirisprint.Location = new System.Drawing.Point(0, 0);
+            this.uretimgirisprint.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.uretimgirisprint.Location = new System.Drawing.Point(3, 3);
             this.uretimgirisprint.Name = "uretimgirisprint";
-            this.uretimgirisprint.Size = new System.Drawing.Size(240, 30);
+            this.uretimgirisprint.Size = new System.Drawing.Size(234, 74);
             this.uretimgirisprint.TabIndex = 0;
             // 
             // UretimGirisControl
@@ -256,11 +225,6 @@
 
         private System.Windows.Forms.Button btnKapat;
         private System.Windows.Forms.Button btnkaydet;
-        private System.Windows.Forms.Button btnistasyon;
-        private System.Windows.Forms.TextBox txtisemri;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtistasyon;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnbarkod;
         private System.Windows.Forms.TextBox txtbarkod;
         private System.Windows.Forms.Label label4;
@@ -274,6 +238,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private MobileWhouse.GUI.PrintControl uretimgirisprint;
+        private MobileWhouse.GUI.UPrintControl uretimgirisprint;
+        private MobileWhouse.GUI.ULookupEdit secistasyon;
     }
 }

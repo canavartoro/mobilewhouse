@@ -48,12 +48,14 @@ namespace MobileWhouse.Forms
                     btnok.Text = "TAMAM";
                     btncancel.Text = "VAZGEÇ";
                     btncancel.Visible = true;
+                    btnsend.Visible = false;
                 }
                 else if (value == MessageBoxButtons.YesNo)
                 {
                     btnok.Text = "EVET";
                     btncancel.Text = "HAYIR";
                     btncancel.Visible = true;
+                    btnsend.Visible = false;
                 }
             }
         }
@@ -123,37 +125,17 @@ namespace MobileWhouse.Forms
 
         private void btnsend_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string applog = null;
-                string trace = Utility.AppPath + "app_trace.txt";
-                using (Stream file = new FileStream(trace, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
-                {
-                    using (StreamReader read = new StreamReader(file, Encoding.GetEncoding("windows-1254")))
-                    {
-                        applog = read.ReadToEnd();
-                    }
-                }
-                if (!string.IsNullOrEmpty(applog))
-                {
-                    AppServ.Service serv = new MobileWhouse.AppServ.Service();
-                    serv.Url = string.Concat(AppConfig.Default.AppServerUrl, "/Service.asmx");
-                    string save = serv.AppLogSave(applog);
-                    if (!string.IsNullOrEmpty(save))
-                    {
-                        Screens.Error(string.Concat("Bilgiler sunucuya yazılamadı. ", save));
-                        return;
-                    }
-                }
-            }
-            catch (Exception exc)
-            {
-                Logger.E(exc);
-            }
+            ClientApplication.Instance.SendTrace();
         }
 
         private void FormMesaj_Load(object sender, EventArgs e)
         {
+            //AutoScaleMode = AutoScaleMode.Dpi;
+            //WindowState = FormWindowState.Normal;
+            //Location = new Point(0, 0);
+
+            //if (Screens.BuyukEkran)
+            //    Size = new Size(800, 480);
         }
 
         private void button1_Click(object sender, EventArgs e)

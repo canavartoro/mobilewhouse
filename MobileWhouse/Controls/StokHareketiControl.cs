@@ -9,9 +9,11 @@ using System.Windows.Forms;
 using MobileWhouse.UyumConnector;
 using MobileWhouse.Dilogs;
 using MobileWhouse.Util;
+using MobileWhouse.Attributes;
 
 namespace MobileWhouse.Controls
 {
+    //[UyumModule("INV001", "MobileWhouse.Controls.StokHareketiControl", "Stok Transfer")]
     public partial class StokHareketiControl : BaseControl
     {
         private Depot _TargetDepot;

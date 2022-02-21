@@ -5,6 +5,7 @@ using System.Text;
 using System.IO;
 using System.Xml.Serialization;
 using System.Diagnostics;
+using System.Xml;
 
 namespace MobileWhouse.Models
 {
@@ -34,6 +35,25 @@ namespace MobileWhouse.Models
             {
                 return serializer.Deserialize(reader);
             }
+        }
+
+        public string Serialize(object obj)
+        {
+            UTF8Encoding encoding = new UTF8Encoding();
+            XmlSerializer serializer = new XmlSerializer(obj.GetType());
+            MemoryStream stream = new MemoryStream();
+            XmlTextWriter writer = new XmlTextWriter(stream, Encoding.UTF8);
+            serializer.Serialize(stream, obj);
+            stream = (MemoryStream)writer.BaseStream;
+            return encoding.GetString(stream.ToArray(), 0, Convert.ToInt32(stream.Length));
+        }
+
+        public static object XmlDeserialize(Type type, string xml)
+        {
+            UTF8Encoding encoding = new UTF8Encoding();
+            XmlSerializer serializer = new XmlSerializer(type);
+            MemoryStream stream = new MemoryStream(encoding.GetBytes(xml));
+            return serializer.Deserialize(stream);
         }
     }
 }

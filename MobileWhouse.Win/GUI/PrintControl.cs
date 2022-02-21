@@ -8,11 +8,14 @@ using System.Text;
 using System.Windows.Forms;
 using MobileWhouse.Util;
 using MobileWhouse.Models;
+using MobileWhouse.Net;
 
 namespace MobileWhouse.GUI
 {
     public partial class PrintControl : UserControl
     {
+        private const int PRINT_SERVER = 0;
+
         public PrintControl()
         {
             InitializeComponent();
@@ -22,27 +25,50 @@ namespace MobileWhouse.GUI
         {
             try
             {
-
                 Cursor.Current = Cursors.WaitCursor;
 
                 int printindex = -1;
                 //string printername = RegisterCache.Cache.ReadRegister(this.Name, "");
                 string printername = AppCache.ReadCache(this.Name, "");
 
-                string[] printers = ClientApplication.Instance.ReportServ.GetPrinters();
-                if (printers != null)
+                if (PRINT_SERVER == 0)
                 {
-                    cmbyazici.Items.Clear();
-                    for (int i = 0; i < printers.Length; i++)
+                    using (TcpPrinterClient tcpprinter = new TcpPrinterClient())
                     {
-                        if (!string.IsNullOrEmpty(printername) && printername == printers[i])
+                        PrintersDesigns prints = tcpprinter.GetPrintersDesigns();
+                        if (prints != null && prints.Result)
                         {
-                            printerName = printername;
-                            printindex = i;
+                            cmbyazici.Items.Clear();
+                            for (int i = 0; i < prints.Printers.Count; i++)
+                            {
+                                if (!string.IsNullOrEmpty(printername) && printername == prints.Printers[i])
+                                {
+                                    printerName = printername;
+                                    printindex = i;
+                                }
+                                cmbyazici.Items.Add(prints.Printers[i]);
+                            }
                         }
-                        cmbyazici.Items.Add(printers[i]);
                     }
                 }
+                //else
+                //{
+
+                //    string[] printers = ClientApplication.Instance.ReportServ.GetPrinters();
+                //    if (printers != null)
+                //    {
+                //        cmbyazici.Items.Clear();
+                //        for (int i = 0; i < printers.Length; i++)
+                //        {
+                //            if (!string.IsNullOrEmpty(printername) && printername == printers[i])
+                //            {
+                //                printerName = printername;
+                //                printindex = i;
+                //            }
+                //            cmbyazici.Items.Add(printers[i]);
+                //        }
+                //    }
+                //}
                 cmbyazici.SelectedIndex = printindex;
                 //cmbyazici.SelectedIndexChanged += new EventHandler(cmbyazici_SelectedIndexChanged);
                 cmbyazici.TextChanged += new EventHandler(cmbyazici_SelectedIndexChanged);

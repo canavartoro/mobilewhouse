@@ -64,6 +64,25 @@ namespace MobileWhouse.GUI
             }
         }
 
+        public decimal DecimalValue
+        {
+            get
+            {
+                if (this.Text.Length == 0)
+                {
+                    return 0M;
+                }
+                try
+                {
+                    return decimal.Parse(this.Text);
+                }
+                catch (Exception)
+                {
+                    return 0M;
+                }
+            }
+        }
+
         public int IntValue
         {
             get

@@ -76,5 +76,37 @@ namespace MobileWhouse.Util
             MD5 md = new MD5CryptoServiceProvider();
             return BitConverter.ToString(md.ComputeHash(Encoding.UTF8.GetBytes(_strSifre))).Replace("-", "").ToUpper();
         }
+
+        internal static string Base64String(string base64Str)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(base64Str)) return null;
+
+                byte[] bytes = Convert.FromBase64String(base64Str);
+                return Encoding.UTF8.GetString(bytes, 0, bytes.Length);
+            }
+            catch (Exception exc)
+            {
+                Screens.Error(exc);
+                return null;
+            }
+        }
+
+        internal static string ToBase64(string s)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(s)) return null;
+
+                byte[] bytes = Encoding.UTF8.GetBytes(s);
+                return Convert.ToBase64String(bytes);
+            }
+            catch (Exception exc)
+            {
+                Screens.Error(exc);
+                return null;
+            }
+        }
     }
 }

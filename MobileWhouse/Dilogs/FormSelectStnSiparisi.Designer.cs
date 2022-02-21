@@ -61,6 +61,7 @@
             this.lvwItems.Size = new System.Drawing.Size(233, 269);
             this.lvwItems.TabIndex = 0;
             this.lvwItems.View = System.Windows.Forms.View.Details;
+            this.lvwItems.ItemActivate += new System.EventHandler(this.lvwItems_ItemActivate);
             // 
             // columnHeader2
             // 
@@ -138,6 +139,8 @@
             // 
             // eName
             // 
+            this.eName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.eName.Location = new System.Drawing.Point(54, 3);
             this.eName.Name = "eName";
             this.eName.Size = new System.Drawing.Size(183, 21);

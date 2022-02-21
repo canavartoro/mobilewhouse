@@ -28,10 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EtiketlemeControl));
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtistasyon = new System.Windows.Forms.TextBox();
-            this.btnistasyon = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtisemri = new System.Windows.Forms.TextBox();
             this.txtkoliici = new MobileWhouse.GUI.TextBoxNumeric();
@@ -40,45 +36,25 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtbarkod = new System.Windows.Forms.TextBox();
-            this.printetiketleme = new MobileWhouse.GUI.PrintControl();
-            this.btnyazdir = new MobileWhouse.GUI.UButton();
-            this.btnCancel = new MobileWhouse.GUI.UButton();
+            this.btnyazdir = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.printetiketleme = new MobileWhouse.GUI.UPrintControl();
+            this.txtistasyon = new MobileWhouse.GUI.ULookupEdit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(3, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 20);
-            this.label1.Text = "İstasyon Kod";
-            // 
-            // txtistasyon
-            // 
-            this.txtistasyon.Location = new System.Drawing.Point(82, 4);
-            this.txtistasyon.Name = "txtistasyon";
-            this.txtistasyon.Size = new System.Drawing.Size(116, 21);
-            this.txtistasyon.TabIndex = 3;
-            // 
-            // btnistasyon
-            // 
-            this.btnistasyon.Location = new System.Drawing.Point(199, 4);
-            this.btnistasyon.Name = "btnistasyon";
-            this.btnistasyon.Size = new System.Drawing.Size(37, 20);
-            this.btnistasyon.TabIndex = 4;
-            this.btnistasyon.Text = "...";
-            this.btnistasyon.Click += new System.EventHandler(this.btnistasyon_Click);
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(3, 29);
+            this.label2.Location = new System.Drawing.Point(3, 31);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 20);
             this.label2.Text = "İş Emri No";
             // 
             // txtisemri
             // 
+            this.txtisemri.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtisemri.BackColor = System.Drawing.SystemColors.Control;
-            this.txtisemri.Location = new System.Drawing.Point(82, 28);
+            this.txtisemri.Location = new System.Drawing.Point(82, 30);
             this.txtisemri.Name = "txtisemri";
             this.txtisemri.Size = new System.Drawing.Size(154, 21);
             this.txtisemri.TabIndex = 3;
@@ -88,7 +64,7 @@
             // 
             this.txtkoliici.AllowSpace = false;
             this.txtkoliici.BackColor = System.Drawing.Color.SkyBlue;
-            this.txtkoliici.Location = new System.Drawing.Point(82, 52);
+            this.txtkoliici.Location = new System.Drawing.Point(82, 54);
             this.txtkoliici.Name = "txtkoliici";
             this.txtkoliici.Size = new System.Drawing.Size(63, 21);
             this.txtkoliici.TabIndex = 7;
@@ -98,7 +74,7 @@
             // 
             this.txtadet.AllowSpace = false;
             this.txtadet.BackColor = System.Drawing.Color.SkyBlue;
-            this.txtadet.Location = new System.Drawing.Point(82, 78);
+            this.txtadet.Location = new System.Drawing.Point(82, 80);
             this.txtadet.Name = "txtadet";
             this.txtadet.Size = new System.Drawing.Size(63, 21);
             this.txtadet.TabIndex = 7;
@@ -106,54 +82,42 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(3, 55);
+            this.label3.Location = new System.Drawing.Point(3, 57);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 20);
             this.label3.Text = "Koli İçi Adet";
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(3, 79);
+            this.label4.Location = new System.Drawing.Point(3, 81);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(83, 20);
             this.label4.Text = "Adet";
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(3, 102);
+            this.label5.Location = new System.Drawing.Point(3, 104);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(83, 20);
-            this.label5.Text = "Adet";
+            this.label5.Text = "Barkod";
             // 
             // txtbarkod
             // 
+            this.txtbarkod.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtbarkod.BackColor = System.Drawing.SystemColors.Control;
-            this.txtbarkod.Location = new System.Drawing.Point(82, 101);
+            this.txtbarkod.Location = new System.Drawing.Point(82, 103);
             this.txtbarkod.Name = "txtbarkod";
             this.txtbarkod.Size = new System.Drawing.Size(154, 21);
             this.txtbarkod.TabIndex = 3;
             this.txtbarkod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtisemri_KeyPress);
             // 
-            // printetiketleme
-            // 
-            this.printetiketleme.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.printetiketleme.Location = new System.Drawing.Point(3, 128);
-            this.printetiketleme.Name = "printetiketleme";
-            this.printetiketleme.Size = new System.Drawing.Size(233, 41);
-            this.printetiketleme.TabIndex = 16;
-            // 
             // btnyazdir
             // 
-            this.btnyazdir.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
-            this.btnyazdir.BackColor = System.Drawing.Color.Empty;
-            this.btnyazdir.ForeColor = System.Drawing.Color.Empty;
-            this.btnyazdir.Location = new System.Drawing.Point(151, 78);
+            this.btnyazdir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnyazdir.Location = new System.Drawing.Point(151, 80);
             this.btnyazdir.Name = "btnyazdir";
-            this.btnyazdir.NormalBtnColour = System.Drawing.Color.LightYellow;
-            this.btnyazdir.NormalTxtColour = System.Drawing.Color.Blue;
-            this.btnyazdir.PushedBtnColour = System.Drawing.Color.Blue;
-            this.btnyazdir.PushedTxtColour = System.Drawing.Color.Yellow;
             this.btnyazdir.Size = new System.Drawing.Size(85, 20);
             this.btnyazdir.TabIndex = 22;
             this.btnyazdir.Text = "Yazdır";
@@ -161,50 +125,69 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
-            this.btnCancel.BackColor = System.Drawing.Color.Empty;
-            this.btnCancel.ForeColor = System.Drawing.Color.Empty;
-            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(3, 277);
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.Location = new System.Drawing.Point(3, 272);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.NormalBtnColour = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnCancel.NormalTxtColour = System.Drawing.Color.Black;
-            this.btnCancel.PushedBtnColour = System.Drawing.Color.Blue;
-            this.btnCancel.PushedTxtColour = System.Drawing.Color.Yellow;
             this.btnCancel.Size = new System.Drawing.Size(233, 40);
             this.btnCancel.TabIndex = 23;
             this.btnCancel.Text = "Kapat";
             this.btnCancel.Click += new System.EventHandler(this.btnKapat_Click);
             // 
+            // printetiketleme
+            // 
+            this.printetiketleme.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.printetiketleme.Location = new System.Drawing.Point(3, 130);
+            this.printetiketleme.Name = "printetiketleme";
+            this.printetiketleme.Size = new System.Drawing.Size(233, 75);
+            this.printetiketleme.TabIndex = 29;
+            // 
+            // txtistasyon
+            // 
+            this.txtistasyon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtistasyon.DataFieldName = "";
+            this.txtistasyon.DataType = MobileWhouse.Enums.DataSourceType.Uretim_IsEmri_Istasyon;
+            this.txtistasyon.Description = "";
+            this.txtistasyon.FilterCondition = "";
+            this.txtistasyon.LabelText = "İstasyon";
+            this.txtistasyon.LabelWidth = 77;
+            this.txtistasyon.Location = new System.Drawing.Point(3, 0);
+            this.txtistasyon.Name = "txtistasyon";
+            this.txtistasyon.PurchaseSales = -1;
+            this.txtistasyon.RememberValue = false;
+            this.txtistasyon.ShowDescription = false;
+            this.txtistasyon.ShowLabelText = false;
+            this.txtistasyon.Size = new System.Drawing.Size(233, 27);
+            this.txtistasyon.SourceApplication = 0;
+            this.txtistasyon.TabIndex = 34;
+            this.txtistasyon.OnSelected += new MobileWhouse.OnSelectedObject(this.txtistasyon_OnSelected);
+            // 
             // EtiketlemeControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.txtisemri);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.printetiketleme);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtadet);
             this.Controls.Add(this.txtkoliici);
-            this.Controls.Add(this.btnistasyon);
             this.Controls.Add(this.txtbarkod);
-            this.Controls.Add(this.txtisemri);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtistasyon);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnyazdir);
+            this.Controls.Add(this.txtistasyon);
             this.Name = "EtiketlemeControl";
-            this.Size = new System.Drawing.Size(240, 320);
+            this.Size = new System.Drawing.Size(240, 315);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtistasyon;
-        private System.Windows.Forms.Button btnistasyon;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtisemri;
         private MobileWhouse.GUI.TextBoxNumeric txtkoliici;
@@ -213,8 +196,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtbarkod;
-        private MobileWhouse.GUI.PrintControl printetiketleme;
-        private MobileWhouse.GUI.UButton btnyazdir;
-        private MobileWhouse.GUI.UButton btnCancel;
+        private System.Windows.Forms.Button btnyazdir;
+        private System.Windows.Forms.Button btnCancel;
+        private MobileWhouse.GUI.UPrintControl printetiketleme;
+        private MobileWhouse.GUI.ULookupEdit txtistasyon;
     }
 }

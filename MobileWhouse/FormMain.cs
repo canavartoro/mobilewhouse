@@ -70,6 +70,15 @@ namespace MobileWhouse
 
         public void ShowControl(BaseControl control)
         {
+            if (!object.ReferenceEquals(control, null))
+            {
+                object[] attr = control.GetType().GetCustomAttributes(typeof(MobileWhouse.Attributes.UyumModuleAttribute), false);
+                if (attr != null && attr.Length > 0)
+                {
+                    MobileWhouse.Attributes.UyumModuleAttribute mod = attr[0] as MobileWhouse.Attributes.UyumModuleAttribute;
+                    this.Text = string.Concat(mod.ModuleCaption, " [", mod.ModuleName, "]");
+                }
+            }
             SelectedPage = control;
         }
 
@@ -121,6 +130,13 @@ namespace MobileWhouse
         {
             try
             {
+                //AutoScaleMode = AutoScaleMode.Dpi;
+                //WindowState = FormWindowState.Normal;
+                //Location = new Point(0, 0);
+
+                //if (Screens.BuyukEkran)
+                //    Size = new Size(800, 480);
+
                 /*MobileWhouse.ProdConnector.ServiceRequestOfTransferMInfo param = new MobileWhouse.ProdConnector.ServiceRequestOfTransferMInfo();
                 param.Token = new MobileWhouse.ProdConnector.Token();
                 param.Token.UserName = "terminal";
@@ -159,7 +175,6 @@ namespace MobileWhouse
                 if (result != null)
                 {
                 }*/
-
                 string selectedDepot = FileHelper.ReadFile("selectedDepot.xml");
                 if (!string.IsNullOrEmpty(selectedDepot))
                 {

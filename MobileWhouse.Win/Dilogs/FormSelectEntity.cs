@@ -28,6 +28,8 @@ namespace MobileWhouse.Dilogs
         {
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
+
                 ServiceRequestOfCoEntityMParam param = new ServiceRequestOfCoEntityMParam();
                 param.Token = ClientApplication.Instance.Token;
                 param.Value = new CoEntityMParam();
@@ -69,6 +71,7 @@ namespace MobileWhouse.Dilogs
             finally
             {
                 listView1.EndUpdate();
+                Cursor.Current = Cursors.Default;
             }
         }
 

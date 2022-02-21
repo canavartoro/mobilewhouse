@@ -2874,6 +2874,30 @@ namespace UstunWebService
         }
 
         [WebMethod]
+        public List<Employee> GetEmployeeList(Token token)
+        {
+            List<Employee> list = null;
+            try
+            {
+                using (var db = new DataClient())
+                {
+                    //list = db.Select<Employee>(string.Format(@"SELECT prd_employee_id,citizenship_no,emp_name,emp_surname,""password"",employee_task_type_id,is_outsource_employee FROM prdd_employee WHERE EM.BRANCH_ID = {0} AND EM.CO_ID = {1} AND EM.ISPASSIVE = 0", token.BranchId, token.CoId));
+                    //list = db.Select<Employee>(string.Format(@"SELECT prd_employee_id,citizenship_no,emp_name,emp_surname,""password"",employee_task_type_id,is_outsource_employee FROM prdd_employee WHERE ISPASSIVE = 0"));
+
+                    list = db.Select<Employee>(string.Format(@"SELECT prd_employee_id,citizenship_no,emp_name,emp_surname,""password"",employee_task_type_id,is_outsource_employee,per.psm002,per.prd008,per.prd007,
+per.pkg002,per.prd003,per.qlt003,per.qlt001,per.prd006,per.qlt002,per.pkg003,per.prd011,
+per.prd002,per.prd009,per.prd010,per.prd004,per.psm001,per.pkg004,per.prd005,per.pkg001,per.prd001,per.inv001 
+FROM prdd_employee emp LEFT JOIN uyumsoft.zz_mob_module_permission per ON emp.prd_employee_id = per.operator_id WHERE emp.ISPASSIVE = 0 ORDER BY emp_name"));
+                }
+            }
+            catch (Exception e)
+            {
+                Logger.WriteFileLog(new StringBuilder().Append("Genel hata:").Append(e.Message).Append("Detay:").Append(e.StackTrace).ToString());
+            }
+            return list;
+        }
+
+        [WebMethod]
         public string AppLogSave(string applog)
         {
             try

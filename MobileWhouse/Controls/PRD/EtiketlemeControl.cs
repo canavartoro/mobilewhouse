@@ -12,9 +12,11 @@ using MobileWhouse.Util;
 using System.Diagnostics;
 using System.Threading;
 using MobileWhouse.Log;
+using MobileWhouse.Attributes;
 
 namespace MobileWhouse.Controls.PRD
 {
+    [UyumModule("PRD004", "MobileWhouse.Controls.PRD.EtiketlemeControl", "Koli Etiketi Basma")]
     public partial class EtiketlemeControl : BaseControl
     {
         public EtiketlemeControl()
@@ -22,6 +24,7 @@ namespace MobileWhouse.Controls.PRD
             InitializeComponent();
         }
 
+        private EmployeeLogin operatorLogin = new EmployeeLogin();
         private MobileWhouse.ProdConnector.PrdGobalInfo wstation = null;
         private worder_ac_op worder_acop = null;
 
@@ -37,6 +40,7 @@ namespace MobileWhouse.Controls.PRD
                 if (worder_acop != null)
                 {
                     txtisemri.Text = string.Concat(worder_acop.worder_no, " ", worder_acop.item_code);
+                    txtkoliici.Text = worder_acop.density.ToString(Statics.DECIMAL_STRING_FORMAT);
                     btnyazdir.Enabled = true;
                 }
                 else
@@ -57,7 +61,7 @@ namespace MobileWhouse.Controls.PRD
 
         private void btnKapat_Click(object sender, EventArgs e)
         {
-            MainForm.ShowControl(null);
+            MainForm.ShowControl(new PRD.PrdControl());
         }
 
         private void txtisemri_KeyPress(object sender, KeyPressEventArgs e)
@@ -94,6 +98,12 @@ namespace MobileWhouse.Controls.PRD
                     return;
                 }
 
+                if (worder_acop.is_approved == 0)
+                {
+                    Screens.Error("Üretim kalite onayı verilmemiş!");
+                    return;
+                }
+
                 if (string.IsNullOrEmpty(txtkoliici.Text)) txtkoliici.Text = "1";
                 if (string.IsNullOrEmpty(txtadet.Text)) txtadet.Text = "1";
                 decimal adet = 1;
@@ -110,6 +120,8 @@ namespace MobileWhouse.Controls.PRD
                     return;
                 }
 
+                if (!operatorLogin.Login()) return;
+
                 if (adet < 1 || koli < 1 || koli > 10)
                 {
                     Screens.Warning(string.Concat("Girdiğiniz değerleri kontrol edin! Hatalı giriş yapıldı. "));
@@ -123,11 +135,11 @@ namespace MobileWhouse.Controls.PRD
 
                 for (int i = 0; i < koli; i++)
                 {
-                    param.Value = new StringBuilder().Append(@"INSERT INTO ""uyumsoft"".""zz_package_m"" (""create_user_id"",""create_date"",""worder_ac_op_id"",""worder_m_id"",""worder_op_d_id"",""operation_id"",""operation_no"",""item_id"",""unit_id"",""qty"",""whouse_id"") VALUES (")
+                    param.Value = new StringBuilder().Append(@"INSERT INTO ""uyumsoft"".""zz_package_m"" (""create_user_id"",""create_date"",""worder_ac_op_id"",""worder_m_id"",""worder_op_d_id"",""operation_id"",""operation_no"",""item_id"",""unit_id"",""qty"",""whouse_id"",""is_scrapt"",""user_code"") VALUES (")
                    .AppendFormat("'{0}',CURRENT_TIMESTAMP,", ClientApplication.Instance.ClientToken.UserId)
                    .AppendFormat("'{0}','{1}','{2}','{3}','{4}',", worder_acop.worder_ac_op_id, worder_acop.worder_m_id, worder_acop.worder_op_d_id, worder_acop.operation_id, worder_acop.operation_no)
                    .AppendFormat("'{0}','{1}','{2}',", worder_acop.item_id, worder_acop.unit_id, adet.ToString(Statics.DECIMAL_STRING_FORMAT))
-                   .AppendFormat("'{0}')", ClientApplication.Instance.SelectedDepot.Id)
+                   .AppendFormat("'{0}',0,'{1}')", ClientApplication.Instance.SelectedDepot.Id, operatorLogin.Operator.citizenship_no)
                    .Append(@" RETURNING ""package_no"",""package_id"" ").ToString();
 
                     Logger.I(param.Value);
@@ -149,10 +161,12 @@ namespace MobileWhouse.Controls.PRD
                                 //if (printetiketleme.IsSelectPrinter)
                                 //    printetiketleme.Print(221102615313372M, "rpp_prd_9009", "pitemmid", StringUtil.ToInteger(res.Value.Rows[0][1]));
 
+                                //if (printetiketleme.IsSelectPrinter)
+                                //    printetiketleme.Print(221121015401868M, "rpp_prd_9011", "pitemmid", StringUtil.ToInteger(res.Value.Rows[0][1]));
+
+
                                 if (printetiketleme.IsSelectPrinter)
-                                    printetiketleme.Print(221121015401868M, "rpp_prd_9011", "pitemmid", StringUtil.ToInteger(res.Value.Rows[0][1]));
-
-
+                                    printetiketleme.Print(string.Concat(" \"barcode\" = '", res.Value.Rows[0][0].ToString(), "' "));
 
                                 //string printerName, int userId, string userPassword, decimal reportCode, string procecureName, string[] parameterField, object[] parameterValue
                                 //string printing = ClientApplication.Instance.ReportServ.SendDirectReport2();
@@ -230,10 +244,16 @@ namespace MobileWhouse.Controls.PRD
             //}
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void txtistasyon_OnSelected(object sender, object obj)
         {
-
+            wstation = obj as MobileWhouse.ProdConnector.PrdGobalInfo;
+            if (wstation != null)
+            {
+                txtistasyon.Text = string.Concat(wstation.PrdGobalCode, " ", wstation.PrdGobalName);
+                GetProducts();
+            }
         }
+
     }
 }
 

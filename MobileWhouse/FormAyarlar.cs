@@ -22,7 +22,8 @@ namespace MobileWhouse
             //txtraporurl.Text = Properties.Settings.Default.ReportServUrl;
             txtURL.Text = AppConfig.Default.WebServiceUrl;
             textAppServ.Text = AppConfig.Default.AppServerUrl;
-            txtraporurl.Text = AppConfig.Default.ReportServUrl;
+            txtprintserv.Text = AppConfig.Default.PrintServerHost;
+            textPort.Text = AppConfig.Default.PrintServerPort.ToString();
         }
 
         private void btnKaydet_Click(object sender, EventArgs e)
@@ -35,7 +36,8 @@ namespace MobileWhouse
 
             AppConfig.Default.WebServiceUrl = txtURL.Text;
             AppConfig.Default.AppServerUrl = textAppServ.Text;
-            AppConfig.Default.ReportServUrl = txtraporurl.Text;
+            AppConfig.Default.PrintServerHost = txtprintserv.Text;
+            AppConfig.Default.PrintServerPort = textPort.IntValue;
             AppConfig.Default.TraceLevel = cmbLog.SelectedIndex;
             AppConfig.Default.Save();
             ClientApplication.Instance.Relead();
@@ -62,20 +64,51 @@ namespace MobileWhouse
 
         private void FormAyarlar_Load(object sender, EventArgs e)
         {
+            //try
+            //{
+            //    AutoScaleMode = AutoScaleMode.Dpi;
+            //    WindowState = FormWindowState.Normal;
+            //    Location = new Point(0, 0);
+
+            //    if (Screens.BuyukEkran)
+            //        Size = new Size(800, 480);
+            //}
+            //catch (Exception exc)
+            //{
+            //    Screens.Error(exc);
+            //}
+
             cmbLog.SelectedIndex = AppConfig.Default.TraceLevel;
         }
 
         private void btnbilgi_Click(object sender, EventArgs e)
         {
-            StringBuilder sbilgi = new StringBuilder();
-            sbilgi.AppendFormat("Versiyon:{0}, Derleme:{1}", Program.Versiyon, Program.BuildNumber());
-            sbilgi.Append(Environment.NewLine);
-            sbilgi.AppendFormat("Cihaz İp:{0}", DeviceUtil.IpGetir());
-            sbilgi.Append(Environment.NewLine);
-            sbilgi.AppendFormat("Cihaz Id:{0}", DeviceUtil.GetDeviceId());
-            sbilgi.Append(Environment.NewLine);
-            sbilgi.AppendFormat("Ekran yükseklik:{0}, genişlik:{1}", Screen.PrimaryScreen.WorkingArea.Height, Screen.PrimaryScreen.WorkingArea.Width);
-            Screens.Info(sbilgi.ToString());
+            Screens.Info(DeviceUtil.GetDeviceInfo());
+        }
+
+        private void t1_Click(object sender, EventArgs e)
+        {
+            Screens.Klavye(txtURL);
+        }
+
+        private void t2_Click(object sender, EventArgs e)
+        {
+            Screens.Klavye(textAppServ);
+        }
+
+        private void t3_Click(object sender, EventArgs e)
+        {
+            Screens.Klavye(textPort);
+        }
+
+        private void btngonder_Click(object sender, EventArgs e)
+        {
+            ClientApplication.Instance.SendTrace();
+        }
+
+        private void t4_Click(object sender, EventArgs e)
+        {
+            Screens.Klavye(txtprintserv);
         }
     }
 }

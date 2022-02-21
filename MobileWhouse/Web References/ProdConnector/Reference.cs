@@ -2147,6 +2147,8 @@ namespace MobileWhouse.ProdConnector {
         
         private int sourceMIdField;
         
+        private System.Nullable<decimal> packageMQtyField;
+        
         /// <remarks/>
         public System.DateTime DocDate {
             get {
@@ -2234,6 +2236,17 @@ namespace MobileWhouse.ProdConnector {
             }
             set {
                 this.sourceMIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<decimal> PackageMQty {
+            get {
+                return this.packageMQtyField;
+            }
+            set {
+                this.packageMQtyField = value;
             }
         }
     }
@@ -8973,6 +8986,8 @@ namespace MobileWhouse.ProdConnector {
         
         private int userLineNoField;
         
+        private int lineNoField;
+        
         private int scrapResultTypeField;
         
         private int sourceItemIdField;
@@ -9016,6 +9031,16 @@ namespace MobileWhouse.ProdConnector {
             }
             set {
                 this.userLineNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int LineNo {
+            get {
+                return this.lineNoField;
+            }
+            set {
+                this.lineNoField = value;
             }
         }
         

@@ -60,12 +60,20 @@ namespace MobileWhouse.Util
             set { _appServerUrl = value; }
         }
 
-        private string _reportServUrl = "http://10.0.0.250:500/";
-        [XmlElement("RAPORSERVIS")]
-        public string ReportServUrl
+        private string _printServerHost = "10.0.0.250";
+        [XmlElement("PRINTHOST")]
+        public string PrintServerHost
         {
-            get { return _reportServUrl; }
-            set { _reportServUrl = value; }
+            get { return _printServerHost; }
+            set { _printServerHost = value; }
+        }
+
+        private int _printServerPort = 8888;
+        [XmlElement("PRINTPORT")]
+        public int PrintServerPort
+        {
+            get { return _printServerPort; }
+            set { _printServerPort = value; }
         }
 
         private string _branchCode = string.Empty;

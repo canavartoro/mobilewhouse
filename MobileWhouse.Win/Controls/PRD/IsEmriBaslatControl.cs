@@ -11,9 +11,11 @@ using MobileWhouse.Util;
 using System.Diagnostics;
 using MobileWhouse.Models;
 using MobileWhouse.Log;
+using MobileWhouse.Attributes;
 
 namespace MobileWhouse.Controls.PRD
 {
+    [UyumModule("PRD003", "MobileWhouse.Controls.PRD.IsEmriBaslatControl", "İş Emri Başlatma")]
     public partial class IsEmriBaslatControl : BaseControl
     {
         public IsEmriBaslatControl()
@@ -176,36 +178,7 @@ WHERE worder_m_id = {0} AND wsop.wstation_id = {1} ", worderM.Id, wstation.PrdGo
 
         private void btnKapat_Click(object sender, EventArgs e)
         {
-            MainForm.ShowControl(null);
-        }
-
-        private void btnistasyon_Click(object sender, EventArgs e)
-        {
-            using (FormSelectWstation frm = new FormSelectWstation())
-            {
-                if (frm.ShowDialog() == DialogResult.OK && frm.Wstation != null)
-                {
-                    wstation = frm.Wstation;
-                    txtistasyon.Text = string.Concat(wstation.PrdGobalCode, " ", wstation.PrdGobalName);
-                    btnbaslat.Enabled = true;
-                    listpersonel.Items.Clear();
-                    GetProducts();
-                }
-            }
-        }
-
-        private void btnisemri_Click(object sender, EventArgs e)
-        {
-            using (FormSelectWorder frm = new FormSelectWorder())
-            {
-                if (frm.ShowDialog() == DialogResult.OK && frm.WorderM != null)
-                {
-                    worderM = frm.WorderM;
-                    txtisemri.Text = string.Concat(worderM.WorderNo, " ", worderM.Qty.ToString(Statics.DECIMAL_STRING_FORMAT));
-                    txtstokkod.Text = string.Concat(worderM.ItemCode, " ", worderM.ItemName);
-                    GetWorderOpD();
-                }
-            }
+            MainForm.ShowControl(new PRD.PrdControl());
         }
 
         private void txtstokkod_KeyPress(object sender, KeyPressEventArgs e)
@@ -218,7 +191,6 @@ WHERE worder_m_id = {0} AND wsop.wstation_id = {1} ", worderM.Id, wstation.PrdGo
             if (wstation == null)
             {
                 Screens.Error("Önce iş istasyonu seçilmelidir!");
-                btnistasyon_Click(btnistasyon, EventArgs.Empty);
                 return;
             }
 
@@ -233,6 +205,7 @@ WHERE worder_m_id = {0} AND wsop.wstation_id = {1} ", worderM.Id, wstation.PrdGo
             }
         }
 
+        bool baslat = false;
         private void btnbaslat_Click(object sender, EventArgs e)
         {
             try
@@ -242,6 +215,7 @@ WHERE worder_m_id = {0} AND wsop.wstation_id = {1} ", worderM.Id, wstation.PrdGo
                 StringBuilder sbSqlString = new StringBuilder();
                 if (btnbaslat.Text == "Başlat")
                 {
+                    baslat = true;
                     sbSqlString.AppendFormat("UPDATE \"uyumsoft\".\"zz_worder_ac_op\" SET \"is_closed\" = 1 WHERE \"wstation_id\" = {0};", wstation.PrdGobalId);
                     sbSqlString.Append("INSERT INTO \"uyumsoft\".\"zz_worder_ac_op\" (\"create_user_id\",\"create_date\",\"worder_m_id\",\"item_id\",\"qty\",\"qty_net\",\"unit_id\",\"worder_op_d_id\",\"operation_id\",\"operation_no\",\"wstation_id\",\"start_date\",\"shifts_id\") VALUES (");
                     sbSqlString.AppendFormat("'{0}',", ClientApplication.Instance.ClientToken.UserId);
@@ -269,10 +243,15 @@ WHERE worder_m_id = {0} AND wsop.wstation_id = {1} ", worderM.Id, wstation.PrdGo
                     }
                     else
                     {
-                        if (res.Value != null && res.Value.Rows.Count > 0)
+                        if (!baslat)
                         {
-                            GetProducts();
+                            ClearForm();
                         }
+                        else GetProducts();
+                        //if (res.Value != null && res.Value.Rows.Count > 0)
+                        //{
+                        //    GetProducts();
+                        //}
                     }
                 }
             }
@@ -396,6 +375,39 @@ WHERE worder_m_id = {0} AND wsop.wstation_id = {1} ", worderM.Id, wstation.PrdGo
             {
                 Cursor.Current = Cursors.Default;
             }
+        }
+
+        private void txtistasyon_OnSelected(object sender, object obj)
+        {
+            wstation = obj as MobileWhouse.ProdConnector.PrdGobalInfo;
+            if (wstation != null)
+            {
+                ClearForm();
+                //txtistasyon.Text = string.Concat(wstation.PrdGobalCode, " ", wstation.PrdGobalName);
+                btnbaslat.Enabled = true;
+                listpersonel.Items.Clear();
+                GetProducts();
+            }
+        }
+
+        private void txtisemri_OnSelected(object sender, object obj)
+        {
+            worderM = obj as MobileWhouse.ProdConnector.WorderMInfo;
+            if (worderM != null)
+            {
+                //txtisemri.Text = string.Concat(worderM.WorderNo, " ", worderM.Qty.ToString(Statics.DECIMAL_STRING_FORMAT));
+                txtstokkod.Text = string.Concat(worderM.ItemCode, " ", worderM.ItemName);
+                GetWorderOpD();
+            }
+        }
+
+        private void ClearForm()
+        {
+            txtisemri.SetText("");
+            txtstokkod.Text = "";
+            txtpersonel.Text = "";
+            listpersonel.Items.Clear();
+            txtistasyon.SetText("");
         }
     }
 }

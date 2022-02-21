@@ -84,12 +84,14 @@ namespace MobileWhouse.Util
                 string fullName = string.Format("{0}\\{1}", Utility.AppPath, filename);
 
                 using (FileStream file = new FileStream(fullName, FileMode.OpenOrCreate, FileAccess.ReadWrite))
-                using (StreamWriter write = new StreamWriter(file, Encoding.Default))
                 {
-                    write.WriteLine(data);
-                    write.Flush();
-                    write.Close();
-                    file.Close();
+                    using (StreamWriter write = new StreamWriter(file, Encoding.Default))
+                    {
+                        write.WriteLine(data);
+                        write.Flush();
+                        write.Close();
+                        file.Close();
+                    }
                 }
             }
             catch (IOException ioexc)
@@ -155,11 +157,13 @@ namespace MobileWhouse.Util
                 if (File.Exists(fullName))
                 {
                     using (FileStream file = new FileStream(fullName, FileMode.Open, FileAccess.Read))
-                    using (StreamReader reader = new StreamReader(file, Encoding.Default))
                     {
-                        data = reader.ReadToEnd();
-                        reader.Close();
-                        file.Close();
+                        using (StreamReader reader = new StreamReader(file, Encoding.Default))
+                        {
+                            data = reader.ReadToEnd();
+                            reader.Close();
+                            file.Close();
+                        }
                     }
                 }
             }
@@ -182,7 +186,7 @@ namespace MobileWhouse.Util
         {
             try
             {
-                Cursor.Current = Cursors.WaitCursor; 
+                Cursor.Current = Cursors.WaitCursor;
 
                 string fullName = string.Format("{0}\\{1}", Utility.AppPath, filename);
                 if (File.Exists(fullName))

@@ -28,11 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DurusControl));
-            this.btnistasyon = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtistasyon = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtaciklama = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,18 +40,10 @@
             this.cmbvardiya = new MobileWhouse.GUI.ComboControl();
             this.cmddurusneden = new MobileWhouse.GUI.ComboControl();
             this.cmbpersonel = new MobileWhouse.GUI.ComboControl();
-            this.btnKapat = new MobileWhouse.GUI.UButton();
-            this.btntamam = new MobileWhouse.GUI.UButton();
+            this.btnKapat = new System.Windows.Forms.Button();
+            this.btntamam = new System.Windows.Forms.Button();
+            this.txtistasyon = new MobileWhouse.GUI.ULookupEdit();
             this.SuspendLayout();
-            // 
-            // btnistasyon
-            // 
-            this.btnistasyon.Location = new System.Drawing.Point(198, 3);
-            this.btnistasyon.Name = "btnistasyon";
-            this.btnistasyon.Size = new System.Drawing.Size(37, 20);
-            this.btnistasyon.TabIndex = 32;
-            this.btnistasyon.Text = "...";
-            this.btnistasyon.Click += new System.EventHandler(this.btnistasyon_Click);
             // 
             // label3
             // 
@@ -63,20 +51,6 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 20);
             this.label3.Text = "Duruş Nedeni";
-            // 
-            // txtistasyon
-            // 
-            this.txtistasyon.Location = new System.Drawing.Point(81, 3);
-            this.txtistasyon.Name = "txtistasyon";
-            this.txtistasyon.Size = new System.Drawing.Size(116, 21);
-            this.txtistasyon.TabIndex = 30;
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(2, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 20);
-            this.label1.Text = "İstasyon Kod";
             // 
             // label4
             // 
@@ -141,7 +115,8 @@
             // 
             // cmbvardiya
             // 
-            this.cmbvardiya.DataSourceType = MobileWhouse.Models.DataSourceType.Vardiya;
+            this.cmbvardiya.DataSourceType = MobileWhouse.Enums.DataSourceType.Vardiya;
+            this.cmbvardiya.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             this.cmbvardiya.HurdaTip = MobileWhouse.Enums.ScrapType.Tumu;
             this.cmbvardiya.Location = new System.Drawing.Point(81, 29);
             this.cmbvardiya.Name = "cmbvardiya";
@@ -150,7 +125,8 @@
             // 
             // cmddurusneden
             // 
-            this.cmddurusneden.DataSourceType = MobileWhouse.Models.DataSourceType.Durus;
+            this.cmddurusneden.DataSourceType = MobileWhouse.Enums.DataSourceType.Durus;
+            this.cmddurusneden.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             this.cmddurusneden.HurdaTip = MobileWhouse.Enums.ScrapType.Tumu;
             this.cmddurusneden.Location = new System.Drawing.Point(81, 56);
             this.cmddurusneden.Name = "cmddurusneden";
@@ -159,7 +135,8 @@
             // 
             // cmbpersonel
             // 
-            this.cmbpersonel.DataSourceType = MobileWhouse.Models.DataSourceType.Personel;
+            this.cmbpersonel.DataSourceType = MobileWhouse.Enums.DataSourceType.Personel;
+            this.cmbpersonel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             this.cmbpersonel.HurdaTip = MobileWhouse.Enums.ScrapType.Tumu;
             this.cmbpersonel.Location = new System.Drawing.Point(81, 83);
             this.cmbpersonel.Name = "cmbpersonel";
@@ -168,16 +145,8 @@
             // 
             // btnKapat
             // 
-            this.btnKapat.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
-            this.btnKapat.BackColor = System.Drawing.Color.Empty;
-            this.btnKapat.ForeColor = System.Drawing.Color.Empty;
-            this.btnKapat.Image = ((System.Drawing.Image)(resources.GetObject("btnKapat.Image")));
             this.btnKapat.Location = new System.Drawing.Point(4, 247);
             this.btnKapat.Name = "btnKapat";
-            this.btnKapat.NormalBtnColour = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnKapat.NormalTxtColour = System.Drawing.Color.Black;
-            this.btnKapat.PushedBtnColour = System.Drawing.Color.Blue;
-            this.btnKapat.PushedTxtColour = System.Drawing.Color.Yellow;
             this.btnKapat.Size = new System.Drawing.Size(116, 39);
             this.btnKapat.TabIndex = 84;
             this.btnKapat.Text = "Kapat";
@@ -185,42 +154,52 @@
             // 
             // btntamam
             // 
-            this.btntamam.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
-            this.btntamam.BackColor = System.Drawing.Color.Empty;
-            this.btntamam.ForeColor = System.Drawing.Color.Empty;
-            this.btntamam.Image = ((System.Drawing.Image)(resources.GetObject("btntamam.Image")));
             this.btntamam.Location = new System.Drawing.Point(126, 247);
             this.btntamam.Name = "btntamam";
-            this.btntamam.NormalBtnColour = System.Drawing.Color.LightYellow;
-            this.btntamam.NormalTxtColour = System.Drawing.Color.Blue;
-            this.btntamam.PushedBtnColour = System.Drawing.Color.Blue;
-            this.btntamam.PushedTxtColour = System.Drawing.Color.Yellow;
             this.btntamam.Size = new System.Drawing.Size(109, 39);
             this.btntamam.TabIndex = 85;
             this.btntamam.Text = "Kaydet";
             this.btntamam.Click += new System.EventHandler(this.btntamam_Click);
             // 
+            // txtistasyon
+            // 
+            this.txtistasyon.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtistasyon.DataFieldName = "";
+            this.txtistasyon.DataType = MobileWhouse.Enums.DataSourceType.Uretim_IsEmri_Istasyon;
+            this.txtistasyon.Description = "";
+            this.txtistasyon.FilterCondition = "";
+            this.txtistasyon.LabelText = "İstasyon";
+            this.txtistasyon.LabelWidth = 76;
+            this.txtistasyon.Location = new System.Drawing.Point(4, 0);
+            this.txtistasyon.Name = "txtistasyon";
+            this.txtistasyon.PurchaseSales = -1;
+            this.txtistasyon.RememberValue = false;
+            this.txtistasyon.ShowDescription = false;
+            this.txtistasyon.ShowLabelText = false;
+            this.txtistasyon.Size = new System.Drawing.Size(231, 27);
+            this.txtistasyon.SourceApplication = 0;
+            this.txtistasyon.TabIndex = 93;
+            this.txtistasyon.OnSelected += new MobileWhouse.OnSelectedObject(this.txtistasyon_OnSelected);
+            // 
             // DurusControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.Controls.Add(this.cmbvardiya);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btntamam);
             this.Controls.Add(this.btnKapat);
             this.Controls.Add(this.cmbpersonel);
             this.Controls.Add(this.cmddurusneden);
-            this.Controls.Add(this.cmbvardiya);
             this.Controls.Add(this.dateEnd);
             this.Controls.Add(this.dateStart);
             this.Controls.Add(this.txtaciklama);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.btnistasyon);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtistasyon);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtistasyon);
             this.Name = "DurusControl";
             this.Size = new System.Drawing.Size(240, 315);
             this.OnLoad += new System.EventHandler(this.DurusControl_OnLoad);
@@ -230,10 +209,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnistasyon;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtistasyon;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtaciklama;
         private System.Windows.Forms.Label label2;
@@ -245,7 +221,8 @@
         private MobileWhouse.GUI.ComboControl cmbvardiya;
         private MobileWhouse.GUI.ComboControl cmddurusneden;
         private MobileWhouse.GUI.ComboControl cmbpersonel;
-        private MobileWhouse.GUI.UButton btnKapat;
-        private MobileWhouse.GUI.UButton btntamam;
+        private System.Windows.Forms.Button btnKapat;
+        private System.Windows.Forms.Button btntamam;
+        private MobileWhouse.GUI.ULookupEdit txtistasyon;
     }
 }

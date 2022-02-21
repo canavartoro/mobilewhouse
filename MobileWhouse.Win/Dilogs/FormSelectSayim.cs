@@ -46,11 +46,14 @@ namespace MobileWhouse.Dilogs
 
         private void _LoadSayimFisleri()
         {
-            try {
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+
                 lvwItems.BeginUpdate();
                 ServiceRequestOfInt32 req = new ServiceRequestOfInt32();
                 req.Token = ClientApplication.Instance.Token;
-                req.Value = _Depot.Id ;
+                req.Value = _Depot.Id;
 
                 ServiceResultOfListOfRafSayimFisi response = ClientApplication.Instance.Service.GetRafSayimlari(req);
                 if (!response.Result)
@@ -74,8 +77,10 @@ namespace MobileWhouse.Dilogs
             {
                 MobileWhouse.Util.Screens.Error(ex);
             }
-            finally {
+            finally
+            {
                 lvwItems.EndUpdate();
+                Cursor.Current = Cursors.Default;
             }
         }
 

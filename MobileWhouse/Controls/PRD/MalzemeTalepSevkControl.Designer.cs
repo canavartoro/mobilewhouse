@@ -30,7 +30,7 @@ namespace MobileWhouse.Controls.PRD
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MalzemeTalepSevkControl));
-            this.btnkapat = new MobileWhouse.GUI.UButton();
+            this.btnkapat = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.listtalep = new System.Windows.Forms.ListView();
@@ -44,7 +44,7 @@ namespace MobileWhouse.Controls.PRD
             this.columnHeader13 = new System.Windows.Forms.ColumnHeader();
             this.txtarama = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnarama = new MobileWhouse.GUI.UButton();
+            this.btnarama = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lblbilgi = new System.Windows.Forms.Label();
             this.listbarkod = new System.Windows.Forms.ListView();
@@ -66,7 +66,7 @@ namespace MobileWhouse.Controls.PRD
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.btnkaydet = new MobileWhouse.GUI.UButton();
+            this.btnkaydet = new System.Windows.Forms.Button();
             this.datebelge = new System.Windows.Forms.DateTimePicker();
             this.txtaciklama = new System.Windows.Forms.TextBox();
             this.txtbelgeno = new System.Windows.Forms.TextBox();
@@ -81,17 +81,11 @@ namespace MobileWhouse.Controls.PRD
             // 
             // btnkapat
             // 
-            this.btnkapat.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
             this.btnkapat.BackColor = System.Drawing.Color.Empty;
             this.btnkapat.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnkapat.ForeColor = System.Drawing.Color.Empty;
-            this.btnkapat.Image = ((System.Drawing.Image)(resources.GetObject("btnkapat.Image")));
             this.btnkapat.Location = new System.Drawing.Point(0, 295);
             this.btnkapat.Name = "btnkapat";
-            this.btnkapat.NormalBtnColour = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnkapat.NormalTxtColour = System.Drawing.Color.Blue;
-            this.btnkapat.PushedBtnColour = System.Drawing.Color.Blue;
-            this.btnkapat.PushedTxtColour = System.Drawing.Color.Yellow;
             this.btnkapat.Size = new System.Drawing.Size(240, 25);
             this.btnkapat.TabIndex = 0;
             this.btnkapat.Text = "Kapat";
@@ -199,16 +193,11 @@ namespace MobileWhouse.Controls.PRD
             // 
             // btnarama
             // 
-            this.btnarama.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
             this.btnarama.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnarama.BackColor = System.Drawing.Color.Empty;
             this.btnarama.ForeColor = System.Drawing.Color.Empty;
             this.btnarama.Location = new System.Drawing.Point(183, 3);
             this.btnarama.Name = "btnarama";
-            this.btnarama.NormalBtnColour = System.Drawing.Color.LightYellow;
-            this.btnarama.NormalTxtColour = System.Drawing.Color.Blue;
-            this.btnarama.PushedBtnColour = System.Drawing.Color.Blue;
-            this.btnarama.PushedTxtColour = System.Drawing.Color.Yellow;
             this.btnarama.Size = new System.Drawing.Size(50, 20);
             this.btnarama.TabIndex = 0;
             this.btnarama.Text = "Ara";
@@ -401,18 +390,12 @@ namespace MobileWhouse.Controls.PRD
             // 
             // btnkaydet
             // 
-            this.btnkaydet.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
             this.btnkaydet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.btnkaydet.BackColor = System.Drawing.Color.Empty;
             this.btnkaydet.ForeColor = System.Drawing.Color.Empty;
-            this.btnkaydet.Image = ((System.Drawing.Image)(resources.GetObject("btnkaydet.Image")));
             this.btnkaydet.Location = new System.Drawing.Point(3, 240);
             this.btnkaydet.Name = "btnkaydet";
-            this.btnkaydet.NormalBtnColour = System.Drawing.Color.LightYellow;
-            this.btnkaydet.NormalTxtColour = System.Drawing.Color.Blue;
-            this.btnkaydet.PushedBtnColour = System.Drawing.Color.Blue;
-            this.btnkaydet.PushedTxtColour = System.Drawing.Color.Yellow;
             this.btnkaydet.Size = new System.Drawing.Size(222, 26);
             this.btnkaydet.TabIndex = 5;
             this.btnkaydet.Text = "Kaydet";
@@ -484,13 +467,13 @@ namespace MobileWhouse.Controls.PRD
 
         #endregion
 
-        private UButton btnkapat;
+        private System.Windows.Forms.Button btnkapat;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TextBox txtarama;
         private System.Windows.Forms.Label label1;
-        private UButton btnarama;
+        private System.Windows.Forms.Button btnarama;
         private System.Windows.Forms.ListView listtalep;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
@@ -519,7 +502,7 @@ namespace MobileWhouse.Controls.PRD
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtaciklama;
         private System.Windows.Forms.Label label8;
-        private GUI.UButton btnkaydet;
+        private System.Windows.Forms.Button btnkaydet;
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.ColumnHeader columnHeader11;
         private System.Windows.Forms.ColumnHeader columnHeader12;

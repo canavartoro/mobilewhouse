@@ -67,7 +67,6 @@ namespace MobileWhouse.Forms
         private Button button7;
         private Button button8;
         private Button button9;
-        private Button button50;
         public TextBox textBox1;
 
         public FormTus()
@@ -194,6 +193,20 @@ namespace MobileWhouse.Forms
             }
         }
 
+        public static void Klavye(TextBox text)
+        {
+            t = new FormTus();
+            t.textBox1.Text = text.Text;
+            t.textBox1.PasswordChar = text.PasswordChar;
+            if (t.ShowDialog() == DialogResult.OK)
+            {
+                text.Text = t.textBox1.Text;
+            }
+            text.Focus();
+            text.SelectionStart = text.Text.Length;
+            return;
+        }
+
         private void btnTemizle_Click(object sender, EventArgs e)
         {
             textBox1.Text = "";
@@ -264,7 +277,6 @@ namespace MobileWhouse.Forms
             this.button36 = new System.Windows.Forms.Button();
             this.button37 = new System.Windows.Forms.Button();
             this.btnTemizle = new System.Windows.Forms.Button();
-            this.button50 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -558,7 +570,7 @@ namespace MobileWhouse.Forms
             // 
             this.button32.Location = new System.Drawing.Point(108, 163);
             this.button32.Name = "button32";
-            this.button32.Size = new System.Drawing.Size(12, 24);
+            this.button32.Size = new System.Drawing.Size(24, 24);
             this.button32.TabIndex = 20;
             this.button32.Text = "/";
             this.button32.Click += new System.EventHandler(this.button1_Click);
@@ -770,15 +782,6 @@ namespace MobileWhouse.Forms
             this.btnTemizle.Text = "TEMİZLE";
             this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
             // 
-            // button50
-            // 
-            this.button50.Location = new System.Drawing.Point(121, 163);
-            this.button50.Name = "button50";
-            this.button50.Size = new System.Drawing.Size(12, 24);
-            this.button50.TabIndex = 56;
-            this.button50.Text = "\\";
-            this.button50.Click += new System.EventHandler(this.button1_Click);
-            // 
             // FormTus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -786,7 +789,6 @@ namespace MobileWhouse.Forms
             this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(240, 320);
             this.ControlBox = false;
-            this.Controls.Add(this.button50);
             this.Controls.Add(this.btnTemizle);
             this.Controls.Add(this.button37);
             this.Controls.Add(this.button36);

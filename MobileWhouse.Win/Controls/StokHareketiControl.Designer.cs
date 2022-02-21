@@ -53,7 +53,6 @@
             this.label1.Location = new System.Drawing.Point(4, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 16);
-            this.label1.TabIndex = 45;
             this.label1.Text = "Kyn.Depo";
             // 
             // label2
@@ -61,22 +60,19 @@
             this.label2.Location = new System.Drawing.Point(4, 48);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 16);
-            this.label2.TabIndex = 44;
             this.label2.Text = "Kyn.Raf";
             // 
             // lblDepo
             // 
             this.lblDepo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDepo.Location = new System.Drawing.Point(81, 23);
+            this.lblDepo.Location = new System.Drawing.Point(81, 21);
             this.lblDepo.Name = "lblDepo";
-            this.lblDepo.Size = new System.Drawing.Size(156, 16);
-            this.lblDepo.TabIndex = 43;
+            this.lblDepo.Size = new System.Drawing.Size(156, 18);
             // 
             // btnRaf
             // 
-            this.btnRaf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRaf.Location = new System.Drawing.Point(214, 43);
+            this.btnRaf.Location = new System.Drawing.Point(214, 44);
             this.btnRaf.Name = "btnRaf";
             this.btnRaf.Size = new System.Drawing.Size(23, 20);
             this.btnRaf.TabIndex = 7;
@@ -88,7 +84,6 @@
             this.label4.Location = new System.Drawing.Point(4, 72);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 16);
-            this.label4.TabIndex = 42;
             this.label4.Text = "Stok";
             // 
             // lstDetails
@@ -96,14 +91,12 @@
             this.lstDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.lstDetails.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
-            this.lstDetails.Location = new System.Drawing.Point(4, 111);
+            this.lstDetails.Columns.Add(this.columnHeader1);
+            this.lstDetails.Columns.Add(this.columnHeader2);
+            this.lstDetails.Location = new System.Drawing.Point(4, 113);
             this.lstDetails.Name = "lstDetails";
-            this.lstDetails.Size = new System.Drawing.Size(233, 135);
+            this.lstDetails.Size = new System.Drawing.Size(233, 164);
             this.lstDetails.TabIndex = 13;
-            this.lstDetails.UseCompatibleStateImageBehavior = false;
             this.lstDetails.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
@@ -114,13 +107,16 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Miktar";
+            this.columnHeader2.Width = 60;
             // 
             // btnKaydet
             // 
             this.btnKaydet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnKaydet.Location = new System.Drawing.Point(165, 248);
+            this.btnKaydet.BackColor = System.Drawing.Color.Empty;
+            this.btnKaydet.ForeColor = System.Drawing.Color.Empty;
+            this.btnKaydet.Location = new System.Drawing.Point(159, 283);
             this.btnKaydet.Name = "btnKaydet";
-            this.btnKaydet.Size = new System.Drawing.Size(72, 20);
+            this.btnKaydet.Size = new System.Drawing.Size(78, 29);
             this.btnKaydet.TabIndex = 14;
             this.btnKaydet.Text = "Kaydet";
             this.btnKaydet.Click += new System.EventHandler(this.btnSave_Click);
@@ -128,19 +124,20 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(87, 248);
+            this.btnClose.BackColor = System.Drawing.Color.Empty;
+            this.btnClose.ForeColor = System.Drawing.Color.Empty;
+            this.btnClose.Location = new System.Drawing.Point(4, 283);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(72, 20);
+            this.btnClose.Size = new System.Drawing.Size(75, 29);
             this.btnClose.TabIndex = 15;
             this.btnClose.Text = "Kapat";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // txtMiktar
             // 
-            this.txtMiktar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMiktar.Location = new System.Drawing.Point(192, 65);
+            this.txtMiktar.Location = new System.Drawing.Point(193, 65);
             this.txtMiktar.Name = "txtMiktar";
-            this.txtMiktar.Size = new System.Drawing.Size(45, 20);
+            this.txtMiktar.Size = new System.Drawing.Size(45, 21);
             this.txtMiktar.TabIndex = 16;
             this.txtMiktar.Value = new decimal(new int[] {
             0,
@@ -155,58 +152,52 @@
             this.lblTargetDepo.Location = new System.Drawing.Point(81, 5);
             this.lblTargetDepo.Name = "lblTargetDepo";
             this.lblTargetDepo.Size = new System.Drawing.Size(156, 16);
-            this.lblTargetDepo.TabIndex = 40;
             // 
             // label5
             // 
             this.label5.Location = new System.Drawing.Point(4, 5);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(54, 16);
-            this.label5.TabIndex = 41;
             this.label5.Text = "Hdf.Depo";
             // 
             // dtDocDate
             // 
             this.dtDocDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtDocDate.Location = new System.Drawing.Point(81, 87);
+            this.dtDocDate.Location = new System.Drawing.Point(81, 88);
             this.dtDocDate.Name = "dtDocDate";
-            this.dtDocDate.Size = new System.Drawing.Size(156, 20);
+            this.dtDocDate.Size = new System.Drawing.Size(111, 22);
             this.dtDocDate.TabIndex = 27;
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(3, 93);
+            this.label6.Location = new System.Drawing.Point(3, 94);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(66, 16);
-            this.label6.TabIndex = 39;
             this.label6.Text = "Belge Tarih";
             // 
             // txtRaf
             // 
             this.txtRaf.DepoId = 0;
             this.txtRaf.IsRaf = 1;
-            this.txtRaf.IsTransfer = false;
             this.txtRaf.Location = new System.Drawing.Point(81, 43);
             this.txtRaf.Name = "txtRaf";
-            this.txtRaf.Size = new System.Drawing.Size(131, 20);
+            this.txtRaf.Size = new System.Drawing.Size(131, 21);
             this.txtRaf.TabIndex = 29;
             // 
             // txtItemCode
             // 
             this.txtItemCode.DepoId = 0;
             this.txtItemCode.IsRaf = 0;
-            this.txtItemCode.IsTransfer = false;
             this.txtItemCode.Location = new System.Drawing.Point(81, 65);
             this.txtItemCode.Name = "txtItemCode";
-            this.txtItemCode.Size = new System.Drawing.Size(109, 20);
+            this.txtItemCode.Size = new System.Drawing.Size(111, 21);
             this.txtItemCode.TabIndex = 30;
             // 
             // chkSil
             // 
-            this.chkSil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.chkSil.Location = new System.Drawing.Point(3, 249);
+            this.chkSil.Location = new System.Drawing.Point(193, 88);
             this.chkSil.Name = "chkSil";
-            this.chkSil.Size = new System.Drawing.Size(55, 20);
+            this.chkSil.Size = new System.Drawing.Size(44, 20);
             this.chkSil.TabIndex = 38;
             this.chkSil.Text = "Sil";
             // 
@@ -214,8 +205,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.Controls.Add(this.txtItemCode);
             this.Controls.Add(this.chkSil);
+            this.Controls.Add(this.txtItemCode);
             this.Controls.Add(this.txtRaf);
             this.Controls.Add(this.dtDocDate);
             this.Controls.Add(this.label6);
@@ -231,8 +222,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "StokHareketiControl";
+            this.Size = new System.Drawing.Size(240, 315);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

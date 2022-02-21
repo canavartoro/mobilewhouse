@@ -41,6 +41,9 @@
             this.btnSettings = new MobileWhouse.GUI.UButton();
             this.btnOkey = new MobileWhouse.GUI.UButton();
             this.btnCancel = new MobileWhouse.GUI.UButton();
+            this.t1 = new MobileWhouse.GUI.UButton();
+            this.t2 = new MobileWhouse.GUI.UButton();
+            this.t3 = new MobileWhouse.GUI.UButton();
             this.SuspendLayout();
             // 
             // label1
@@ -66,25 +69,31 @@
             // 
             // txtUsername
             // 
+            this.txtUsername.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUsername.Location = new System.Drawing.Point(101, 82);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(124, 21);
+            this.txtUsername.Size = new System.Drawing.Size(99, 21);
             this.txtUsername.TabIndex = 5;
             // 
             // txtPassword
             // 
+            this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPassword.Location = new System.Drawing.Point(101, 109);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(124, 21);
+            this.txtPassword.Size = new System.Drawing.Size(99, 21);
             this.txtPassword.TabIndex = 6;
             this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress);
             // 
             // txtBranch
             // 
+            this.txtBranch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBranch.Location = new System.Drawing.Point(101, 136);
             this.txtBranch.Name = "txtBranch";
-            this.txtBranch.Size = new System.Drawing.Size(124, 21);
+            this.txtBranch.Size = new System.Drawing.Size(99, 21);
             this.txtBranch.TabIndex = 7;
             // 
             // chkRememberMe
@@ -99,9 +108,8 @@
             // 
             this.lblbuild.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblbuild.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
-            this.lblbuild.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblbuild.Location = new System.Drawing.Point(14, 236);
+            this.lblbuild.ForeColor = System.Drawing.Color.Maroon;
+            this.lblbuild.Location = new System.Drawing.Point(14, 241);
             this.lblbuild.Name = "lblbuild";
             this.lblbuild.Size = new System.Drawing.Size(211, 25);
             this.lblbuild.Text = "Build:000001";
@@ -118,6 +126,8 @@
             // btnSettings
             // 
             this.btnSettings.Alignment = MobileWhouse.GUI.ImageAlignment.Center;
+            this.btnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSettings.BackColor = System.Drawing.Color.Empty;
             this.btnSettings.ForeColor = System.Drawing.Color.Empty;
             this.btnSettings.Image = ((System.Drawing.Image)(resources.GetObject("btnSettings.Image")));
@@ -134,6 +144,7 @@
             // btnOkey
             // 
             this.btnOkey.Alignment = MobileWhouse.GUI.ImageAlignment.Right;
+            this.btnOkey.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOkey.BackColor = System.Drawing.Color.Empty;
             this.btnOkey.ForeColor = System.Drawing.Color.Empty;
             this.btnOkey.Image = ((System.Drawing.Image)(resources.GetObject("btnOkey.Image")));
@@ -165,13 +176,67 @@
             this.btnCancel.Text = "İptal";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // t1
+            // 
+            this.t1.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
+            this.t1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.t1.BackColor = System.Drawing.Color.Empty;
+            this.t1.ForeColor = System.Drawing.Color.Empty;
+            this.t1.Location = new System.Drawing.Point(200, 81);
+            this.t1.Name = "t1";
+            this.t1.NormalBtnColour = System.Drawing.Color.Silver;
+            this.t1.NormalTxtColour = System.Drawing.Color.Black;
+            this.t1.PushedBtnColour = System.Drawing.Color.Blue;
+            this.t1.PushedTxtColour = System.Drawing.Color.Yellow;
+            this.t1.Size = new System.Drawing.Size(25, 22);
+            this.t1.TabIndex = 30;
+            this.t1.Text = "T";
+            this.t1.Click += new System.EventHandler(this.t1_Click);
+            // 
+            // t2
+            // 
+            this.t2.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
+            this.t2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.t2.BackColor = System.Drawing.Color.Empty;
+            this.t2.ForeColor = System.Drawing.Color.Empty;
+            this.t2.Location = new System.Drawing.Point(200, 109);
+            this.t2.Name = "t2";
+            this.t2.NormalBtnColour = System.Drawing.Color.Silver;
+            this.t2.NormalTxtColour = System.Drawing.Color.Black;
+            this.t2.PushedBtnColour = System.Drawing.Color.Blue;
+            this.t2.PushedTxtColour = System.Drawing.Color.Yellow;
+            this.t2.Size = new System.Drawing.Size(25, 21);
+            this.t2.TabIndex = 30;
+            this.t2.Text = "T";
+            this.t2.Click += new System.EventHandler(this.t2_Click);
+            // 
+            // t3
+            // 
+            this.t3.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
+            this.t3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.t3.BackColor = System.Drawing.Color.Empty;
+            this.t3.ForeColor = System.Drawing.Color.Empty;
+            this.t3.Location = new System.Drawing.Point(200, 136);
+            this.t3.Name = "t3";
+            this.t3.NormalBtnColour = System.Drawing.Color.Silver;
+            this.t3.NormalTxtColour = System.Drawing.Color.Black;
+            this.t3.PushedBtnColour = System.Drawing.Color.Blue;
+            this.t3.PushedTxtColour = System.Drawing.Color.Yellow;
+            this.t3.Size = new System.Drawing.Size(25, 21);
+            this.t3.TabIndex = 30;
+            this.t3.Text = "T";
+            this.t3.Click += new System.EventHandler(this.t3_Click);
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(240, 315);
+            this.ClientSize = new System.Drawing.Size(240, 320);
             this.ControlBox = false;
+            this.Controls.Add(this.t3);
+            this.Controls.Add(this.t2);
+            this.Controls.Add(this.t1);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnOkey);
             this.Controls.Add(this.btnCancel);
@@ -206,5 +271,8 @@
         private MobileWhouse.GUI.UButton btnCancel;
         private MobileWhouse.GUI.UButton btnOkey;
         private MobileWhouse.GUI.UButton btnSettings;
+        private MobileWhouse.GUI.UButton t1;
+        private MobileWhouse.GUI.UButton t2;
+        private MobileWhouse.GUI.UButton t3;
     }
 }

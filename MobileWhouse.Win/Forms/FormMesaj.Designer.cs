@@ -42,7 +42,6 @@
             this.btnok.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnok.BackColor = System.Drawing.Color.Empty;
             this.btnok.ForeColor = System.Drawing.Color.Empty;
-            this.btnok.Image = null;
             this.btnok.Location = new System.Drawing.Point(162, 244);
             this.btnok.Name = "btnok";
             this.btnok.NormalBtnColour = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -60,7 +59,6 @@
             this.btncancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btncancel.BackColor = System.Drawing.Color.Empty;
             this.btncancel.ForeColor = System.Drawing.Color.Empty;
-            this.btncancel.Image = null;
             this.btncancel.Location = new System.Drawing.Point(17, 244);
             this.btncancel.Name = "btncancel";
             this.btncancel.NormalBtnColour = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -110,7 +108,6 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.btnsend.BackColor = System.Drawing.Color.Empty;
             this.btnsend.ForeColor = System.Drawing.Color.Empty;
-            this.btnsend.Image = null;
             this.btnsend.Location = new System.Drawing.Point(88, 244);
             this.btnsend.Name = "btnsend";
             this.btnsend.NormalBtnColour = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));

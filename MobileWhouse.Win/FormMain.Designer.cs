@@ -45,7 +45,6 @@
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(240, 294);
             this.Controls.Add(this.pnlContainer);
-            this.MinimizeBox = false;
             this.Name = "FormMain";
             this.Text = "Mobile Whouse";
             this.Load += new System.EventHandler(this.FormMain_Load);

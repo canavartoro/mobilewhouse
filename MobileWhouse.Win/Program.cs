@@ -7,6 +7,8 @@ using System.IO;
 using System.Xml.Serialization;
 using MobileWhouse.Models;
 using System.Globalization;
+using MobileWhouse.Util;
+using System.Text;
 
 namespace MobileWhouse
 {
@@ -24,6 +26,18 @@ namespace MobileWhouse
             System.Threading.Thread.CurrentThread.CurrentCulture =
             System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("en-US");
 #endif
+
+            #region Ekran Boyutuna Göre Form Açıyor
+            if (Screen.PrimaryScreen.WorkingArea.Width > 480)
+            {
+                Screens.BuyukEkran = true;
+            }
+            else
+            {
+                Screens.BuyukEkran = false;
+            }
+            #endregion
+
 
             ClientApplication application = new ClientApplication();
             application.Run();

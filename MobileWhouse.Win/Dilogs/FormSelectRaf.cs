@@ -42,6 +42,8 @@ namespace MobileWhouse.Dilogs
         {
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
+
                 if (_Depot == null)
                 {
                     throw new Exception("Depo secmediniz");
@@ -74,6 +76,7 @@ namespace MobileWhouse.Dilogs
             finally
             {
                 trvRaflar.EndUpdate();
+                Cursor.Current = Cursors.Default;
             }
         }
 

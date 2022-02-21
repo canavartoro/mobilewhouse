@@ -7,6 +7,10 @@ using MobileWhouse.UyumConnector;
 using System.Globalization;
 using MobileWhouse.Models;
 using MobileWhouse.Util;
+using MobileWhouse.Data;
+using System.IO;
+using MobileWhouse.Log;
+using MobileWhouse.Dilogs;
 
 namespace MobileWhouse
 {
@@ -19,7 +23,6 @@ namespace MobileWhouse
         private ProdConnector.Production _prodService;
         private UyumConnector.MobileWhouse _Service;
         private UTermConnector.UTerminalServices _utermservice;
-        private ReportServ.ReportWebService _reportServ;
         private UyumSave.UyumSaveWebService _saveServ;
         private UyumWebService.UyumWebService _webservice;
         private LoginResult _ClientToken;
@@ -96,14 +99,6 @@ namespace MobileWhouse
             }
         }
 
-        public ReportServ.ReportWebService ReportServ
-        {
-            get
-            {
-                return _reportServ;
-            }
-        }
-
         public UyumSave.UyumSaveWebService SaveServ
         {
             get
@@ -111,6 +106,7 @@ namespace MobileWhouse
                 return _saveServ;
             }
         }
+
 
         public CultureInfo Culture
         {
@@ -185,6 +181,59 @@ namespace MobileWhouse
             return _webservice.SaveUyumObjectFromXML(Context);
         }
 
+        public object SaveWebService(object xmlobj, Type t)
+        {
+            MobileWhouse.UyumWebService.UyumServiceResponseOfString res = null;
+            MobileWhouse.UyumWebService.UyumServiceRequestOfString Context = new MobileWhouse.UyumWebService.UyumServiceRequestOfString();
+            Context.Token = new MobileWhouse.UyumWebService.UyumToken();
+            if (_Token != null)
+            {
+                Context.Token.UserName = _Token.UserName;
+                Context.Token.Password = _Token.Password;
+            }
+            Context.Value = FileHelper.ToXml(xmlobj);
+            res = _webservice.SaveUyumObjectFromXML(Context);
+            if (!res.Success)
+            {
+                Screens.Error(res.Message);
+                return null;
+            }
+            else
+            {
+                return BaseModel.FromXml(t, res.Value);
+            }
+        }
+
+        public void SendTrace()
+        {
+            try
+            {
+                string applog = TextWriterTraceListener.GetTraceContent();
+                if (!string.IsNullOrEmpty(applog))
+                {
+                    StringBuilder sdata = new StringBuilder();
+                    sdata.Append(DeviceUtil.GetDeviceInfo());
+                    sdata.Append(applog);
+
+                    AppServ.Service serv = new MobileWhouse.AppServ.Service();
+                    serv.Url = string.Concat(AppConfig.Default.AppServerUrl, "/Service.asmx");
+                    string save = serv.AppLogSave(sdata.ToString());
+                    if (!string.IsNullOrEmpty(save))
+                    {
+                        Screens.Error(string.Concat("Bilgiler sunucuya yazılamadı. ", save));
+                        return;
+                    }
+                    Screens.Info("Log bilgileri sunucuya gönderildi.");
+                }
+            }
+            catch (Exception exc)
+            {
+                Logger.E(exc);
+            }
+        }
+
+
+
         public ClientApplication()
         {
             _Instance = this;
@@ -203,14 +252,14 @@ namespace MobileWhouse
                     servUrl = string.Concat(AppConfig.Default.WebServiceUrl, "/");
             }
 
-            string reportUrl = "";
-            if (!string.IsNullOrEmpty(AppConfig.Default.ReportServUrl))
-            {
-                if (AppConfig.Default.ReportServUrl[AppConfig.Default.ReportServUrl.Length - 1] == '/')
-                    reportUrl = AppConfig.Default.ReportServUrl;
-                else
-                    reportUrl = string.Concat(AppConfig.Default.ReportServUrl, "/");
-            }
+            //string reportUrl = "";//http://localhost:62624/WriteWebService/ReportWebService.asmx
+            //if (!string.IsNullOrEmpty(AppConfig.Default.ReportServUrl))
+            //{
+            //    if (AppConfig.Default.ReportServUrl[AppConfig.Default.ReportServUrl.Length - 1] == '/')
+            //        reportUrl = AppConfig.Default.ReportServUrl;
+            //    else
+            //        reportUrl = string.Concat(AppConfig.Default.ReportServUrl, "/");
+            //}
 
             try
             {
@@ -230,9 +279,9 @@ namespace MobileWhouse
                 _saveServ.Url = string.Concat(servUrl, "WebService/ERP/UyumSaveWebService.asmx");
                 _saveServ.Timeout = 180000;
 
-                _reportServ = new MobileWhouse.ReportServ.ReportWebService();
-                _reportServ.Url = string.Concat(reportUrl, "WriteWebService/ReportWebService.asmx");
-                _reportServ.Timeout = 180000;
+                //_reportServ = new MobileWhouse.ReportServ.ReportWebService();
+                //_reportServ.Url = string.Concat(reportUrl, "WriteWebService/ReportWebService.asmx");
+                //_reportServ.Timeout = 180000;
 
                 _webservice = new MobileWhouse.UyumWebService.UyumWebService();
                 _webservice.Url = string.Concat(servUrl, "WebService/UyumWebService.asmx");
@@ -250,11 +299,11 @@ namespace MobileWhouse
         {
             try
             {
-                Relead();
-
-                //Properties.Settings.Default.TraceLevel = 3;
                 MobileWhouse.Log.TextWriterTraceListener listener = new MobileWhouse.Log.TextWriterTraceListener();
                 System.Diagnostics.Debug.Listeners.Add(listener);
+
+                //Basla:
+                Relead();
 
                 FormLogin login = new FormLogin();
                 DialogResult result = login.ShowDialog();
@@ -267,7 +316,8 @@ namespace MobileWhouse
                         using (_MainForm = new FormMain())
                         {
                             _MainForm.Text = ClientApplication.Instance.Token.BranchDesc;
-                            _MainForm.ShowDialog();
+                            DialogResult rest = _MainForm.ShowDialog();
+                            //if (rest == DialogResult.Abort) goto Basla;
                         }
                     }
                     catch (Exception ex)

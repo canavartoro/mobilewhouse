@@ -39,6 +39,8 @@
             this.btnKapat = new System.Windows.Forms.Button();
             this.btnkarisim = new System.Windows.Forms.Button();
             this.btngeri = new System.Windows.Forms.Button();
+            this.btnrecete = new System.Windows.Forms.Button();
+            this.btnonay = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnisemritalep
@@ -47,7 +49,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.btnisemritalep.Location = new System.Drawing.Point(3, 3);
             this.btnisemritalep.Name = "btnisemritalep";
-            this.btnisemritalep.Size = new System.Drawing.Size(234, 20);
+            this.btnisemritalep.Size = new System.Drawing.Size(234, 24);
             this.btnisemritalep.TabIndex = 0;
             this.btnisemritalep.Text = "İş Emrine Malzeme Talebi (1)";
             this.btnisemritalep.Click += new System.EventHandler(this.btnisemritalep_Click);
@@ -58,7 +60,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.btntalepsevk.Location = new System.Drawing.Point(3, 29);
             this.btntalepsevk.Name = "btntalepsevk";
-            this.btntalepsevk.Size = new System.Drawing.Size(234, 20);
+            this.btntalepsevk.Size = new System.Drawing.Size(234, 24);
             this.btntalepsevk.TabIndex = 0;
             this.btntalepsevk.Text = "Malzeme Talebi Sevk (2)";
             this.btntalepsevk.Click += new System.EventHandler(this.btntalepsevk_Click);
@@ -69,7 +71,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.btnisemribaslat.Location = new System.Drawing.Point(3, 55);
             this.btnisemribaslat.Name = "btnisemribaslat";
-            this.btnisemribaslat.Size = new System.Drawing.Size(234, 20);
+            this.btnisemribaslat.Size = new System.Drawing.Size(234, 24);
             this.btnisemribaslat.TabIndex = 0;
             this.btnisemribaslat.Text = "İş Emri Başlatma (3)";
             this.btnisemribaslat.Click += new System.EventHandler(this.btnisemribaslat_Click);
@@ -80,9 +82,9 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.btnuretimgiris.Location = new System.Drawing.Point(3, 107);
             this.btnuretimgiris.Name = "btnuretimgiris";
-            this.btnuretimgiris.Size = new System.Drawing.Size(234, 20);
+            this.btnuretimgiris.Size = new System.Drawing.Size(234, 24);
             this.btnuretimgiris.TabIndex = 0;
-            this.btnuretimgiris.Text = "Üretim Girişi (5)";
+            this.btnuretimgiris.Text = "Palet Oluşturma (5)";
             this.btnuretimgiris.Click += new System.EventHandler(this.btnuretimgiris_Click);
             // 
             // btnkolietiket
@@ -91,7 +93,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.btnkolietiket.Location = new System.Drawing.Point(3, 81);
             this.btnkolietiket.Name = "btnkolietiket";
-            this.btnkolietiket.Size = new System.Drawing.Size(234, 20);
+            this.btnkolietiket.Size = new System.Drawing.Size(151, 24);
             this.btnkolietiket.TabIndex = 0;
             this.btnkolietiket.Text = "Koli Etiketi Basma (4)";
             this.btnkolietiket.Click += new System.EventHandler(this.btnkolietiket_Click);
@@ -102,7 +104,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.btnhurdaetiket.Location = new System.Drawing.Point(3, 159);
             this.btnhurdaetiket.Name = "btnhurdaetiket";
-            this.btnhurdaetiket.Size = new System.Drawing.Size(234, 20);
+            this.btnhurdaetiket.Size = new System.Drawing.Size(234, 24);
             this.btnhurdaetiket.TabIndex = 0;
             this.btnhurdaetiket.Text = "Hurda Etiketi Basma (7)";
             this.btnhurdaetiket.Click += new System.EventHandler(this.btnhurdaetiket_Click);
@@ -113,7 +115,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.btndurus.Location = new System.Drawing.Point(3, 133);
             this.btndurus.Name = "btndurus";
-            this.btndurus.Size = new System.Drawing.Size(234, 20);
+            this.btndurus.Size = new System.Drawing.Size(234, 24);
             this.btndurus.TabIndex = 0;
             this.btndurus.Text = "Duruş Tanımlama (6)";
             this.btndurus.Click += new System.EventHandler(this.btndurus_Click);
@@ -124,7 +126,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.btnhurdatartim.Location = new System.Drawing.Point(3, 185);
             this.btnhurdatartim.Name = "btnhurdatartim";
-            this.btnhurdatartim.Size = new System.Drawing.Size(234, 20);
+            this.btnhurdatartim.Size = new System.Drawing.Size(234, 24);
             this.btnhurdatartim.TabIndex = 0;
             this.btnhurdatartim.Text = "Hurda Tartım (8)";
             this.btnhurdatartim.Click += new System.EventHandler(this.btnhurdatartim_Click);
@@ -146,7 +148,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.btnkarisim.Location = new System.Drawing.Point(3, 211);
             this.btnkarisim.Name = "btnkarisim";
-            this.btnkarisim.Size = new System.Drawing.Size(234, 20);
+            this.btnkarisim.Size = new System.Drawing.Size(234, 24);
             this.btnkarisim.TabIndex = 0;
             this.btnkarisim.Text = "Karışım Üretimi (9)";
             this.btnkarisim.Click += new System.EventHandler(this.btnkarisim_Click);
@@ -162,10 +164,33 @@
             this.btngeri.Text = "Ana Menü (Shift+0)";
             this.btngeri.Click += new System.EventHandler(this.btngeri_Click);
             // 
+            // btnrecete
+            // 
+            this.btnrecete.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnrecete.Location = new System.Drawing.Point(3, 237);
+            this.btnrecete.Name = "btnrecete";
+            this.btnrecete.Size = new System.Drawing.Size(234, 24);
+            this.btnrecete.TabIndex = 2;
+            this.btnrecete.Text = "İş Emrine Malzeme Çıkış";
+            this.btnrecete.Click += new System.EventHandler(this.btnrecete_Click);
+            // 
+            // btnonay
+            // 
+            this.btnonay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnonay.Location = new System.Drawing.Point(155, 81);
+            this.btnonay.Name = "btnonay";
+            this.btnonay.Size = new System.Drawing.Size(82, 24);
+            this.btnonay.TabIndex = 3;
+            this.btnonay.Text = "Üretim";
+            this.btnonay.Click += new System.EventHandler(this.btnonay_Click);
+            // 
             // PrdControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.Controls.Add(this.btnonay);
+            this.Controls.Add(this.btnrecete);
             this.Controls.Add(this.btngeri);
             this.Controls.Add(this.btnKapat);
             this.Controls.Add(this.btnhurdatartim);
@@ -196,5 +221,7 @@
         private System.Windows.Forms.Button btnKapat;
         private System.Windows.Forms.Button btnkarisim;
         private System.Windows.Forms.Button btngeri;
+        private System.Windows.Forms.Button btnrecete;
+        private System.Windows.Forms.Button btnonay;
     }
 }

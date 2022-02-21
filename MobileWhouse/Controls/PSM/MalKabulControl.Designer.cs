@@ -30,6 +30,7 @@
         {
             this.btnKapat = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnetiketleme = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnKapat
@@ -54,10 +55,23 @@
             this.button1.Text = "SATINALMA MAL KABUL";
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnetiketleme
+            // 
+            this.btnetiketleme.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnetiketleme.Location = new System.Drawing.Point(3, 47);
+            this.btnetiketleme.Name = "btnetiketleme";
+            this.btnetiketleme.Size = new System.Drawing.Size(234, 38);
+            this.btnetiketleme.TabIndex = 2;
+            this.btnetiketleme.Text = "S. MAL KABUL ETİKETLEME";
+            this.btnetiketleme.Click += new System.EventHandler(this.btnetiketleme_Click);
+            // 
             // MalKabulControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btnetiketleme);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnKapat);
             this.Name = "MalKabulControl";
@@ -70,5 +84,6 @@
 
         private System.Windows.Forms.Button btnKapat;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnetiketleme;
     }
 }

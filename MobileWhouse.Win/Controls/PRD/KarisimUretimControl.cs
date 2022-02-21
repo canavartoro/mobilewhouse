@@ -12,6 +12,8 @@ using System.Diagnostics;
 using MobileWhouse.Data;
 using MobileWhouse.Util;
 using MobileWhouse.Log;
+using MobileWhouse.UyumSave;
+using MobileWhouse.Attributes;
 
 namespace MobileWhouse.Controls.PRD
 {
@@ -19,6 +21,7 @@ namespace MobileWhouse.Controls.PRD
     /// Silme durumunda tuketilen ambalaj icin geri alma yok. bir yontem bulunaacak
     /// Personel eklenecek
     /// </summary>
+    [UyumModule("PRD010", "MobileWhouse.Controls.PRD.KarisimUretimControl", "Karışım Üretimi")]
     public partial class KarisimUretimControl : BaseControl
     {
         private const string CACHENAME = "kmiktar";
@@ -146,8 +149,41 @@ namespace MobileWhouse.Controls.PRD
                     }
                     bool find = false;
                     if (chksil.Checked)
+                    #region Sil
                     {
+                        for (int i = 0; i < listBarkod.Items.Count; i++)
+                        {
+                            if (listBarkod.Items[i].Text == package.PackageNo)
+                            {
+                                listBarkod.Items.RemoveAt(i);
+
+                                for (int l = 0; l < listRecete.Items.Count; l++)
+                                {
+                                    prdt_worder_bom_d bom = listRecete.Items[l].Tag as prdt_worder_bom_d;
+                                    if (bom.ITEM_ID == package.ItemInfo.Id || bom.ALTERNATIVES.IndexOf(package.ItemInfo.Id.ToString()) != -1)
+                                    {
+                                        int _index = bom.Packages.FindIndex(p => p.PackageNo == package.PackageNo);
+                                        if (_index != -1)
+                                        {
+                                            MobileWhouse.UTermConnector.PackageDetail pkg = bom.Packages[_index];
+                                            bom.Packages.RemoveAt(_index);
+                                            bom.QTY_READ -= pkg.QtyFreeSec;
+
+                                            for (int t = 0; t < listBarkod.Items.Count; t++)
+                                            {
+                                                if (listBarkod.Items[t].Text == package.PackageNo)
+                                                {
+                                                    listBarkod.Items.RemoveAt(t);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                return;
+                            }
+                        }
                     }
+                    #endregion
                     else
                     {
                         for (int i = 0; i < listBarkod.Items.Count; i++)
@@ -162,21 +198,36 @@ namespace MobileWhouse.Controls.PRD
                         for (int i = 0; i < listRecete.Items.Count; i++)
                         {
                             prdt_worder_bom_d bom = listRecete.Items[i].Tag as prdt_worder_bom_d;
-                            if (bom.ITEM_ID == package.ItemInfo.Id)
+                            find = bom.ITEM_ID == package.ItemInfo.Id || bom.ALTERNATIVES.IndexOf(package.ItemInfo.Id.ToString()) != -1;
+                            if (find)
                             {
+                                if (bom.QTY_REMAIN == 0) throw new Exception("Reçete miktarı hatalı!");
+
                                 decimal read = bom.QTY_REMAIN - bom.QTY_READ;
+                                if (package.Qty < read) read = package.Qty;
+                                package.QtyFreeSec = read;
                                 bom.QTY_READ += read;
+
+                                bom.Packages.Add(package);
+
                                 listRecete.Items[i].SubItems[5].Text = bom.QTY_READ.ToString(Statics.DECIMAL_STRING_FORMAT);
                                 ListViewItem item = new ListViewItem();
                                 item.Text = package.PackageNo;
-                                item.Tag = package;
                                 item.SubItems.Add(bom.ITEM_CODE);
                                 item.SubItems.Add(bom.ITEM_NAME);
                                 item.SubItems.Add(bom.UNIT_CODE);
                                 item.SubItems.Add(package.Qty.ToString(Statics.DECIMAL_STRING_FORMAT));
-                                item.SubItems.Add(read.ToString(Statics.DECIMAL_STRING_FORMAT));
+                                item.SubItems.Add(bom.QTY_REMAIN.ToString(Statics.DECIMAL_STRING_FORMAT));
+                                item.SubItems.Add(package.ItemInfo.Name);
                                 listBarkod.Items.Add(item);
+
+                                find = true;
                             }
+                        }
+
+                        if (!find)
+                        {
+                            Screens.Warning(string.Concat("Okutulan ambalaj malzeme listesinde bulunamadı! ", package.PackageNo, " ", package.ItemInfo.Name));
                         }
                     }
                 }
@@ -205,25 +256,12 @@ namespace MobileWhouse.Controls.PRD
 
         private void btnKapat_Click(object sender, EventArgs e)
         {
-            MainForm.ShowControl(null);
+            MainForm.ShowControl(new PRD.PrdControl());
         }
 
         private void txtisemri_KeyPress(object sender, KeyPressEventArgs e)
         {
 
-        }
-
-        private void btnistasyon_Click(object sender, EventArgs e)
-        {
-            using (FormSelectWstation frm = new FormSelectWstation())
-            {
-                if (frm.ShowDialog() == DialogResult.OK && frm.Wstation != null)
-                {
-                    wstation = frm.Wstation;
-                    txtistasyon.Text = string.Concat(wstation.PrdGobalCode, " ", wstation.PrdGobalName);
-                    GetProducts();
-                }
-            }
         }
 
         private void btndegistir_Click(object sender, EventArgs e)
@@ -263,7 +301,8 @@ namespace MobileWhouse.Controls.PRD
                     listRecete.Items[i].SubItems[4].Text = bom.QTY_REMAIN.ToString(Statics.DECIMAL_STRING_FORMAT);
                 }
                 startprod = DateTime.Now;
-                tabControl1.SelectedIndex = 1;
+                if (tabControl1.SelectedIndex == 0)
+                    tabControl1.SelectedIndex = 1;
                 textBarkod.Focus();
                 return;
 
@@ -314,6 +353,38 @@ namespace MobileWhouse.Controls.PRD
                     return;
                 }
 
+                StringBuilder smsg = new StringBuilder();
+                List<MobileWhouse.UTermConnector.PackageDetail> packages = new List<MobileWhouse.UTermConnector.PackageDetail>();
+                List<WorderAcBomDDetailFields> materials = new List<WorderAcBomDDetailFields>();
+                for (int i = 0; i < listRecete.Items.Count; i++)
+                {
+                    prdt_worder_bom_d bom = listRecete.Items[i].Tag as prdt_worder_bom_d;
+                    if (bom.QTY_READ < bom.QTY_REMAIN)
+                    {
+                        smsg.AppendFormat("Eksik malzeme:{0}, Kalan:{1}", bom.ITEM_CODE, (bom.QTY_REMAIN - bom.QTY_READ).ToString(Statics.DECIMAL_STRING_FORMAT)).AppendLine();
+                    }
+                    for (int k = 0; k < bom.Packages.Count; k++)
+                    {
+                        MobileWhouse.UTermConnector.PackageDetail package = bom.Packages[k];
+                        WorderAcBomDDetailFields material = new WorderAcBomDDetailFields();
+                        material.LotId = package.LotId;
+                        material.Qty = package.QtyFreeSec;
+                        material.ItemId = package.ItemInfo.Id;
+                        material.UnitId = package.ItemInfo.UnitId;
+                        material.WhouseId = ClientApplication.Instance.SelectedDepot.Id;
+                        material.QualityId = package.QualityId;
+                        material.Note1 = package.PackageNo;
+                        material.NoteLarge1 = package.PackageNo;
+                        materials.Add(material);
+                        packages.Add(package);
+                    }
+                }
+                if (smsg.Length > 0)
+                {
+                    Screens.Error(smsg.ToString());
+                    return;
+                }
+
                 Screens.ShowWait();
 
                 MobileWhouse.UyumSave.UyumServiceRequestOfPrdWorderDef context = new MobileWhouse.UyumSave.UyumServiceRequestOfPrdWorderDef();
@@ -325,23 +396,18 @@ namespace MobileWhouse.Controls.PRD
                 context.Value.EndDate = startprod.Date;
                 context.Value.WorderMId = worder_acop.worder_m_id;
                 context.Value.WorderOpDId = worder_acop.worder_op_d_id;
-                context.Value.IsUseSendMaterialList = false;
+                context.Value.IsUseSendMaterialList = true;
                 context.Value.ScrapQty = 0;
                 context.Value.WstationId = wstation.PrdGobalId;
                 context.Value.Qty = worder_acop.qty_net;
                 context.Value.UnitId = worder_acop.unit_id;
-                StringBuilder snode = new StringBuilder();
-                for (int loop = 0; loop < listBarkod.Items.Count; loop++)
-                {
-                    MobileWhouse.UTermConnector.PackageDetail package = listBarkod.Items[loop].Tag as MobileWhouse.UTermConnector.PackageDetail;
-                    snode.AppendFormat("{0}{1}", loop > 0 ? "," : "", package.PackageNo);
-                }
-                context.Value.Note = snode.ToString();
+                context.Value.WorderAcBomDMaterialList = materials.ToArray();
+                context.Value.Note = DeviceUtil.GetDeviceId();
 
                 MobileWhouse.UyumSave.ServiceResultOfBoolean result = ClientApplication.Instance.SaveServ.SavePrdWorderAcOp(context);
                 if (result.Result)
                 {
-                    AmbalajHareket ambhareket = new AmbalajHareket();
+                    PackageTraM ambhareket = new PackageTraM();
                     ambhareket.CoId = ClientApplication.Instance.Token.CoId;
                     ambhareket.BranchId = ClientApplication.Instance.Token.BranchId;
                     ambhareket.WhouseId = ClientApplication.Instance.SelectedDepot.Id;
@@ -370,11 +436,9 @@ namespace MobileWhouse.Controls.PRD
                     ambhareket.UyumDetailItem[0].DcardCode = worder_acop.item_code;
                     ambhareket.UyumDetailItem[0].PackageOperationType = "Giriş";
 
-                    for (int loop = 0; loop < listBarkod.Items.Count; loop++)
+                    for (int loop = 0; loop < packages.Count; loop++)
                     {
-                        decimal qty = StringUtil.ToDecimal(listBarkod.Items[loop].SubItems[5].Text);
-                        MobileWhouse.UTermConnector.PackageDetail package = listBarkod.Items[loop].Tag as MobileWhouse.UTermConnector.PackageDetail;
-                        UpdatePackage(package.PackageDId, qty);
+                        UpdatePackage(packages[loop].PackageDId, packages[loop].QtyFreeSec);
                     }
 
                     MobileWhouse.UyumSave.UyumServiceRequestOfString Context = new MobileWhouse.UyumSave.UyumServiceRequestOfString();
@@ -392,10 +456,11 @@ namespace MobileWhouse.Controls.PRD
                     {
                         if (printkarisim.IsSelectPrinter)
                         {
-                            AmbalajHareket hareket = BaseModel.FromXml(typeof(AmbalajHareket), resp.Value) as AmbalajHareket;
+                            PackageTraM hareket = BaseModel.FromXml(typeof(PackageTraM), resp.Value) as PackageTraM;
                             if (hareket != null)
                             {
-                                printkarisim.Print(221120315362129, "RPP_INV_9009", "pitemmid", hareket.Id);
+                                printkarisim.Print(string.Concat(" \"doc_no\" = '", hareket.DocNo, "'  "));
+                                //printkarisim.Print(221120315362129, "RPP_INV_9009", "pitemmid", hareket.Id);
                             }
                         }
                         ClearForm();
@@ -474,6 +539,40 @@ namespace MobileWhouse.Controls.PRD
             catch (Exception ex)
             {
                 MobileWhouse.Util.Screens.Error(ex);
+            }
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (tabControl1.SelectedIndex == 1)
+                {
+                    if (txtkoliici.DoubleValue <= 0)
+                    {
+                        Screens.Error("Miktar girin!");
+                        txtkoliici.Focus();
+                        tabControl1.SelectedIndex = 0;
+                        return;
+                    }
+
+                    btndegistir_Click(btndegistir, EventArgs.Empty);
+                }
+            }
+            catch (Exception exc)
+            {
+                Screens.Error(exc);
+            }
+        }
+
+        private void txtistasyon_OnSelected(object sender, object obj)
+        {
+            wstation = obj as MobileWhouse.ProdConnector.PrdGobalInfo;
+            if (wstation != null)
+            {
+                ClearForm();
+                //txtistasyon.Text = string.Concat(wstation.PrdGobalCode, " ", wstation.PrdGobalName);
+                GetProducts();
             }
         }
     }

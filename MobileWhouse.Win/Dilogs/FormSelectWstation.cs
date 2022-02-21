@@ -28,6 +28,8 @@ namespace MobileWhouse.Dilogs
         {
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
+
                 ServiceRequestOfPrdGobalParam param = new ServiceRequestOfPrdGobalParam();
                 param.Token = ClientApplication.Instance.ProdToken;
                 param.PageSize = 9999;
@@ -72,6 +74,7 @@ namespace MobileWhouse.Dilogs
             finally
             {
                 listView1.EndUpdate();
+                Cursor.Current = Cursors.Default;
             }
         }
 

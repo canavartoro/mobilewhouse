@@ -8,9 +8,12 @@ using System.Text;
 using System.Windows.Forms;
 using MobileWhouse.UyumConnector;
 using MobileWhouse.Util;
+using MobileWhouse.Dilogs;
+using MobileWhouse.Attributes;
 
 namespace MobileWhouse.Controls
 {
+    [UyumModule("INV001", "MobileWhouse.Controls.DepoTransferControl", "Stok Transfer")]
     public partial class DepoTransferControl : BaseControl
     {
         private Depot _TargetDepot;
@@ -18,6 +21,7 @@ namespace MobileWhouse.Controls
         private NameIdItem _SelectedRaf;
         private bool FirstLoad;
         private int StokHareketMId;
+        private EmployeeLogin operatorLogin = new EmployeeLogin();
 
         public DepoTransferControl()
         {
@@ -250,6 +254,13 @@ namespace MobileWhouse.Controls
 
             try
             {
+                if (!operatorLogin.Login()) return;
+                if (!operatorLogin.Operator.inv001)
+                {
+                    Screens.Error("Bu işlem için yetkiniz yok!");
+                    return;
+                }
+
                 Cursor.Current = Cursors.WaitCursor;
                 ServiceRequestOfInt32 param = new ServiceRequestOfInt32();
                 param.Token = ClientApplication.Instance.Token;

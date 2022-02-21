@@ -28,7 +28,7 @@ namespace MobileWhouse.AppServ {
         
         /// <remarks/>
         public Service() {
-            this.Url = "http://10.0.0.250:2002/Service.asmx";
+            this.Url = "http://localhost:51623/Service.asmx";
         }
         
         /// <remarks/>
@@ -51,6 +51,26 @@ namespace MobileWhouse.AppServ {
         public string EndGetBwhItemInfo(System.IAsyncResult asyncResult) {
             object[] results = this.EndInvoke(asyncResult);
             return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetEmployeeList", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Employee[] GetEmployeeList(Token token) {
+            object[] results = this.Invoke("GetEmployeeList", new object[] {
+                        token});
+            return ((Employee[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginGetEmployeeList(Token token, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("GetEmployeeList", new object[] {
+                        token}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public Employee[] EndGetEmployeeList(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((Employee[])(results[0]));
         }
         
         /// <remarks/>
@@ -91,6 +111,536 @@ namespace MobileWhouse.AppServ {
         public string EndAppVersion(System.IAsyncResult asyncResult) {
             object[] results = this.EndInvoke(asyncResult);
             return ((string)(results[0]));
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Token {
+        
+        private string passwordField;
+        
+        private string usernameField;
+        
+        private int userIdField;
+        
+        private int branchIdField;
+        
+        private string branchCodeField;
+        
+        private string branchDescField;
+        
+        private int coIdField;
+        
+        private string coCodeField;
+        
+        private string coDescField;
+        
+        private int whouseIdField;
+        
+        private string whouseCodeField;
+        
+        private string whouseDescField;
+        
+        private string appVersionNoField;
+        
+        private string appVersionFtpField;
+        
+        /// <remarks/>
+        public string Password {
+            get {
+                return this.passwordField;
+            }
+            set {
+                this.passwordField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Username {
+            get {
+                return this.usernameField;
+            }
+            set {
+                this.usernameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int UserId {
+            get {
+                return this.userIdField;
+            }
+            set {
+                this.userIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int BranchId {
+            get {
+                return this.branchIdField;
+            }
+            set {
+                this.branchIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string BranchCode {
+            get {
+                return this.branchCodeField;
+            }
+            set {
+                this.branchCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string BranchDesc {
+            get {
+                return this.branchDescField;
+            }
+            set {
+                this.branchDescField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int CoId {
+            get {
+                return this.coIdField;
+            }
+            set {
+                this.coIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string CoCode {
+            get {
+                return this.coCodeField;
+            }
+            set {
+                this.coCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string CoDesc {
+            get {
+                return this.coDescField;
+            }
+            set {
+                this.coDescField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int WhouseId {
+            get {
+                return this.whouseIdField;
+            }
+            set {
+                this.whouseIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string WhouseCode {
+            get {
+                return this.whouseCodeField;
+            }
+            set {
+                this.whouseCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string WhouseDesc {
+            get {
+                return this.whouseDescField;
+            }
+            set {
+                this.whouseDescField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string appVersionNo {
+            get {
+                return this.appVersionNoField;
+            }
+            set {
+                this.appVersionNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string appVersionFtp {
+            get {
+                return this.appVersionFtpField;
+            }
+            set {
+                this.appVersionFtpField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Employee {
+        
+        private int prd_employee_idField;
+        
+        private string citizenship_noField;
+        
+        private string emp_nameField;
+        
+        private string emp_surnameField;
+        
+        private string passwordField;
+        
+        private int employee_task_type_idField;
+        
+        private bool is_outsource_employeeField;
+        
+        private string full_nameField;
+        
+        private bool psm002Field;
+        
+        private bool prd008Field;
+        
+        private bool prd007Field;
+        
+        private bool pkg002Field;
+        
+        private bool prd003Field;
+        
+        private bool qlt003Field;
+        
+        private bool qlt001Field;
+        
+        private bool prd006Field;
+        
+        private bool qlt002Field;
+        
+        private bool pkg003Field;
+        
+        private bool prd011Field;
+        
+        private bool prd002Field;
+        
+        private bool prd009Field;
+        
+        private bool prd010Field;
+        
+        private bool prd004Field;
+        
+        private bool psm001Field;
+        
+        private bool pkg004Field;
+        
+        private bool prd005Field;
+        
+        private bool pkg001Field;
+        
+        private bool prd001Field;
+        
+        private bool inv001Field;
+        
+        /// <remarks/>
+        public int prd_employee_id {
+            get {
+                return this.prd_employee_idField;
+            }
+            set {
+                this.prd_employee_idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string citizenship_no {
+            get {
+                return this.citizenship_noField;
+            }
+            set {
+                this.citizenship_noField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string emp_name {
+            get {
+                return this.emp_nameField;
+            }
+            set {
+                this.emp_nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string emp_surname {
+            get {
+                return this.emp_surnameField;
+            }
+            set {
+                this.emp_surnameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string password {
+            get {
+                return this.passwordField;
+            }
+            set {
+                this.passwordField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int employee_task_type_id {
+            get {
+                return this.employee_task_type_idField;
+            }
+            set {
+                this.employee_task_type_idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool is_outsource_employee {
+            get {
+                return this.is_outsource_employeeField;
+            }
+            set {
+                this.is_outsource_employeeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string full_name {
+            get {
+                return this.full_nameField;
+            }
+            set {
+                this.full_nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool psm002 {
+            get {
+                return this.psm002Field;
+            }
+            set {
+                this.psm002Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool prd008 {
+            get {
+                return this.prd008Field;
+            }
+            set {
+                this.prd008Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool prd007 {
+            get {
+                return this.prd007Field;
+            }
+            set {
+                this.prd007Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool pkg002 {
+            get {
+                return this.pkg002Field;
+            }
+            set {
+                this.pkg002Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool prd003 {
+            get {
+                return this.prd003Field;
+            }
+            set {
+                this.prd003Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool qlt003 {
+            get {
+                return this.qlt003Field;
+            }
+            set {
+                this.qlt003Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool qlt001 {
+            get {
+                return this.qlt001Field;
+            }
+            set {
+                this.qlt001Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool prd006 {
+            get {
+                return this.prd006Field;
+            }
+            set {
+                this.prd006Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool qlt002 {
+            get {
+                return this.qlt002Field;
+            }
+            set {
+                this.qlt002Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool pkg003 {
+            get {
+                return this.pkg003Field;
+            }
+            set {
+                this.pkg003Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool prd011 {
+            get {
+                return this.prd011Field;
+            }
+            set {
+                this.prd011Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool prd002 {
+            get {
+                return this.prd002Field;
+            }
+            set {
+                this.prd002Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool prd009 {
+            get {
+                return this.prd009Field;
+            }
+            set {
+                this.prd009Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool prd010 {
+            get {
+                return this.prd010Field;
+            }
+            set {
+                this.prd010Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool prd004 {
+            get {
+                return this.prd004Field;
+            }
+            set {
+                this.prd004Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool psm001 {
+            get {
+                return this.psm001Field;
+            }
+            set {
+                this.psm001Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool pkg004 {
+            get {
+                return this.pkg004Field;
+            }
+            set {
+                this.pkg004Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool prd005 {
+            get {
+                return this.prd005Field;
+            }
+            set {
+                this.prd005Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool pkg001 {
+            get {
+                return this.pkg001Field;
+            }
+            set {
+                this.pkg001Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool prd001 {
+            get {
+                return this.prd001Field;
+            }
+            set {
+                this.prd001Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool inv001 {
+            get {
+                return this.inv001Field;
+            }
+            set {
+                this.inv001Field = value;
+            }
         }
     }
 }

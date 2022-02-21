@@ -66,14 +66,13 @@
             // 
             this.lblDepo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDepo.Location = new System.Drawing.Point(81, 23);
+            this.lblDepo.Location = new System.Drawing.Point(81, 21);
             this.lblDepo.Name = "lblDepo";
-            this.lblDepo.Size = new System.Drawing.Size(156, 16);
+            this.lblDepo.Size = new System.Drawing.Size(156, 18);
             // 
             // btnRaf
             // 
-            this.btnRaf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRaf.Location = new System.Drawing.Point(214, 43);
+            this.btnRaf.Location = new System.Drawing.Point(214, 44);
             this.btnRaf.Name = "btnRaf";
             this.btnRaf.Size = new System.Drawing.Size(23, 20);
             this.btnRaf.TabIndex = 7;
@@ -94,9 +93,9 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.lstDetails.Columns.Add(this.columnHeader1);
             this.lstDetails.Columns.Add(this.columnHeader2);
-            this.lstDetails.Location = new System.Drawing.Point(4, 111);
+            this.lstDetails.Location = new System.Drawing.Point(4, 113);
             this.lstDetails.Name = "lstDetails";
-            this.lstDetails.Size = new System.Drawing.Size(233, 135);
+            this.lstDetails.Size = new System.Drawing.Size(233, 164);
             this.lstDetails.TabIndex = 13;
             this.lstDetails.View = System.Windows.Forms.View.Details;
             // 
@@ -113,9 +112,11 @@
             // btnKaydet
             // 
             this.btnKaydet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnKaydet.Location = new System.Drawing.Point(165, 248);
+            this.btnKaydet.BackColor = System.Drawing.Color.Empty;
+            this.btnKaydet.ForeColor = System.Drawing.Color.Empty;
+            this.btnKaydet.Location = new System.Drawing.Point(159, 283);
             this.btnKaydet.Name = "btnKaydet";
-            this.btnKaydet.Size = new System.Drawing.Size(72, 20);
+            this.btnKaydet.Size = new System.Drawing.Size(78, 29);
             this.btnKaydet.TabIndex = 14;
             this.btnKaydet.Text = "Kaydet";
             this.btnKaydet.Click += new System.EventHandler(this.btnSave_Click);
@@ -123,17 +124,18 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Location = new System.Drawing.Point(87, 248);
+            this.btnClose.BackColor = System.Drawing.Color.Empty;
+            this.btnClose.ForeColor = System.Drawing.Color.Empty;
+            this.btnClose.Location = new System.Drawing.Point(4, 283);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(72, 20);
+            this.btnClose.Size = new System.Drawing.Size(75, 29);
             this.btnClose.TabIndex = 15;
             this.btnClose.Text = "Kapat";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // txtMiktar
             // 
-            this.txtMiktar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMiktar.Location = new System.Drawing.Point(192, 65);
+            this.txtMiktar.Location = new System.Drawing.Point(193, 65);
             this.txtMiktar.Name = "txtMiktar";
             this.txtMiktar.Size = new System.Drawing.Size(45, 21);
             this.txtMiktar.TabIndex = 16;
@@ -161,14 +163,14 @@
             // dtDocDate
             // 
             this.dtDocDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtDocDate.Location = new System.Drawing.Point(81, 87);
+            this.dtDocDate.Location = new System.Drawing.Point(81, 88);
             this.dtDocDate.Name = "dtDocDate";
-            this.dtDocDate.Size = new System.Drawing.Size(156, 22);
+            this.dtDocDate.Size = new System.Drawing.Size(111, 22);
             this.dtDocDate.TabIndex = 27;
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(3, 93);
+            this.label6.Location = new System.Drawing.Point(3, 94);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(66, 16);
             this.label6.Text = "Belge Tarih";
@@ -188,15 +190,14 @@
             this.txtItemCode.IsRaf = 0;
             this.txtItemCode.Location = new System.Drawing.Point(81, 65);
             this.txtItemCode.Name = "txtItemCode";
-            this.txtItemCode.Size = new System.Drawing.Size(109, 21);
+            this.txtItemCode.Size = new System.Drawing.Size(111, 21);
             this.txtItemCode.TabIndex = 30;
             // 
             // chkSil
             // 
-            this.chkSil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.chkSil.Location = new System.Drawing.Point(3, 249);
+            this.chkSil.Location = new System.Drawing.Point(193, 88);
             this.chkSil.Name = "chkSil";
-            this.chkSil.Size = new System.Drawing.Size(55, 20);
+            this.chkSil.Size = new System.Drawing.Size(44, 20);
             this.chkSil.TabIndex = 38;
             this.chkSil.Text = "Sil";
             // 
@@ -221,6 +222,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "StokHareketiControl";
+            this.Size = new System.Drawing.Size(240, 315);
             this.ResumeLayout(false);
 
         }

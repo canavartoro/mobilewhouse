@@ -13,9 +13,11 @@ using System.Diagnostics;
 using MobileWhouse.Data;
 using MobileWhouse.ProdConnector;
 using MobileWhouse.Log;
+using MobileWhouse.Attributes;
 
 namespace MobileWhouse.Controls.PRD
 {
+    [UyumModule("PRD008", "MobileWhouse.Controls.PRD.HurdaEtiketlemeControl", "Hurda Etiketi Basma")]
     public partial class HurdaEtiketlemeControl : BaseControl
     {
         public HurdaEtiketlemeControl()
@@ -110,7 +112,7 @@ WHERE acop.co_id = '{0}' AND acop.branch_id = '{1}' AND acop.worder_m_id = '{2}'
 
                 Cursor.Current = Cursors.WaitCursor;
 
-                List<prdt_worder_bom_d> boms = prdt_worder_bom_d.GetMaterials(selectedWorderAcop.worder_m_id, selectedWorderAcop.operation_id, false);
+                List<prdt_worder_bom_d> boms = prdt_worder_bom_d.GetWorderAcMaterials(selectedWorderAcop.worder_ac_op_id);
                 if (boms != null && boms.Count > 0)
                 {
                     cmbisemribilesen.DataSource = boms;
@@ -129,7 +131,7 @@ WHERE acop.co_id = '{0}' AND acop.branch_id = '{1}' AND acop.worder_m_id = '{2}'
 
         private void btnKapat_Click(object sender, EventArgs e)
         {
-            MainForm.ShowControl(null);
+            MainForm.ShowControl(new PRD.PrdControl());
         }
 
         private void txtisemri_KeyPress(object sender, KeyPressEventArgs e)
@@ -147,18 +149,6 @@ WHERE acop.co_id = '{0}' AND acop.branch_id = '{1}' AND acop.worder_m_id = '{2}'
                     wstation = frm.Wstation;
                     txtistasyon.Text = string.Concat(wstation.PrdGobalCode, " ", wstation.PrdGobalName);
                     GetProducts();
-                }
-            }
-        }
-
-        private void btnstokkod_Click(object sender, EventArgs e)
-        {
-            using (FormSelectScrapItem frm = new FormSelectScrapItem())
-            {
-                if (frm.ShowDialog() == DialogResult.OK && frm.Item != null)
-                {
-                    item = frm.Item;
-                    txtstokkod.Text = string.Concat(frm.Item.item_code, " ", frm.Item.item_name);
                 }
             }
         }
@@ -187,10 +177,11 @@ WHERE acop.co_id = '{0}' AND acop.branch_id = '{1}' AND acop.worder_m_id = '{2}'
         {
             try
             {
+                wstation = txtistasyon.SelectedObject as MobileWhouse.ProdConnector.PrdGobalInfo;
                 if (wstation == null)
                 {
                     Screens.Error("İstasyon seçilmedi!");
-                    btnistasyon_Click(btnistasyon, EventArgs.Empty);
+                    //btnistasyon_Click(btnistasyon, EventArgs.Empty);
                     return;
                 }
                 if (selectedWorderAcop == null)
@@ -210,19 +201,75 @@ WHERE acop.co_id = '{0}' AND acop.branch_id = '{1}' AND acop.worder_m_id = '{2}'
                     cmbisemribilesen.Focus();
                     return;
                 }
-                if (string.IsNullOrEmpty(textMiktar.Text))
-                {
-                    Screens.Error("Hurda miktarı girilmedi! Hurda miktarı girin.");
-                    textMiktar.Focus();
-                    return;
-                }
 
                 prdt_worder_bom_d bom = cmbisemribilesen.SelectedItem as prdt_worder_bom_d;
                 DataRowView dr = cmbhurdaneden.SelectedItem as DataRowView;
 
                 Cursor.Current = Cursors.WaitCursor;
 
-                ServiceRequestOfWorderAcOpInfo param = new ServiceRequestOfWorderAcOpInfo();
+                MobileWhouse.UyumConnector.ServiceRequestOfString param = new MobileWhouse.UyumConnector.ServiceRequestOfString();
+                param.Token = ClientApplication.Instance.Token;
+
+                StringBuilder sb = new StringBuilder();
+                sb.Append(@"INSERT INTO ""uyumsoft"".""zz_package_m"" (""create_user_id"",""create_date"",""worder_ac_op_id"",""worder_m_id"",""worder_op_d_id"",""operation_id"",")
+                    .Append(@"""operation_no"",""item_id"",""unit_id"",""qty"",""whouse_id"",""is_scrapt"",""worder_ac_bom_m_id"",""worder_ac_bom_d_id"",""scrap_result_type"",""scrap_reason_id"",""diff_item_id"",""diff_unit_id"",""worder_ac_bom_d_line_no"") VALUES (");
+                sb.AppendFormat("{0},CURRENT_TIMESTAMP,", ClientApplication.Instance.ClientToken.UserId)//"create_user_id","create_date"
+                    .AppendFormat("{0},{1},", selectedWorderAcop.worder_ac_op_id, selectedWorderAcop.worder_m_id)//"worder_ac_op_id","worder_m_id"
+                    .AppendFormat("{0},{1},{2},", selectedWorderAcop.worder_op_d_id, selectedWorderAcop.operation_id, selectedWorderAcop.operation_no)//"worder_op_d_id","operation_id","operation_no"
+                    .AppendFormat("{0},{1},0,", bom.ITEM_ID, bom.UNIT_ID);//"item_id","unit_id","qty"
+
+                if (dr != null && DBNull.Value != dr["SCRAP_IN_WHOUSE_ID"])
+                    sb.AppendFormat("'{0}',", StringUtil.ToInteger(dr["SCRAP_IN_WHOUSE_ID"])); //"whouse_id"
+                else
+                    sb.AppendFormat("'{0}',", bom.WHOUSE_ID); //"whouse_id"
+
+                sb.AppendFormat("1,{0},{1},2,{2},", bom.ITEM_BOM_M_ID, bom.WORDER_BOM_D_ID, StringUtil.ToInteger(cmbhurdaneden.SelectedValue)); //"is_scrapt","worder_ac_bom_d_id","scrap_result_type","scrap_reason_id"
+                if (item != null)
+                {
+                    sb.AppendFormat(@"{0},{1},", item.item_id, item.unit_id);
+                }
+                else
+                {
+                    sb.Append(@"NULL,NULL,");
+                }
+                sb.Append(bom.LINE_NO).Append(")");
+
+                sb.Append(@" RETURNING ""package_no"",""package_id"" ").ToString();
+
+                Logger.I(param.Value);
+                param.Value = sb.ToString();
+
+                MobileWhouse.UyumConnector.ServiceResultOfDataTable res = ClientApplication.Instance.Service.ExecuteSQL(param);
+                if (res != null)
+                {
+                    if (res.Result == false)
+                    {
+                        MobileWhouse.Util.Screens.Error(string.Concat("Sunucu hatası:", res.Message));
+                    }
+                    else
+                    {
+                        //StringBuilder str = new StringBuilder();
+                        if (res.Value != null && res.Value.Rows.Count > 0)
+                        {
+                            if (printhurdaetiket.IsSelectPrinter)
+                                printhurdaetiket.Print(string.Concat(" package_no = '", res.Value.Rows[0][0], "' "));
+                            //str.AppendFormat("package_no:{0}{1}", res.Value.Rows[0][0], Environment.NewLine);
+                            //str.AppendFormat("package_id:{0}{1}", res.Value.Rows[0][1], Environment.NewLine);
+                        }
+                        //Screens.Info(str.ToString());
+
+                        cmbhurdaneden.SelectedIndex = -1;
+                        cmbhurdaneden.Text = "";
+                        cmbisemribilesen.SelectedIndex = -1;
+                        cmbisemribilesen.Text = "";
+                        txtstokkod.SetText("");
+                        txtistasyon.SetText("");
+                        listView1.Items.Clear();
+                        //MainForm.ShowControl(new PRD.PrdControl());
+                    }
+                }
+
+                /*ServiceRequestOfWorderAcOpInfo param = new ServiceRequestOfWorderAcOpInfo();
                 param.Token = ClientApplication.Instance.ProdToken;
                 param.Value = new WorderAcOpInfo();
                 param.Value.Id = selectedWorderAcop.worder_ac_op_id;
@@ -235,7 +282,7 @@ WHERE acop.co_id = '{0}' AND acop.branch_id = '{1}' AND acop.worder_m_id = '{2}'
                 param.Value.WorderScrapMaterialList[0].SourceBomMId = bom.ITEM_BOM_M_ID;
                 param.Value.WorderScrapMaterialList[0].SourceItemId = bom.ITEM_ID;
                 param.Value.WorderScrapMaterialList[0].UnitId = bom.UNIT_ID;
-                param.Value.WorderScrapMaterialList[0].ScrapResultType = 2;/*Mamul = 1,Malzeme = 2,FarkliKod = 3,YanUrun = 4,DemonteUrun = 5,TersUrun = 6*/
+                param.Value.WorderScrapMaterialList[0].ScrapResultType = 2; //Mamul = 1,Malzeme = 2,FarkliKod = 3,YanUrun = 4,DemonteUrun = 5,TersUrun = 6
                 param.Value.WorderScrapMaterialList[0].WorderBomDId = bom.WORDER_BOM_D_ID;
                 param.Value.WorderScrapMaterialList[0].NoteLarge = "El terminalinden oluşturuldu";
                 if (item != null)
@@ -256,7 +303,7 @@ WHERE acop.co_id = '{0}' AND acop.branch_id = '{1}' AND acop.worder_m_id = '{2}'
                 else
                 {
                     Screens.Error(res.Message);
-                }
+                }*/
             }
             catch (Exception exc)
             {
@@ -266,6 +313,18 @@ WHERE acop.co_id = '{0}' AND acop.branch_id = '{1}' AND acop.worder_m_id = '{2}'
             {
                 Cursor.Current = Cursors.Default;
             }
+        }
+
+        private void txtstokkod_OnSelected(object sender, object obj)
+        {
+            item = obj as invd_item;
+        }
+
+        private void txtistasyon_OnSelected(object sender, object obj)
+        {
+            wstation = txtistasyon.SelectedObject as MobileWhouse.ProdConnector.PrdGobalInfo;
+            listView1.Items.Clear();
+            if (wstation != null) GetProducts();
         }
     }
 }

@@ -74,9 +74,9 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.lstDetails.Columns.Add(this.columnHeader1);
             this.lstDetails.Columns.Add(this.columnHeader2);
-            this.lstDetails.Location = new System.Drawing.Point(4, 90);
+            this.lstDetails.Location = new System.Drawing.Point(4, 94);
             this.lstDetails.Name = "lstDetails";
-            this.lstDetails.Size = new System.Drawing.Size(233, 190);
+            this.lstDetails.Size = new System.Drawing.Size(233, 186);
             this.lstDetails.TabIndex = 13;
             this.lstDetails.View = System.Windows.Forms.View.Details;
             // 
@@ -93,6 +93,8 @@
             // btnKaydet
             // 
             this.btnKaydet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnKaydet.BackColor = System.Drawing.Color.Empty;
+            this.btnKaydet.ForeColor = System.Drawing.Color.Empty;
             this.btnKaydet.Location = new System.Drawing.Point(131, 286);
             this.btnKaydet.Name = "btnKaydet";
             this.btnKaydet.Size = new System.Drawing.Size(106, 31);
@@ -103,6 +105,8 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.BackColor = System.Drawing.Color.Empty;
+            this.btnClose.ForeColor = System.Drawing.Color.Empty;
             this.btnClose.Location = new System.Drawing.Point(3, 286);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(107, 31);
@@ -112,7 +116,6 @@
             // 
             // txtMiktar
             // 
-            this.txtMiktar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMiktar.Location = new System.Drawing.Point(191, 44);
             this.txtMiktar.Name = "txtMiktar";
             this.txtMiktar.Size = new System.Drawing.Size(46, 21);
@@ -141,14 +144,14 @@
             // dtDocDate
             // 
             this.dtDocDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtDocDate.Location = new System.Drawing.Point(81, 66);
+            this.dtDocDate.Location = new System.Drawing.Point(81, 68);
             this.dtDocDate.Name = "dtDocDate";
             this.dtDocDate.Size = new System.Drawing.Size(109, 22);
             this.dtDocDate.TabIndex = 27;
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(3, 70);
+            this.label6.Location = new System.Drawing.Point(3, 72);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(66, 16);
             this.label6.Text = "Belge Tarih";
@@ -162,8 +165,7 @@
             // 
             // chkSil
             // 
-            this.chkSil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.chkSil.Location = new System.Drawing.Point(191, 66);
+            this.chkSil.Location = new System.Drawing.Point(191, 68);
             this.chkSil.Name = "chkSil";
             this.chkSil.Size = new System.Drawing.Size(46, 20);
             this.chkSil.TabIndex = 38;

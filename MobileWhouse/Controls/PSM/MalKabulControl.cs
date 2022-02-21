@@ -34,5 +34,17 @@ namespace MobileWhouse.Controls.PSM
                 }
             }
         }
+
+        private void btnetiketleme_Click(object sender, EventArgs e)
+        {
+            using (FormSelectAlisIrsaliye form = new FormSelectAlisIrsaliye())
+            {
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    SatinalmaMalKabulEtiketlemeControl control = new SatinalmaMalKabulEtiketlemeControl(form.Selected);
+                    MainForm.ShowControl(control);
+                }
+            }
+        }
     }
 }

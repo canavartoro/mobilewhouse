@@ -10,6 +10,7 @@ using MobileWhouse.Util;
 using MobileWhouse.Dilogs;
 using MobileWhouse.Models;
 using System.Globalization;
+using MobileWhouse.Attributes;
 
 namespace MobileWhouse.Controls.PRD
 {
@@ -20,7 +21,7 @@ namespace MobileWhouse.Controls.PRD
 :IS_TRANSFER - 0
 :PRD_TRANSFER_STATUS - 1
 */
-
+    [UyumModule("PRD002", "MobileWhouse.Controls.PRD.MalzemeTalepSevkControl", "Malzeme Talebi Sevk")]
     public partial class MalzemeTalepSevkControl : BaseControl
     {
         public MalzemeTalepSevkControl()
@@ -276,7 +277,7 @@ UYUMSOFT.PRDT_WORDER_M ON PRDT_TRANSFER_D.WORDER_M_ID = PRDT_WORDER_M.WORDER_M_I
 
         private void btnkapat_Click(object sender, EventArgs e)
         {
-            MainForm.ShowControl(null);
+            MainForm.ShowControl(new PRD.PrdControl());
         }
 
         private void btnarama_Click(object sender, EventArgs e)

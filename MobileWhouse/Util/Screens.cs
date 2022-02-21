@@ -21,6 +21,11 @@ namespace MobileWhouse.Util
             Cursor.Current = Cursors.Default;
         }
 
+        public static void Error(string format, params object[] args)
+        {
+            Error(string.Format(format, args));
+        }
+
         public static void Error(Exception exc)
         {
             StringBuilder err = new StringBuilder();
@@ -131,6 +136,7 @@ namespace MobileWhouse.Util
 
         }
 
+        //764x480
         private static int _intScreenHeight = 320;
         private static int _intScreenWidth = 240;
         public static int ScreenHeight
@@ -164,7 +170,75 @@ namespace MobileWhouse.Util
             }
         }
 
+        private static int _LookupEditHeigh = -1;
+        public static int LookupEditHeigh
+        {
+            get
+            {
+                if (_LookupEditHeigh == -1)
+                {
+                    if (Screen.PrimaryScreen.WorkingArea.Height == 764)
+                    {
+                        _LookupEditHeigh = 20;
+                    }
+                    else
+                    {
+                        _LookupEditHeigh = 0;
+                    }
+                }
+                return _LookupEditHeigh;
+            }
+            set
+            {
+                _LookupEditHeigh = value;
+            }
+        }
 
+        private static bool buyukekran = false;
+        public static bool BuyukEkran
+        {
+            get { return buyukekran; }
+            set { buyukekran = value; }
+        }
 
+        public static void Klavye(TextBox Kontrol)
+        {
+            if (buyukekran)
+            {
+                FormKlavye.KlavyeIslem(Kontrol);
+            }
+            else
+            {
+                FormTus.Klavye(Kontrol);
+            }
+        }
+
+        public static string ShowInputBox(string caption, string msg, char pswchar)
+        {
+            FormInput frm = new FormInput();
+            frm.Text = caption;
+            frm.InputMesaj = msg;
+            frm.PasswordChar = pswchar;
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                return frm.Input;
+            }
+            return string.Empty;
+        }
+
+        public static string ShowInputBox(string caption, string msg)
+        {
+            return ShowInputBox(caption, msg, '\0');
+        }
+
+        public static string ShowInputBox(string caption)
+        {
+            return ShowInputBox(caption, "Giriş yapılmalı", '\0');
+        }
+
+        public static string ShowInputBox()
+        {
+            return ShowInputBox("Giriş", "Giriş yapılmalı", '\0');
+        }
     }
 }

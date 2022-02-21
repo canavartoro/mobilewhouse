@@ -10,6 +10,7 @@ using MobileWhouse.UyumConnector;
 using MobileWhouse.Updater;
 using MobileWhouse.Util;
 using MobileWhouse.Models;
+using MobileWhouse.Log;
 
 namespace MobileWhouse
 {
@@ -69,14 +70,22 @@ namespace MobileWhouse
                     token.Value.BranchDesc = result.Value.BranchDesc;
                     ClientApplication.Instance.Token = token.Value;
 
-                    AppServ.Service serv = new MobileWhouse.AppServ.Service();
-                    serv.Url = string.Concat(AppConfig.Default.AppServerUrl, "/Service.asmx");
-                    string vers = serv.AppVersion("");
-                    if (vers != Program.Versiyon)
+                    try
                     {
-                        Screens.Error(string.Format("PROGRAM GÜNCEL DEĞİL!!! VERSİYON:{0}. PROGRAM VERSİYONU:{1}. GÜNCELLEME BAŞLATILACAK.", vers, Program.Versiyon));
-                        new Updater.UpdateHelper().Update();
-                        return;
+                        AppServ.Service serv = new MobileWhouse.AppServ.Service();
+                        serv.Url = string.Concat(AppConfig.Default.AppServerUrl, "/Service.asmx");
+                        string vers = serv.AppVersion("");
+                        if (vers != Program.Versiyon)
+                        {
+                            Screens.Error(string.Format("PROGRAM GÜNCEL DEĞİL!!! VERSİYON:{0}. PROGRAM VERSİYONU:{1}. GÜNCELLEME BAŞLATILACAK.", vers, Program.Versiyon));
+                            new Updater.UpdateHelper().Update();
+                            return;
+                        }
+                    }
+                    catch (Exception exception)
+                    {
+                        Screens.Warning("Versiyon kontrolü yapılamadı!");
+                        Logger.E(exception);
                     }
 
                     DialogResult = DialogResult.OK;
@@ -121,8 +130,30 @@ namespace MobileWhouse
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
+            //try
+            //{
+            //    //AutoScaleMode = AutoScaleMode.Dpi;
+            //    //WindowState = FormWindowState.Normal;
+            //    //Location = new Point(0, 0);
+
+            //    if (Screens.BuyukEkran)
+            //        Size = new Size(800, 480);
+            //}
+            //catch (Exception exc)
+            //{
+            //    Screens.Error(exc);
+            //}
+
+            decimal dec = 7M / 3M;
+            string strdec = dec.ToString();
+            if (strdec.IndexOf(",") != -1)
+            {
+                Screens.Warning("Cihazınızın dil ayarlarını kontrol edin.");
+            }
             lblbuild.Text = string.Concat("V:", Program.Versiyon, " B:", Program.BuildNumber());
             ClearupdFiles();
+            if (!string.IsNullOrEmpty(txtUsername.Text)) txtPassword.Focus();
+            else txtUsername.Focus();
         }
 
         private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
@@ -137,6 +168,21 @@ namespace MobileWhouse
             FileHelper.DeleteFile("Ionic.Zip.CF.dll");
             FileHelper.DeleteFile("MobileWhouseUpdater.exe");
             FileHelper.DeleteFile("MobileWhouseUpdater.Win.exe");
+        }
+
+        private void t1_Click(object sender, EventArgs e)
+        {
+            Screens.Klavye(txtUsername);
+        }
+
+        private void t2_Click(object sender, EventArgs e)
+        {
+            Screens.Klavye(txtPassword);
+        }
+
+        private void t3_Click(object sender, EventArgs e)
+        {
+            Screens.Klavye(txtBranch);
         }
     }
 }

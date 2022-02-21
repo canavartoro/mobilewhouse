@@ -121,7 +121,7 @@ namespace MobileWhouse.Controls
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            MainForm.ShowControl(null);
+            MainForm.ShowControl(new SelectSayimType());
         }
 
         public override void OnRafBarkod(NameIdItem raf)

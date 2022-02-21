@@ -690,6 +690,7 @@
     <Compile Include="Models\CoEntityModel.cs" />
     <Compile Include="Models\CompanyModel.cs" />
     <Compile Include="Models\DocTraModel.cs" />
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\EntityModel.cs" />
     <Compile Include="Models\OutPacKageDInf.cs" />
     <Compile Include="Models\PackageTempAddItemInParam.cs" />

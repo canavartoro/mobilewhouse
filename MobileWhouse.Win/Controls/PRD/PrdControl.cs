@@ -70,5 +70,15 @@ namespace MobileWhouse.Controls.PRD
         {
             MainForm.ShowControl(null);
         }
+
+        private void btnrecete_Click(object sender, EventArgs e)
+        {
+            MainForm.ShowControl(new ReceteControl());
+        }
+
+        private void btnonay_Click(object sender, EventArgs e)
+        {
+            MainForm.ShowControl(new EtiketOnayControl());
+        }
     }
 }

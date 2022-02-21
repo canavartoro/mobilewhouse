@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
+using MobileWhouse.Util;
 
 namespace MobileWhouse.Controls
 {
@@ -50,6 +51,20 @@ namespace MobileWhouse.Controls
                 e.Handled = true;
                 base.OnKeyPress(e);
             }
+        }
+
+        protected override void OnGotFocus(EventArgs e)
+        {
+            base.OnGotFocus(e);
+            if (!Utility.IsDesignMode)
+                Screens.ShowKeyboard(true);
+        }
+
+        protected override void OnLostFocus(EventArgs e)
+        {
+            base.OnLostFocus(e);
+            if (!Utility.IsDesignMode)
+                Screens.ShowKeyboard(false);
         }
     }
 }

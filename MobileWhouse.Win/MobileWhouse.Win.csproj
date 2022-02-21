@@ -53,30 +53,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\UyumModuleAttribute.cs" />
     <Compile Include="ClientApplication.cs" />
     <Compile Include="Controls\AcikBelgeSilControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\AcikBelgeSilControl.Designer.cs">
       <DependentUpon>AcikBelgeSilControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\AmbalajMenuControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\AmbalajMenuControl.Designer.cs">
-      <DependentUpon>AmbalajMenuControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\AmbalajOlusturmaControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\AmbalajOlusturmaControl.Designer.cs">
-      <DependentUpon>AmbalajOlusturmaControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\AmbalajTraControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\AmbalajTraControl.Designer.cs">
-      <DependentUpon>AmbalajTraControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\BarkodTextBox.cs">
       <SubType>Component</SubType>
@@ -96,6 +79,12 @@
     <Compile Include="Controls\DepoTransferControl.Designer.cs">
       <DependentUpon>DepoTransferControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\InputControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\InputControl.Designer.cs">
+      <DependentUpon>InputControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\IrsaliyeOlusturControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -108,10 +97,34 @@
     <Compile Include="Controls\MainScreen.Designer.cs">
       <DependentUpon>MainScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\PaletOlusturmaControl.cs">
+    <Compile Include="Controls\Package\AmbalajMenuControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\PaletOlusturmaControl.Designer.cs">
+    <Compile Include="Controls\Package\AmbalajMenuControl.Designer.cs">
+      <DependentUpon>AmbalajMenuControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Package\AmbalajOlusturmaControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Package\AmbalajOlusturmaControl.Designer.cs">
+      <DependentUpon>AmbalajOlusturmaControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Package\AmbalajTraControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Package\AmbalajTraControl.Designer.cs">
+      <DependentUpon>AmbalajTraControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Package\EtiketlemeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Package\EtiketlemeControl.Designer.cs">
+      <DependentUpon>EtiketlemeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Package\PaletOlusturmaControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Package\PaletOlusturmaControl.Designer.cs">
       <DependentUpon>PaletOlusturmaControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\PRD\DurusControl.cs">
@@ -125,6 +138,12 @@
     </Compile>
     <Compile Include="Controls\PRD\EtiketlemeControl.Designer.cs">
       <DependentUpon>EtiketlemeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PRD\EtiketOnayControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PRD\EtiketOnayControl.Designer.cs">
+      <DependentUpon>EtiketOnayControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\PRD\HurdaEtiketlemeControl.cs">
       <SubType>UserControl</SubType>
@@ -168,6 +187,12 @@
     <Compile Include="Controls\PRD\PrdControl.Designer.cs">
       <DependentUpon>PrdControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\PRD\ReceteControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PRD\ReceteControl.Designer.cs">
+      <DependentUpon>ReceteControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PRD\UretimGirisControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -186,11 +211,35 @@
     <Compile Include="Controls\PSM\SatinAlmaMalKabulControl.Designer.cs">
       <DependentUpon>SatinAlmaMalKabulControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\PSM\SatinalmaMalKabulEtiketlemeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PSM\SatinalmaMalKabulEtiketlemeControl.Designer.cs">
+      <DependentUpon>SatinalmaMalKabulEtiketlemeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\QLT\AmbalajBlokeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\QLT\AmbalajBlokeControl.Designer.cs">
+      <DependentUpon>AmbalajBlokeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\QLT\DiscordReportsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\QLT\DiscordReportsControl.Designer.cs">
+      <DependentUpon>DiscordReportsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\QLT\QLTControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\QLT\QLTControl.Designer.cs">
       <DependentUpon>QLTControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\QLT\SurecKaliteControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\QLT\SurecKaliteControl.Designer.cs">
+      <DependentUpon>SurecKaliteControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\RafHareketiControl.cs">
       <SubType>UserControl</SubType>
@@ -239,6 +288,24 @@
     </Compile>
     <Compile Include="Data\DataProvider.cs" />
     <Compile Include="Delegates.cs" />
+    <Compile Include="Dilogs\FormEmployeeLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dilogs\FormEmployeeLogin.Designer.cs">
+      <DependentUpon>FormEmployeeLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dilogs\FormPartiInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dilogs\FormPartiInput.Designer.cs">
+      <DependentUpon>FormPartiInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dilogs\FormSelectAlisIrsaliye.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dilogs\FormSelectAlisIrsaliye.Designer.cs">
+      <DependentUpon>FormSelectAlisIrsaliye.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dilogs\FormSelectDepot.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,6 +384,8 @@
     <Compile Include="Dilogs\FormSelectWstation.Designer.cs">
       <DependentUpon>FormSelectWstation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Enums\ControlReason.cs" />
+    <Compile Include="Enums\DataSourceType.cs" />
     <Compile Include="Enums\ScrapType.cs" />
     <Compile Include="Enums\UButtonType.cs" />
     <Compile Include="FormAyarlar.cs">
@@ -337,6 +406,18 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormParametreler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormParametreler.Designer.cs">
+      <DependentUpon>FormParametreler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormInput.Designer.cs">
+      <DependentUpon>FormInput.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormKlavye.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -355,29 +436,47 @@
     <Compile Include="GUI\ComboControl.Designer.cs">
       <DependentUpon>ComboControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\PrintControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\PrintControl.Designer.cs">
-      <DependentUpon>PrintControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\TextBoxNumeric.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="GUI\UButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="GUI\ULookupEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ULookupEdit.Designer.cs">
+      <DependentUpon>ULookupEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UPrintControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\UPrintControl.Designer.cs">
+      <DependentUpon>UPrintControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Log\Logger.cs" />
     <Compile Include="Log\TextWriterTraceListener.cs" />
-    <Compile Include="Models\AmbalajHareket.cs" />
     <Compile Include="Models\BaseModel.cs" />
-    <Compile Include="Models\DataSourceType.cs" />
+    <Compile Include="Models\control_group_point.cs" />
     <Compile Include="Models\DepotExtention.cs" />
+    <Compile Include="Models\DiscordReports.cs" />
+    <Compile Include="Models\FreeBreakWorder.cs" />
     <Compile Include="Models\invd_item.cs" />
+    <Compile Include="Models\invt_item_d.cs" />
+    <Compile Include="Models\ItemM.cs" />
+    <Compile Include="Models\MobileParameter.cs" />
+    <Compile Include="Models\PackageTraM.cs" />
     <Compile Include="Models\package_m.cs" />
+    <Compile Include="Models\PqcMaster.cs" />
+    <Compile Include="Models\prdd_employee.cs" />
     <Compile Include="Models\prdt_worder_bom_d.cs" />
+    <Compile Include="Models\PrintersDesigns.cs" />
+    <Compile Include="Models\PurchaseOrderDModel.cs" />
     <Compile Include="Models\TalepDetayInf.cs" />
+    <Compile Include="Models\UygunsuzlukRaporu.cs" />
     <Compile Include="Models\worder_ac_op.cs" />
+    <Compile Include="Net\ClientInf.cs" />
+    <Compile Include="Net\TcpPrinterClient.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controls\AcikBelgeSilControl.resx">
@@ -398,10 +497,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\MainScreen.resx">
       <DependentUpon>MainScreen.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\PaletOlusturmaControl.resx">
-      <DependentUpon>PaletOlusturmaControl.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\RafHareketiControl.resx">
@@ -474,6 +569,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Statics.cs" />
     <Compile Include="Updater\UpdateHelper.cs" />
     <Compile Include="Util\AppCache.cs" />
@@ -490,11 +590,6 @@
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <Compile Include="Web References\ProdConnector\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
-    </Compile>
-    <Compile Include="Web References\ReportServ\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -581,17 +676,6 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>MobileWhouse_Win_ProdConnector_Production</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost:62624/WriteWebService/ReportWebService.asmx">
-      <UrlBehavior>Static</UrlBehavior>
-      <RelPath>Web References\ReportServ\</RelPath>
-      <UpdateFromURL>http://localhost:62624/WriteWebService/ReportWebService.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>MobileWhouse_ReportServ_ReportWebService</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="http://pgtest.ofis.uyumcloud.com/WebService/MW/MobileWhouse.asmx">
       <UrlBehavior>Static</UrlBehavior>
@@ -734,6 +818,11 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Resources\err.png" />
     <None Include="Resources\info.png" />
     <None Include="Resources\ok.png" />
@@ -771,20 +860,6 @@
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\UyumSave\UyumSaveWebService.disco" />
-    <None Include="Web References\ReportServ\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\ReportServ\ReportWebService.disco" />
-    <EmbeddedResource Include="Controls\AmbalajMenuControl.resx">
-      <DependentUpon>AmbalajMenuControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\AmbalajOlusturmaControl.resx">
-      <DependentUpon>AmbalajOlusturmaControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\AmbalajTraControl.resx">
-      <DependentUpon>AmbalajTraControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controls\PRD\IsEmriBaslatControl.resx">
       <DependentUpon>IsEmriBaslatControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -794,14 +869,26 @@
     <EmbeddedResource Include="Controls\PRD\MalzemeTalepSevkControl.resx">
       <DependentUpon>MalzemeTalepSevkControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PRD\PrdControl.resx">
+      <DependentUpon>PrdControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PSM\SatinAlmaMalKabulControl.resx">
+      <DependentUpon>SatinAlmaMalKabulControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\QLT\AmbalajBlokeControl.resx">
+      <DependentUpon>AmbalajBlokeControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\QLT\QLTControl.resx">
       <DependentUpon>QLTControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\QLT\SurecKaliteControl.resx">
+      <DependentUpon>SurecKaliteControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dilogs\FormEmployeeLogin.resx">
+      <DependentUpon>FormEmployeeLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\PrintControl.resx">
-      <DependentUpon>PrintControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Updater\MobileWhouseUpdater.Win.exe" />
     <None Include="Web References\AppServ\Reference.map">
@@ -811,10 +898,6 @@
     <None Include="Web References\AppServ\Service.disco" />
     <EmbeddedResource Include="Updater\Ionic.Zip.dll" />
     <None Include="Web References\AppServ\Service.wsdl" />
-    <None Include="Web References\ReportServ\ReportWebService.wsdl" />
-    <None Include="Web References\ReportServ\ServiceResultOfArrayOfByte.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
     <None Include="Web References\UTermConnector\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -1186,8 +1269,10 @@
   </Target>
   -->
   <PropertyGroup>
-    <PreBuildEvent>SET VARA=%25time:~0,2%25%25date:~12,2%25%25time:~3,2%25%25date:~4,2%25%25date:~7,2%25
+    <PreBuildEvent>SET /a "ascii = %25random%25 * 26 / 32768 + 65"
+cmd /c exit /b %25ascii%25
+SET VARA=%25time:~0,2%25%25date:~12,2%25%25time:~3,2%25%25date:~4,2%25%25date:~7,2%25
 SET VARB=%25VARA:.=%25
-ECHO %25VARB%25 &gt; "$(ProjectDir)\build.txt"</PreBuildEvent>
+ECHO %25VARB%25%25=ExitCodeAscii%25 &gt; "$(ProjectDir)\build.txt"</PreBuildEvent>
   </PropertyGroup>
 </Project>

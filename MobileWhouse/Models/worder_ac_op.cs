@@ -85,6 +85,10 @@ namespace MobileWhouse.Models
         private int _wstation_id = 0;
         private DateTime _start_date;
         private int _shifts_id = 0;
+        private int _is_approved = 0;
+        private int _is_break = 0;
+        private int _worder_break_id = 0;
+        private decimal _density = 0M;
 
         public int worder_ac_op_id
         {
@@ -171,6 +175,26 @@ namespace MobileWhouse.Models
             get { return _shifts_id; }
             set { _shifts_id = value; }
         }
+        public int is_approved
+        {
+            get { return _is_approved; }
+            set { _is_approved = value; }
+        }
+        public int is_break
+        {
+            get { return _is_break; }
+            set { _is_break = value; }
+        }
+        public int worder_break_id
+        {
+            get { return _worder_break_id; }
+            set { _worder_break_id = value; }
+        }
+        public decimal density
+        {
+            get { return _density; }
+            set { _density = value; }
+        }
 
         private List<package_m> packages = null;
         public List<package_m> Packages
@@ -191,7 +215,7 @@ namespace MobileWhouse.Models
 
             StringBuilder sbSqlString = new StringBuilder();
             sbSqlString.AppendFormat(@"SELECT op.""worder_ac_op_id"",op.""create_user_id"",op.""create_date"",op.""worder_m_id"",m.""worder_no"",
-op.""item_id"",it.""item_code"",it.""item_name"",op.""qty"",op.""qty_net"",op.""unit_id"",op.""worder_op_d_id"",op.""operation_id"",op.""operation_no"",op.""wstation_id"",op.""start_date"",op.""shifts_id""
+op.""item_id"",it.""item_code"",it.""item_name"",op.""qty"",op.""qty_net"",op.""unit_id"",op.""worder_op_d_id"",op.""operation_id"",op.""operation_no"",op.""wstation_id"",op.""start_date"",op.""shifts_id"",op.""is_approved"",it.""density""
 FROM ""uyumsoft"".""zz_worder_ac_op"" op LEFT JOIN 
 uyumsoft.""prdt_worder_m"" m ON op.""worder_m_id"" = m.""worder_m_id"" LEFT JOIN 
 uyumsoft.""invd_item"" it ON op.""item_id"" = it.""item_id"" 
@@ -213,7 +237,9 @@ WHERE op.""wstation_id"" = '{0}' AND op.""is_closed"" = 0 ", wstation_id);
                 {
                     if (res.Value != null && res.Value.Rows.Count > 0)
                     {
-                        return new worder_ac_op(res.Value.Rows[0]);
+                        List<worder_ac_op> acop = DataProvider.TableToList(res.Value, typeof(worder_ac_op)) as List<worder_ac_op>;
+                        if (acop != null && acop.Count > 0) return acop[0];
+                        //return new worder_ac_op(res.Value.Rows[0]);
                     }
                 }
             }
@@ -294,41 +320,69 @@ CACHE 1;
 SELECT setval('"uyumsoft"."zz_worder_ac_op_id_seq"', 1, false);
 
 
-CREATE TABLE IF NOT EXISTS "uyumsoft"."zz_worder_ac_op" (
-  "worder_ac_op_id" int4 NOT NULL DEFAULT nextval('zz_worder_ac_op_id_seq'::regclass),
-	"create_user_id" int4,
-	"update_user_id" int4,
-	"create_date" timestamp(6),
+CREATE TABLE "uyumsoft"."zz_package_m" (
+  "package_id" int4 NOT NULL DEFAULT nextval('zz_package_m_package_id_seq'::regclass),
+  "create_user_id" int4,
+  "update_user_id" int4,
+  "create_date" timestamp(6),
   "update_date" timestamp(6),
-	"worder_m_id" int4 NOT NULL,
-	"item_id" int4 NOT NULL,
-	"qty" numeric(18,5) NOT NULL,
-  "qty_net" numeric(18,5) NOT NULL,
-  "qty_prm" numeric(18,5),
-	"unit_id" int4 NOT NULL,
-  "worder_op_d_id" int4 NOT NULL,
-  "operation_id" int4 NOT NULL,
-  "wstation_id" int4 NOT NULL,
-  "start_date" timestamp(6) NOT NULL,
-  "end_date" timestamp(6) NULL,
-	"lot_id" int4,
+  "worder_ac_op_id" int4,
+  "bwh_location_id" int4,
   "color_id" int4,
-  "package_type_id" int4,
-  "quality_id" int4,
+  "description" varchar(50) COLLATE "pg_catalog"."default",
+  "expration_date" timestamp(6),
+  "gross_weight" numeric(18,2),
+  "has_detail" int2,
+  "input_output" int4,
   "item_attribute1_id" int4,
   "item_attribute2_id" int4,
   "item_attribute3_id" int4,
-  "item_gnl_attribute1_id" int4,
-  "item_gnl_attribute2_id" int4,
-  "item_gnl_attribute3_id" int4,
-	"prd_source_app" int4,
-  "ac_op_number" int4,
-	"shifts_id" int4,
-	"note_large" varchar(1000) COLLATE "pg_catalog"."default",
-  "note_large2" varchar(1000) COLLATE "pg_catalog"."default",
-	"is_acop_entry" int2,
-	"is_closed" int2 NULL DEFAULT 0,
-	CONSTRAINT "zz_worder_ac_op_pkey" PRIMARY KEY ("worder_ac_op_id")
+  "item_id" int4,
+  "lot_id" int4,
+  "net_weight" numeric(18,2),
+  "package_no" varchar(20) COLLATE "pg_catalog"."default" DEFAULT concat('KL', lpad(((nextval('zz_package_m_package_no_seq'::regclass))::character varying)::text, 12, '0'::text)),
+  "package_type_id" int4,
+  "qty" numeric(18,5),
+  "quality_id" int4,
+  "source_app" int4,
+  "whouse_id" int4 NOT NULL,
+  "unit_id" int4,
+  "qty_free_prm" numeric(18,5),
+  "qty_free_sec" numeric(18,5),
+  "qty_prm" numeric(18,5),
+  "cat_code1_id" int4,
+  "cat_code2_id" int4,
+  "dcard_id" int4,
+  "package_detail_type" int4,
+  "worder_m_id" int4,
+  "source_m_id" int4,
+  "revort" int2,
+  "tare" numeric(18,6),
+  "source_d_id" int4 DEFAULT 0,
+  "free_sec_m_id" int4,
+  "free_prm_m_id" int4,
+  "serial_m_id" int4,
+  "is_reserved" int2 DEFAULT 0,
+  "is_closed" int2 DEFAULT 0,
+  "package_m_id" int4,
+  "package_tra_m_id" int4,
+  "package_tra_d_id" int4,
+  "worder_op_d_id" int4,
+  "operation_id" int4,
+  "operation_no" int4,
+  "is_created" int2 DEFAULT 0,
+  "palette_no" varchar(16) COLLATE "pg_catalog"."default",
+  "is_scrapt" int2,
+  "is_real" int2,
+  CONSTRAINT "zz_package_m_pkey" PRIMARY KEY ("package_id")
+)
+;
+
+ALTER TABLE "uyumsoft"."zz_package_m" 
+  OWNER TO "uyum";
+
+CREATE UNIQUE INDEX "ix_barcode" ON "uyumsoft"."zz_package_m" USING btree (
+  "package_no" COLLATE "pg_catalog"."default" "pg_catalog"."text_ops" ASC NULLS LAST
 );
 
 

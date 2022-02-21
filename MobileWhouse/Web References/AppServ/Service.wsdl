@@ -17,6 +17,76 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetEmployeeList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="tns:Token" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Token">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BranchId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BranchCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BranchDesc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CoId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoDesc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WhouseId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="WhouseCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WhouseDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="appVersionNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="appVersionFtp" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetEmployeeListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmployeeListResult" type="tns:ArrayOfEmployee" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEmployee">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Employee" nillable="true" type="tns:Employee" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Employee">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="prd_employee_id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="citizenship_no" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="emp_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="emp_surname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="employee_task_type_id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="is_outsource_employee" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="full_name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="psm002" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="prd008" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="prd007" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="pkg002" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="prd003" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="qlt003" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="qlt001" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="prd006" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="qlt002" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="pkg003" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="prd011" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="prd002" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="prd009" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="prd010" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="prd004" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="psm001" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="pkg004" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="prd005" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="pkg001" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="prd001" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="inv001" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="AppLogSave">
         <s:complexType>
           <s:sequence>
@@ -53,6 +123,12 @@
   </wsdl:message>
   <wsdl:message name="GetBwhItemInfoSoapOut">
     <wsdl:part name="parameters" element="tns:GetBwhItemInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployeeList" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmployeeListResponse" />
   </wsdl:message>
   <wsdl:message name="AppLogSaveSoapIn">
     <wsdl:part name="parameters" element="tns:AppLogSave" />
@@ -110,6 +186,10 @@
       <wsdl:input message="tns:GetBwhItemInfoSoapIn" />
       <wsdl:output message="tns:GetBwhItemInfoSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetEmployeeList">
+      <wsdl:input message="tns:GetEmployeeListSoapIn" />
+      <wsdl:output message="tns:GetEmployeeListSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="AppLogSave">
       <wsdl:input message="tns:AppLogSaveSoapIn" />
       <wsdl:output message="tns:AppLogSaveSoapOut" />
@@ -160,6 +240,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetEmployeeList">
+      <soap:operation soapAction="http://tempuri.org/GetEmployeeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AppLogSave">
       <soap:operation soapAction="http://tempuri.org/AppLogSave" style="document" />
       <wsdl:input>
@@ -183,6 +272,15 @@
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetBwhItemInfo">
       <soap12:operation soapAction="http://tempuri.org/GetBwhItemInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeList">
+      <soap12:operation soapAction="http://tempuri.org/GetEmployeeList" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -271,16 +369,16 @@
   </wsdl:binding>
   <wsdl:service name="Service">
     <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
-      <soap:address location="http://10.0.0.250:2002/Service.asmx" />
+      <soap:address location="http://localhost:51623/Service.asmx" />
     </wsdl:port>
     <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
-      <soap12:address location="http://10.0.0.250:2002/Service.asmx" />
+      <soap12:address location="http://localhost:51623/Service.asmx" />
     </wsdl:port>
     <wsdl:port name="ServiceHttpGet" binding="tns:ServiceHttpGet">
-      <http:address location="http://10.0.0.250:2002/Service.asmx" />
+      <http:address location="http://localhost:51623/Service.asmx" />
     </wsdl:port>
     <wsdl:port name="ServiceHttpPost" binding="tns:ServiceHttpPost">
-      <http:address location="http://10.0.0.250:2002/Service.asmx" />
+      <http:address location="http://localhost:51623/Service.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

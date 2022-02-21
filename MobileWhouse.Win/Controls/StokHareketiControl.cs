@@ -9,9 +9,11 @@ using System.Windows.Forms;
 using MobileWhouse.UyumConnector;
 using MobileWhouse.Dilogs;
 using MobileWhouse.Util;
+using MobileWhouse.Attributes;
 
 namespace MobileWhouse.Controls
 {
+    //[UyumModule("INV001", "MobileWhouse.Controls.StokHareketiControl", "Stok Transfer")]
     public partial class StokHareketiControl : BaseControl
     {
         private Depot _TargetDepot;
@@ -43,7 +45,7 @@ namespace MobileWhouse.Controls
             {
                 Screens.Error(ex);
             }
-
+            
         }
 
         private void _LoadItem()
@@ -67,7 +69,7 @@ namespace MobileWhouse.Controls
 
             FirstLoad = false;
             RafHareketMId = serResOfRafHareketM.Value.Id;
-
+            
             dtDocDate.Value = serResOfRafHareketM.Value.DocDate;
             for (int i = 0; i < serResOfRafHareketM.Value.RafHareketDetayList.Length; i++)
             {
@@ -105,7 +107,7 @@ namespace MobileWhouse.Controls
             {
                 Screens.Error(ex);
             }
-
+            
         }
 
         public override void OnItemBarkod(MobileWhouse.UyumConnector.ItemInfo item)
@@ -179,8 +181,8 @@ namespace MobileWhouse.Controls
                     detay.ItemCode = _SelectedItem.Description;
                     detay.ItemId = _SelectedItem.Id;
                     detay.UnitId = item.UnitId;
-                    detay.LocationCode = _SelectedRaf.Name;
-                    detay.LocationId = _SelectedRaf.Id;
+                        detay.LocationCode = _SelectedRaf.Name;
+                        detay.LocationId = _SelectedRaf.Id;
                 }
                 if (lstItem == null)
                 {
@@ -210,7 +212,7 @@ namespace MobileWhouse.Controls
                     rafM.Value.RafHareketDetay.ItemId = _SelectedItem.Id;
                     rafM.Value.RafHareketDetay.UnitId = _SelectedItem.UnitId;
 
-                    rafM.Value.RafHareketDetay.LocationId = _SelectedRaf == null ? 0 : _SelectedRaf.Id;
+                    rafM.Value.RafHareketDetay.LocationId = _SelectedRaf == null ? 0: _SelectedRaf.Id;
 
                     rafM.Value.RafHareketDetay.QtyPrm = ((RafHareketD)(lstItem.Tag)).QtyPrm;
 

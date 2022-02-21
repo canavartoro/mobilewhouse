@@ -28,12 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtisemrino = new System.Windows.Forms.TextBox();
-            this.btnisemri = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtdepo = new System.Windows.Forms.TextBox();
-            this.btndepo = new System.Windows.Forms.Button();
             this.btnkapat = new System.Windows.Forms.Button();
             this.listisemri = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
@@ -42,63 +36,19 @@
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.btnkaydet = new System.Windows.Forms.Button();
-            this.txtstokkod = new System.Windows.Forms.TextBox();
-            this.txtdepoad = new System.Windows.Forms.TextBox();
             this.txtmiktar = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnsil = new System.Windows.Forms.Button();
             this.btnekle = new System.Windows.Forms.Button();
+            this.txtisemrino = new MobileWhouse.GUI.ULookupEdit();
+            this.txtdepo = new MobileWhouse.GUI.ULookupEdit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(0, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 20);
-            this.label1.Text = "İş Emri:";
-            // 
-            // txtisemrino
-            // 
-            this.txtisemrino.Location = new System.Drawing.Point(49, 3);
-            this.txtisemrino.Name = "txtisemrino";
-            this.txtisemrino.Size = new System.Drawing.Size(59, 21);
-            this.txtisemrino.TabIndex = 1;
-            // 
-            // btnisemri
-            // 
-            this.btnisemri.Location = new System.Drawing.Point(109, 3);
-            this.btnisemri.Name = "btnisemri";
-            this.btnisemri.Size = new System.Drawing.Size(20, 21);
-            this.btnisemri.TabIndex = 3;
-            this.btnisemri.Text = "...";
-            this.btnisemri.Click += new System.EventHandler(this.btnisemri_Click);
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(0, 29);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 20);
-            this.label2.Text = "Depo:";
-            // 
-            // txtdepo
-            // 
-            this.txtdepo.Location = new System.Drawing.Point(49, 29);
-            this.txtdepo.Name = "txtdepo";
-            this.txtdepo.Size = new System.Drawing.Size(59, 21);
-            this.txtdepo.TabIndex = 1;
-            // 
-            // btndepo
-            // 
-            this.btndepo.Location = new System.Drawing.Point(109, 29);
-            this.btndepo.Name = "btndepo";
-            this.btndepo.Size = new System.Drawing.Size(20, 22);
-            this.btndepo.TabIndex = 3;
-            this.btndepo.Text = "...";
-            this.btndepo.Click += new System.EventHandler(this.btndepo_Click);
             // 
             // btnkapat
             // 
             this.btnkapat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnkapat.BackColor = System.Drawing.Color.Empty;
+            this.btnkapat.ForeColor = System.Drawing.Color.Empty;
             this.btnkapat.Location = new System.Drawing.Point(3, 292);
             this.btnkapat.Name = "btnkapat";
             this.btnkapat.Size = new System.Drawing.Size(62, 20);
@@ -117,9 +67,9 @@
             this.listisemri.Columns.Add(this.columnHeader3);
             this.listisemri.Columns.Add(this.columnHeader4);
             this.listisemri.FullRowSelect = true;
-            this.listisemri.Location = new System.Drawing.Point(3, 80);
+            this.listisemri.Location = new System.Drawing.Point(3, 110);
             this.listisemri.Name = "listisemri";
-            this.listisemri.Size = new System.Drawing.Size(234, 209);
+            this.listisemri.Size = new System.Drawing.Size(234, 179);
             this.listisemri.TabIndex = 7;
             this.listisemri.View = System.Windows.Forms.View.Details;
             // 
@@ -151,6 +101,8 @@
             // btnkaydet
             // 
             this.btnkaydet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnkaydet.BackColor = System.Drawing.Color.Empty;
+            this.btnkaydet.ForeColor = System.Drawing.Color.Empty;
             this.btnkaydet.Location = new System.Drawing.Point(174, 292);
             this.btnkaydet.Name = "btnkaydet";
             this.btnkaydet.Size = new System.Drawing.Size(63, 20);
@@ -158,28 +110,10 @@
             this.btnkaydet.Text = "Kaydet";
             this.btnkaydet.Click += new System.EventHandler(this.btnkaydet_Click);
             // 
-            // txtstokkod
-            // 
-            this.txtstokkod.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtstokkod.Location = new System.Drawing.Point(131, 3);
-            this.txtstokkod.Name = "txtstokkod";
-            this.txtstokkod.Size = new System.Drawing.Size(106, 21);
-            this.txtstokkod.TabIndex = 10;
-            // 
-            // txtdepoad
-            // 
-            this.txtdepoad.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtdepoad.Location = new System.Drawing.Point(131, 29);
-            this.txtdepoad.Name = "txtdepoad";
-            this.txtdepoad.Size = new System.Drawing.Size(106, 21);
-            this.txtdepoad.TabIndex = 11;
-            // 
             // txtmiktar
             // 
             this.txtmiktar.BackColor = System.Drawing.Color.SkyBlue;
-            this.txtmiktar.Location = new System.Drawing.Point(49, 54);
+            this.txtmiktar.Location = new System.Drawing.Point(52, 83);
             this.txtmiktar.Name = "txtmiktar";
             this.txtmiktar.Size = new System.Drawing.Size(83, 21);
             this.txtmiktar.TabIndex = 15;
@@ -187,14 +121,16 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(0, 55);
+            this.label3.Location = new System.Drawing.Point(3, 84);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 20);
             this.label3.Text = "Miktar:";
             // 
             // btnsil
             // 
-            this.btnsil.Location = new System.Drawing.Point(154, 54);
+            this.btnsil.BackColor = System.Drawing.Color.Empty;
+            this.btnsil.ForeColor = System.Drawing.Color.Empty;
+            this.btnsil.Location = new System.Drawing.Point(157, 83);
             this.btnsil.Name = "btnsil";
             this.btnsil.Size = new System.Drawing.Size(83, 21);
             this.btnsil.TabIndex = 17;
@@ -203,32 +139,64 @@
             // 
             // btnekle
             // 
-            this.btnekle.Location = new System.Drawing.Point(131, 53);
+            this.btnekle.BackColor = System.Drawing.Color.Empty;
+            this.btnekle.ForeColor = System.Drawing.Color.Empty;
+            this.btnekle.Location = new System.Drawing.Point(134, 82);
             this.btnekle.Name = "btnekle";
             this.btnekle.Size = new System.Drawing.Size(20, 22);
             this.btnekle.TabIndex = 3;
             this.btnekle.Text = "...";
             this.btnekle.Click += new System.EventHandler(this.btnekle_Click);
             // 
+            // txtisemrino
+            // 
+            this.txtisemrino.DataFieldName = "";
+            this.txtisemrino.DataType = MobileWhouse.Enums.DataSourceType.IsEmri;
+            this.txtisemrino.Description = "";
+            this.txtisemrino.FilterCondition = "";
+            this.txtisemrino.LabelText = "İş Emri";
+            this.txtisemrino.LabelWidth = 70;
+            this.txtisemrino.Location = new System.Drawing.Point(3, 3);
+            this.txtisemrino.Name = "txtisemrino";
+            this.txtisemrino.RememberValue = false;
+            this.txtisemrino.ShowDescription = false;
+            this.txtisemrino.ShowLabelText = false;
+            this.txtisemrino.Size = new System.Drawing.Size(234, 27);
+            this.txtisemrino.SourceApplication = 0;
+            this.txtisemrino.TabIndex = 19;
+            this.txtisemrino.OnSelected += new MobileWhouse.OnSelectedObject(this.txtisemrino_OnSelected);
+            // 
+            // txtdepo
+            // 
+            this.txtdepo.DataFieldName = "";
+            this.txtdepo.DataType = MobileWhouse.Enums.DataSourceType.Depo;
+            this.txtdepo.Description = "";
+            this.txtdepo.FilterCondition = "";
+            this.txtdepo.LabelText = "Depo";
+            this.txtdepo.LabelWidth = 70;
+            this.txtdepo.Location = new System.Drawing.Point(3, 28);
+            this.txtdepo.Name = "txtdepo";
+            this.txtdepo.RememberValue = false;
+            this.txtdepo.ShowDescription = false;
+            this.txtdepo.ShowLabelText = false;
+            this.txtdepo.Size = new System.Drawing.Size(234, 27);
+            this.txtdepo.SourceApplication = 0;
+            this.txtdepo.TabIndex = 20;
+            this.txtdepo.OnSelected += new MobileWhouse.OnSelectedObject(this.txtdepo_OnSelected);
+            // 
             // IsEmrineMalzemeTalepControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.Controls.Add(this.txtdepo);
+            this.Controls.Add(this.txtisemrino);
             this.Controls.Add(this.btnsil);
             this.Controls.Add(this.txtmiktar);
-            this.Controls.Add(this.txtdepoad);
-            this.Controls.Add(this.txtdepo);
-            this.Controls.Add(this.txtstokkod);
             this.Controls.Add(this.btnkaydet);
             this.Controls.Add(this.listisemri);
             this.Controls.Add(this.btnkapat);
             this.Controls.Add(this.btnekle);
-            this.Controls.Add(this.btndepo);
-            this.Controls.Add(this.btnisemri);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtisemrino);
-            this.Controls.Add(this.label1);
             this.Name = "IsEmrineMalzemeTalepControl";
             this.Size = new System.Drawing.Size(240, 320);
             this.ResumeLayout(false);
@@ -237,12 +205,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtisemrino;
-        private System.Windows.Forms.Button btnisemri;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtdepo;
-        private System.Windows.Forms.Button btndepo;
         private System.Windows.Forms.Button btnkapat;
         private System.Windows.Forms.ListView listisemri;
         private System.Windows.Forms.ColumnHeader columnHeader1;
@@ -250,13 +212,13 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.Button btnkaydet;
-        private System.Windows.Forms.TextBox txtstokkod;
-        private System.Windows.Forms.TextBox txtdepoad;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.TextBox txtmiktar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnsil;
         private System.Windows.Forms.Button btnekle;
+        private MobileWhouse.GUI.ULookupEdit txtisemrino;
+        private MobileWhouse.GUI.ULookupEdit txtdepo;
 
     }
 }

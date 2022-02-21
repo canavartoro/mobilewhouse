@@ -20,5 +20,20 @@ namespace MobileWhouse.Controls.QLT
         {
             MainForm.ShowControl(null);
         }
+
+        private void btn_Click(object sender, EventArgs e)
+        {
+            MainForm.ShowControl(new SurecKaliteControl());
+        }
+
+        private void btnbloke_Click(object sender, EventArgs e)
+        {
+            MainForm.ShowControl(new AmbalajBlokeControl());
+        }
+
+        private void btnuygunsuzluk_Click(object sender, EventArgs e)
+        {
+            MainForm.ShowControl(new DiscordReportsControl());
+        }
     }
 }

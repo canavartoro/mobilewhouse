@@ -34,7 +34,6 @@
             this.btnRafHareketi = new System.Windows.Forms.Button();
             this.btnSevkiyat = new System.Windows.Forms.Button();
             this.btnStokRafDurumu = new System.Windows.Forms.Button();
-            this.btnPaletOlusturma = new System.Windows.Forms.Button();
             this.btnExit = new MobileWhouse.GUI.UButton();
             this.btnSelectDepot = new MobileWhouse.GUI.UButton();
             this.btnIrsaliye = new System.Windows.Forms.Button();
@@ -46,6 +45,13 @@
             this.btnkalite = new System.Windows.Forms.Button();
             this.btnambalaj = new System.Windows.Forms.Button();
             this.btnayar = new MobileWhouse.GUI.UButton();
+            this.contextMenu1 = new System.Windows.Forms.ContextMenu();
+            this.menuItem1 = new System.Windows.Forms.MenuItem();
+            this.menuItem2 = new System.Windows.Forms.MenuItem();
+            this.menuItem3 = new System.Windows.Forms.MenuItem();
+            this.menuItem4 = new System.Windows.Forms.MenuItem();
+            this.menuItem5 = new System.Windows.Forms.MenuItem();
+            this.menuItem6 = new System.Windows.Forms.MenuItem();
             this.SuspendLayout();
             // 
             // btnSayim
@@ -57,6 +63,7 @@
             this.btnSayim.Name = "btnSayim";
             this.btnSayim.Size = new System.Drawing.Size(110, 20);
             this.btnSayim.TabIndex = 0;
+            this.btnSayim.TabStop = false;
             this.btnSayim.Text = "Sayım";
             this.btnSayim.Click += new System.EventHandler(this.btnSayim_Click);
             // 
@@ -107,32 +114,20 @@
             this.btnStokRafDurumu.Text = "Stok Raf Durumu";
             this.btnStokRafDurumu.Click += new System.EventHandler(this.btnStokRafDurumu_Click);
             // 
-            // btnPaletOlusturma
-            // 
-            this.btnPaletOlusturma.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPaletOlusturma.Enabled = false;
-            this.btnPaletOlusturma.Location = new System.Drawing.Point(121, 158);
-            this.btnPaletOlusturma.Name = "btnPaletOlusturma";
-            this.btnPaletOlusturma.Size = new System.Drawing.Size(116, 20);
-            this.btnPaletOlusturma.TabIndex = 5;
-            this.btnPaletOlusturma.Text = "Palet Olusturma";
-            this.btnPaletOlusturma.Click += new System.EventHandler(this.btnPaletOlusturma_Click);
-            // 
             // btnExit
             // 
             this.btnExit.Alignment = MobileWhouse.GUI.ImageAlignment.Right;
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExit.BackColor = System.Drawing.Color.Empty;
             this.btnExit.ForeColor = System.Drawing.Color.Empty;
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.Location = new System.Drawing.Point(129, 280);
+            this.btnExit.Location = new System.Drawing.Point(164, 285);
             this.btnExit.Name = "btnExit";
             this.btnExit.NormalBtnColour = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnExit.NormalTxtColour = System.Drawing.Color.Blue;
             this.btnExit.PushedBtnColour = System.Drawing.Color.Blue;
             this.btnExit.PushedTxtColour = System.Drawing.Color.Yellow;
-            this.btnExit.Size = new System.Drawing.Size(108, 32);
+            this.btnExit.Size = new System.Drawing.Size(73, 32);
             this.btnExit.TabIndex = 6;
             this.btnExit.Text = "Çıkış";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -140,16 +135,18 @@
             // btnSelectDepot
             // 
             this.btnSelectDepot.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
-            this.btnSelectDepot.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSelectDepot.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSelectDepot.BackColor = System.Drawing.Color.Empty;
+            this.btnSelectDepot.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
             this.btnSelectDepot.ForeColor = System.Drawing.Color.Empty;
-            this.btnSelectDepot.Location = new System.Drawing.Point(5, 280);
+            this.btnSelectDepot.Location = new System.Drawing.Point(5, 285);
             this.btnSelectDepot.Name = "btnSelectDepot";
             this.btnSelectDepot.NormalBtnColour = System.Drawing.Color.LightYellow;
             this.btnSelectDepot.NormalTxtColour = System.Drawing.Color.Blue;
             this.btnSelectDepot.PushedBtnColour = System.Drawing.Color.Blue;
             this.btnSelectDepot.PushedTxtColour = System.Drawing.Color.Yellow;
-            this.btnSelectDepot.Size = new System.Drawing.Size(118, 32);
+            this.btnSelectDepot.Size = new System.Drawing.Size(153, 32);
             this.btnSelectDepot.TabIndex = 8;
             this.btnSelectDepot.Text = "Depo Seç";
             this.btnSelectDepot.Click += new System.EventHandler(this.btnSelectDepot_Click);
@@ -179,11 +176,11 @@
             // 
             // button1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(4, 386);
+            this.button1.Location = new System.Drawing.Point(6, 184);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(199, 20);
+            this.button1.Size = new System.Drawing.Size(231, 20);
             this.button1.TabIndex = 11;
             this.button1.Text = "Geçici Dosya Sil";
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -206,7 +203,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.lblversion.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.lblversion.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblversion.Location = new System.Drawing.Point(5, 232);
+            this.lblversion.Location = new System.Drawing.Point(5, 237);
             this.lblversion.Name = "lblversion";
             this.lblversion.Size = new System.Drawing.Size(232, 45);
             this.lblversion.Text = "V:2.0.0";
@@ -216,17 +213,16 @@
             // 
             this.btnmalkabul.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnmalkabul.Enabled = false;
-            this.btnmalkabul.Location = new System.Drawing.Point(6, 184);
+            this.btnmalkabul.Location = new System.Drawing.Point(121, 158);
             this.btnmalkabul.Name = "btnmalkabul";
-            this.btnmalkabul.Size = new System.Drawing.Size(231, 20);
+            this.btnmalkabul.Size = new System.Drawing.Size(116, 20);
             this.btnmalkabul.TabIndex = 9;
             this.btnmalkabul.Text = "Mal Kabul";
             this.btnmalkabul.Click += new System.EventHandler(this.btnmalkabul_Click);
             // 
             // btnkalite
             // 
-            this.btnkalite.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnkalite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnkalite.Enabled = false;
             this.btnkalite.Location = new System.Drawing.Point(121, 132);
             this.btnkalite.Name = "btnkalite";
@@ -239,9 +235,10 @@
             // 
             this.btnambalaj.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnambalaj.Enabled = false;
             this.btnambalaj.Location = new System.Drawing.Point(6, 158);
             this.btnambalaj.Name = "btnambalaj";
-            this.btnambalaj.Size = new System.Drawing.Size(107, 20);
+            this.btnambalaj.Size = new System.Drawing.Size(109, 20);
             this.btnambalaj.TabIndex = 12;
             this.btnambalaj.Text = "Ambalaj ";
             this.btnambalaj.Click += new System.EventHandler(this.btnambalaj_Click);
@@ -252,7 +249,7 @@
             this.btnayar.BackColor = System.Drawing.Color.Empty;
             this.btnayar.ForeColor = System.Drawing.Color.Empty;
             this.btnayar.Image = ((System.Drawing.Image)(resources.GetObject("btnayar.Image")));
-            this.btnayar.Location = new System.Drawing.Point(6, 226);
+            this.btnayar.Location = new System.Drawing.Point(5, 210);
             this.btnayar.Name = "btnayar";
             this.btnayar.NormalBtnColour = System.Drawing.SystemColors.Control;
             this.btnayar.NormalTxtColour = System.Drawing.SystemColors.Control;
@@ -261,6 +258,44 @@
             this.btnayar.Size = new System.Drawing.Size(28, 30);
             this.btnayar.TabIndex = 14;
             this.btnayar.Click += new System.EventHandler(this.btnayar_Click);
+            // 
+            // contextMenu1
+            // 
+            this.contextMenu1.MenuItems.Add(this.menuItem1);
+            this.contextMenu1.MenuItems.Add(this.menuItem2);
+            this.contextMenu1.MenuItems.Add(this.menuItem3);
+            this.contextMenu1.MenuItems.Add(this.menuItem4);
+            this.contextMenu1.MenuItems.Add(this.menuItem5);
+            this.contextMenu1.MenuItems.Add(this.menuItem6);
+            // 
+            // menuItem1
+            // 
+            this.menuItem1.Text = "AYARLAR";
+            this.menuItem1.Click += new System.EventHandler(this.menuItem1_Click);
+            // 
+            // menuItem2
+            // 
+            this.menuItem2.Text = "NOT DEFTERİ";
+            this.menuItem2.Click += new System.EventHandler(this.menuItem2_Click);
+            // 
+            // menuItem3
+            // 
+            this.menuItem3.Text = "HESAP MAKİNESİ";
+            this.menuItem3.Click += new System.EventHandler(this.menuItem3_Click);
+            // 
+            // menuItem4
+            // 
+            this.menuItem4.Text = "GÖREV YÖNETİCİSİ";
+            // 
+            // menuItem5
+            // 
+            this.menuItem5.Text = "PROGRAMI GÜNCELLE";
+            this.menuItem5.Click += new System.EventHandler(this.menuItem5_Click);
+            // 
+            // menuItem6
+            // 
+            this.menuItem6.Text = "PARAMETRELER";
+            this.menuItem6.Click += new System.EventHandler(this.menuItem6_Click);
             // 
             // MainScreen
             // 
@@ -276,7 +311,6 @@
             this.Controls.Add(this.btnSelectDepot);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnkalite);
-            this.Controls.Add(this.btnPaletOlusturma);
             this.Controls.Add(this.btnStokRafDurumu);
             this.Controls.Add(this.btnUretim);
             this.Controls.Add(this.btnSevkiyat);
@@ -284,7 +318,7 @@
             this.Controls.Add(this.btnStokHareketi);
             this.Controls.Add(this.btnSayim);
             this.Name = "MainScreen";
-            this.Size = new System.Drawing.Size(240, 315);
+            this.Size = new System.Drawing.Size(240, 320);
             this.ResumeLayout(false);
 
         }
@@ -296,7 +330,6 @@
         private System.Windows.Forms.Button btnRafHareketi;
         private System.Windows.Forms.Button btnSevkiyat;
         private System.Windows.Forms.Button btnStokRafDurumu;
-        private System.Windows.Forms.Button btnPaletOlusturma;
         private GUI.UButton btnExit;
         private GUI.UButton btnSelectDepot;
         private System.Windows.Forms.Button btnIrsaliye;
@@ -308,5 +341,12 @@
         private System.Windows.Forms.Button btnkalite;
         private System.Windows.Forms.Button btnambalaj;
         private MobileWhouse.GUI.UButton btnayar;
+        private System.Windows.Forms.ContextMenu contextMenu1;
+        private System.Windows.Forms.MenuItem menuItem1;
+        private System.Windows.Forms.MenuItem menuItem2;
+        private System.Windows.Forms.MenuItem menuItem3;
+        private System.Windows.Forms.MenuItem menuItem4;
+        private System.Windows.Forms.MenuItem menuItem5;
+        private System.Windows.Forms.MenuItem menuItem6;
     }
 }

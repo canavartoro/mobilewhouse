@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KarisimUretimControl));
-            this.btnKapat = new MobileWhouse.GUI.UButton();
+            this.btnKapat = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtisemri = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.listRecete = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
@@ -39,18 +40,13 @@
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader11 = new System.Windows.Forms.ColumnHeader();
-            this.btndegistir = new MobileWhouse.GUI.UButton();
+            this.btndegistir = new System.Windows.Forms.Button();
             this.txtkoliici = new MobileWhouse.GUI.TextBoxNumeric();
+            this.txtistasyon = new MobileWhouse.GUI.ULookupEdit();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnistasyon = new System.Windows.Forms.Button();
-            this.txtisemri = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtistasyon = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.printkarisim = new MobileWhouse.GUI.PrintControl();
-            this.lblbilgi = new System.Windows.Forms.Label();
-            this.btnyazdir = new MobileWhouse.GUI.UButton();
+            this.printkarisim = new MobileWhouse.GUI.UPrintControl();
+            this.btnyazdir = new System.Windows.Forms.Button();
             this.listBarkod = new System.Windows.Forms.ListView();
             this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
@@ -58,10 +54,12 @@
             this.columnHeader8 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader10 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader12 = new System.Windows.Forms.ColumnHeader();
-            this.chksil = new System.Windows.Forms.CheckBox();
+            this.columnHeader15 = new System.Windows.Forms.ColumnHeader();
             this.textBarkod = new System.Windows.Forms.TextBox();
             this.btnbarkod = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.chksil = new System.Windows.Forms.CheckBox();
+            this.lblbilgi = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -69,17 +67,9 @@
             // 
             // btnKapat
             // 
-            this.btnKapat.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
-            this.btnKapat.BackColor = System.Drawing.Color.Empty;
             this.btnKapat.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnKapat.ForeColor = System.Drawing.Color.Empty;
-            this.btnKapat.Image = ((System.Drawing.Image)(resources.GetObject("btnKapat.Image")));
             this.btnKapat.Location = new System.Drawing.Point(0, 292);
             this.btnKapat.Name = "btnKapat";
-            this.btnKapat.NormalBtnColour = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnKapat.NormalTxtColour = System.Drawing.Color.Black;
-            this.btnKapat.PushedBtnColour = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(128)))));
-            this.btnKapat.PushedTxtColour = System.Drawing.Color.Yellow;
             this.btnKapat.Size = new System.Drawing.Size(240, 28);
             this.btnKapat.TabIndex = 1;
             this.btnKapat.Text = "Kapat";
@@ -95,22 +85,38 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(240, 292);
             this.tabControl1.TabIndex = 2;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.txtisemri);
+            this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.listRecete);
             this.tabPage1.Controls.Add(this.btndegistir);
             this.tabPage1.Controls.Add(this.txtkoliici);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.btnistasyon);
-            this.tabPage1.Controls.Add(this.txtisemri);
-            this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.txtistasyon);
-            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Location = new System.Drawing.Point(0, 0);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Size = new System.Drawing.Size(240, 269);
             this.tabPage1.Text = "Reçete";
+            // 
+            // txtisemri
+            // 
+            this.txtisemri.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtisemri.BackColor = System.Drawing.SystemColors.Control;
+            this.txtisemri.Location = new System.Drawing.Point(81, 30);
+            this.txtisemri.Name = "txtisemri";
+            this.txtisemri.Size = new System.Drawing.Size(154, 21);
+            this.txtisemri.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(2, 31);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 20);
+            this.label2.Text = "İş Emri No";
             // 
             // listRecete
             // 
@@ -123,6 +129,7 @@
             this.listRecete.Columns.Add(this.columnHeader3);
             this.listRecete.Columns.Add(this.columnHeader4);
             this.listRecete.Columns.Add(this.columnHeader11);
+            this.listRecete.FullRowSelect = true;
             this.listRecete.Location = new System.Drawing.Point(2, 78);
             this.listRecete.Name = "listRecete";
             this.listRecete.Size = new System.Drawing.Size(233, 189);
@@ -161,17 +168,9 @@
             // 
             // btndegistir
             // 
-            this.btndegistir.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
             this.btndegistir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btndegistir.BackColor = System.Drawing.Color.Empty;
-            this.btndegistir.ForeColor = System.Drawing.Color.Empty;
-            this.btndegistir.Image = ((System.Drawing.Image)(resources.GetObject("btndegistir.Image")));
-            this.btndegistir.Location = new System.Drawing.Point(141, 51);
+            this.btndegistir.Location = new System.Drawing.Point(141, 54);
             this.btndegistir.Name = "btndegistir";
-            this.btndegistir.NormalBtnColour = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btndegistir.NormalTxtColour = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btndegistir.PushedBtnColour = System.Drawing.Color.Blue;
-            this.btndegistir.PushedTxtColour = System.Drawing.Color.Yellow;
             this.btndegistir.Size = new System.Drawing.Size(94, 23);
             this.btndegistir.TabIndex = 15;
             this.btndegistir.Text = "Değiştir";
@@ -183,72 +182,47 @@
             this.txtkoliici.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtkoliici.BackColor = System.Drawing.Color.SkyBlue;
-            this.txtkoliici.Location = new System.Drawing.Point(81, 51);
+            this.txtkoliici.Location = new System.Drawing.Point(81, 54);
             this.txtkoliici.Name = "txtkoliici";
             this.txtkoliici.Size = new System.Drawing.Size(57, 21);
             this.txtkoliici.TabIndex = 13;
             this.txtkoliici.Text = "0.00";
             // 
+            // txtistasyon
+            // 
+            this.txtistasyon.DataFieldName = "";
+            this.txtistasyon.DataType = MobileWhouse.Enums.DataSourceType.Uretim_IsEmri_Istasyon;
+            this.txtistasyon.Description = "";
+            this.txtistasyon.FilterCondition = "";
+            this.txtistasyon.LabelText = "İstasyon";
+            this.txtistasyon.LabelWidth = 70;
+            this.txtistasyon.Location = new System.Drawing.Point(2, 1);
+            this.txtistasyon.Name = "txtistasyon";
+            this.txtistasyon.RememberValue = false;
+            this.txtistasyon.ShowDescription = false;
+            this.txtistasyon.ShowLabelText = false;
+            this.txtistasyon.Size = new System.Drawing.Size(233, 27);
+            this.txtistasyon.SourceApplication = 0;
+            this.txtistasyon.TabIndex = 19;
+            this.txtistasyon.OnSelected += new MobileWhouse.OnSelectedObject(this.txtistasyon_OnSelected);
+            // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(2, 54);
+            this.label3.Location = new System.Drawing.Point(2, 57);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 20);
             this.label3.Text = "Kazan Miktar";
             // 
-            // btnistasyon
-            // 
-            this.btnistasyon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnistasyon.Location = new System.Drawing.Point(198, 3);
-            this.btnistasyon.Name = "btnistasyon";
-            this.btnistasyon.Size = new System.Drawing.Size(37, 20);
-            this.btnistasyon.TabIndex = 9;
-            this.btnistasyon.Text = "...";
-            this.btnistasyon.Click += new System.EventHandler(this.btnistasyon_Click);
-            // 
-            // txtisemri
-            // 
-            this.txtisemri.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtisemri.BackColor = System.Drawing.SystemColors.Control;
-            this.txtisemri.Location = new System.Drawing.Point(81, 27);
-            this.txtisemri.Name = "txtisemri";
-            this.txtisemri.Size = new System.Drawing.Size(154, 21);
-            this.txtisemri.TabIndex = 8;
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(2, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 20);
-            this.label2.Text = "İş Emri No";
-            // 
-            // txtistasyon
-            // 
-            this.txtistasyon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtistasyon.Location = new System.Drawing.Point(81, 3);
-            this.txtistasyon.Name = "txtistasyon";
-            this.txtistasyon.Size = new System.Drawing.Size(116, 21);
-            this.txtistasyon.TabIndex = 7;
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(2, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 20);
-            this.label1.Text = "İstasyon Kod";
-            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.printkarisim);
-            this.tabPage2.Controls.Add(this.lblbilgi);
             this.tabPage2.Controls.Add(this.btnyazdir);
             this.tabPage2.Controls.Add(this.listBarkod);
-            this.tabPage2.Controls.Add(this.chksil);
             this.tabPage2.Controls.Add(this.textBarkod);
             this.tabPage2.Controls.Add(this.btnbarkod);
             this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Controls.Add(this.chksil);
+            this.tabPage2.Controls.Add(this.lblbilgi);
             this.tabPage2.Location = new System.Drawing.Point(0, 0);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Size = new System.Drawing.Size(240, 269);
@@ -258,32 +232,15 @@
             // 
             this.printkarisim.Location = new System.Drawing.Point(3, 3);
             this.printkarisim.Name = "printkarisim";
-            this.printkarisim.Size = new System.Drawing.Size(234, 30);
-            this.printkarisim.TabIndex = 52;
-            // 
-            // lblbilgi
-            // 
-            this.lblbilgi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblbilgi.Location = new System.Drawing.Point(2, 61);
-            this.lblbilgi.Name = "lblbilgi";
-            this.lblbilgi.Size = new System.Drawing.Size(102, 25);
-            this.lblbilgi.Text = "Satır sayısı 0";
+            this.printkarisim.Size = new System.Drawing.Size(234, 74);
+            this.printkarisim.TabIndex = 55;
             // 
             // btnyazdir
             // 
-            this.btnyazdir.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
             this.btnyazdir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnyazdir.BackColor = System.Drawing.Color.Empty;
-            this.btnyazdir.ForeColor = System.Drawing.Color.Empty;
-            this.btnyazdir.Image = ((System.Drawing.Image)(resources.GetObject("btnyazdir.Image")));
-            this.btnyazdir.Location = new System.Drawing.Point(142, 61);
+            this.btnyazdir.Location = new System.Drawing.Point(141, 105);
             this.btnyazdir.Name = "btnyazdir";
-            this.btnyazdir.NormalBtnColour = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(224)))), ((int)(((byte)(255)))));
-            this.btnyazdir.NormalTxtColour = System.Drawing.Color.Blue;
-            this.btnyazdir.PushedBtnColour = System.Drawing.Color.Blue;
-            this.btnyazdir.PushedTxtColour = System.Drawing.Color.Yellow;
-            this.btnyazdir.Size = new System.Drawing.Size(93, 25);
+            this.btnyazdir.Size = new System.Drawing.Size(96, 25);
             this.btnyazdir.TabIndex = 50;
             this.btnyazdir.Text = "Yazdir";
             this.btnyazdir.Click += new System.EventHandler(this.btnyazdir_Click);
@@ -299,10 +256,11 @@
             this.listBarkod.Columns.Add(this.columnHeader8);
             this.listBarkod.Columns.Add(this.columnHeader10);
             this.listBarkod.Columns.Add(this.columnHeader12);
+            this.listBarkod.Columns.Add(this.columnHeader15);
             this.listBarkod.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
-            this.listBarkod.Location = new System.Drawing.Point(3, 89);
+            this.listBarkod.Location = new System.Drawing.Point(3, 133);
             this.listBarkod.Name = "listBarkod";
-            this.listBarkod.Size = new System.Drawing.Size(234, 179);
+            this.listBarkod.Size = new System.Drawing.Size(234, 135);
             this.listBarkod.TabIndex = 49;
             this.listBarkod.View = System.Windows.Forms.View.Details;
             // 
@@ -336,21 +294,17 @@
             this.columnHeader12.Text = "Cikilan";
             this.columnHeader12.Width = 60;
             // 
-            // chksil
+            // columnHeader15
             // 
-            this.chksil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chksil.Location = new System.Drawing.Point(101, 63);
-            this.chksil.Name = "chksil";
-            this.chksil.Size = new System.Drawing.Size(46, 20);
-            this.chksil.TabIndex = 48;
-            this.chksil.Text = "Sil";
+            this.columnHeader15.Text = "Alt. Stok Kodu";
+            this.columnHeader15.Width = 100;
             // 
             // textBarkod
             // 
             this.textBarkod.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.textBarkod.BackColor = System.Drawing.Color.Yellow;
-            this.textBarkod.Location = new System.Drawing.Point(60, 37);
+            this.textBarkod.Location = new System.Drawing.Point(59, 81);
             this.textBarkod.Name = "textBarkod";
             this.textBarkod.Size = new System.Drawing.Size(137, 21);
             this.textBarkod.TabIndex = 43;
@@ -359,18 +313,36 @@
             // btnbarkod
             // 
             this.btnbarkod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnbarkod.Location = new System.Drawing.Point(198, 37);
+            this.btnbarkod.Location = new System.Drawing.Point(197, 81);
             this.btnbarkod.Name = "btnbarkod";
-            this.btnbarkod.Size = new System.Drawing.Size(37, 22);
+            this.btnbarkod.Size = new System.Drawing.Size(37, 21);
             this.btnbarkod.TabIndex = 44;
             this.btnbarkod.Text = "...";
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(2, 37);
+            this.label6.Location = new System.Drawing.Point(1, 81);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(59, 20);
             this.label6.Text = "Barkod:";
+            // 
+            // chksil
+            // 
+            this.chksil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.chksil.Location = new System.Drawing.Point(93, 107);
+            this.chksil.Name = "chksil";
+            this.chksil.Size = new System.Drawing.Size(46, 20);
+            this.chksil.TabIndex = 48;
+            this.chksil.Text = "Sil";
+            // 
+            // lblbilgi
+            // 
+            this.lblbilgi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblbilgi.Location = new System.Drawing.Point(1, 105);
+            this.lblbilgi.Name = "lblbilgi";
+            this.lblbilgi.Size = new System.Drawing.Size(102, 25);
+            this.lblbilgi.Text = "Satır sayısı 0";
             // 
             // KarisimUretimControl
             // 
@@ -390,18 +362,15 @@
 
         #endregion
 
-        private MobileWhouse.GUI.UButton btnKapat;
+        private System.Windows.Forms.Button btnKapat;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button btnistasyon;
         private System.Windows.Forms.TextBox txtisemri;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtistasyon;
-        private System.Windows.Forms.Label label1;
         private MobileWhouse.GUI.TextBoxNumeric txtkoliici;
         private System.Windows.Forms.Label label3;
-        private MobileWhouse.GUI.UButton btndegistir;
+        private System.Windows.Forms.Button btndegistir;
         private System.Windows.Forms.ListView listRecete;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
@@ -412,10 +381,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckBox chksil;
         private System.Windows.Forms.ListView listBarkod;
-        private MobileWhouse.GUI.UButton btnyazdir;
+        private System.Windows.Forms.Button btnyazdir;
         private System.Windows.Forms.Label lblbilgi;
         private System.Windows.Forms.ColumnHeader columnHeader9;
-        private MobileWhouse.GUI.PrintControl printkarisim;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
@@ -423,5 +391,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.ColumnHeader columnHeader11;
         private System.Windows.Forms.ColumnHeader columnHeader12;
+        private MobileWhouse.GUI.ULookupEdit txtistasyon;
+        private MobileWhouse.GUI.UPrintControl printkarisim;
+        private System.Windows.Forms.ColumnHeader columnHeader15;
     }
 }

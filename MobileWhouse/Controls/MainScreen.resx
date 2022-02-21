@@ -156,6 +156,9 @@
         RgM9XKKt0GJlZQXpdJrHJxlVsNWi0SjbVh/1L+WmUim+l3ZW2AXwL11+fq4ylL1cAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="contextMenu1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <metadata name="$this.FormFactorShadowProperty" xml:space="preserve">
     <value>POCKET_PC_2003_PORTRAIT</value>
   </metadata>

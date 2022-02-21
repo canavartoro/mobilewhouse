@@ -61,6 +61,8 @@ namespace MobileWhouse.Dilogs
         {
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
+
                 lvwItems.BeginUpdate();
                 lvwItems.Items.Clear();
 
@@ -103,6 +105,7 @@ namespace MobileWhouse.Dilogs
             finally
             {
                 lvwItems.EndUpdate();
+                Cursor.Current = Cursors.Default;
             }
         }
 

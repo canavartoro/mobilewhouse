@@ -49,6 +49,8 @@ namespace MobileWhouse.Controls
         {
             if (Utility.IsDesignMode) return;
 
+            if (string.IsNullOrEmpty(Text)) return;
+
             string text = Text;
             try
             {
@@ -63,7 +65,7 @@ namespace MobileWhouse.Controls
             }
             catch (Exception ex)
             {
-                Text = text;
+                Text = "";
                 Screens.Error(ex);
             }
         }
@@ -77,10 +79,19 @@ namespace MobileWhouse.Controls
             //}
             base.OnLostFocus(e);
             if (Utility.IsDesignMode) return;
+            
+            Screens.ShowKeyboard(false);
 
             if (this.IsRaf != 1 || this.IsTransfer)
                 return;
             this.ValidateBarkod();
+        }
+
+        protected override void OnGotFocus(EventArgs e)
+        {
+            base.OnGotFocus(e);
+            if (!Utility.IsDesignMode)
+                Screens.ShowKeyboard(true);
         }
     }
 }

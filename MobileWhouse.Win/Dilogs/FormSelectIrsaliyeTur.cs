@@ -40,6 +40,8 @@ namespace MobileWhouse.Dilogs
         {
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
+
                 ServiceRequestOfBoolean param = new ServiceRequestOfBoolean();
                 param.Token = ClientApplication.Instance.Token;
                 
@@ -68,6 +70,7 @@ namespace MobileWhouse.Dilogs
             finally
             {
                 lvwDepots.EndUpdate();
+                Cursor.Current = Cursors.Default;
             }
         }
 
