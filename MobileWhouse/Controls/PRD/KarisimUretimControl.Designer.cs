@@ -190,6 +190,7 @@
             // 
             // txtistasyon
             // 
+            this.txtistasyon.Browsable = false;
             this.txtistasyon.DataFieldName = "";
             this.txtistasyon.DataType = MobileWhouse.Enums.DataSourceType.Uretim_IsEmri_Istasyon;
             this.txtistasyon.Description = "";
@@ -198,6 +199,7 @@
             this.txtistasyon.LabelWidth = 70;
             this.txtistasyon.Location = new System.Drawing.Point(2, 1);
             this.txtistasyon.Name = "txtistasyon";
+            this.txtistasyon.PurchaseSales = -1;
             this.txtistasyon.RememberValue = false;
             this.txtistasyon.ShowDescription = false;
             this.txtistasyon.ShowLabelText = false;
@@ -225,7 +227,7 @@
             this.tabPage2.Controls.Add(this.lblbilgi);
             this.tabPage2.Location = new System.Drawing.Point(0, 0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(240, 269);
+            this.tabPage2.Size = new System.Drawing.Size(232, 266);
             this.tabPage2.Text = "Üretim";
             // 
             // printkarisim
@@ -238,7 +240,7 @@
             // btnyazdir
             // 
             this.btnyazdir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnyazdir.Location = new System.Drawing.Point(141, 105);
+            this.btnyazdir.Location = new System.Drawing.Point(133, 105);
             this.btnyazdir.Name = "btnyazdir";
             this.btnyazdir.Size = new System.Drawing.Size(96, 25);
             this.btnyazdir.TabIndex = 50;
@@ -260,7 +262,7 @@
             this.listBarkod.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
             this.listBarkod.Location = new System.Drawing.Point(3, 133);
             this.listBarkod.Name = "listBarkod";
-            this.listBarkod.Size = new System.Drawing.Size(234, 135);
+            this.listBarkod.Size = new System.Drawing.Size(226, 132);
             this.listBarkod.TabIndex = 49;
             this.listBarkod.View = System.Windows.Forms.View.Details;
             // 
@@ -306,14 +308,14 @@
             this.textBarkod.BackColor = System.Drawing.Color.Yellow;
             this.textBarkod.Location = new System.Drawing.Point(59, 81);
             this.textBarkod.Name = "textBarkod";
-            this.textBarkod.Size = new System.Drawing.Size(137, 21);
+            this.textBarkod.Size = new System.Drawing.Size(129, 21);
             this.textBarkod.TabIndex = 43;
             this.textBarkod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBarkod_KeyPress);
             // 
             // btnbarkod
             // 
             this.btnbarkod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnbarkod.Location = new System.Drawing.Point(197, 81);
+            this.btnbarkod.Location = new System.Drawing.Point(189, 81);
             this.btnbarkod.Name = "btnbarkod";
             this.btnbarkod.Size = new System.Drawing.Size(37, 21);
             this.btnbarkod.TabIndex = 44;
@@ -329,7 +331,7 @@
             // chksil
             // 
             this.chksil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chksil.Location = new System.Drawing.Point(93, 107);
+            this.chksil.Location = new System.Drawing.Point(85, 107);
             this.chksil.Name = "chksil";
             this.chksil.Size = new System.Drawing.Size(46, 20);
             this.chksil.TabIndex = 48;
@@ -341,7 +343,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.lblbilgi.Location = new System.Drawing.Point(1, 105);
             this.lblbilgi.Name = "lblbilgi";
-            this.lblbilgi.Size = new System.Drawing.Size(102, 25);
+            this.lblbilgi.Size = new System.Drawing.Size(94, 25);
             this.lblbilgi.Text = "Satır sayısı 0";
             // 
             // KarisimUretimControl

@@ -51,5 +51,6 @@ namespace MobileWhouse.Models
         public string COLOR_CODE { get; set; }
 
         public int DUE_DAY { get; set; }
+        public int TOLERANCE_MAX_PO { get; set; }
     }
 }

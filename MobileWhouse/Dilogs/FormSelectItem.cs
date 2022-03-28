@@ -81,5 +81,14 @@ namespace MobileWhouse.Dilogs
             DialogResult = DialogResult.Cancel;
             Close();
         }
+
+        private void lvwStok_ItemActivate(object sender, EventArgs e)
+        {
+            if (lvwStok.SelectedIndices.Count > 0)
+            {
+                DialogResult = DialogResult.OK;
+                Close();
+            }
+        }
     }
 }

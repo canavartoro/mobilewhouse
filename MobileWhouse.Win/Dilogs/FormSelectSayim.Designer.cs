@@ -52,6 +52,7 @@
             this.lvwItems.Size = new System.Drawing.Size(233, 287);
             this.lvwItems.TabIndex = 0;
             this.lvwItems.View = System.Windows.Forms.View.Details;
+            this.lvwItems.ItemActivate += new System.EventHandler(this.lvwItems_ItemActivate);
             // 
             // columnHeader1
             // 

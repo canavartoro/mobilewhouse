@@ -27,6 +27,7 @@ namespace MobileWhouse.Controls.PRD
         private EmployeeLogin operatorLogin = new EmployeeLogin();
         private MobileWhouse.ProdConnector.PrdGobalInfo wstation = null;
         private worder_ac_op worder_acop = null;
+        private MobileParameter mobileParam = null;
 
         private void GetProducts()
         {
@@ -120,9 +121,16 @@ namespace MobileWhouse.Controls.PRD
                     return;
                 }
 
-                if (!operatorLogin.Login()) return;
+                //if (koli > mobileParam.etiket_adet_limit)
+                //{
+                //    txtadet.Text = mobileParam.etiket_adet_limit.ToString();
+                //    Screens.Warning(string.Concat("En fazla ", mobileParam.etiket_adet_limit, " adet etiket alabilirsiniz!"));
+                //    return;
+                //}
 
-                if (adet < 1 || koli < 1 || koli > 10)
+                if (!operatorLogin.Login(true)) return;
+
+                if (adet < 1 || koli < 1 || (wstation.PrdGobalId2 == Statics.USTUN_WCENTER_ID && koli > mobileParam.etiket_adet_limit))
                 {
                     Screens.Warning(string.Concat("Girdiğiniz değerleri kontrol edin! Hatalı giriş yapıldı. "));
                     return;
@@ -165,8 +173,8 @@ namespace MobileWhouse.Controls.PRD
                                 //    printetiketleme.Print(221121015401868M, "rpp_prd_9011", "pitemmid", StringUtil.ToInteger(res.Value.Rows[0][1]));
 
 
-                                if (printetiketleme.IsSelectPrinter)
-                                    printetiketleme.Print(string.Concat(" \"barcode\" = '", res.Value.Rows[0][0].ToString(), "' "));
+                                if (printKLetiketleme.IsSelectPrinter)
+                                    printKLetiketleme.Print(string.Concat(" \"barcode\" = '", res.Value.Rows[0][0].ToString(), "' "));
 
                                 //string printerName, int userId, string userPassword, decimal reportCode, string procecureName, string[] parameterField, object[] parameterValue
                                 //string printing = ClientApplication.Instance.ReportServ.SendDirectReport2();
@@ -251,6 +259,27 @@ namespace MobileWhouse.Controls.PRD
             {
                 txtistasyon.Text = string.Concat(wstation.PrdGobalCode, " ", wstation.PrdGobalName);
                 GetProducts();
+            }
+        }
+
+        private void EtiketlemeControl_OnLoad(object sender, EventArgs e)
+        {
+            try
+            {
+                mobileParam = MobileParameter.GetMobileParameter();
+                if (mobileParam != null)
+                {
+                    txtadet.Text = mobileParam.etiket_adet_limit.ToString();
+                    //txtadet.Enabled = false;
+                }
+            }
+            catch (Exception exc)
+            {
+                Screens.Error(exc);
+            }
+            finally
+            {
+                Screens.HideWait();
             }
         }
 

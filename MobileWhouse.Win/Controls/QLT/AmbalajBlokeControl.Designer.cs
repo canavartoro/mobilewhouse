@@ -48,8 +48,6 @@
             // 
             // btnkapat
             // 
-            this.btnkapat.BackColor = System.Drawing.Color.Empty;
-            this.btnkapat.ForeColor = System.Drawing.Color.Empty;
             this.btnkapat.Location = new System.Drawing.Point(3, 286);
             this.btnkapat.Name = "btnkapat";
             this.btnkapat.Size = new System.Drawing.Size(107, 31);
@@ -59,8 +57,6 @@
             // 
             // btnkayit
             // 
-            this.btnkayit.BackColor = System.Drawing.Color.Empty;
-            this.btnkayit.ForeColor = System.Drawing.Color.Empty;
             this.btnkayit.Location = new System.Drawing.Point(131, 286);
             this.btnkayit.Name = "btnkayit";
             this.btnkayit.Size = new System.Drawing.Size(106, 31);
@@ -70,6 +66,7 @@
             // 
             // btnklavye
             // 
+            this.btnklavye.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnklavye.Location = new System.Drawing.Point(213, 3);
             this.btnklavye.Name = "btnklavye";
             this.btnklavye.Size = new System.Drawing.Size(24, 21);

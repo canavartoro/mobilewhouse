@@ -61,6 +61,8 @@
             // 
             // txtaciklama
             // 
+            this.txtaciklama.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtaciklama.Location = new System.Drawing.Point(81, 164);
             this.txtaciklama.Multiline = true;
             this.txtaciklama.Name = "txtaciklama";
@@ -115,8 +117,11 @@
             // 
             // cmbvardiya
             // 
+            this.cmbvardiya.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbvardiya.DataSourceType = MobileWhouse.Enums.DataSourceType.Vardiya;
             this.cmbvardiya.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cmbvardiya.FilterCondition = "";
             this.cmbvardiya.HurdaTip = MobileWhouse.Enums.ScrapType.Tumu;
             this.cmbvardiya.Location = new System.Drawing.Point(81, 29);
             this.cmbvardiya.Name = "cmbvardiya";
@@ -125,8 +130,11 @@
             // 
             // cmddurusneden
             // 
+            this.cmddurusneden.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.cmddurusneden.DataSourceType = MobileWhouse.Enums.DataSourceType.Durus;
             this.cmddurusneden.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cmddurusneden.FilterCondition = "";
             this.cmddurusneden.HurdaTip = MobileWhouse.Enums.ScrapType.Tumu;
             this.cmddurusneden.Location = new System.Drawing.Point(81, 56);
             this.cmddurusneden.Name = "cmddurusneden";
@@ -135,8 +143,11 @@
             // 
             // cmbpersonel
             // 
+            this.cmbpersonel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbpersonel.DataSourceType = MobileWhouse.Enums.DataSourceType.Personel;
             this.cmbpersonel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cmbpersonel.FilterCondition = "";
             this.cmbpersonel.HurdaTip = MobileWhouse.Enums.ScrapType.Tumu;
             this.cmbpersonel.Location = new System.Drawing.Point(81, 83);
             this.cmbpersonel.Name = "cmbpersonel";
@@ -145,6 +156,7 @@
             // 
             // btnKapat
             // 
+            this.btnKapat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnKapat.Location = new System.Drawing.Point(4, 247);
             this.btnKapat.Name = "btnKapat";
             this.btnKapat.Size = new System.Drawing.Size(116, 39);
@@ -154,6 +166,8 @@
             // 
             // btntamam
             // 
+            this.btntamam.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.btntamam.Location = new System.Drawing.Point(126, 247);
             this.btntamam.Name = "btntamam";
             this.btntamam.Size = new System.Drawing.Size(109, 39);
@@ -163,7 +177,10 @@
             // 
             // txtistasyon
             // 
+            this.txtistasyon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtistasyon.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtistasyon.Browsable = true;
             this.txtistasyon.DataFieldName = "";
             this.txtistasyon.DataType = MobileWhouse.Enums.DataSourceType.Uretim_IsEmri_Istasyon;
             this.txtistasyon.Description = "";

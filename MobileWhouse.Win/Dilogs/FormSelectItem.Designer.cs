@@ -71,6 +71,7 @@
             this.lvwStok.Size = new System.Drawing.Size(233, 262);
             this.lvwStok.TabIndex = 2;
             this.lvwStok.View = System.Windows.Forms.View.Details;
+            this.lvwStok.ItemActivate += new System.EventHandler(this.lvwStok_ItemActivate);
             // 
             // columnHeader1
             // 

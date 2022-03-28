@@ -7,6 +7,7 @@ using MobileWhouse.Util;
 using System.Collections;
 using MobileWhouse.Log;
 using System.Reflection;
+using System.Windows.Forms;
 
 namespace MobileWhouse.Data
 {

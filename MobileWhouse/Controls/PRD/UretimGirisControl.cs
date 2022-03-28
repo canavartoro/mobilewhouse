@@ -23,14 +23,46 @@ namespace MobileWhouse.Controls.PRD
             InitializeComponent();
         }
 
-        private int worder_m_id = 0;
+        private int item_id = 0;
+        private worder_ac_op worder_acop = null;
+        private MobileParameter mobileParam = null;
+        private MobileWhouse.ProdConnector.PrdGobalInfo wstation = null;
 
         private void ClearForm()
         {
             //txtistasyon.Text = "";
             listView1.Items.Clear();
-            lblbilgi.Text = "";
-            worder_m_id = 0;
+            //lblbilgi.Text = "";
+            item_id = 0;
+        }
+
+        private void GetProducts()
+        {
+            try
+            {
+                if (wstation == null) return;
+
+                Cursor.Current = Cursors.WaitCursor;
+
+                worder_acop = worder_ac_op.GetProducts(wstation.PrdGobalId);
+                if (worder_acop != null)
+                {
+                    lblIsEmri.Text = string.Concat(worder_acop.worder_no, " ", worder_acop.item_code, " ", worder_acop.item_name, " ", worder_acop.density.ToString(Statics.DECIMAL_STRING_FORMAT));
+                }
+                else
+                {
+                    Screens.Error("İstasyonda açık üretim bulunamadı!");
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MobileWhouse.Util.Screens.Error(ex);
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+            }
         }
 
         private void GetPackage()
@@ -68,54 +100,12 @@ namespace MobileWhouse.Controls.PRD
                 }
                 else
                 {
-                    if (worder_m_id == 0) worder_m_id = package.worder_m_id;
-                    if (worder_m_id != package.worder_m_id)
+                    if (item_id == 0) item_id = package.item_id;
+                    if (item_id != package.item_id)
                     {
-                        Screens.Error("Farklı işemri okutuldu! Palet İÇİN okutulan barkodlar hep aynı iş emrinden olmalı");
+                        Screens.Error("Farklı stok okutuldu! Palet İÇİN okutulan barkodlar hep aynı iş stok olmalı");
                         return;
                     }
-
-                    if (!package.is_real)
-                    {
-                        if (!Screens.Question(string.Concat(package.package_no, " nolu barkod üretilmemiş. Üretilsin mi?")))
-                        {
-                            Screens.Error("Okutulan barkod üretilmemiş! " + package.package_no);
-                            return;
-                        }
-                        MobileWhouse.ProdConnector.PrdGobalInfo wstation = secistasyon.SelectedObject as MobileWhouse.ProdConnector.PrdGobalInfo;
-                        if (wstation == null)
-                        {
-                            Screens.Error("İstasyon seçilmedi!");
-                            return;
-                        }
-
-                        MobileWhouse.UyumSave.UyumServiceRequestOfPrdWorderDef context = new MobileWhouse.UyumSave.UyumServiceRequestOfPrdWorderDef();
-                        context.Token = new MobileWhouse.UyumSave.UyumToken();
-                        context.Token.Password = ClientApplication.Instance.Token.Password;
-                        context.Token.UserName = ClientApplication.Instance.Token.UserName;
-                        context.Value = new MobileWhouse.UyumSave.PrdWorderDef();
-                        context.Value.StartDate = package.create_date.Date;
-                        context.Value.EndDate = DateTime.Now.Date;
-                        context.Value.WorderMId = package.worder_m_id;
-                        context.Value.WorderOpDId = package.worder_op_d_id;
-                        context.Value.IsUseSendMaterialList = false;
-                        context.Value.ScrapQty = 0;
-                        context.Value.WstationId = wstation.PrdGobalId;
-                        context.Value.Qty = package.qty;
-                        context.Value.UnitId = package.unit_id;
-                        context.Value.Note = package.package_no;
-
-                        MobileWhouse.UyumSave.ServiceResultOfBoolean result = ClientApplication.Instance.SaveServ.SavePrdWorderAcOp(context);
-                        if (!result.Result)
-                        {
-                            Screens.Error(result.Message);
-                            return;
-                        }
-                        else
-                        {
-                            package_m.UpdatePackage(package, StringUtil.ToInteger(result.Message));
-                        }
-                    }// üretim sonu
 
                     if (package.is_created)
                     {
@@ -175,6 +165,7 @@ namespace MobileWhouse.Controls.PRD
         {
             try
             {
+                string worder_no = "";
                 MobileWhouse.ProdConnector.PrdGobalInfo wstation = secistasyon.SelectedObject as MobileWhouse.ProdConnector.PrdGobalInfo;
                 if (wstation == null)
                 {
@@ -188,12 +179,25 @@ namespace MobileWhouse.Controls.PRD
                     return;
                 }
 
+                if (mobileParam == null)
+                {
+                    Screens.Error("Mobil parametreler bulunamadı!");
+                    return;
+                }
+                if (string.IsNullOrEmpty(mobileParam.palet_profix))
+                {
+                    Screens.Error("Mobil parametreler Palet Prefix tanımlı değil!");
+                    return;
+                }
+
                 Screens.ShowWait();
 
                 string[] ids = new string[listView1.Items.Count];
                 MobileWhouse.ProdConnector.ServiceRequestOfPackageTraMInfo param = new MobileWhouse.ProdConnector.ServiceRequestOfPackageTraMInfo();
                 param.Token = ClientApplication.Instance.ProdToken;
                 param.Value = new MobileWhouse.ProdConnector.PackageTraMInfo();
+                param.Value.SourceApp = 80;
+                param.Value.CreatePalet = true;
                 param.Value.Whouse2Id = ClientApplication.Instance.SelectedDepot.Id;
                 param.Value.WhouseId = ClientApplication.Instance.SelectedDepot.Id;
                 param.Value.Details = new MobileWhouse.ProdConnector.PackageTraDInfo[listView1.Items.Count];
@@ -201,6 +205,46 @@ namespace MobileWhouse.Controls.PRD
                 for (int i = 0; i < listView1.Items.Count; i++)
                 {
                     package_m package = listView1.Items[i].Tag as package_m;
+                    worder_no = package.worder_no;
+
+                    #region Uretim Kaydi
+                    if (!package.is_real)
+                    {
+                        //if (!Screens.Question(string.Concat(package.package_no, " nolu barkod üretilmemiş. Üretilsin mi?")))
+                        //{
+                        //    Screens.Error("Okutulan barkod üretilmemiş! " + package.package_no);
+                        //    return;
+                        //}
+
+                        MobileWhouse.UyumSave.UyumServiceRequestOfPrdWorderDef context = new MobileWhouse.UyumSave.UyumServiceRequestOfPrdWorderDef();
+                        context.Token = new MobileWhouse.UyumSave.UyumToken();
+                        context.Token.Password = ClientApplication.Instance.Token.Password;
+                        context.Token.UserName = ClientApplication.Instance.Token.UserName;
+                        context.Value = new MobileWhouse.UyumSave.PrdWorderDef();
+                        context.Value.StartDate = package.create_date.Date;
+                        context.Value.EndDate = DateTime.Now.Date;
+                        context.Value.WorderMId = package.worder_m_id;
+                        context.Value.WorderOpDId = package.worder_op_d_id;
+                        context.Value.IsUseSendMaterialList = false;
+                        context.Value.ScrapQty = 0;
+                        context.Value.WstationId = wstation.PrdGobalId;
+                        context.Value.Qty = package.qty;
+                        context.Value.UnitId = package.unit_id;
+                        context.Value.Note = package.package_no;
+
+                        MobileWhouse.UyumSave.ServiceResultOfBoolean result = ClientApplication.Instance.SaveServ.SavePrdWorderAcOp(context);
+                        if (!result.Result)
+                        {
+                            Screens.Error(result.Message);
+                            return;
+                        }
+                        else
+                        {
+                            package.erp_worder_ac_op_id = StringUtil.ToInteger(result.Message);
+                            package_m.UpdatePackage(package, package.erp_worder_ac_op_id);
+                        }
+                    }// üretim sonu 
+                    #endregion
 
                     if (i == 0)
                     {
@@ -218,7 +262,6 @@ namespace MobileWhouse.Controls.PRD
                     param.Value.Details[i].Qty = package.qty;
                     param.Value.Details[i].UnitId = package.unit_id;
                     param.Value.Details[i].SourceMId = param.Value.SourceMId;
-
                 }
                 param.Value.PackageMQty = qty_net;
 
@@ -228,19 +271,52 @@ namespace MobileWhouse.Controls.PRD
                     //if (uretimgirisprint.IsSelectPrinter)
                     //    uretimgirisprint.Print(12000006, "rpp_prd_9010", "ItemMId", res.Value.PackageMId);
 
-                    if (uretimgirisprint.IsSelectPrinter)
-                        uretimgirisprint.Print(string.Concat(" \"barcode\" = '", res.Value.PackageMNo, "'  "));
-
-                    StringBuilder sbSqlString = new StringBuilder();
-                    sbSqlString.AppendFormat(@"UPDATE zz_package_m SET package_tra_m_id = {0}, palette_no = '{1}', is_created = 1  ", res.Value.PackageMId, res.Value.PackageMNo);
-                    sbSqlString.AppendFormat("WHERE package_id IN ({0})", string.Join(",", ids));
+                    //StringBuilder sbSqlString = new StringBuilder();
+                    //sbSqlString.AppendFormat(@"UPDATE zz_package_m SET package_tra_m_id = {0}, palette_no = '{1}', is_created = 1  ", res.Value.PackageMId, res.Value.PackageMNo);
+                    //sbSqlString.AppendFormat("WHERE package_id IN ({0})", string.Join(",", ids));
 
                     MobileWhouse.UyumConnector.ServiceRequestOfString paramsql = new MobileWhouse.UyumConnector.ServiceRequestOfString();
                     paramsql.Token = ClientApplication.Instance.Token;
-                    paramsql.Value = sbSqlString.ToString();
+                    paramsql.Value = string.Format(@"UPDATE invd_package_m SET package_no = CONCAT('{3}', LPAD(((NEXTVAL('zz_package_m_package_pl_seq'::REGCLASS))::CHARACTER VARYING)::TEXT, 12, '0'::TEXT)) 
+WHERE package_no = '{1}' AND source_m_id = {0};
+UPDATE zz_package_m SET package_tra_m_id = {0}, 
+palette_no = CONCAT('{3}', LPAD(((CURRVAL('zz_package_m_package_pl_seq'::REGCLASS))::CHARACTER VARYING)::TEXT, 12, '0'::TEXT)) , is_created = 1 
+WHERE package_id IN ({2});
+UPDATE invt_package_tra_m SET package_no = CONCAT('{3}', LPAD(((CURRVAL('zz_package_m_package_pl_seq'::REGCLASS))::CHARACTER VARYING)::TEXT, 12, '0'::TEXT)) 
+WHERE package_tra_m_id = {0} RETURNING package_no;", res.Value.PackageMId, res.Value.PackageMNo, string.Join(",", ids));
                     Logger.I(paramsql.Value);
-                    ClientApplication.Instance.Service.ExecuteSQL(paramsql);
+                    MobileWhouse.UyumConnector.ServiceResultOfDataTable resTbl = ClientApplication.Instance.Service.ExecuteSQL(paramsql);
+                    if (resTbl != null && resTbl.Result && resTbl.Value != null && resTbl.Value.Rows.Count > 0)
+                    {
+                        lblbilgi.Text = resTbl.Value.Rows[0][0].ToString();
+                        if (uretimgirisprint.IsSelectPrinter)
+                            uretimgirisprint.Print(string.Concat(" \"barcode\" = '", lblbilgi.Text, "'  "));
+                    }
+                    else
+                    {
+                        lblbilgi.Text = res.Value.PackageMNo;
+                        if (uretimgirisprint.IsSelectPrinter)
+                            uretimgirisprint.Print(string.Concat(" \"barcode\" = '", lblbilgi.Text, "'  "));
+                    }
+
+
+
+                    //StringBuilder sbSqlString = new StringBuilder();
+                    //sbSqlString.AppendFormat(@"UPDATE zz_package_m SET package_tra_m_id = {0}, palette_no = '{1}', is_created = 1  ", res.Value.PackageMId, res.Value.PackageMNo);
+                    //sbSqlString.AppendFormat("WHERE package_id IN ({0})", string.Join(",", ids));
+
+                    //MobileWhouse.UyumConnector.ServiceRequestOfString paramsql = new MobileWhouse.UyumConnector.ServiceRequestOfString();
+                    //paramsql.Token = ClientApplication.Instance.Token;
+                    //paramsql.Value = sbSqlString.ToString();
+                    //Logger.I(paramsql.Value);
+                    //ClientApplication.Instance.Service.ExecuteSQL(paramsql);
                     ClearForm();
+
+                    if (Screens.Question(string.Concat("Palet oluşturuldu. ", lblbilgi.Text, " İş emri raporu açılsın mı?")))
+                    {
+                        MainForm.ShowControl(new IsEmriControl(worder_no));
+                        return;
+                    }
                 }
                 else
                 {
@@ -258,5 +334,40 @@ namespace MobileWhouse.Controls.PRD
             }
         }
 
+        private void label4_ParentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtbarkod_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void secistasyon_OnSelected(object sender, object obj)
+        {
+            wstation = obj as MobileWhouse.ProdConnector.PrdGobalInfo;
+            if (wstation != null)
+            {
+                ClearForm();
+                GetProducts();
+            }
+        }
+
+        void UretimGirisControl_OnLoad(object sender, System.EventArgs e)
+        {
+            try
+            {
+                mobileParam = MobileParameter.GetMobileParameter();
+            }
+            catch (Exception exc)
+            {
+                Screens.Error(exc);
+            }
+            finally
+            {
+                Screens.HideWait();
+            }
+        }
     }
 }

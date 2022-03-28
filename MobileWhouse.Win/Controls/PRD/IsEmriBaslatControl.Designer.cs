@@ -95,8 +95,6 @@
             this.columnHeader2.Text = "Personel İsim";
             this.columnHeader2.Width = 160;
             this.img.Images.Clear();
-            this.img.Images.Add(((System.Drawing.Image)(resources.GetObject("resource"))));
-            this.img.Images.Add(((System.Drawing.Image)(resources.GetObject("resource1"))));
             // 
             // label3
             // 

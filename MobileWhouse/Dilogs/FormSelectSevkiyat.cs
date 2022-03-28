@@ -41,13 +41,13 @@ namespace MobileWhouse.Dilogs
             _Depot = depot;
             if (_Depot == null)
             {
-                btnSelect.Visible = false ;
-                btnIrsaliye.Visible = true ;
+                btnSelect.Visible = false;
+                btnIrsaliye.Visible = true;
             }
             else
             {
                 btnSelect.Visible = true;
-                btnIrsaliye.Visible = false ;
+                btnIrsaliye.Visible = false;
             }
         }
 
@@ -77,7 +77,7 @@ namespace MobileWhouse.Dilogs
                 }
                 else
                 {
-                   //param.Value.SearchDate = dateP.Value;
+                    //param.Value.SearchDate = dateP.Value;
                     param.Value.SearchEntity = eName.Text;
                 }
 
@@ -136,8 +136,17 @@ namespace MobileWhouse.Dilogs
         {
             //if (eName.Text.Length > 2)
             //{
-                _LoadSevkEmirleri();
+            _LoadSevkEmirleri();
             //}
+        }
+
+        private void lvwItems_ItemActivate(object sender, EventArgs e)
+        {
+            if (lvwItems.SelectedIndices.Count > 0)
+            {
+                DialogResult = DialogResult.OK;
+                Close();
+            }
         }
     }
 }

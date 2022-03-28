@@ -56,6 +56,9 @@
             // 
             // txtisemri
             // 
+            this.txtisemri.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtisemri.Browsable = true;
             this.txtisemri.DataFieldName = "";
             this.txtisemri.DataType = MobileWhouse.Enums.DataSourceType.IsEmri;
             this.txtisemri.Description = "";
@@ -64,6 +67,7 @@
             this.txtisemri.LabelWidth = 50;
             this.txtisemri.Location = new System.Drawing.Point(2, 53);
             this.txtisemri.Name = "txtisemri";
+            this.txtisemri.PurchaseSales = -1;
             this.txtisemri.RememberValue = false;
             this.txtisemri.ShowDescription = false;
             this.txtisemri.ShowLabelText = false;
@@ -74,8 +78,7 @@
             // 
             // btnkapat
             // 
-            this.btnkapat.BackColor = System.Drawing.Color.Empty;
-            this.btnkapat.ForeColor = System.Drawing.Color.Empty;
+            this.btnkapat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnkapat.Location = new System.Drawing.Point(2, 284);
             this.btnkapat.Name = "btnkapat";
             this.btnkapat.Size = new System.Drawing.Size(112, 33);
@@ -85,11 +88,13 @@
             // 
             // listisemri
             // 
+            this.listisemri.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.listisemri.Columns.Add(this.columnHeader1);
             this.listisemri.Columns.Add(this.columnHeader2);
             this.listisemri.Columns.Add(this.columnHeader3);
             this.listisemri.Columns.Add(this.columnHeader4);
-            this.listisemri.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listisemri.FullRowSelect = true;
             this.listisemri.Location = new System.Drawing.Point(0, 0);
             this.listisemri.Name = "listisemri";
@@ -147,6 +152,7 @@
             // 
             // btnklavye
             // 
+            this.btnklavye.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnklavye.Location = new System.Drawing.Point(213, 79);
             this.btnklavye.Name = "btnklavye";
             this.btnklavye.Size = new System.Drawing.Size(24, 21);
@@ -178,7 +184,7 @@
             this.tabPage2.Controls.Add(this.listbarkod);
             this.tabPage2.Location = new System.Drawing.Point(0, 0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(227, 150);
+            this.tabPage2.Size = new System.Drawing.Size(235, 153);
             this.tabPage2.Text = "Barkod";
             // 
             // listbarkod
@@ -190,7 +196,7 @@
             this.listbarkod.FullRowSelect = true;
             this.listbarkod.Location = new System.Drawing.Point(0, 0);
             this.listbarkod.Name = "listbarkod";
-            this.listbarkod.Size = new System.Drawing.Size(227, 150);
+            this.listbarkod.Size = new System.Drawing.Size(235, 153);
             this.listbarkod.TabIndex = 0;
             this.listbarkod.View = System.Windows.Forms.View.Details;
             // 
@@ -211,6 +217,9 @@
             // 
             // textDepo
             // 
+            this.textDepo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textDepo.Browsable = true;
             this.textDepo.DataFieldName = "";
             this.textDepo.DataType = MobileWhouse.Enums.DataSourceType.Depo;
             this.textDepo.Description = "";
@@ -219,6 +228,7 @@
             this.textDepo.LabelWidth = 50;
             this.textDepo.Location = new System.Drawing.Point(2, 26);
             this.textDepo.Name = "textDepo";
+            this.textDepo.PurchaseSales = -1;
             this.textDepo.RememberValue = true;
             this.textDepo.ShowDescription = false;
             this.textDepo.ShowLabelText = false;
@@ -229,6 +239,9 @@
             // 
             // textHareket
             // 
+            this.textHareket.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textHareket.Browsable = true;
             this.textHareket.DataFieldName = "";
             this.textHareket.DataType = MobileWhouse.Enums.DataSourceType.Hareket;
             this.textHareket.Description = "";
@@ -237,6 +250,7 @@
             this.textHareket.LabelWidth = 50;
             this.textHareket.Location = new System.Drawing.Point(2, 0);
             this.textHareket.Name = "textHareket";
+            this.textHareket.PurchaseSales = -1;
             this.textHareket.RememberValue = true;
             this.textHareket.ShowDescription = false;
             this.textHareket.ShowLabelText = false;
@@ -247,8 +261,8 @@
             // 
             // btnkaydet
             // 
-            this.btnkaydet.BackColor = System.Drawing.Color.Empty;
-            this.btnkaydet.ForeColor = System.Drawing.Color.Empty;
+            this.btnkaydet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.btnkaydet.Location = new System.Drawing.Point(120, 284);
             this.btnkaydet.Name = "btnkaydet";
             this.btnkaydet.Size = new System.Drawing.Size(117, 33);

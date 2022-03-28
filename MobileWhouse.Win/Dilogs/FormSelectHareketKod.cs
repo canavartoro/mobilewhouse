@@ -143,5 +143,14 @@ namespace MobileWhouse.Dilogs
             DialogResult = DialogResult.Cancel;
             Close();
         }
+
+        private void lswDocTra_ItemActivate(object sender, EventArgs e)
+        {
+            if (lswDocTra.SelectedIndices.Count > 0)
+            {
+                DialogResult = DialogResult.OK;
+                Close();
+            }
+        }
     }
 }

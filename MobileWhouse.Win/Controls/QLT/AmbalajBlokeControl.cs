@@ -171,6 +171,7 @@ namespace MobileWhouse.Controls.QLT
                     ambhareket.UyumDetailItem[0].AddString01 = "";
                     ambhareket.UyumDetailItem[0].ItemId = package.ItemInfo.Id;
                     ambhareket.UyumDetailItem[0].ItemCode = package.ItemInfo.Name;
+                    ambhareket.UyumDetailItem[0].LotId = package.LotId;
                     ambhareket.UyumDetailItem[0].LineNo = 10;
                     ambhareket.UyumDetailItem[0].Qty = package.Qty;
                     ambhareket.UyumDetailItem[0].UnitId = package.ItemInfo.UnitId;

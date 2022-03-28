@@ -41,6 +41,7 @@
             this.btngeri = new System.Windows.Forms.Button();
             this.btnrecete = new System.Windows.Forms.Button();
             this.btnonay = new System.Windows.Forms.Button();
+            this.btnisemri = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnisemritalep
@@ -71,7 +72,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.btnisemribaslat.Location = new System.Drawing.Point(3, 55);
             this.btnisemribaslat.Name = "btnisemribaslat";
-            this.btnisemribaslat.Size = new System.Drawing.Size(234, 24);
+            this.btnisemribaslat.Size = new System.Drawing.Size(151, 24);
             this.btnisemribaslat.TabIndex = 0;
             this.btnisemribaslat.Text = "İş Emri Başlatma (3)";
             this.btnisemribaslat.Click += new System.EventHandler(this.btnisemribaslat_Click);
@@ -185,10 +186,21 @@
             this.btnonay.Text = "Üretim";
             this.btnonay.Click += new System.EventHandler(this.btnonay_Click);
             // 
+            // btnisemri
+            // 
+            this.btnisemri.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnisemri.Location = new System.Drawing.Point(155, 55);
+            this.btnisemri.Name = "btnisemri";
+            this.btnisemri.Size = new System.Drawing.Size(82, 24);
+            this.btnisemri.TabIndex = 4;
+            this.btnisemri.Text = "İş Emri";
+            this.btnisemri.Click += new System.EventHandler(this.btnisemri_Click);
+            // 
             // PrdControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.Controls.Add(this.btnisemri);
             this.Controls.Add(this.btnonay);
             this.Controls.Add(this.btnrecete);
             this.Controls.Add(this.btngeri);
@@ -223,5 +235,6 @@
         private System.Windows.Forms.Button btngeri;
         private System.Windows.Forms.Button btnrecete;
         private System.Windows.Forms.Button btnonay;
+        private System.Windows.Forms.Button btnisemri;
     }
 }

@@ -7,6 +7,7 @@ using System.Data;
 using System.Text;
 using System.Windows.Forms;
 using MobileWhouse.Dilogs;
+using MobileWhouse.Attributes;
 
 namespace MobileWhouse.Controls.PSM
 {
@@ -42,6 +43,19 @@ namespace MobileWhouse.Controls.PSM
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     SatinalmaMalKabulEtiketlemeControl control = new SatinalmaMalKabulEtiketlemeControl(form.Selected);
+                    MainForm.ShowControl(control);
+                }
+            }
+        }
+
+        private void btnsatinalma_Click(object sender, EventArgs e)
+        {
+            using (FormSelectEntity form = new FormSelectEntity())
+            {
+                if (form.ShowDialog() == DialogResult.OK
+                    && form.EntityInfo != null)
+                {
+                    CariBazindaSatinalmaControl control = new CariBazindaSatinalmaControl(form.EntityInfo);
                     MainForm.ShowControl(control);
                 }
             }

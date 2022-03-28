@@ -382,7 +382,10 @@ WHERE worder_m_id = {0} AND wsop.wstation_id = {1} ", worderM.Id, wstation.PrdGo
             wstation = obj as MobileWhouse.ProdConnector.PrdGobalInfo;
             if (wstation != null)
             {
-                ClearForm();
+                txtisemri.SetText("");
+                txtstokkod.Text = "";
+                txtpersonel.Text = "";
+                listpersonel.Items.Clear();
                 //txtistasyon.Text = string.Concat(wstation.PrdGobalCode, " ", wstation.PrdGobalName);
                 btnbaslat.Enabled = true;
                 listpersonel.Items.Clear();

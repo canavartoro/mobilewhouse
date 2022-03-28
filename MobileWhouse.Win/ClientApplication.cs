@@ -228,6 +228,7 @@ namespace MobileWhouse
             }
             catch (Exception exc)
             {
+                Screens.Error(exc);
                 Logger.E(exc);
             }
         }

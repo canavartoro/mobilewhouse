@@ -215,7 +215,7 @@ namespace MobileWhouse.Models
 
             StringBuilder sbSqlString = new StringBuilder();
             sbSqlString.AppendFormat(@"SELECT op.""worder_ac_op_id"",op.""create_user_id"",op.""create_date"",op.""worder_m_id"",m.""worder_no"",
-op.""item_id"",it.""item_code"",it.""item_name"",op.""qty"",op.""qty_net"",op.""unit_id"",op.""worder_op_d_id"",op.""operation_id"",op.""operation_no"",op.""wstation_id"",op.""start_date"",op.""shifts_id"",op.""is_approved"",it.""density""
+op.""item_id"",it.""item_code"",it.""item_name"",op.""qty"",op.""qty_net"",op.""unit_id"",op.""worder_op_d_id"",op.""operation_id"",op.""operation_no"",op.""wstation_id"",op.""start_date"",op.""shifts_id"",op.""is_approved"",it.""density"",op.""worder_break_id"" 
 FROM ""uyumsoft"".""zz_worder_ac_op"" op LEFT JOIN 
 uyumsoft.""prdt_worder_m"" m ON op.""worder_m_id"" = m.""worder_m_id"" LEFT JOIN 
 uyumsoft.""invd_item"" it ON op.""item_id"" = it.""item_id"" 

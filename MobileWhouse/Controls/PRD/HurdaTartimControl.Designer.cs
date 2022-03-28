@@ -39,6 +39,7 @@
             this.txtisemri = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label7 = new System.Windows.Forms.Label();
             this.btnsec = new System.Windows.Forms.Button();
             this.btnsil = new System.Windows.Forms.Button();
@@ -49,6 +50,7 @@
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
             this.btnara = new System.Windows.Forms.Button();
             this.textara = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
@@ -159,6 +161,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.progressBar1);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.btnsec);
             this.tabPage2.Controls.Add(this.btnsil);
@@ -169,6 +172,15 @@
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Size = new System.Drawing.Size(240, 243);
             this.tabPage2.Text = "Liste";
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBar1.Location = new System.Drawing.Point(3, 143);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(234, 20);
+            this.progressBar1.Visible = false;
             // 
             // label7
             // 
@@ -187,30 +199,34 @@
             this.btnsec.Size = new System.Drawing.Size(36, 21);
             this.btnsec.TabIndex = 3;
             this.btnsec.Text = "Seç";
+            this.btnsec.Click += new System.EventHandler(this.btnsec_Click);
             // 
             // btnsil
             // 
             this.btnsil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnsil.Location = new System.Drawing.Point(197, 26);
             this.btnsil.Name = "btnsil";
-            this.btnsil.Size = new System.Drawing.Size(36, 21);
+            this.btnsil.Size = new System.Drawing.Size(40, 21);
             this.btnsil.TabIndex = 3;
             this.btnsil.Text = "Sil";
+            this.btnsil.Click += new System.EventHandler(this.btnsil_Click);
             // 
             // listView1
             // 
             this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.listView1.CheckBoxes = true;
             this.listView1.Columns.Add(this.columnHeader1);
             this.listView1.Columns.Add(this.columnHeader2);
             this.listView1.Columns.Add(this.columnHeader3);
             this.listView1.Columns.Add(this.columnHeader4);
             this.listView1.Columns.Add(this.columnHeader5);
             this.listView1.Columns.Add(this.columnHeader6);
+            this.listView1.Columns.Add(this.columnHeader7);
             this.listView1.Location = new System.Drawing.Point(3, 48);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(230, 196);
+            this.listView1.Size = new System.Drawing.Size(234, 196);
             this.listView1.TabIndex = 2;
             this.listView1.View = System.Windows.Forms.View.Details;
             // 
@@ -244,14 +260,20 @@
             this.columnHeader6.Text = "Stok Adı";
             this.columnHeader6.Width = 180;
             // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Tarih";
+            this.columnHeader7.Width = 60;
+            // 
             // btnara
             // 
             this.btnara.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnara.Location = new System.Drawing.Point(197, 3);
             this.btnara.Name = "btnara";
-            this.btnara.Size = new System.Drawing.Size(36, 20);
+            this.btnara.Size = new System.Drawing.Size(40, 20);
             this.btnara.TabIndex = 1;
             this.btnara.Text = "Ara";
+            this.btnara.Click += new System.EventHandler(this.btnara_Click);
             // 
             // textara
             // 
@@ -302,5 +324,7 @@
         private System.Windows.Forms.Button btnbarkod;
         private System.Windows.Forms.TextBox txtbarkod;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }

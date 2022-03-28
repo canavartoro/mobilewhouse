@@ -46,6 +46,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnkaydet = new System.Windows.Forms.Button();
+            this.lblokunan = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -76,6 +77,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.lblokunan);
             this.tabPage1.Controls.Add(this.textDepo);
             this.tabPage1.Controls.Add(this.txtRaf);
             this.tabPage1.Controls.Add(this.textHareket);
@@ -92,6 +94,7 @@
             // 
             // textDepo
             // 
+            this.textDepo.Browsable = true;
             this.textDepo.DataFieldName = "";
             this.textDepo.DataType = MobileWhouse.Enums.DataSourceType.Depo;
             this.textDepo.Description = "";
@@ -100,6 +103,7 @@
             this.textDepo.LabelWidth = 50;
             this.textDepo.Location = new System.Drawing.Point(3, 55);
             this.textDepo.Name = "textDepo";
+            this.textDepo.PurchaseSales = -1;
             this.textDepo.RememberValue = false;
             this.textDepo.ShowDescription = false;
             this.textDepo.ShowLabelText = false;
@@ -114,11 +118,12 @@
             this.txtRaf.IsRaf = 1;
             this.txtRaf.Location = new System.Drawing.Point(55, 31);
             this.txtRaf.Name = "txtRaf";
-            this.txtRaf.Size = new System.Drawing.Size(134, 21);
+            this.txtRaf.Size = new System.Drawing.Size(88, 21);
             this.txtRaf.TabIndex = 2;
             // 
             // textHareket
             // 
+            this.textHareket.Browsable = true;
             this.textHareket.DataFieldName = "";
             this.textHareket.DataType = MobileWhouse.Enums.DataSourceType.Hareket;
             this.textHareket.Description = "";
@@ -127,6 +132,7 @@
             this.textHareket.LabelWidth = 50;
             this.textHareket.Location = new System.Drawing.Point(3, 3);
             this.textHareket.Name = "textHareket";
+            this.textHareket.PurchaseSales = -1;
             this.textHareket.RememberValue = true;
             this.textHareket.ShowDescription = false;
             this.textHareket.ShowLabelText = false;
@@ -215,7 +221,7 @@
             // 
             this.tabPage2.Location = new System.Drawing.Point(0, 0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(232, 249);
+            this.tabPage2.Size = new System.Drawing.Size(240, 252);
             this.tabPage2.Text = "Detaylar";
             // 
             // btnkaydet
@@ -228,6 +234,15 @@
             this.btnkaydet.TabIndex = 8;
             this.btnkaydet.Text = "Kaydet";
             this.btnkaydet.Click += new System.EventHandler(this.btnkaydet_Click);
+            // 
+            // lblokunan
+            // 
+            this.lblokunan.ForeColor = System.Drawing.Color.Black;
+            this.lblokunan.Location = new System.Drawing.Point(149, 32);
+            this.lblokunan.Name = "lblokunan";
+            this.lblokunan.Size = new System.Drawing.Size(88, 20);
+            this.lblokunan.Text = "Okunan";
+            this.lblokunan.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // AmbalajTraControl
             // 
@@ -265,5 +280,6 @@
         private RafTextBox txtRaf;
         private MobileWhouse.GUI.ULookupEdit textHareket;
         private MobileWhouse.GUI.ULookupEdit textDepo;
+        private System.Windows.Forms.Label lblokunan;
     }
 }

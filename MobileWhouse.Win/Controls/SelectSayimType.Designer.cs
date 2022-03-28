@@ -69,6 +69,8 @@
             // 
             // btnambsayim
             // 
+            this.btnambsayim.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.btnambsayim.Location = new System.Drawing.Point(3, 119);
             this.btnambsayim.Name = "btnambsayim";
             this.btnambsayim.Size = new System.Drawing.Size(234, 52);

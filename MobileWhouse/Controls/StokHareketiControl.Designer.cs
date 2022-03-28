@@ -72,6 +72,7 @@
             // 
             // btnRaf
             // 
+            this.btnRaf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRaf.Location = new System.Drawing.Point(214, 44);
             this.btnRaf.Name = "btnRaf";
             this.btnRaf.Size = new System.Drawing.Size(23, 20);
@@ -111,9 +112,7 @@
             // 
             // btnKaydet
             // 
-            this.btnKaydet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnKaydet.BackColor = System.Drawing.Color.Empty;
-            this.btnKaydet.ForeColor = System.Drawing.Color.Empty;
+            this.btnKaydet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnKaydet.Location = new System.Drawing.Point(159, 283);
             this.btnKaydet.Name = "btnKaydet";
             this.btnKaydet.Size = new System.Drawing.Size(78, 29);
@@ -124,8 +123,6 @@
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.BackColor = System.Drawing.Color.Empty;
-            this.btnClose.ForeColor = System.Drawing.Color.Empty;
             this.btnClose.Location = new System.Drawing.Point(4, 283);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 29);
@@ -135,6 +132,7 @@
             // 
             // txtMiktar
             // 
+            this.txtMiktar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMiktar.Location = new System.Drawing.Point(193, 65);
             this.txtMiktar.Name = "txtMiktar";
             this.txtMiktar.Size = new System.Drawing.Size(45, 21);
@@ -177,6 +175,8 @@
             // 
             // txtRaf
             // 
+            this.txtRaf.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtRaf.DepoId = 0;
             this.txtRaf.IsRaf = 1;
             this.txtRaf.Location = new System.Drawing.Point(81, 43);
@@ -186,6 +186,8 @@
             // 
             // txtItemCode
             // 
+            this.txtItemCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtItemCode.DepoId = 0;
             this.txtItemCode.IsRaf = 0;
             this.txtItemCode.Location = new System.Drawing.Point(81, 65);

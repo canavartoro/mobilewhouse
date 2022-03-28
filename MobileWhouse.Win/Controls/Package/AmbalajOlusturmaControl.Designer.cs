@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaletOlusturmaControl));
             this.label1 = new System.Windows.Forms.Label();
             this.txtPaletNo = new System.Windows.Forms.TextBox();
             this.btnYeniPalet = new System.Windows.Forms.Button();
@@ -42,14 +41,16 @@
             this.textAciklama = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.cmbparti = new MobileWhouse.GUI.ComboControl();
             this.txtdepo = new MobileWhouse.GUI.ULookupEdit();
             this.textCari = new MobileWhouse.GUI.ULookupEdit();
             this.txthareket = new MobileWhouse.GUI.ULookupEdit();
             this.btntest = new System.Windows.Forms.Button();
             this.numAmb = new MobileWhouse.GUI.TextBoxNumeric();
             this.label8 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.printPaletctrl = new MobileWhouse.GUI.UPrintControl();
+            this.printAmbPaletctrl = new MobileWhouse.GUI.UPrintControl();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -57,14 +58,14 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(4, 164);
+            this.label1.Location = new System.Drawing.Point(4, 192);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 20);
             this.label1.Text = "Plt";
             // 
             // txtPaletNo
             // 
-            this.txtPaletNo.Location = new System.Drawing.Point(35, 163);
+            this.txtPaletNo.Location = new System.Drawing.Point(35, 191);
             this.txtPaletNo.Name = "txtPaletNo";
             this.txtPaletNo.Size = new System.Drawing.Size(129, 21);
             this.txtPaletNo.TabIndex = 1;
@@ -73,9 +74,7 @@
             // 
             // btnYeniPalet
             // 
-            this.btnYeniPalet.BackColor = System.Drawing.Color.Empty;
-            this.btnYeniPalet.ForeColor = System.Drawing.Color.Empty;
-            this.btnYeniPalet.Location = new System.Drawing.Point(35, 187);
+            this.btnYeniPalet.Location = new System.Drawing.Point(35, 216);
             this.btnYeniPalet.Name = "btnYeniPalet";
             this.btnYeniPalet.Size = new System.Drawing.Size(158, 26);
             this.btnYeniPalet.TabIndex = 8;
@@ -128,9 +127,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.BackColor = System.Drawing.Color.Empty;
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnClose.ForeColor = System.Drawing.Color.Empty;
             this.btnClose.Location = new System.Drawing.Point(0, 284);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(240, 36);
@@ -140,14 +137,14 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(4, 111);
+            this.label5.Location = new System.Drawing.Point(4, 138);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 20);
             this.label5.Text = "Not";
             // 
             // textAciklama
             // 
-            this.textAciklama.Location = new System.Drawing.Point(40, 110);
+            this.textAciklama.Location = new System.Drawing.Point(40, 137);
             this.textAciklama.Name = "textAciklama";
             this.textAciklama.Size = new System.Drawing.Size(193, 21);
             this.textAciklama.TabIndex = 6;
@@ -165,6 +162,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.cmbparti);
             this.tabPage1.Controls.Add(this.txtdepo);
             this.tabPage1.Controls.Add(this.textCari);
             this.tabPage1.Controls.Add(this.txthareket);
@@ -181,21 +179,34 @@
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.dcQty);
             this.tabPage1.Controls.Add(this.label8);
+            this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Location = new System.Drawing.Point(0, 0);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Size = new System.Drawing.Size(240, 261);
             this.tabPage1.Text = "Ambalaj";
             // 
+            // cmbparti
+            // 
+            this.cmbparti.DataSourceType = MobileWhouse.Enums.DataSourceType.PartiLot;
+            this.cmbparti.FilterCondition = "";
+            this.cmbparti.HurdaTip = MobileWhouse.Enums.ScrapType.Tumu;
+            this.cmbparti.Location = new System.Drawing.Point(40, 82);
+            this.cmbparti.Name = "cmbparti";
+            this.cmbparti.Size = new System.Drawing.Size(195, 22);
+            this.cmbparti.TabIndex = 118;
+            // 
             // txtdepo
             // 
+            this.txtdepo.Browsable = true;
             this.txtdepo.DataFieldName = "";
             this.txtdepo.DataType = MobileWhouse.Enums.DataSourceType.Depo;
             this.txtdepo.Description = "";
             this.txtdepo.FilterCondition = "";
             this.txtdepo.LabelText = "Depo";
             this.txtdepo.LabelWidth = 35;
-            this.txtdepo.Location = new System.Drawing.Point(4, 134);
+            this.txtdepo.Location = new System.Drawing.Point(4, 162);
             this.txtdepo.Name = "txtdepo";
+            this.txtdepo.PurchaseSales = -1;
             this.txtdepo.RememberValue = false;
             this.txtdepo.ShowDescription = false;
             this.txtdepo.ShowLabelText = false;
@@ -206,14 +217,16 @@
             // 
             // textCari
             // 
+            this.textCari.Browsable = true;
             this.textCari.DataFieldName = "";
             this.textCari.DataType = MobileWhouse.Enums.DataSourceType.Cari;
             this.textCari.Description = "";
             this.textCari.FilterCondition = "";
             this.textCari.LabelText = "Cari";
             this.textCari.LabelWidth = 35;
-            this.textCari.Location = new System.Drawing.Point(4, 79);
+            this.textCari.Location = new System.Drawing.Point(4, 107);
             this.textCari.Name = "textCari";
+            this.textCari.PurchaseSales = -1;
             this.textCari.RememberValue = false;
             this.textCari.ShowDescription = false;
             this.textCari.ShowLabelText = false;
@@ -224,6 +237,7 @@
             // 
             // txthareket
             // 
+            this.txthareket.Browsable = true;
             this.txthareket.DataFieldName = "";
             this.txthareket.DataType = MobileWhouse.Enums.DataSourceType.Hareket;
             this.txthareket.Description = "";
@@ -232,6 +246,7 @@
             this.txthareket.LabelWidth = 35;
             this.txthareket.Location = new System.Drawing.Point(4, 2);
             this.txthareket.Name = "txthareket";
+            this.txthareket.PurchaseSales = -1;
             this.txthareket.RememberValue = true;
             this.txthareket.ShowDescription = false;
             this.txthareket.ShowLabelText = false;
@@ -242,7 +257,7 @@
             // 
             // btntest
             // 
-            this.btntest.Location = new System.Drawing.Point(199, 187);
+            this.btntest.Location = new System.Drawing.Point(199, 216);
             this.btntest.Name = "btntest";
             this.btntest.Size = new System.Drawing.Size(38, 26);
             this.btntest.TabIndex = 88;
@@ -254,7 +269,7 @@
             // 
             this.numAmb.AllowSpace = false;
             this.numAmb.BackColor = System.Drawing.Color.LightCyan;
-            this.numAmb.Location = new System.Drawing.Point(195, 163);
+            this.numAmb.Location = new System.Drawing.Point(195, 191);
             this.numAmb.Name = "numAmb";
             this.numAmb.Size = new System.Drawing.Size(38, 21);
             this.numAmb.TabIndex = 79;
@@ -262,26 +277,33 @@
             // 
             // label8
             // 
-            this.label8.Location = new System.Drawing.Point(161, 164);
+            this.label8.Location = new System.Drawing.Point(161, 192);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(32, 20);
             this.label8.Text = "X";
             this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // label4
+            // 
+            this.label4.Location = new System.Drawing.Point(4, 83);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 20);
+            this.label4.Text = "Parti";
+            // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.printPaletctrl);
+            this.tabPage2.Controls.Add(this.printAmbPaletctrl);
             this.tabPage2.Location = new System.Drawing.Point(0, 0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(232, 258);
+            this.tabPage2.Size = new System.Drawing.Size(240, 261);
             this.tabPage2.Text = "Ayarlar";
             // 
-            // printPaletctrl
+            // printAmbPaletctrl
             // 
-            this.printPaletctrl.Location = new System.Drawing.Point(3, 3);
-            this.printPaletctrl.Name = "printPaletctrl";
-            this.printPaletctrl.Size = new System.Drawing.Size(234, 74);
-            this.printPaletctrl.TabIndex = 0;
+            this.printAmbPaletctrl.Location = new System.Drawing.Point(3, 3);
+            this.printAmbPaletctrl.Name = "printAmbPaletctrl";
+            this.printAmbPaletctrl.Size = new System.Drawing.Size(234, 74);
+            this.printAmbPaletctrl.TabIndex = 0;
             // 
             // AmbalajOlusturmaControl
             // 
@@ -318,9 +340,11 @@
         private MobileWhouse.GUI.TextBoxNumeric numAmb;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btntest;
-        private MobileWhouse.GUI.UPrintControl printPaletctrl;
+        private MobileWhouse.GUI.UPrintControl printAmbPaletctrl;
         private MobileWhouse.GUI.ULookupEdit txthareket;
         private MobileWhouse.GUI.ULookupEdit textCari;
         private MobileWhouse.GUI.ULookupEdit txtdepo;
+        private MobileWhouse.GUI.ComboControl cmbparti;
+        private System.Windows.Forms.Label label4;
     }
 }

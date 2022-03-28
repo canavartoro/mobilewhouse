@@ -112,6 +112,7 @@ namespace MobileWhouse.Controls.Package
             finally
             {
                 Screens.HideWait();
+                lblokunan.Text = listView1.Items.Count.ToString();
             }
         }
 
@@ -243,6 +244,7 @@ namespace MobileWhouse.Controls.Package
                     ambhareket.UyumDetailItem[i].AddString01 = "";
                     ambhareket.UyumDetailItem[i].ItemId = package.ItemId;
                     ambhareket.UyumDetailItem[i].ItemCode = package.ItemCode;
+                    ambhareket.UyumDetailItem[i].LotId = package.LotId;
                     ambhareket.UyumDetailItem[i].LineNo = (i + 1) * 10;
                     ambhareket.UyumDetailItem[i].Qty = package.Qty;
                     ambhareket.UyumDetailItem[i].UnitId = package.UnitId;

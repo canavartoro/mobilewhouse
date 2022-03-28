@@ -144,9 +144,9 @@ namespace MobileWhouse.Dilogs
             }
         }
 
-        public bool Login()
+        public bool Login(bool showallways)
         {
-            if (_employee != null) return true;
+            if (_employee != null && !showallways) return true;
             FormEmployeeLogin lg = new FormEmployeeLogin();
             if (lg.ShowDialog() == DialogResult.OK)
             {
@@ -155,6 +155,11 @@ namespace MobileWhouse.Dilogs
             }
             else
                 return false;
+        }
+
+        public bool Login()
+        {
+            return Login(false);
         }
 
 

@@ -660,6 +660,20 @@ namespace MobileWhouse.Models
             }
         }
 
+        private int lotIdField;
+        /// <remarks/>
+        public int LotId
+        {
+            get
+            {
+                return this.lotIdField;
+            }
+            set
+            {
+                this.lotIdField = value;
+            }
+        }
+
         private int packageTraMIdField;
         /// <remarks/>
         public int PackageTraMId
@@ -806,6 +820,20 @@ namespace MobileWhouse.Models
             set
             {
                 this.sourceMIdField = value;
+            }
+        }
+
+        private int sourceDIdField;
+        /// <remarks/>
+        public int SourceDId
+        {
+            get
+            {
+                return this.sourceDIdField;
+            }
+            set
+            {
+                this.sourceDIdField = value;
             }
         }
 

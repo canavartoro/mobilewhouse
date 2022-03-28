@@ -44,7 +44,7 @@ namespace MobileWhouse.Dilogs
 
                 ServiceRequestOfBoolean param = new ServiceRequestOfBoolean();
                 param.Token = ClientApplication.Instance.Token;
-                
+
 
                 ServiceResultOfListOfItemWithName turs = ClientApplication.Instance.Service.GetIrsaliyeTurleri(param);
                 if (!turs.Result)
@@ -83,6 +83,15 @@ namespace MobileWhouse.Dilogs
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void lvwDepots_ItemActivate(object sender, EventArgs e)
+        {
+            if (lvwDepots.SelectedIndices.Count > 0)
+            {
+                DialogResult = DialogResult.OK;
+                Close();
+            }
         }
     }
 }

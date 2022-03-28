@@ -80,5 +80,10 @@ namespace MobileWhouse.Controls.PRD
         {
             MainForm.ShowControl(new EtiketOnayControl());
         }
+
+        private void btnisemri_Click(object sender, EventArgs e)
+        {
+            MainForm.ShowControl(new IsEmriControl());
+        }
     }
 }

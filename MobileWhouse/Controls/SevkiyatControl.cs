@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using MobileWhouse.UyumConnector;
 using MobileWhouse.Dilogs;
 using MobileWhouse.Util;
+using MobileWhouse.Log;
 
 namespace MobileWhouse.Controls
 {
@@ -29,6 +30,7 @@ namespace MobileWhouse.Controls
         private SevkiyatInfo _Info;
         private List<ItemPickingDetail> _Details;
         private List<PackageInfo> _Packages;
+        MobileWhouse.UTermConnector.PackageDetail package = null;
         private ItemInfo _SelectedItem;
         private NameIdItem _SelectedRaf;
         private Dictionary<int, ListViewItem> stokHash = new Dictionary<int, ListViewItem>();
@@ -36,7 +38,7 @@ namespace MobileWhouse.Controls
         public SevkiyatControl()
         {
             InitializeComponent();
-            txtItemCode.DepoId = txtRaf.DepoId = ClientApplication.Instance.SelectedDepot.Id;
+            //txtItemCode.DepoId = txtRaf.DepoId = ClientApplication.Instance.SelectedDepot.Id;
             //MainForm.Text = ClientApplication.Instance.SelectedDepot.Name;
         }
 
@@ -67,7 +69,8 @@ namespace MobileWhouse.Controls
                     il.Text = info.City;
                     ulke.Text = info.Country;
                     //Adres
-                    txtItemCode.DepoId = txtRaf.DepoId = ClientApplication.Instance.SelectedDepot.Id;
+                    txtRaf.DepoId = ClientApplication.Instance.SelectedDepot.Id;
+                    //txtItemCode.DepoId = txtRaf.DepoId = ClientApplication.Instance.SelectedDepot.Id;
                     _Info = info;
                     lblMusteri.Text = info.Client;
                     //lblBNo.Text = info.DocNo;
@@ -314,7 +317,7 @@ namespace MobileWhouse.Controls
             List<ListViewItem> items = new List<ListViewItem>();
             for (int i = 0; i < lvwItems.Items.Count; i++)
             {
-                if (StringUtil.ToInteger(lvwItems.Items[i].SubItems[2].Text) != StringUtil.ToInteger(lvwItems.Items[i].SubItems[3].Text))
+                if (StringUtil.ToDecimal(lvwItems.Items[i].SubItems[2].Text) != StringUtil.ToDecimal(lvwItems.Items[i].SubItems[3].Text))
                 {
                     items.Add(lvwItems.Items[i]);
                     litems.Add((lvwItems.Items[i].Tag as ShortItemInfo).StokId);
@@ -349,13 +352,15 @@ namespace MobileWhouse.Controls
         {
             _SelectedRaf = raf;
             txtRaf.Text = raf.Name;
-            txtItemCode.Focus();
+            textBarkod.Focus();
+            //txtItemCode.Focus();
         }
 
         public override void OnItemBarkod(ItemInfo item)
         {
             _SelectedItem = item;
-            txtItemCode.Text = item.Name;
+            textBarkod.Text = item.Name;
+            //txtItemCode.Text = item.Name;
             btnEkle_Click(this, EventArgs.Empty);
         }
 
@@ -453,12 +458,17 @@ namespace MobileWhouse.Controls
                 {
                     _AddPackageDetailToListView(req.Value.Detail);
                 }
+                if (result.Value.PickingDetailId > 0)
+                    UpdatePackage(result.Value.PickingDetailId);
                 _AddToOkunanlar(req.Value.Detail);
 
                 _SelectedItem = null;
-                txtItemCode.Text = string.Empty;
-                txtItemCode.Focus();
+                //txtItemCode.Text = string.Empty;
+                //txtItemCode.Focus();
+                textBarkod.Text = "";
+                textBarkod.Focus();
                 txtMiktar.Text = "1";
+                package = null;
             }
             catch (Exception ex)
             {
@@ -712,6 +722,144 @@ namespace MobileWhouse.Controls
                         MainForm.ShowControl(null);
                     }
                 }
+            }
+        }
+
+        private void t1_Click(object sender, EventArgs e)
+        {
+            Screens.Klavye(txtMiktar);
+        }
+
+        private void textBarkod_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                try
+                {
+                    Cursor.Current = Cursors.WaitCursor;
+
+                    MobileWhouse.UTermConnector.ServiceRequestOfItemPickingParam _Ipp = new MobileWhouse.UTermConnector.ServiceRequestOfItemPickingParam();
+                    _Ipp.Token = ClientApplication.Instance.UTermToken;
+                    _Ipp.Value = new MobileWhouse.UTermConnector.ItemPickingParam();
+                    _Ipp.Value.WhouseId = ClientApplication.Instance.SelectedDepot.Id;
+                    _Ipp.Value.PackageNo = textBarkod.Text;
+                    MobileWhouse.UTermConnector.ServiceResultOfPackageDetail result = ClientApplication.Instance.UTermService.GetPackageInfo(_Ipp);
+                    if (result.Result == false)
+                    {
+                        ServiceRequestOfItemSelectParam req = new ServiceRequestOfItemSelectParam();
+                        req.Token = ClientApplication.Instance.Token;
+                        req.Value = new ItemSelectParam();
+                        req.Value.Barkod = textBarkod.Text;
+                        if (ClientApplication.Instance.SelectedDepot != null)
+                            req.Value.DepotId = ClientApplication.Instance.SelectedDepot.Id;
+                        ServiceResultOfItemInfo result2 = ClientApplication.Instance.Service.GetItemInfo(req);
+                        if (!result2.Result)
+                            throw new Exception(result2.Message);
+
+                        if (result2.Value != null)
+                        {
+                            _SelectedItem = result2.Value;
+                            //txtItemCode.Text = result2.Value.Name;
+                            btnEkle_Click(this, EventArgs.Empty);
+                        }
+                    }
+                    else
+                    {
+                        package = result.Value;
+                        if (package != null)
+                        {
+                            if (package.ItemInfo != null)
+                            {
+                                #region ItemInfo
+                                _SelectedItem = new ItemInfo();
+                                _SelectedItem.BwhQtyPrm = package.ItemInfo.BwhQtyPrm;
+                                _SelectedItem.BwhUnitCode = package.ItemInfo.BwhUnitCode;
+                                _SelectedItem.ColorCode = package.ItemInfo.ColorCode;
+                                _SelectedItem.ColorId = package.ItemInfo.ColorId;
+                                _SelectedItem.Description = package.ItemInfo.Description;
+                                _SelectedItem.Description2 = package.ItemInfo.Description2;
+                                _SelectedItem.DimCard2Used = package.ItemInfo.DimCard2Used;
+                                _SelectedItem.Id = package.ItemInfo.Id;
+                                _SelectedItem.InventoryStatus = package.ItemInfo.InventoryStatus;
+                                _SelectedItem.IsIsLocNegative = package.ItemInfo.IsIsLocNegative;
+                                _SelectedItem.ItemAttr1Id = package.ItemInfo.ItemAttr1Id;
+                                _SelectedItem.ItemAttr2Id = package.ItemInfo.ItemAttr2Id;
+                                _SelectedItem.ItemAttr3Id = package.ItemInfo.ItemAttr3Id;
+                                _SelectedItem.ItemAttr4Id = package.ItemInfo.ItemAttr4Id;
+                                _SelectedItem.ItemAttributeCode1 = package.ItemInfo.ItemAttributeCode1;
+                                _SelectedItem.ItemAttributeCode2 = package.ItemInfo.ItemAttributeCode2;
+                                _SelectedItem.ItemAttributeCode3 = package.ItemInfo.ItemAttributeCode3;
+                                _SelectedItem.ItemAttributeCode4 = package.ItemInfo.ItemAttributeCode4;
+                                _SelectedItem.LastWayyBillUnitPrice = package.ItemInfo.LastWayyBillUnitPrice;
+                                _SelectedItem.LotCode = package.ItemInfo.LotCode;
+                                _SelectedItem.LotId = package.ItemInfo.LotId;
+                                _SelectedItem.Name = package.ItemInfo.Name;
+                                _SelectedItem.PackageDetailType = package.ItemInfo.PackageDetailType == MobileWhouse.UTermConnector.PackageDetailType.A ? UyumConnector.PackageDetailType.A : PackageDetailType.S;
+                                _SelectedItem.PackageTypeId = package.ItemInfo.PackageTypeId;
+                                _SelectedItem.Qty = package.ItemInfo.Qty;
+                                _SelectedItem.QtyMaxInv = package.ItemInfo.QtyMaxInv;
+                                _SelectedItem.QtyMinSo = package.ItemInfo.QtyMinSo;
+                                _SelectedItem.QualityCode = package.ItemInfo.QualityCode;
+                                _SelectedItem.QualityId = package.ItemInfo.QualityId;
+                                _SelectedItem.ReadUnitCode = package.ItemInfo.ReadUnitCode;
+                                _SelectedItem.ReadUnitId = package.ItemInfo.ReadUnitId == 0 ? package.ItemInfo.UnitId : package.ItemInfo.ReadUnitId;
+                                _SelectedItem.SerialMId = package.ItemInfo.SerialMId;
+                                _SelectedItem.SerialNo = package.ItemInfo.SerialNo;
+                                _SelectedItem.StokMultiplier = package.ItemInfo.StokMultiplier == 0 ? 1 : package.ItemInfo.StokMultiplier;
+                                _SelectedItem.ToleranceMaxPo = package.ItemInfo.ToleranceMaxPo;
+                                _SelectedItem.ToleranceMaxSo = package.ItemInfo.ToleranceMaxSo;
+                                _SelectedItem.UnitCode = package.ItemInfo.UnitCode;
+                                _SelectedItem.UnitId = package.ItemInfo.UnitId;
+                                _SelectedItem.WhouseId = package.ItemInfo.WhouseId;
+                                #endregion
+                                //txtItemCode.Text = _SelectedItem.Name;
+                                btnEkle_Click(this, EventArgs.Empty);
+                            }
+
+                            //txtmiktar.Text = package.Qty.ToString(Statics.DECIMAL_STRING_FORMAT);//"0.#####");
+                            //txtmiktar.Focus();
+                            //txtmiktar.SelectAll();
+                            return;
+                        }
+                    }
+                }
+                catch (Exception exc)
+                {
+                    Screens.Error(exc);
+                }
+                finally
+                {
+                    Cursor.Current = Cursors.WaitCursor;
+                    textBarkod.Focus();
+                    textBarkod.SelectAll();
+                }
+            }
+        }
+
+        private void UpdatePackage(int masterId)
+        {
+            try
+            {
+                if (object.ReferenceEquals(package, null)) return;
+
+                MobileWhouse.UyumConnector.ServiceRequestOfString param = new MobileWhouse.UyumConnector.ServiceRequestOfString();
+                param.Token = ClientApplication.Instance.Token;
+                param.Value = string.Format("UPDATE invd_package_m SET update_date = CURRENT_TIMESTAMP,update_user_id = '{0}',source_d_id ='{1}' WHERE package_no = '{2}'",
+                    ClientApplication.Instance.ClientToken.UserId, masterId, package.PackageNo);
+                Logger.I(param.Value);
+
+                MobileWhouse.UyumConnector.ServiceResultOfDataTable res = ClientApplication.Instance.Service.ExecuteSQL(param);
+                if (res != null)
+                {
+                    if (res.Result == false)
+                    {
+                        MobileWhouse.Util.Screens.Error(string.Concat("Sunucu hatası:", res.Message));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MobileWhouse.Util.Screens.Error(ex);
             }
         }
     }

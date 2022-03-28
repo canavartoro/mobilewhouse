@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using MobileWhouse.Util;
+using MobileWhouse.Models;
 
 namespace MobileWhouse.Dilogs
 {
@@ -17,18 +18,18 @@ namespace MobileWhouse.Dilogs
             InitializeComponent();
         }
 
-        private int _Selected = 0;
-        public int Selected
+        private invt_item_m _invt_item_m = null;
+        public invt_item_m Selected
         {
-            get { return _Selected; }
-            set { _Selected = value; }
+            get { return _invt_item_m; }
+            set { _invt_item_m = value; }
         }
 
         private void listView1_ItemActivate(object sender, EventArgs e)
         {
             if (listView1.SelectedIndices.Count > 0)
             {
-                this._Selected = Convert.ToInt32(listView1.Items[listView1.SelectedIndices[0]].Tag);
+                this._invt_item_m = listView1.Items[listView1.SelectedIndices[0]].Tag as invt_item_m;
                 this.DialogResult = DialogResult.OK;
                 Close();
             }
@@ -40,7 +41,7 @@ namespace MobileWhouse.Dilogs
             {
                 StringBuilder sql = new StringBuilder();
                 sql.Append(@"SELECT m.item_m_id,TO_CHAR(m.doc_date, 'DD-MM-YYYY') doc_date,m.doc_no,tr.doc_tra_code,m.gnl_note1,en.entity_code,en.entity_name,
-(SELECT COUNT(*) FROM invt_item_d d WHERE d.item_m_id = m.item_m_id) lines
+(SELECT COUNT(*) FROM invt_item_d d WHERE d.item_m_id = m.item_m_id) lines,m.entity_id
 FROM invt_item_m m INNER JOIN gnld_doc_tra tr ON m.doc_tra_id = tr.doc_tra_id INNER JOIN find_entity en ON m.entity_id = en.entity_id
 WHERE m.purchase_sales = 1 AND m.invoice_status = 1 ");
                 if (!string.IsNullOrEmpty(txtdocno.Text))
@@ -67,8 +68,19 @@ WHERE m.purchase_sales = 1 AND m.invoice_status = 1 ");
 
                     for (int i = 0; i < rs.Value.Rows.Count; i++)
                     {
+                        invt_item_m m = new invt_item_m();
+                        m.item_m_id = Convert.ToInt32(rs.Value.Rows[i][0]);
+                        m.doc_date = rs.Value.Rows[i][1].ToString();
+                        m.doc_no = rs.Value.Rows[i][2].ToString();
+                        m.doc_tra_code = rs.Value.Rows[i][3].ToString();
+                        m.gnl_note1 = rs.Value.Rows[i][4].ToString();
+                        m.entity_code = rs.Value.Rows[i][5].ToString();
+                        m.entity_name = rs.Value.Rows[i][6].ToString();
+                        m.lines = Convert.ToInt32(rs.Value.Rows[i][7]);
+                        m.entity_id = Convert.ToInt32(rs.Value.Rows[i][8]); 
+
                         ListViewItem item = new ListViewItem();
-                        item.Tag = Convert.ToInt32(rs.Value.Rows[i][0]);
+                        item.Tag = m;
                         item.Text = rs.Value.Rows[i][1].ToString();
                         item.SubItems.Add(rs.Value.Rows[i][2].ToString());
                         item.SubItems.Add(rs.Value.Rows[i][3].ToString());

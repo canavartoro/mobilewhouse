@@ -541,11 +541,11 @@ WHERE D.ORDER_D_ID IN (", string.Join(",", orderids), ")");
                 if (listView1.SelectedIndices.Count > 0)
                 {
                     OrderDInfo order = listView1.Items[listView1.SelectedIndices[0]].Tag as OrderDInfo;
-                    string lotCode = FormPartiInput.ShowInput(order.DcardName + " için parti kodu girin");
-                    if (!string.IsNullOrEmpty(lotCode))
+                    PartiLotInf partilot = FormPartiInput.ShowInput(order.DcardName + " için parti kodu girin");
+                    if (partilot != null && !string.IsNullOrEmpty(partilot.LotCode))
                     {
-                        order.LotCode = lotCode;
-                        listView1.Items[listView1.SelectedIndices[0]].SubItems[6].Text = lotCode;
+                        order.LotCode = partilot.LotCode;
+                        listView1.Items[listView1.SelectedIndices[0]].SubItems[6].Text = partilot.LotCode;
                     }
                 }
                 else

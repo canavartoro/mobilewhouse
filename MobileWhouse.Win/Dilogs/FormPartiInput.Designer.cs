@@ -33,6 +33,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.t2 = new System.Windows.Forms.Button();
+            this.textMiktar = new MobileWhouse.GUI.TextBoxNumeric();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btncancel
@@ -83,7 +86,7 @@
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(4, 43);
+            this.textBox1.Location = new System.Drawing.Point(4, 33);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(210, 21);
             this.textBox1.TabIndex = 0;
@@ -91,11 +94,39 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(215, 43);
+            this.button1.Location = new System.Drawing.Point(215, 33);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(22, 21);
             this.button1.TabIndex = 1;
             this.button1.Text = "T";
+            // 
+            // t2
+            // 
+            this.t2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.t2.Location = new System.Drawing.Point(215, 56);
+            this.t2.Name = "t2";
+            this.t2.Size = new System.Drawing.Size(22, 21);
+            this.t2.TabIndex = 17;
+            this.t2.Text = "T";
+            // 
+            // textMiktar
+            // 
+            this.textMiktar.AllowSpace = false;
+            this.textMiktar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textMiktar.BackColor = System.Drawing.Color.LightCyan;
+            this.textMiktar.Location = new System.Drawing.Point(129, 56);
+            this.textMiktar.Name = "textMiktar";
+            this.textMiktar.Size = new System.Drawing.Size(85, 21);
+            this.textMiktar.TabIndex = 16;
+            this.textMiktar.Text = "1";
+            // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(4, 56);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(119, 20);
+            this.label5.Text = "Parti Miktar";
             // 
             // FormPartiInput
             // 
@@ -103,6 +134,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(240, 135);
+            this.Controls.Add(this.t2);
+            this.Controls.Add(this.textMiktar);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
@@ -122,5 +156,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button t2;
+        private MobileWhouse.GUI.TextBoxNumeric textMiktar;
+        private System.Windows.Forms.Label label5;
     }
 }

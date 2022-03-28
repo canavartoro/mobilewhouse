@@ -145,6 +145,7 @@
             // 
             // txtistasyon
             // 
+            this.txtistasyon.Browsable = false;
             this.txtistasyon.DataFieldName = "";
             this.txtistasyon.DataType = MobileWhouse.Enums.DataSourceType.Uretim_IsEmri_Istasyon;
             this.txtistasyon.Description = "";
@@ -164,6 +165,7 @@
             // 
             // txtstokkod
             // 
+            this.txtstokkod.Browsable = true;
             this.txtstokkod.DataFieldName = "";
             this.txtstokkod.DataType = MobileWhouse.Enums.DataSourceType.ScrapItem;
             this.txtstokkod.Description = "";

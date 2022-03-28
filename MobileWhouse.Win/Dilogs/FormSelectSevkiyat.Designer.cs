@@ -31,12 +31,12 @@
             this.lvwItems = new System.Windows.Forms.ListView();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.btnSelect = new System.Windows.Forms.Button();
             this.btnIrsaliye = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.eName = new System.Windows.Forms.TextBox();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.SuspendLayout();
             // 
             // lvwItems
@@ -53,6 +53,7 @@
             this.lvwItems.Size = new System.Drawing.Size(233, 269);
             this.lvwItems.TabIndex = 0;
             this.lvwItems.View = System.Windows.Forms.View.Details;
+            this.lvwItems.ItemActivate += new System.EventHandler(this.lvwItems_ItemActivate);
             // 
             // columnHeader2
             // 
@@ -63,6 +64,11 @@
             // 
             this.columnHeader3.Text = "Müşteri";
             this.columnHeader3.Width = 89;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "İş. Gör.";
+            this.columnHeader1.Width = 60;
             // 
             // btnSelect
             // 
@@ -110,11 +116,6 @@
             this.eName.Size = new System.Drawing.Size(183, 21);
             this.eName.TabIndex = 5;
             this.eName.TextChanged += new System.EventHandler(this.eName_TextChanged);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "İş. Gör.";
-            this.columnHeader1.Width = 60;
             // 
             // FormSelectSevkiyat
             // 

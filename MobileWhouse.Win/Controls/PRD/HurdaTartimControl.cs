@@ -198,5 +198,117 @@ namespace MobileWhouse.Controls.PRD
                 GetPackage();
             }
         }
+        bool _checked = true;
+        private void btnsec_Click(object sender, EventArgs e)
+        {
+            if (listView1.Items.Count > 0)
+            {
+                for (int i = 0; i < listView1.Items.Count; i++)
+                {
+                    listView1.Items[i].Checked = _checked;
+                }
+                _checked = !_checked;
+            }
+        }
+
+        private void btnara_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string where = "";
+                if (!string.IsNullOrEmpty(textara.Text))
+                    where = string.Format(" WHERE package_no LIKE '%{0}%' OR worder_no LIKE '%{0}%'", textara.Text.Replace("'", "`"));
+
+                MobileWhouse.UyumConnector.ServiceRequestOfString param = new MobileWhouse.UyumConnector.ServiceRequestOfString();
+                param.Token = ClientApplication.Instance.Token;
+                param.Value = string.Concat("SELECT * FROM zz_scrap_package ", where);
+                Logger.I(param.Value);
+
+                Cursor.Current = Cursors.WaitCursor;
+
+                MobileWhouse.UyumConnector.ServiceResultOfDataTable res = ClientApplication.Instance.Service.ExecuteSQL(param);
+                if (res != null && res.Value != null)
+                {
+                    progressBar1.Visible = true;
+                    progressBar1.Value = 0;
+                    progressBar1.Maximum = res.Value.Rows.Count;
+                    listView1.BeginUpdate();
+                    listView1.Items.Clear();
+                    label7.Text = string.Concat("Satır sayısı ", res.Value.Rows.Count);
+
+                    for (int i = 0; i < res.Value.Rows.Count; i++)
+                    {
+                        ListViewItem item = new ListViewItem();
+                        item.Tag = res.Value.Rows[i][0].ToString();
+                        item.Text = res.Value.Rows[i][12].ToString();
+                        item.SubItems.Add(res.Value.Rows[i][9].ToString());
+                        item.SubItems.Add(res.Value.Rows[i][8].ToString());
+                        item.SubItems.Add(res.Value.Rows[i][2].ToString());
+                        item.SubItems.Add(res.Value.Rows[i][4].ToString());
+                        item.SubItems.Add(res.Value.Rows[i][5].ToString());
+                        item.SubItems.Add(res.Value.Rows[i][1].ToString());
+                        listView1.Items.Add(item);
+                        progressBar1.Value = i;
+                        Application.DoEvents();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MobileWhouse.Util.Screens.Error(ex);
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+                listView1.EndUpdate();
+                progressBar1.Visible = false;
+            }
+        }
+
+        private void btnsil_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<string> ids = new List<string>();
+                if (listView1.Items.Count > 0)
+                {
+                    for (int i = 0; i < listView1.Items.Count; i++)
+                    {
+                        if (listView1.Items[i].Checked)
+                        {
+                            ids.Add(listView1.Items[i].Tag.ToString());
+                        }
+                    }
+                }
+                if (ids.Count == 0) return;
+                if (!Screens.Question(string.Concat(ids.Count, " adet kayıt silinecek onaylıyor musunuz?"))) return;
+
+
+                MobileWhouse.UyumConnector.ServiceRequestOfString param = new MobileWhouse.UyumConnector.ServiceRequestOfString();
+                param.Token = ClientApplication.Instance.Token;
+                param.Value = string.Concat("DELETE FROM zz_package_m WHERE package_id IN (", string.Join(",", ids.ToArray()), ")");
+                Logger.I(param.Value);
+
+                Cursor.Current = Cursors.WaitCursor;
+
+                MobileWhouse.UyumConnector.ServiceResultOfDataTable res = ClientApplication.Instance.Service.ExecuteSQL(param);
+                if (res != null)
+                {
+                    if (res.Result == false)
+                    {
+                        MobileWhouse.Util.Screens.Error(string.Concat("Sunucu hatası:", res.Message));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MobileWhouse.Util.Screens.Error(ex);
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+                btnara_Click(btnara, EventArgs.Empty);
+            }
+        }
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.printetiketleme = new MobileWhouse.GUI.UPrintControl();
+            this.printAmbetiketleme = new MobileWhouse.GUI.UPrintControl();
             this.listView1 = new System.Windows.Forms.ListView();
             this.brnkapat = new MobileWhouse.GUI.UButton();
             this.btnyazdir = new MobileWhouse.GUI.UButton();
@@ -38,15 +38,15 @@
             this.btnara = new MobileWhouse.GUI.UButton();
             this.SuspendLayout();
             // 
-            // printetiketleme
+            // printAmbetiketleme
             // 
-            this.printetiketleme.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.printAmbetiketleme.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.printetiketleme.Location = new System.Drawing.Point(0, 1);
-            this.printetiketleme.Name = "printetiketleme";
-            this.printetiketleme.Size = new System.Drawing.Size(240, 56);
-            this.printetiketleme.TabIndex = 0;
-            this.printetiketleme.SelectedChanged += new System.EventHandler(this.printetiketleme_SelectedChanged);
+            this.printAmbetiketleme.Location = new System.Drawing.Point(0, 1);
+            this.printAmbetiketleme.Name = "printAmbetiketleme";
+            this.printAmbetiketleme.Size = new System.Drawing.Size(240, 71);
+            this.printAmbetiketleme.TabIndex = 0;
+            this.printAmbetiketleme.SelectedChanged += new System.EventHandler(this.printetiketleme_SelectedChanged);
             // 
             // listView1
             // 
@@ -55,9 +55,9 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.listView1.CheckBoxes = true;
             this.listView1.FullRowSelect = true;
-            this.listView1.Location = new System.Drawing.Point(3, 88);
+            this.listView1.Location = new System.Drawing.Point(3, 100);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(234, 185);
+            this.listView1.Size = new System.Drawing.Size(234, 173);
             this.listView1.TabIndex = 1;
             this.listView1.View = System.Windows.Forms.View.Details;
             // 
@@ -98,7 +98,7 @@
             // comboField
             // 
             this.comboField.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.comboField.Location = new System.Drawing.Point(5, 60);
+            this.comboField.Location = new System.Drawing.Point(5, 76);
             this.comboField.Name = "comboField";
             this.comboField.Size = new System.Drawing.Size(73, 22);
             this.comboField.TabIndex = 3;
@@ -106,7 +106,7 @@
             // textarama
             // 
             this.textarama.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular);
-            this.textarama.Location = new System.Drawing.Point(79, 60);
+            this.textarama.Location = new System.Drawing.Point(79, 76);
             this.textarama.Name = "textarama";
             this.textarama.Size = new System.Drawing.Size(94, 23);
             this.textarama.TabIndex = 4;
@@ -116,7 +116,7 @@
             this.t1.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
             this.t1.BackColor = System.Drawing.Color.Empty;
             this.t1.ForeColor = System.Drawing.Color.Empty;
-            this.t1.Location = new System.Drawing.Point(173, 60);
+            this.t1.Location = new System.Drawing.Point(173, 76);
             this.t1.Name = "t1";
             this.t1.NormalBtnColour = System.Drawing.Color.Silver;
             this.t1.NormalTxtColour = System.Drawing.Color.Blue;
@@ -132,7 +132,7 @@
             this.btnara.Alignment = MobileWhouse.GUI.ImageAlignment.Left;
             this.btnara.BackColor = System.Drawing.Color.Empty;
             this.btnara.ForeColor = System.Drawing.Color.Empty;
-            this.btnara.Location = new System.Drawing.Point(203, 60);
+            this.btnara.Location = new System.Drawing.Point(203, 76);
             this.btnara.Name = "btnara";
             this.btnara.NormalBtnColour = System.Drawing.Color.LightYellow;
             this.btnara.NormalTxtColour = System.Drawing.Color.Blue;
@@ -154,7 +154,7 @@
             this.Controls.Add(this.btnyazdir);
             this.Controls.Add(this.brnkapat);
             this.Controls.Add(this.listView1);
-            this.Controls.Add(this.printetiketleme);
+            this.Controls.Add(this.printAmbetiketleme);
             this.Name = "EtiketlemeControl";
             this.Size = new System.Drawing.Size(240, 320);
             this.ResumeLayout(false);
@@ -163,7 +163,7 @@
 
         #endregion
 
-        private MobileWhouse.GUI.UPrintControl printetiketleme;
+        private MobileWhouse.GUI.UPrintControl printAmbetiketleme;
         private System.Windows.Forms.ListView listView1;
         private GUI.UButton brnkapat;
         private GUI.UButton btnyazdir;

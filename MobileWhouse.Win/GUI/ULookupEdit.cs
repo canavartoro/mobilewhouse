@@ -47,6 +47,17 @@ namespace MobileWhouse.GUI
             set { datafieldName = value; }
         }
 
+        private bool _browsable = true;
+        public bool Browsable
+        {
+            get { return _browsable; }
+            set
+            {
+                _browsable = value;
+                ResaiseControls();
+            }
+        }
+
         private bool showdescription = false;
         public bool ShowDescription
         {
@@ -162,6 +173,7 @@ namespace MobileWhouse.GUI
 
             textkod.Size = new Size(this.Width - (labelWith + 50), 23 + Screens.LookupEditHeigh);
             textkod.Location = new Point(labelWith, 2);
+            btn.Enabled = _browsable;
 
             if (showLabelText)
             {
@@ -446,29 +458,51 @@ namespace MobileWhouse.GUI
                     }
                     else if (dataType == DataSourceType.Depo)
                     {
-                        MobileWhouse.UyumConnector.ServiceRequestOfDepotSelectParam param = new MobileWhouse.UyumConnector.ServiceRequestOfDepotSelectParam();
+                        UyumConnector.ServiceRequestOfString param = new UyumConnector.ServiceRequestOfString();
                         param.Token = ClientApplication.Instance.Token;
-                        param.Value = new MobileWhouse.UyumConnector.DepotSelectParam();
-                        param.Value.DescriptionFilter = code;
-                        param.Value.OnlyWithLocation = false;
+                        param.Value = string.Format(@"SELECT wh.whouse_id,wh.whouse_code,wh.description FROM invd_whouse wh INNER JOIN invd_branch_whouse bw ON wh.whouse_id = bw.whouse_id AND bw.branch_id = {0} WHERE wh.ispassive = 0 AND wh.whouse_code = '{1}' ", ClientApplication.Instance.ClientToken.BranchId, code);
 
-                        MobileWhouse.UyumConnector.ServiceResultOfListOfDepot depots = ClientApplication.Instance.Service.GetDepots(param);
-
-                        if (depots != null)
+                        UyumConnector.ServiceResultOfDataTable restbl = ClientApplication.Instance.Service.ExecuteSQL(param);
+                        if (!restbl.Result)
                         {
-                            if (depots.Result == false)
-                            {
-                                MobileWhouse.Util.Screens.Error(string.Concat("Sunucu hatası:", depots.Message));
-                            }
-                            else
-                            {
-                                if (depots.Value != null && depots.Value.Length > 0)
-                                {
-                                    this.selectedObject = depots.Value[0];
-                                    SetFields(depots.Value[0].Code, depots.Value[0].Name);
-                                }
-                            }
+                            Screens.Error(restbl.Message);
+                            return;
                         }
+
+                        if (restbl.Value != null && restbl.Value.Rows.Count > 0)
+                        {
+                            MobileWhouse.UyumConnector.Depot depo = new  MobileWhouse.UyumConnector.Depot();
+                            depo.Id = Convert.ToInt32(restbl.Value.Rows[0][0]);
+                            depo.Code = restbl.Value.Rows[0][1].ToString();
+                            depo.Name = restbl.Value.Rows[0][2].ToString();
+                            this.selectedObject = depo;
+                            SetFields(depo.Code, depo.Name);
+                        }
+
+                        ///// filtre calismadigi icin sql kullanildi
+                        //MobileWhouse.UyumConnector.ServiceRequestOfDepotSelectParam param = new MobileWhouse.UyumConnector.ServiceRequestOfDepotSelectParam();
+                        //param.Token = ClientApplication.Instance.Token;
+                        //param.Value = new MobileWhouse.UyumConnector.DepotSelectParam();
+                        //param.Value.DescriptionFilter = code;
+                        //param.Value.OnlyWithLocation = false;
+
+                        //MobileWhouse.UyumConnector.ServiceResultOfListOfDepot depots = ClientApplication.Instance.Service.GetDepots(param);
+
+                        //if (depots != null)
+                        //{
+                        //    if (depots.Result == false)
+                        //    {
+                        //        MobileWhouse.Util.Screens.Error(string.Concat("Sunucu hatası:", depots.Message));
+                        //    }
+                        //    else
+                        //    {
+                        //        if (depots.Value != null && depots.Value.Length > 0)
+                        //        {
+                        //            this.selectedObject = depots.Value[0];
+                        //            SetFields(depots.Value[0].Code, depots.Value[0].Name);
+                        //        }
+                        //    }
+                        //}
                     }
                     else if (dataType == DataSourceType.Hareket)
                     {
@@ -591,7 +625,7 @@ ORDER BY it.item_name", code);
                         param.Token = ClientApplication.Instance.Token;
                         param.Value = string.Format(@"SELECT ac.wstation_id,ws.wstation_code,ws.description,ws.wcenter_id,wc.wcenter_code,wc.description wcenter_desc,
 ws.mtr_output_whouse_id,mtr_wh.whouse_code mtr_output_whouse_code,ws.prd_input_doc_tra_id,tr.doc_tra_code prd_input_doc_tra_code
-FROM zz_worder_ac_op ac INNER JOIN prdd_wstation ws ON ac.wstation_id = ws.wstation_id LEFT JOIN 
+FROM zz_worder_ac_op ac INNER JOIN prdd_wstation ws ON ac.wstation_id = ws.wstation_id AND ac.is_closed = 0 LEFT JOIN 
 prdt_worder_m m ON ac.worder_m_id = m.worder_m_id LEFT JOIN 
 prdd_wcenter wc ON ws.wcenter_id = wc.wcenter_id LEFT JOIN 
 invd_whouse mtr_wh ON ws.mtr_output_whouse_id = mtr_wh.whouse_id LEFT JOIN gnld_doc_tra tr ON ws.prd_input_doc_tra_id = tr.doc_tra_id

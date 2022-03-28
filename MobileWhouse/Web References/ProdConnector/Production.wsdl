@@ -1973,7 +1973,9 @@
           <s:element minOccurs="1" maxOccurs="1" name="ItemPickingMID" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="Oneri" type="s:boolean" />
           <s:element minOccurs="1" maxOccurs="1" name="SourceMId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SourceApp" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="PackageMQty" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreatePalet" type="s:boolean" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfPackageTraDInfo">
@@ -1991,6 +1993,15 @@
           <s:element minOccurs="1" maxOccurs="1" name="Qty" type="s:decimal" />
           <s:element minOccurs="1" maxOccurs="1" name="SourceMId" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="SourceDId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemAttribute1" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemAttribute2" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemAttribute3" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QualityId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="QualityCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ColorId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ColorCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LotId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LotCode" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:element name="SavePackageTraMResponse">

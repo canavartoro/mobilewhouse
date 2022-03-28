@@ -58,6 +58,13 @@ namespace MobileWhouse.Models
             set { _qty = value; }
         }
 
+        private decimal _qty_barkod = 0;
+        public decimal qty_barkod
+        {
+            get { return _qty_barkod; }
+            set { _qty_barkod = value; }
+        }
+
         private int _line_no = 0;
         public int line_no
         {
@@ -106,5 +113,74 @@ namespace MobileWhouse.Models
             get { return _source_m_id; }
             set { _source_m_id = value; }
         }
+    }
+
+    public class invt_item_m
+    {
+        public invt_item_m() { }
+
+        private int _item_m_id = 0;
+        public int item_m_id
+        {
+            get { return _item_m_id; }
+            set { _item_m_id = value; }
+        }
+
+        private string _doc_date = "";
+        public string doc_date
+        {
+            get { return _doc_date; }
+            set { _doc_date = value; }
+        }
+
+        private string _doc_no = "";
+        public string doc_no
+        {
+            get { return _doc_no; }
+            set { _doc_no = value; }
+        }
+
+        private string _doc_tra_code = "";
+        public string doc_tra_code
+        {
+            get { return _doc_tra_code; }
+            set { _doc_tra_code = value; }
+        }
+
+        private string _gnl_note1 = "";
+        public string gnl_note1
+        {
+            get { return _gnl_note1; }
+            set { _gnl_note1 = value; }
+        }
+
+        private int _entity_id = 0;
+        public int entity_id
+        {
+            get { return _entity_id; }
+            set { _entity_id = value; }
+        }
+
+        private string _entity_code = "";
+        public string entity_code
+        {
+            get { return _entity_code; }
+            set { _entity_code = value; }
+        }
+
+        private string _entity_name = "";
+        public string entity_name
+        {
+            get { return _entity_name; }
+            set { _entity_name = value; }
+        }
+
+        private int _lines = 0;
+        public int lines
+        {
+            get { return _lines; }
+            set { _lines = value; }
+        }
+
     }
 }

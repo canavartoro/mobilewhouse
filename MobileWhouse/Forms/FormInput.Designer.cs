@@ -33,6 +33,7 @@
             this.btnkaydet = new MobileWhouse.GUI.UButton();
             this.btnkapat = new MobileWhouse.GUI.UButton();
             this.t1 = new System.Windows.Forms.Button();
+            this.textNum = new MobileWhouse.GUI.TextBoxNumeric();
             this.SuspendLayout();
             // 
             // label1
@@ -98,6 +99,18 @@
             this.t1.Text = "T";
             this.t1.Click += new System.EventHandler(this.t1_Click);
             // 
+            // textNum
+            // 
+            this.textNum.AllowSpace = false;
+            this.textNum.BackColor = System.Drawing.Color.LightCyan;
+            this.textNum.Location = new System.Drawing.Point(5, 35);
+            this.textNum.Name = "textNum";
+            this.textNum.Size = new System.Drawing.Size(210, 21);
+            this.textNum.TabIndex = 6;
+            this.textNum.Text = "1";
+            this.textNum.Visible = false;
+            this.textNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textNum_KeyPress);
+            // 
             // FormInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -109,6 +122,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnkaydet);
             this.Controls.Add(this.btnkapat);
+            this.Controls.Add(this.textNum);
             this.Name = "FormInput";
             this.Text = "Giriş";
             this.Load += new System.EventHandler(this.FormInput_Load);
@@ -123,5 +137,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button t1;
+        private MobileWhouse.GUI.TextBoxNumeric textNum;
     }
 }

@@ -39,7 +39,8 @@ namespace MobileWhouse.Controls.QLT
                 worder_acop = worder_ac_op.GetProducts(wstation.PrdGobalId);
                 if (worder_acop != null)
                 {
-                    txtisemri.Text = string.Concat(worder_acop.worder_no, " ", worder_acop.item_code);
+                    txtisemri.Text = worder_acop.worder_no;
+                    lblstokad.Text = string.Concat(worder_acop.item_code, " ", worder_acop.item_name);
                 }
                 else
                 {
@@ -259,8 +260,8 @@ namespace MobileWhouse.Controls.QLT
                 pqc.OpenClose = ActionState.Açık;
                 pqc.ControlUserId = ClientApplication.Instance.ClientToken.UserId;
                 pqc.AfterMinute = operatorLogin.Operator.prd_employee_id;
-                pqc.Description4 = string.Concat(operatorLogin.Operator.emp_name, " ", operatorLogin.Operator.emp_surname, " ", textaciklama.Text);
-                pqc.CaliberCode = cmbkontrol.Text;
+                pqc.Description4 = string.Concat(cmbkontrol.Text, ":", operatorLogin.Operator.emp_name, " ", operatorLogin.Operator.emp_surname, ":", textaciklama.Text);
+                //pqc.CaliberCode = cmbkontrol.Text;
                 pqc.Humidity = 0;
                 pqc.ItemId = worder_acop.item_id;
                 pqc.ItemCode = worder_acop.item_code;
@@ -304,13 +305,14 @@ namespace MobileWhouse.Controls.QLT
                     PqcMaster pqcmaster = (PqcMaster)BaseModel.FromXml(typeof(PqcMaster), res.Value);
                     Screens.Info(string.Concat("Belge kaydedildi! Id:", pqcmaster.Id, ", Belge No:", pqcmaster.PqcNo));
                     UpdateWorderAcOp(pqcmaster.Id);
-                    listView1.Items.Clear();
                     cmbkontrol.SelectedIndex = -1;
+                    listView1.Items.Clear();
                     wstation = null;
                     worder_acop = null;
                     txtistasyon.Text = "";
                     txtisemri.Text = "";
                     txtmiktar.Text = "1";
+                    lblstokad.Text = "";
                 }
             }
             catch (Exception exc)
@@ -344,7 +346,7 @@ namespace MobileWhouse.Controls.QLT
                     }
                     else
                     {
-                        param.Value = string.Concat("UPDATE prdd_free_break_worder SET update_date = CURRENT_TIMESTAMP,end_date = CURRENT_TIMESTAMP,net_time = EXTRACT(EPOCH FROM end_date) - EXTRACT(EPOCH FROM start_date) / 60,description = '",
+                        param.Value = string.Concat("UPDATE prdd_free_break_worder SET update_date = CURRENT_TIMESTAMP,end_date = CURRENT_TIMESTAMP,net_time = (EXTRACT(EPOCH FROM NOW()::TIMESTAMP) - EXTRACT(EPOCH FROM start_date::TIMESTAMP)) / 60,description = '",
                             operatorLogin.Operator.citizenship_no, "' WHERE free_break_worder_id = ", worder_acop.worder_break_id);
                         Logger.I(param.Value);
                         res = ClientApplication.Instance.Service.ExecuteSQL(param);

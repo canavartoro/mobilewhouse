@@ -46,7 +46,7 @@ namespace MobileWhouse.Util
 #if !PocketPC
                 if (System.ComponentModel.LicenseUsageMode.Designtime == System.ComponentModel.LicenseManager.UsageMode) return false;
 #endif
-              
+
             }
         }
 
@@ -55,6 +55,34 @@ namespace MobileWhouse.Util
             get { return Environment.OSVersion.Platform == PlatformID.WinCE; }
         }
 
+        public static object Clone(object origin)
+        {
+            if (object.ReferenceEquals(origin, null)) return null;
 
+            Type t = origin.GetType();
+            PropertyInfo[] properties = t.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+
+            object destination = Activator.CreateInstance(t);
+
+            if (destination == null)
+                throw new ArgumentNullException("destination", "Destination object must first be instantiated.");
+
+            if (origin == null)
+                throw new ArgumentNullException("origin", "Destination object must first be instantiated.");
+
+            foreach (PropertyInfo destinationProperty in properties)
+            {
+                if (destinationProperty.CanWrite)
+                {
+                    PropertyInfo p = t.GetProperty(destinationProperty.Name);
+                    if (p != null)
+                    {
+                        destinationProperty.SetValue(destination, p.GetValue(origin, null), null);
+                    }
+                }
+            }
+
+            return destination;
+        }
     }
 }

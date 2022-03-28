@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AmbalajMenuControl));
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnambalajolustur = new System.Windows.Forms.Button();
             this.uButton2 = new System.Windows.Forms.Button();
@@ -40,8 +39,6 @@
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.BackColor = System.Drawing.Color.Empty;
-            this.btnCancel.ForeColor = System.Drawing.Color.Empty;
             this.btnCancel.Location = new System.Drawing.Point(3, 272);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(233, 40);
@@ -53,8 +50,6 @@
             // 
             this.btnambalajolustur.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnambalajolustur.BackColor = System.Drawing.Color.Empty;
-            this.btnambalajolustur.ForeColor = System.Drawing.Color.Empty;
             this.btnambalajolustur.Location = new System.Drawing.Point(3, 3);
             this.btnambalajolustur.Name = "btnambalajolustur";
             this.btnambalajolustur.Size = new System.Drawing.Size(233, 40);
@@ -66,8 +61,7 @@
             // 
             this.uButton2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.uButton2.BackColor = System.Drawing.Color.Empty;
-            this.uButton2.ForeColor = System.Drawing.Color.Empty;
+            this.uButton2.Enabled = false;
             this.uButton2.Location = new System.Drawing.Point(3, 49);
             this.uButton2.Name = "uButton2";
             this.uButton2.Size = new System.Drawing.Size(233, 40);
@@ -79,8 +73,6 @@
             // 
             this.uButton3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.uButton3.BackColor = System.Drawing.Color.Empty;
-            this.uButton3.ForeColor = System.Drawing.Color.Empty;
             this.uButton3.Location = new System.Drawing.Point(3, 95);
             this.uButton3.Name = "uButton3";
             this.uButton3.Size = new System.Drawing.Size(233, 40);
@@ -92,8 +84,6 @@
             // 
             this.btnprint.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnprint.BackColor = System.Drawing.Color.Empty;
-            this.btnprint.ForeColor = System.Drawing.Color.Empty;
             this.btnprint.Location = new System.Drawing.Point(3, 141);
             this.btnprint.Name = "btnprint";
             this.btnprint.Size = new System.Drawing.Size(233, 40);

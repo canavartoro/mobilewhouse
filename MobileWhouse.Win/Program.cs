@@ -28,7 +28,9 @@ namespace MobileWhouse
 #endif
 
             #region Ekran Boyutuna Göre Form Açıyor
-            if (Screen.PrimaryScreen.WorkingArea.Width > 480)
+
+            if (Environment.OSVersion.Platform == PlatformID.Win32NT)
+            //if (Screen.PrimaryScreen.WorkingArea.Width > 480)
             {
                 Screens.BuyukEkran = true;
             }

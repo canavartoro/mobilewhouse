@@ -95,5 +95,14 @@ namespace MobileWhouse.Dilogs
             DialogResult = DialogResult.OK;
             Close();
         }
+
+        private void lvwItems_ItemActivate(object sender, EventArgs e)
+        {
+            if ( lvwItems.SelectedIndices.Count > 0)
+            {
+                DialogResult = DialogResult.OK;
+                Close();
+            }
+        }
     }
 }

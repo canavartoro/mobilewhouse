@@ -46,6 +46,8 @@
             // 
             // lvwInfos
             // 
+            this.lvwInfos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.lvwInfos.Columns.Add(this.columnHeader2);
             this.lvwInfos.Columns.Add(this.columnHeader5);
             this.lvwInfos.Columns.Add(this.columnHeader3);
@@ -85,6 +87,7 @@
             // 
             // btnListele
             // 
+            this.btnListele.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnListele.Location = new System.Drawing.Point(195, 33);
             this.btnListele.Name = "btnListele";
             this.btnListele.Size = new System.Drawing.Size(42, 21);
@@ -94,6 +97,8 @@
             // 
             // txtItemCode
             // 
+            this.txtItemCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtItemCode.DepoId = 0;
             this.txtItemCode.IsRaf = 0;
             this.txtItemCode.Location = new System.Drawing.Point(76, 33);
@@ -103,6 +108,8 @@
             // 
             // txtLocationCode
             // 
+            this.txtLocationCode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtLocationCode.DepoId = 0;
             this.txtLocationCode.IsRaf = 1;
             this.txtLocationCode.Location = new System.Drawing.Point(76, 9);
@@ -126,6 +133,7 @@
             // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Location = new System.Drawing.Point(195, 9);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(41, 21);
@@ -135,6 +143,7 @@
             // 
             // btnShowRaf
             // 
+            this.btnShowRaf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnShowRaf.Location = new System.Drawing.Point(166, 9);
             this.btnShowRaf.Name = "btnShowRaf";
             this.btnShowRaf.Size = new System.Drawing.Size(26, 21);
@@ -144,6 +153,7 @@
             // 
             // btnShowItem
             // 
+            this.btnShowItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnShowItem.Location = new System.Drawing.Point(166, 33);
             this.btnShowItem.Name = "btnShowItem";
             this.btnShowItem.Size = new System.Drawing.Size(26, 21);
@@ -165,6 +175,7 @@
             this.Controls.Add(this.btnListele);
             this.Controls.Add(this.lvwInfos);
             this.Name = "StokRafDurumuControl";
+            this.Size = new System.Drawing.Size(240, 320);
             this.ResumeLayout(false);
 
         }

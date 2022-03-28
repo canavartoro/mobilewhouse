@@ -79,6 +79,10 @@ namespace MobileWhouse
                     this.Text = string.Concat(mod.ModuleCaption, " [", mod.ModuleName, "]");
                 }
             }
+            else
+            {
+                this.Text = ClientApplication.Instance.ClientToken.BranchDesc;
+            }
             SelectedPage = control;
         }
 
@@ -130,12 +134,12 @@ namespace MobileWhouse
         {
             try
             {
-                //AutoScaleMode = AutoScaleMode.Dpi;
-                //WindowState = FormWindowState.Normal;
-                //Location = new Point(0, 0);
+                AutoScaleMode = AutoScaleMode.Dpi;
+                WindowState = FormWindowState.Normal;
+                Location = new Point(0, 0);
 
-                //if (Screens.BuyukEkran)
-                //    Size = new Size(800, 480);
+                if (Screens.BuyukEkran)
+                    Size = new Size(800, 480);
 
                 /*MobileWhouse.ProdConnector.ServiceRequestOfTransferMInfo param = new MobileWhouse.ProdConnector.ServiceRequestOfTransferMInfo();
                 param.Token = new MobileWhouse.ProdConnector.Token();

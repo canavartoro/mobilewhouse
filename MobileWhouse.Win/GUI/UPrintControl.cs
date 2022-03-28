@@ -173,52 +173,52 @@ namespace MobileWhouse.GUI
 
         public void Print(string criteria)
         {
-            _criteria = new string[] { cmbPrinter.Text, cmbDesign.Text, criteria };
-            new Thread(new ThreadStart(Print)).Start();
-            //try
-            //{
-            //    if (string.IsNullOrEmpty(cmbDesign.Text))
-            //    {
-            //        Screens.Error("Tasarım adı seçmediniz!");
-            //        cmbDesign.SelectAll();
-            //        cmbDesign.Focus();
-            //        return;
-            //    }
+            //_criteria = new string[] { cmbPrinter.Text, cmbDesign.Text, criteria };
+            //new Thread(new ThreadStart(Print)).Start();
+            try
+            {
+                if (string.IsNullOrEmpty(cmbDesign.Text))
+                {
+                    Screens.Error("Tasarım adı seçmediniz!");
+                    cmbDesign.SelectAll();
+                    cmbDesign.Focus();
+                    return;
+                }
 
-            //    if (string.IsNullOrEmpty(cmbPrinter.Text))
-            //    {
-            //        Screens.Error("Yazıcı adı seçmediniz!");
-            //        cmbPrinter.SelectAll();
-            //        cmbPrinter.Focus();
-            //        return;
-            //    }
-            //    Screens.ShowWait();
+                if (string.IsNullOrEmpty(cmbPrinter.Text))
+                {
+                    Screens.Error("Yazıcı adı seçmediniz!");
+                    cmbPrinter.SelectAll();
+                    cmbPrinter.Focus();
+                    return;
+                }
+                Screens.ShowWait();
 
-            //    using (TcpPrinterClient tcpprinter = new TcpPrinterClient())
-            //    {
-            //        PrintersDesigns print = tcpprinter.PrintServer("", cmbPrinter.Text, cmbDesign.Text, criteria);
-            //        if (print == null)
-            //        {
-            //            Screens.Error("Yazdırma işleminde bilinmeyen hata!");
-            //        }
-            //        if (print.Result)
-            //        {
-            //            //Screens.Error("Yazdırma işleminde başarılı");
-            //        }
-            //        else
-            //        {
-            //            Screens.Error(string.Concat("Yazdırma işleminde hata:", print.Massage));
-            //        }
-            //    }
-            //}
-            //catch (Exception exc)
-            //{
-            //    Screens.Error(exc);
-            //}
-            //finally
-            //{
-            //    Screens.HideWait();
-            //}
+                using (TcpPrinterClient tcpprinter = new TcpPrinterClient())
+                {
+                    PrintersDesigns print = tcpprinter.PrintServer("", cmbPrinter.Text, cmbDesign.Text, criteria);
+                    if (print == null)
+                    {
+                        Screens.Error("Yazdırma işleminde bilinmeyen hata!");
+                    }
+                    if (print.Result)
+                    {
+                        //Screens.Error("Yazdırma işleminde başarılı");
+                    }
+                    else
+                    {
+                        Screens.Error(string.Concat("Yazdırma işleminde hata:", print.Massage));
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                Screens.Error(exc);
+            }
+            finally
+            {
+                Screens.HideWait();
+            }
         }
 
         private void btnrefresh_Click(object sender, EventArgs e)

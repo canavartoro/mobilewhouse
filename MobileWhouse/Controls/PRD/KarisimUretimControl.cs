@@ -198,7 +198,7 @@ namespace MobileWhouse.Controls.PRD
                         for (int i = 0; i < listRecete.Items.Count; i++)
                         {
                             prdt_worder_bom_d bom = listRecete.Items[i].Tag as prdt_worder_bom_d;
-                            find = bom.ITEM_ID == package.ItemInfo.Id || bom.ALTERNATIVES.IndexOf(package.ItemInfo.Id.ToString()) != -1;
+                            find = bom.ITEM_ID == package.ItemInfo.Id || (bom.ALTERNATIVES != null && bom.ALTERNATIVES.IndexOf(package.ItemInfo.Id.ToString()) != -1);
                             if (find)
                             {
                                 if (bom.QTY_REMAIN == 0) throw new Exception("Reçete miktarı hatalı!");

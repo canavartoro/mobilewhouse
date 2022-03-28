@@ -28,6 +28,7 @@ namespace MobileWhouse.Controls.Package
         private PackageTraM ambalajHareket = null;
         private DocTra selectedDocTra = null;
         private Depot selectedDepot = null;
+        private MobileParameter mobileParam = null;
         private EmployeeLogin operatorLogin = new EmployeeLogin();
 
         public AmbalajOlusturmaControl()
@@ -42,13 +43,14 @@ namespace MobileWhouse.Controls.Package
 
         }
 
-        public string GetPackageNo()
+        public string SetPackageNo(int package_id)
         {
             try
             {
                 MobileWhouse.UyumConnector.ServiceRequestOfString param = new MobileWhouse.UyumConnector.ServiceRequestOfString();
                 param.Token = ClientApplication.Instance.Token;
-                param.Value = "SELECT concat('PL', lpad(((nextval('zz_package_m_package_pl_seq'::regclass))::character varying)::text, 12, '0'::text)) ";
+                //param.Value = "SELECT concat('PL', lpad(((nextval('zz_package_m_package_pl_seq'::regclass))::character varying)::text, 12, '0'::text)) ";
+                param.Value = string.Format(@"UPDATE invd_package_m SET package_no = CONCAT('{1}', LPAD(((NEXTVAL('zz_package_m_package_pl_seq'::REGCLASS))::CHARACTER VARYING)::TEXT, 12, '0'::TEXT)) WHERE package_id = {0} RETURNING package_no;", package_id, mobileParam.ambalaj_profix);
                 Logger.I(param.Value);
 
                 MobileWhouse.UyumConnector.ServiceResultOfDataTable res = ClientApplication.Instance.Service.ExecuteSQL(param);
@@ -87,6 +89,7 @@ namespace MobileWhouse.Controls.Package
                 base.OnItemBarkod(item);
                 _SelectedItem = item;
                 txtStok.Text = _SelectedItem.Name;
+                cmbparti.FilterCondition = _SelectedItem.Id.ToString();
 
                 /* if (1 == 1) return;// kapatildi, mantik degisti
 
@@ -214,6 +217,16 @@ namespace MobileWhouse.Controls.Package
                     Screens.Error("Hareket kodu seçilmedi!");
                     return;
                 }
+                if (mobileParam == null)
+                {
+                    Screens.Error("Mobil parametreler bulunamadı!");
+                    return;
+                }
+                if (string.IsNullOrEmpty(mobileParam.ambalaj_profix))
+                {
+                    Screens.Error("Mobil parametreler Ambalaj Prefix tanımlı değil!");
+                    return;
+                }
 
                 if (!operatorLogin.Login()) return;
                 if (!operatorLogin.Operator.pkg001)
@@ -274,6 +287,8 @@ namespace MobileWhouse.Controls.Package
                 ambdetay.ItemId = _SelectedItem.Id;
                 ambdetay.ItemCode = _SelectedItem.Name;
                 ambdetay.LineNo = 10;
+                if (cmbparti.SelectedValue != null)
+                    ambdetay.LotId = StringUtil.ToInteger(cmbparti.SelectedValue);
                 ambdetay.Qty = dcQty.Value;
                 ambdetay.UnitId = _SelectedItem.UnitId;
                 ambdetay.UnitCode = _SelectedItem.UnitCode;
@@ -297,7 +312,7 @@ namespace MobileWhouse.Controls.Package
 
                 for (int l = 0; l < pltsay; l++)
                 {
-                    ambhareket.UyumDetailItem[0].PackageMNo = GetPackageNo();
+                    ambhareket.UyumDetailItem[0].PackageMNo = //GetPackageNo();
                     ambhareket.DocNo = ambhareket.PackageNo = DateTime.Now.ToString("yyMMddHHmmssfff");
                     Context.Value = ambhareket.ToXml();
 
@@ -314,11 +329,26 @@ namespace MobileWhouse.Controls.Package
                         textAciklama.Text = "";
 
                         _SelectedItem = null;
+                        bool print = false;
 
                         ambalajHareket = (PackageTraM)BaseModel.FromXml(typeof(PackageTraM), resp.Value);
                         txtPaletNo.Text = ambalajHareket.DocNo;
 
-                        if (printPaletctrl.IsSelectPrinter)
+                        if (ambalajHareket.UyumDetailItem != null && ambalajHareket.UyumDetailItem.Length > 0)
+                        {
+                            string packageNo = SetPackageNo(ambalajHareket.UyumDetailItem[0].PackageMId);
+                            if (!string.IsNullOrEmpty(packageNo))
+                            {
+                                if (printAmbPaletctrl.IsSelectPrinter)
+                                {
+                                    print = true;
+                                    printAmbPaletctrl.Print(string.Concat(" \"barcode\" = '", packageNo, "'  "));
+                                    Thread.Sleep(100);
+                                }
+                            }
+                        }
+
+                        if (printAmbPaletctrl.IsSelectPrinter && !print)
                         {
                             //decimal raporcode = 221120315362129;
 
@@ -326,7 +356,7 @@ namespace MobileWhouse.Controls.Package
                             //{
                             //    raporcode = Convert.ToDecimal(cmbdizayn.SelectedValue);
                             //}
-                            printPaletctrl.Print(string.Concat(" \"doc_no\" = '", ambalajHareket.DocNo, "'  "));
+                            printAmbPaletctrl.Print(string.Concat(" \"barcode\" = '", ambalajHareket.DocNo, "'  "));
                             Thread.Sleep(100);
                         }
                     }
@@ -375,13 +405,13 @@ namespace MobileWhouse.Controls.Package
                 return;
             }
 
-            if (!printPaletctrl.IsSelectPrinter)
+            if (!printAmbPaletctrl.IsSelectPrinter)
             {
                 Screens.Error("Ambalaj yazdırmak için printer seçin!");
                 return;
             }
 
-            printPaletctrl.Print(string.Concat(" \"barcode\" = '", _PackageInfo.PackageNo, "'  "));
+            printAmbPaletctrl.Print(string.Concat(" \"barcode\" = '", _PackageInfo.PackageNo, "'  "));
 
             //Screens.Info(string.Concat("Bilgiler:221120315362129,",
             //    AppCache.ReadCache("BARCODE_PROC", "RPP_INV_9009"),
@@ -396,29 +426,16 @@ namespace MobileWhouse.Controls.Package
         {
             try
             {
-                //string selectedAmbDocTra = FileHelper.ReadFile("selectedAmbDocTra.xml");
-                //if (!string.IsNullOrEmpty(selectedAmbDocTra))
-                //{
-                //    selectedDocTra = FileHelper.FromXml(selectedAmbDocTra, typeof(DocTra)) as DocTra;
-                //    if (selectedDocTra == null)
-                //    {
-                //        FileHelper.DeleteFile("selectedAmbDocTra.xml");
-                //    }
-                //    else
-                //    {
-                //        txthareket.Text = string.Concat(selectedDocTra.DocTraCode, " ", selectedDocTra.DocTraDesc);
-                //        txtdepo.Enabled = txtdepo.Enabled = selectedDocTra.Status == 3;
-                //    }
-                //}
-
-                //string kod = AppCache.ReadCache("dizaynkod", "");
-                //if (!string.IsNullOrEmpty(kod)) cmbdizayn.SelectedIndex = Convert.ToInt32(kod);
+                mobileParam = MobileParameter.GetMobileParameter();
             }
             catch (Exception exc)
             {
-                Log.Logger.E(exc);
+                Screens.Error(exc);
             }
-            //cmbdizayn.SelectedValueChanged += new EventHandler(cmbdizayn_SelectedValueChanged);
+            finally
+            {
+                Screens.HideWait();
+            }
         }
 
         private void txtPaletNo_KeyPress(object sender, KeyPressEventArgs e)
@@ -453,7 +470,7 @@ namespace MobileWhouse.Controls.Package
 
                 using (TcpPrinterClient tcpprinter = new TcpPrinterClient())
                 {
-                    PrintersDesigns print = tcpprinter.PrintServer("", printPaletctrl.PrinterName, "ambalaj", " package_no = 'P20211200153' ");
+                    PrintersDesigns print = tcpprinter.PrintServer("", printAmbPaletctrl.PrinterName, "ambalaj", " package_no = 'P20211200153' ");
                     if (print == null)
                     {
                         Screens.Error("Yazdırma işleminde bilinmeyen hata!");

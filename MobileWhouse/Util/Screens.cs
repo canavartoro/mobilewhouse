@@ -213,6 +213,19 @@ namespace MobileWhouse.Util
             }
         }
 
+        public static decimal ShowInputBox(string caption, decimal qty)
+        {
+            FormInput frm = new FormInput();
+            frm.Text = "Giriş";
+            frm.Input = qty.ToString(Statics.DECIMAL_STRING_FORMAT);
+            frm.InputMesaj = caption;
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                return StringUtil.ToDecimal(frm.Input);
+            }
+            return 0M;
+        }
+
         public static string ShowInputBox(string caption, string msg, char pswchar)
         {
             FormInput frm = new FormInput();

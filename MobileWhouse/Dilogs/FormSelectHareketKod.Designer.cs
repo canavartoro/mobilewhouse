@@ -71,6 +71,7 @@
             this.lswDocTra.Size = new System.Drawing.Size(235, 264);
             this.lswDocTra.TabIndex = 2;
             this.lswDocTra.View = System.Windows.Forms.View.Details;
+            this.lswDocTra.ItemActivate += new System.EventHandler(this.lswDocTra_ItemActivate);
             // 
             // Id
             // 

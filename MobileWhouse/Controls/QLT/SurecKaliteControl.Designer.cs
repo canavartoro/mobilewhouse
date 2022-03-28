@@ -53,6 +53,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lblstokad = new System.Windows.Forms.Label();
             this.t1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textaciklama = new System.Windows.Forms.TextBox();
@@ -106,6 +107,7 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbkontrol.DataSourceType = MobileWhouse.Enums.DataSourceType.KontrolGrubu;
             this.cmbkontrol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cmbkontrol.FilterCondition = "";
             this.cmbkontrol.HurdaTip = MobileWhouse.Enums.ScrapType.Tumu;
             this.cmbkontrol.Location = new System.Drawing.Point(82, 57);
             this.cmbkontrol.Name = "cmbkontrol";
@@ -229,9 +231,9 @@
             this.txtmiktar.AllowSpace = false;
             this.txtmiktar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtmiktar.BackColor = System.Drawing.Color.SkyBlue;
-            this.txtmiktar.Location = new System.Drawing.Point(172, 33);
+            this.txtmiktar.Location = new System.Drawing.Point(173, 33);
             this.txtmiktar.Name = "txtmiktar";
-            this.txtmiktar.Size = new System.Drawing.Size(64, 21);
+            this.txtmiktar.Size = new System.Drawing.Size(63, 21);
             this.txtmiktar.TabIndex = 40;
             this.txtmiktar.Text = "1";
             // 
@@ -239,6 +241,7 @@
             // 
             this.txtistasyon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtistasyon.Browsable = true;
             this.txtistasyon.DataFieldName = "";
             this.txtistasyon.DataType = MobileWhouse.Enums.DataSourceType.Uretim_IsEmri_Istasyon;
             this.txtistasyon.Description = "";
@@ -289,6 +292,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.lblstokad);
             this.tabPage2.Controls.Add(this.t1);
             this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Controls.Add(this.textaciklama);
@@ -298,9 +302,18 @@
             this.tabPage2.Size = new System.Drawing.Size(240, 245);
             this.tabPage2.Text = "Kaydet";
             // 
+            // lblstokad
+            // 
+            this.lblstokad.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblstokad.Location = new System.Drawing.Point(3, 0);
+            this.lblstokad.Name = "lblstokad";
+            this.lblstokad.Size = new System.Drawing.Size(234, 50);
+            // 
             // t1
             // 
-            this.t1.Location = new System.Drawing.Point(215, 0);
+            this.t1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.t1.Location = new System.Drawing.Point(215, 53);
             this.t1.Name = "t1";
             this.t1.Size = new System.Drawing.Size(22, 20);
             this.t1.TabIndex = 15;
@@ -309,14 +322,18 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.Location = new System.Drawing.Point(3, 53);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 20);
+            this.label1.Size = new System.Drawing.Size(206, 20);
             this.label1.Text = "Açıklama";
             // 
             // textaciklama
             // 
-            this.textaciklama.Location = new System.Drawing.Point(3, 21);
+            this.textaciklama.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.textaciklama.Location = new System.Drawing.Point(3, 74);
             this.textaciklama.Multiline = true;
             this.textaciklama.Name = "textaciklama";
             this.textaciklama.Size = new System.Drawing.Size(234, 60);
@@ -366,5 +383,6 @@
         private System.Windows.Forms.Button t1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textaciklama;
+        private System.Windows.Forms.Label lblstokad;
     }
 }

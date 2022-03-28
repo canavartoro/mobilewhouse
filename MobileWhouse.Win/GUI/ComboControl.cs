@@ -85,6 +85,11 @@ FROM uyumsoft.appd_reports_u rpu WHERE rpu.page_code = 'INV9009' ");
                 {
                     sbSqlString.AppendFormat(@"SELECT wstation_id AS ID,wstation_code || ' ' || COALESCE(description,'') AS TXT FROM prdd_wstation WHERE BRANCH_ID = {0} AND CO_ID = {1} ORDER BY wstation_code ", ClientApplication.Instance.ClientToken.BranchId, ClientApplication.Instance.ClientToken.CoId);
                 }
+                else if (dataSourceType == DataSourceType.PartiLot)
+                {
+                    if (string.IsNullOrEmpty(filterCondition)) return;//id bos olmamali
+                    sbSqlString.AppendFormat(@"SELECT lot_id AS ID,lot_code || ' ' || COALESCE(description,'') || ' ' || COALESCE(description2,'') AS TXT  FROM invd_lot WHERE item_id = {0} ORDER BY lot_code", filterCondition);
+                }
 
                 MobileWhouse.UyumConnector.ServiceRequestOfString param = new MobileWhouse.UyumConnector.ServiceRequestOfString();
                 param.Token = ClientApplication.Instance.Token;
@@ -118,6 +123,18 @@ FROM uyumsoft.appd_reports_u rpu WHERE rpu.page_code = 'INV9009' ");
             }
         }
 
+        private string filterCondition = "";
+        public string FilterCondition
+        {
+            get { return filterCondition; }
+            set 
+            { 
+                filterCondition = value;
+                if (!string.IsNullOrEmpty(filterCondition))
+                    GetDataItems();
+            }
+        }
+
         private ScrapType hurdaTip = ScrapType.Tumu;
         public ScrapType HurdaTip
         {
@@ -129,7 +146,7 @@ FROM uyumsoft.appd_reports_u rpu WHERE rpu.page_code = 'INV9009' ");
         public DataSourceType DataSourceType
         {
             get { return dataSourceType; }
-            set 
+            set
             {
                 dataSourceType = value;
                 if (!Utility.IsDesignMode && value != DataSourceType.Yok)

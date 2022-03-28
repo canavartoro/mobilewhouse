@@ -27,13 +27,13 @@ namespace MobileWhouse.Controls.Package
         {
             try
             {
-                if (string.IsNullOrEmpty(printetiketleme.DesignName)) return;
+                if (string.IsNullOrEmpty(printAmbetiketleme.DesignName)) return;
 
                 Cursor.Current = Cursors.WaitCursor;
 
                 MobileWhouse.UyumConnector.ServiceRequestOfString param = new MobileWhouse.UyumConnector.ServiceRequestOfString();
                 param.Token = ClientApplication.Instance.Token;
-                param.Value = string.Concat("SELECT view_name FROM zapd_label_design WHERE name = '", printetiketleme.DesignName, "'");
+                param.Value = string.Concat("SELECT view_name FROM zapd_label_design WHERE name = '", printAmbetiketleme.DesignName, "'");
                 Logger.I(param.Value);
 
                 MobileWhouse.UyumConnector.ServiceResultOfDataTable res = ClientApplication.Instance.Service.ExecuteSQL(param);
@@ -166,7 +166,7 @@ namespace MobileWhouse.Controls.Package
         {
             try
             {
-                if (!printetiketleme.IsSelectPrinter)
+                if (!printAmbetiketleme.IsSelectPrinter)
                 {
                     Screens.Warning("Yazıcı ve tasarım seçilmedi!");
                     return;
@@ -182,7 +182,7 @@ namespace MobileWhouse.Controls.Package
                 {
                     if (listView1.Items[i].Checked)
                     {
-                        printetiketleme.Print(string.Concat(" ", filter, " = '", listView1.Items[i].Text, "' "));
+                        printAmbetiketleme.Print(string.Concat(" ", filter, " = '", listView1.Items[i].Text, "' "));
                         Thread.Sleep(100);
                     }
                 }

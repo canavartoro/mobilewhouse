@@ -163,6 +163,12 @@
     <Compile Include="Controls\PRD\IsEmriBaslatControl.Designer.cs">
       <DependentUpon>IsEmriBaslatControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\PRD\IsEmriControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PRD\IsEmriControl.Designer.cs">
+      <DependentUpon>IsEmriControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PRD\IsEmrineMalzemeTalepControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -198,6 +204,12 @@
     </Compile>
     <Compile Include="Controls\PRD\UretimGirisControl.Designer.cs">
       <DependentUpon>UretimGirisControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PSM\CariBazindaSatinalmaControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PSM\CariBazindaSatinalmaControl.Designer.cs">
+      <DependentUpon>CariBazindaSatinalmaControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\PSM\MalKabulControl.cs">
       <SubType>UserControl</SubType>
@@ -871,6 +883,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\PRD\PrdControl.resx">
       <DependentUpon>PrdControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PRD\UretimGirisControl.resx">
+      <DependentUpon>UretimGirisControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\PSM\SatinAlmaMalKabulControl.resx">
       <DependentUpon>SatinAlmaMalKabulControl.cs</DependentUpon>

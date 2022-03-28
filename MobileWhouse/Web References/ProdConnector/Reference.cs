@@ -2042,6 +2042,24 @@ namespace MobileWhouse.ProdConnector {
         
         private int sourceDIdField;
         
+        private int itemAttribute1Field;
+        
+        private int itemAttribute2Field;
+        
+        private int itemAttribute3Field;
+        
+        private int qualityIdField;
+        
+        private string qualityCodeField;
+        
+        private int colorIdField;
+        
+        private string colorCodeField;
+        
+        private int lotIdField;
+        
+        private string lotCodeField;
+        
         /// <remarks/>
         public string PackageMNo {
             get {
@@ -2121,6 +2139,96 @@ namespace MobileWhouse.ProdConnector {
                 this.sourceDIdField = value;
             }
         }
+        
+        /// <remarks/>
+        public int ItemAttribute1 {
+            get {
+                return this.itemAttribute1Field;
+            }
+            set {
+                this.itemAttribute1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ItemAttribute2 {
+            get {
+                return this.itemAttribute2Field;
+            }
+            set {
+                this.itemAttribute2Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ItemAttribute3 {
+            get {
+                return this.itemAttribute3Field;
+            }
+            set {
+                this.itemAttribute3Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int QualityId {
+            get {
+                return this.qualityIdField;
+            }
+            set {
+                this.qualityIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string QualityCode {
+            get {
+                return this.qualityCodeField;
+            }
+            set {
+                this.qualityCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ColorId {
+            get {
+                return this.colorIdField;
+            }
+            set {
+                this.colorIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ColorCode {
+            get {
+                return this.colorCodeField;
+            }
+            set {
+                this.colorCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int LotId {
+            get {
+                return this.lotIdField;
+            }
+            set {
+                this.lotIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string LotCode {
+            get {
+                return this.lotCodeField;
+            }
+            set {
+                this.lotCodeField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -2147,7 +2255,11 @@ namespace MobileWhouse.ProdConnector {
         
         private int sourceMIdField;
         
+        private int sourceAppField;
+        
         private System.Nullable<decimal> packageMQtyField;
+        
+        private bool createPaletField;
         
         /// <remarks/>
         public System.DateTime DocDate {
@@ -2240,6 +2352,16 @@ namespace MobileWhouse.ProdConnector {
         }
         
         /// <remarks/>
+        public int SourceApp {
+            get {
+                return this.sourceAppField;
+            }
+            set {
+                this.sourceAppField = value;
+            }
+        }
+        
+        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public System.Nullable<decimal> PackageMQty {
             get {
@@ -2247,6 +2369,16 @@ namespace MobileWhouse.ProdConnector {
             }
             set {
                 this.packageMQtyField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool CreatePalet {
+            get {
+                return this.createPaletField;
+            }
+            set {
+                this.createPaletField = value;
             }
         }
     }

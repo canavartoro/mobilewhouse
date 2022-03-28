@@ -49,7 +49,7 @@ invd_item it ON wo.item_id = it.item_id LEFT JOIN
 invd_unit un ON acop.unit_id = un.unit_id LEFT JOIN
 prdd_wstation ws ON acop.wstation_id = ws.wstation_id LEFT JOIN
 prdd_operation op ON acop.operation_id = op.operation_id
-WHERE acop.co_id = '{0}' AND acop.branch_id = '{1}' AND acop.worder_m_id = '{2}' ",
+WHERE acop.co_id = '{0}' AND acop.branch_id = '{1}' AND acop.worder_m_id = '{2}' ORDER BY acop.worder_ac_op_id DESC ",
                                                                                     ClientApplication.Instance.ClientToken.CoId,
                                                                                     ClientApplication.Instance.ClientToken.BranchId,
                                                                                     worder_acop.worder_m_id);

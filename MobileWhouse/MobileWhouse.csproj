@@ -191,6 +191,12 @@
     <Compile Include="Controls\PRD\IsEmriBaslatControl.Designer.cs">
       <DependentUpon>IsEmriBaslatControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\PRD\IsEmriControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PRD\IsEmriControl.Designer.cs">
+      <DependentUpon>IsEmriControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PRD\IsEmrineMalzemeTalepControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -226,6 +232,12 @@
     </Compile>
     <Compile Include="Controls\PRD\UretimGirisControl.Designer.cs">
       <DependentUpon>UretimGirisControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PSM\CariBazindaSatinalmaControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PSM\CariBazindaSatinalmaControl.Designer.cs">
+      <DependentUpon>CariBazindaSatinalmaControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\PSM\MalKabulControl.cs">
       <SubType>UserControl</SubType>
@@ -981,8 +993,14 @@
     <EmbeddedResource Include="Controls\PRD\EtiketOnayControl.resx">
       <DependentUpon>EtiketOnayControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PRD\IsEmriControl.resx">
+      <DependentUpon>IsEmriControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\PRD\ReceteControl.resx">
       <DependentUpon>ReceteControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PSM\CariBazindaSatinalmaControl.resx">
+      <DependentUpon>CariBazindaSatinalmaControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\PSM\SatinalmaMalKabulControl.resx">
       <DependentUpon>SatinalmaMalKabulControl.cs</DependentUpon>

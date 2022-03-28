@@ -38,7 +38,7 @@
             this.txtbarkod = new System.Windows.Forms.TextBox();
             this.btnyazdir = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.printetiketleme = new MobileWhouse.GUI.UPrintControl();
+            this.printKLetiketleme = new MobileWhouse.GUI.UPrintControl();
             this.txtistasyon = new MobileWhouse.GUI.ULookupEdit();
             this.SuspendLayout();
             // 
@@ -134,19 +134,20 @@
             this.btnCancel.Text = "Kapat";
             this.btnCancel.Click += new System.EventHandler(this.btnKapat_Click);
             // 
-            // printetiketleme
+            // printKLetiketleme
             // 
-            this.printetiketleme.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.printKLetiketleme.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.printetiketleme.Location = new System.Drawing.Point(3, 130);
-            this.printetiketleme.Name = "printetiketleme";
-            this.printetiketleme.Size = new System.Drawing.Size(233, 75);
-            this.printetiketleme.TabIndex = 29;
+            this.printKLetiketleme.Location = new System.Drawing.Point(3, 130);
+            this.printKLetiketleme.Name = "printKLetiketleme";
+            this.printKLetiketleme.Size = new System.Drawing.Size(233, 75);
+            this.printKLetiketleme.TabIndex = 29;
             // 
             // txtistasyon
             // 
             this.txtistasyon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtistasyon.Browsable = false;
             this.txtistasyon.DataFieldName = "";
             this.txtistasyon.DataType = MobileWhouse.Enums.DataSourceType.Uretim_IsEmri_Istasyon;
             this.txtistasyon.Description = "";
@@ -170,7 +171,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.Controls.Add(this.txtisemri);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.printetiketleme);
+            this.Controls.Add(this.printKLetiketleme);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtadet);
             this.Controls.Add(this.txtkoliici);
@@ -182,6 +183,7 @@
             this.Controls.Add(this.txtistasyon);
             this.Name = "EtiketlemeControl";
             this.Size = new System.Drawing.Size(240, 315);
+            this.OnLoad += new System.EventHandler(this.EtiketlemeControl_OnLoad);
             this.ResumeLayout(false);
 
         }
@@ -198,7 +200,7 @@
         private System.Windows.Forms.TextBox txtbarkod;
         private System.Windows.Forms.Button btnyazdir;
         private System.Windows.Forms.Button btnCancel;
-        private MobileWhouse.GUI.UPrintControl printetiketleme;
+        private MobileWhouse.GUI.UPrintControl printKLetiketleme;
         private MobileWhouse.GUI.ULookupEdit txtistasyon;
     }
 }

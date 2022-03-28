@@ -25,6 +25,7 @@ namespace MobileWhouse.Enums
         KaliteDegerlendirmeGrubu,
         KaliteUygunsuzlukKonu,
         KaliteDepartman,
-        Uretim_IsEmri_Istasyon//is emri yada istasyon
+        Uretim_IsEmri_Istasyon,//is emri yada istasyon
+        PartiLot
     }
 }

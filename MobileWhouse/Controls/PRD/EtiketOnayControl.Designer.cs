@@ -43,6 +43,7 @@
             // 
             // secistasyon
             // 
+            this.secistasyon.Browsable = true;
             this.secistasyon.DataFieldName = "";
             this.secistasyon.DataType = MobileWhouse.Enums.DataSourceType.Uretim_IsEmri_Istasyon;
             this.secistasyon.Description = "";
@@ -51,6 +52,7 @@
             this.secistasyon.LabelWidth = 70;
             this.secistasyon.Location = new System.Drawing.Point(0, 1);
             this.secistasyon.Name = "secistasyon";
+            this.secistasyon.PurchaseSales = -1;
             this.secistasyon.RememberValue = false;
             this.secistasyon.ShowDescription = false;
             this.secistasyon.ShowLabelText = false;
@@ -61,6 +63,8 @@
             // 
             // txtisemri
             // 
+            this.txtisemri.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtisemri.BackColor = System.Drawing.SystemColors.Control;
             this.txtisemri.Location = new System.Drawing.Point(70, 28);
             this.txtisemri.Name = "txtisemri";
@@ -93,6 +97,7 @@
             // 
             // btnbarkod
             // 
+            this.btnbarkod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnbarkod.Location = new System.Drawing.Point(208, 76);
             this.btnbarkod.Name = "btnbarkod";
             this.btnbarkod.Size = new System.Drawing.Size(32, 20);
@@ -101,6 +106,8 @@
             // 
             // textbarkod
             // 
+            this.textbarkod.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.textbarkod.BackColor = System.Drawing.Color.Linen;
             this.textbarkod.Location = new System.Drawing.Point(70, 76);
             this.textbarkod.Name = "textbarkod";
@@ -124,6 +131,8 @@
             // 
             // textStok
             // 
+            this.textStok.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.textStok.BackColor = System.Drawing.SystemColors.Control;
             this.textStok.Location = new System.Drawing.Point(70, 101);
             this.textStok.Name = "textStok";
