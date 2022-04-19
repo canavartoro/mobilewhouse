@@ -29,7 +29,6 @@ namespace MobileWhouse.Controls.PRD
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MalzemeTalepSevkControl));
             this.btnkapat = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -81,9 +80,7 @@ namespace MobileWhouse.Controls.PRD
             // 
             // btnkapat
             // 
-            this.btnkapat.BackColor = System.Drawing.Color.Empty;
             this.btnkapat.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnkapat.ForeColor = System.Drawing.Color.Empty;
             this.btnkapat.Location = new System.Drawing.Point(0, 295);
             this.btnkapat.Name = "btnkapat";
             this.btnkapat.Size = new System.Drawing.Size(240, 25);
@@ -194,8 +191,6 @@ namespace MobileWhouse.Controls.PRD
             // btnarama
             // 
             this.btnarama.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnarama.BackColor = System.Drawing.Color.Empty;
-            this.btnarama.ForeColor = System.Drawing.Color.Empty;
             this.btnarama.Location = new System.Drawing.Point(183, 3);
             this.btnarama.Name = "btnarama";
             this.btnarama.Size = new System.Drawing.Size(50, 20);
@@ -385,18 +380,16 @@ namespace MobileWhouse.Controls.PRD
             this.tabPage3.Controls.Add(this.label6);
             this.tabPage3.Location = new System.Drawing.Point(0, 0);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(232, 269);
+            this.tabPage3.Size = new System.Drawing.Size(240, 272);
             this.tabPage3.Text = "Belge";
             // 
             // btnkaydet
             // 
             this.btnkaydet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnkaydet.BackColor = System.Drawing.Color.Empty;
-            this.btnkaydet.ForeColor = System.Drawing.Color.Empty;
-            this.btnkaydet.Location = new System.Drawing.Point(3, 240);
+            this.btnkaydet.Location = new System.Drawing.Point(3, 243);
             this.btnkaydet.Name = "btnkaydet";
-            this.btnkaydet.Size = new System.Drawing.Size(222, 26);
+            this.btnkaydet.Size = new System.Drawing.Size(230, 26);
             this.btnkaydet.TabIndex = 5;
             this.btnkaydet.Text = "Kaydet";
             this.btnkaydet.Click += new System.EventHandler(this.btnkaydet_Click);
@@ -416,7 +409,7 @@ namespace MobileWhouse.Controls.PRD
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtaciklama.Location = new System.Drawing.Point(75, 49);
             this.txtaciklama.Name = "txtaciklama";
-            this.txtaciklama.Size = new System.Drawing.Size(153, 21);
+            this.txtaciklama.Size = new System.Drawing.Size(161, 21);
             this.txtaciklama.TabIndex = 1;
             // 
             // txtbelgeno
@@ -425,7 +418,7 @@ namespace MobileWhouse.Controls.PRD
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtbelgeno.Location = new System.Drawing.Point(75, 0);
             this.txtbelgeno.Name = "txtbelgeno";
-            this.txtbelgeno.Size = new System.Drawing.Size(92, 21);
+            this.txtbelgeno.Size = new System.Drawing.Size(100, 21);
             this.txtbelgeno.TabIndex = 1;
             // 
             // label8

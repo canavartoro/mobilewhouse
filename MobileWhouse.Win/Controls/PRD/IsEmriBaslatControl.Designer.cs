@@ -95,6 +95,8 @@
             this.columnHeader2.Text = "Personel İsim";
             this.columnHeader2.Width = 160;
             this.img.Images.Clear();
+            this.img.Images.Add(((System.Drawing.Image)(resources.GetObject("resource"))));
+            this.img.Images.Add(((System.Drawing.Image)(resources.GetObject("resource1"))));
             // 
             // label3
             // 
@@ -196,6 +198,7 @@
             // 
             this.txtistasyon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtistasyon.Browsable = true;
             this.txtistasyon.DataFieldName = "";
             this.txtistasyon.DataType = MobileWhouse.Enums.DataSourceType.Uretim_IsEmri_Istasyon;
             this.txtistasyon.Description = "";
@@ -204,6 +207,7 @@
             this.txtistasyon.LabelWidth = 60;
             this.txtistasyon.Location = new System.Drawing.Point(3, 3);
             this.txtistasyon.Name = "txtistasyon";
+            this.txtistasyon.PurchaseSales = -1;
             this.txtistasyon.RememberValue = false;
             this.txtistasyon.ShowDescription = false;
             this.txtistasyon.ShowLabelText = false;
@@ -216,6 +220,7 @@
             // 
             this.txtisemri.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtisemri.Browsable = false;
             this.txtisemri.DataFieldName = "";
             this.txtisemri.DataType = MobileWhouse.Enums.DataSourceType.IsEmri;
             this.txtisemri.Description = "";
@@ -224,6 +229,7 @@
             this.txtisemri.LabelWidth = 60;
             this.txtisemri.Location = new System.Drawing.Point(3, 29);
             this.txtisemri.Name = "txtisemri";
+            this.txtisemri.PurchaseSales = -1;
             this.txtisemri.RememberValue = false;
             this.txtisemri.ShowDescription = false;
             this.txtisemri.ShowLabelText = false;

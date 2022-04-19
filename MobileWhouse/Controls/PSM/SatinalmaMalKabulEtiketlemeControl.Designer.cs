@@ -43,6 +43,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.secmalkabuldoktra = new MobileWhouse.GUI.ULookupEdit();
             this.listbarkod = new System.Windows.Forms.ListView();
             this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
@@ -186,6 +187,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.secmalkabuldoktra);
             this.tabPage2.Controls.Add(this.listbarkod);
             this.tabPage2.Controls.Add(this.printmalkabul);
@@ -193,6 +195,16 @@
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Size = new System.Drawing.Size(240, 251);
             this.tabPage2.Text = "Ambalaj";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(136, 50);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(97, 20);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Test";
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // secmalkabuldoktra
             // 
@@ -283,9 +295,9 @@
             this.Controls.Add(this.btnkaydet);
             this.Controls.Add(this.btnkapat);
             this.Controls.Add(this.tabControl1);
-            this.OnLoad += new System.EventHandler(SatinalmaMalKabulEtiketlemeControl_OnLoad);
             this.Name = "SatinalmaMalKabulEtiketlemeControl";
             this.Size = new System.Drawing.Size(240, 320);
+            this.OnLoad += new System.EventHandler(this.SatinalmaMalKabulEtiketlemeControl_OnLoad);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -320,6 +332,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.Label lblbilgi;
         private MobileWhouse.GUI.ULookupEdit secmalkabuldoktra;
+        private System.Windows.Forms.Button button1;
 
     }
 }

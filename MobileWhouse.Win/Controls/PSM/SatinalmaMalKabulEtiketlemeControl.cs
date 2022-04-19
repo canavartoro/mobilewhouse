@@ -11,6 +11,8 @@ using MobileWhouse.Models;
 using MobileWhouse.Attributes;
 using MobileWhouse.UyumConnector;
 using MobileWhouse.Log;
+using System.Threading;
+using MobileWhouse.Net;
 
 namespace MobileWhouse.Controls.PSM
 {
@@ -252,7 +254,6 @@ ORDER BY d.line_no", _invt_item_m.item_m_id);
                     if (string.IsNullOrEmpty(ambdetay.PackageNo))
                     {
                         ambdetay.PackageMNo = GetPackageNo();
-                        barcodes.Add(ambdetay.PackageMNo);
                     }
                     param.Value.Details[i] = new MobileWhouse.ProdConnector.PackageTraDInfo();
                     param.Value.Details[i].ItemId = ambdetay.ItemId;
@@ -264,6 +265,8 @@ ORDER BY d.line_no", _invt_item_m.item_m_id);
                     param.Value.Details[i].UnitId = ambdetay.UnitId;
                     param.Value.Details[i].LotId = ambdetay.LotId;
                     param.Value.Details[i].BwhLocationId = 0;
+
+                    barcodes.Add(ambdetay.PackageMNo);
                 }
 
                 MobileWhouse.ProdConnector.ServiceResultOfPackageTraDInfo resp = ClientApplication.Instance.ProdService.SavePackageTraM(param);
@@ -284,10 +287,33 @@ ORDER BY d.line_no", _invt_item_m.item_m_id);
                         //{
                         //    raporcode = Convert.ToDecimal(cmbdizayn.SelectedValue);
                         //}
-                        for (int i = 0; i < barcodes.Count; i++)
+                        //for (int i = 0; i < barcodes.Count; i++)
+                        //{
+                        //    //AmbalajHareketDetail detail = listbarkod.Items[i].Tag as AmbalajHareketDetail;
+                        //    printmalkabul.Print(string.Concat(" \"barcode\" = '", barcodes[i], "'  "));
+                        //    Thread.Sleep(100);
+                        //}
+
+                        //using (TcpPrinter tcpprinter = new TcpPrinter())
                         {
-                            AmbalajHareketDetail detail = listbarkod.Items[i].Tag as AmbalajHareketDetail;
-                            printmalkabul.Print(string.Concat(" \"barcode\" = '", barcodes[i], "'  "));
+                            //tcpprinter.Open();
+                            for (int i = 0; i < barcodes.Count; i++)
+                            {
+                                /*PrintersDesigns print = */
+                                printmalkabul.Print(string.Concat(" \"barcode\" = '", barcodes[i], "'  "));
+                                //if (print == null)
+                                //{
+                                //    Screens.Error("Yazdırma işleminde bilinmeyen hata!");
+                                //}
+                                //if (print.Result)
+                                //{
+                                //    //Screens.Error("Yazdırma işleminde başarılı");
+                                //}
+                                //else
+                                //{
+                                //    Screens.Error(string.Concat("Yazdırma işleminde hata:", print.Massage));
+                                //}
+                            }
                         }
                     }
                 }
@@ -316,6 +342,49 @@ ORDER BY d.line_no", _invt_item_m.item_m_id);
             finally
             {
                 Screens.HideWait();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+
+                string[] baro = new string[]{"PL000000006549","PL000000006550","PL000000006551","PL000000006552","PL000000006553","PL000000006554","PL000000006555","PL000000006556","PL000000006557",
+"PL000000006558","PL000000006559","PL000000006560","PL000000006561","PL000000006562","PL000000006563","PL000000006564","PL000000006565","PL000000006566",
+"PL000000006567","PL000000006568","PL000000006569","PL000000006570","PL000000006571","PL000000006572","PL000000006573"};
+
+                //using (TcpPrinter tcpprinter = new TcpPrinter())
+                {
+                    //tcpprinter.Open();
+                    for (int i = 0; i < baro.Length; i++)
+                    {
+                        /*PrintersDesigns print = */
+                        printmalkabul.Print(string.Concat(" \"barcode\" = '", baro[i], "'  "));
+                        //if (print == null)
+                        //{
+                        //    Screens.Error("Yazdırma işleminde bilinmeyen hata!");
+                        //}
+                        //if (print.Result)
+                        //{
+                        //    //Screens.Error("Yazdırma işleminde başarılı");
+                        //}
+                        //else
+                        //{
+                        //    Screens.Error(string.Concat("Yazdırma işleminde hata:", print.Massage));
+                        //}
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                Screens.Error(exc);
+            }
+            finally
+            {
+                btnkapat.Enabled = true;
+                Cursor.Current = Cursors.Default;
             }
         }
     }

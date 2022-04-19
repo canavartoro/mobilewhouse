@@ -37,7 +37,7 @@
             // 
             this.txtisemri.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtisemri.Browsable = true;
+            this.txtisemri.Browsable = false;
             this.txtisemri.DataFieldName = "";
             this.txtisemri.DataType = MobileWhouse.Enums.DataSourceType.IsEmri;
             this.txtisemri.Description = "";

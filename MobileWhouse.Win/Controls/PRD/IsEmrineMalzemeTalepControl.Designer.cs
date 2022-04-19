@@ -47,8 +47,6 @@
             // btnkapat
             // 
             this.btnkapat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnkapat.BackColor = System.Drawing.Color.Empty;
-            this.btnkapat.ForeColor = System.Drawing.Color.Empty;
             this.btnkapat.Location = new System.Drawing.Point(3, 292);
             this.btnkapat.Name = "btnkapat";
             this.btnkapat.Size = new System.Drawing.Size(62, 20);
@@ -101,8 +99,6 @@
             // btnkaydet
             // 
             this.btnkaydet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnkaydet.BackColor = System.Drawing.Color.Empty;
-            this.btnkaydet.ForeColor = System.Drawing.Color.Empty;
             this.btnkaydet.Location = new System.Drawing.Point(174, 292);
             this.btnkaydet.Name = "btnkaydet";
             this.btnkaydet.Size = new System.Drawing.Size(63, 20);
@@ -128,8 +124,6 @@
             // 
             // btnsil
             // 
-            this.btnsil.BackColor = System.Drawing.Color.Empty;
-            this.btnsil.ForeColor = System.Drawing.Color.Empty;
             this.btnsil.Location = new System.Drawing.Point(157, 83);
             this.btnsil.Name = "btnsil";
             this.btnsil.Size = new System.Drawing.Size(83, 21);
@@ -139,8 +133,6 @@
             // 
             // btnekle
             // 
-            this.btnekle.BackColor = System.Drawing.Color.Empty;
-            this.btnekle.ForeColor = System.Drawing.Color.Empty;
             this.btnekle.Location = new System.Drawing.Point(134, 82);
             this.btnekle.Name = "btnekle";
             this.btnekle.Size = new System.Drawing.Size(20, 22);
@@ -150,6 +142,7 @@
             // 
             // txtisemrino
             // 
+            this.txtisemrino.Browsable = false;
             this.txtisemrino.DataFieldName = "";
             this.txtisemrino.DataType = MobileWhouse.Enums.DataSourceType.IsEmri;
             this.txtisemrino.Description = "";
@@ -158,6 +151,7 @@
             this.txtisemrino.LabelWidth = 70;
             this.txtisemrino.Location = new System.Drawing.Point(3, 3);
             this.txtisemrino.Name = "txtisemrino";
+            this.txtisemrino.PurchaseSales = -1;
             this.txtisemrino.RememberValue = false;
             this.txtisemrino.ShowDescription = false;
             this.txtisemrino.ShowLabelText = false;
@@ -168,6 +162,7 @@
             // 
             // txtdepo
             // 
+            this.txtdepo.Browsable = true;
             this.txtdepo.DataFieldName = "";
             this.txtdepo.DataType = MobileWhouse.Enums.DataSourceType.Depo;
             this.txtdepo.Description = "";
@@ -176,6 +171,7 @@
             this.txtdepo.LabelWidth = 70;
             this.txtdepo.Location = new System.Drawing.Point(3, 28);
             this.txtdepo.Name = "txtdepo";
+            this.txtdepo.PurchaseSales = -1;
             this.txtdepo.RememberValue = false;
             this.txtdepo.ShowDescription = false;
             this.txtdepo.ShowLabelText = false;

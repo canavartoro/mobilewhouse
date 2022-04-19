@@ -58,7 +58,7 @@
             // 
             this.txtisemri.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtisemri.Browsable = true;
+            this.txtisemri.Browsable = false;
             this.txtisemri.DataFieldName = "";
             this.txtisemri.DataType = MobileWhouse.Enums.DataSourceType.IsEmri;
             this.txtisemri.Description = "";
@@ -184,7 +184,7 @@
             this.tabPage2.Controls.Add(this.listbarkod);
             this.tabPage2.Location = new System.Drawing.Point(0, 0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(235, 153);
+            this.tabPage2.Size = new System.Drawing.Size(227, 150);
             this.tabPage2.Text = "Barkod";
             // 
             // listbarkod
@@ -196,7 +196,7 @@
             this.listbarkod.FullRowSelect = true;
             this.listbarkod.Location = new System.Drawing.Point(0, 0);
             this.listbarkod.Name = "listbarkod";
-            this.listbarkod.Size = new System.Drawing.Size(235, 153);
+            this.listbarkod.Size = new System.Drawing.Size(227, 150);
             this.listbarkod.TabIndex = 0;
             this.listbarkod.View = System.Windows.Forms.View.Details;
             // 

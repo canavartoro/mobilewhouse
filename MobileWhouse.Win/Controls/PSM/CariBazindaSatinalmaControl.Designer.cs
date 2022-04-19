@@ -246,7 +246,7 @@
             this.tabPage2.Controls.Add(this.btn_IrsaliyeOlustur);
             this.tabPage2.Location = new System.Drawing.Point(0, 0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(232, 252);
+            this.tabPage2.Size = new System.Drawing.Size(240, 255);
             this.tabPage2.Text = "İrsaliye";
             // 
             // lookupdoctra
@@ -328,7 +328,7 @@
             this.btn_IrsaliyeOlustur.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_IrsaliyeOlustur.BackColor = System.Drawing.Color.Empty;
             this.btn_IrsaliyeOlustur.ForeColor = System.Drawing.Color.Empty;
-            this.btn_IrsaliyeOlustur.Location = new System.Drawing.Point(37, 206);
+            this.btn_IrsaliyeOlustur.Location = new System.Drawing.Point(37, 209);
             this.btn_IrsaliyeOlustur.Name = "btn_IrsaliyeOlustur";
             this.btn_IrsaliyeOlustur.NormalBtnColour = System.Drawing.Color.LightYellow;
             this.btn_IrsaliyeOlustur.NormalTxtColour = System.Drawing.Color.Blue;

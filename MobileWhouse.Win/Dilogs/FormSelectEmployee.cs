@@ -64,7 +64,7 @@ namespace MobileWhouse.Dilogs
                         for (int i = 0; i < res.Value.Length; i++)
                         {
                             ListViewItem item = new ListViewItem();
-                            item.Text = res.Value[i].PrdGobalCode.ToString();
+                            item.Text = res.Value[i].PrdGobalId.ToString();
                             item.SubItems.Add(res.Value[i].PrdGobalName);
                             item.SubItems.Add(res.Value[i].PrdGobalName2);
                             item.SubItems.Add(res.Value[i].PrdGobalCode2);

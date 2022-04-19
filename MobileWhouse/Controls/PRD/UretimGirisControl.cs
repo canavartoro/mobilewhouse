@@ -283,7 +283,7 @@ UPDATE zz_package_m SET package_tra_m_id = {0},
 palette_no = CONCAT('{3}', LPAD(((CURRVAL('zz_package_m_package_pl_seq'::REGCLASS))::CHARACTER VARYING)::TEXT, 12, '0'::TEXT)) , is_created = 1 
 WHERE package_id IN ({2});
 UPDATE invt_package_tra_m SET package_no = CONCAT('{3}', LPAD(((CURRVAL('zz_package_m_package_pl_seq'::REGCLASS))::CHARACTER VARYING)::TEXT, 12, '0'::TEXT)) 
-WHERE package_tra_m_id = {0} RETURNING package_no;", res.Value.PackageMId, res.Value.PackageMNo, string.Join(",", ids));
+WHERE package_tra_m_id = {0} RETURNING package_no;", res.Value.PackageMId, res.Value.PackageMNo, string.Join(",", ids), mobileParam.palet_profix);
                     Logger.I(paramsql.Value);
                     MobileWhouse.UyumConnector.ServiceResultOfDataTable resTbl = ClientApplication.Instance.Service.ExecuteSQL(paramsql);
                     if (resTbl != null && resTbl.Result && resTbl.Value != null && resTbl.Value.Rows.Count > 0)

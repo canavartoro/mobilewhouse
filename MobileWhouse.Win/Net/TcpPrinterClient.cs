@@ -19,7 +19,8 @@ namespace MobileWhouse.Net
             Connect();
         }
 
-        System.Net.Sockets.TcpClient clientSocket = new System.Net.Sockets.TcpClient();
+        protected System.Net.Sockets.TcpClient clientSocket = new System.Net.Sockets.TcpClient();
+
 
         public void Connect()
         {
@@ -51,6 +52,7 @@ namespace MobileWhouse.Net
                 {
                     Thread.Sleep(500);
                     if (clientSocket != null) clientSocket.Close();
+                    clientSocket = null;
                 }
                 catch (Exception exclose) { Logger.E(exclose); }
             }
@@ -78,6 +80,8 @@ namespace MobileWhouse.Net
                         byte[] outStream = Encoding.GetEncoding("Windows-1254").GetBytes(xmlstr);
                         serverStream.Write(outStream, 0, outStream.Length);
                         serverStream.Flush();
+
+                        Thread.Sleep(250);
 
                         if (serverStream.CanRead)
                         {
@@ -195,6 +199,95 @@ namespace MobileWhouse.Net
         }
 
         #endregion
+    }
+
+    public class TcpPrinter : TcpPrinterClient
+    {
+        public TcpPrinter() : base() { }
+
+        NetworkStream serverStream = null;
+
+        public void Open()
+        {
+            try
+            {
+                serverStream = clientSocket.GetStream();
+            }
+            catch (IOException ie)
+            {
+                Logger.E(ie.Message);
+            }
+            catch (Exception e)
+            {
+                Logger.E(e.Message);
+            }
+        }
+
+        public PrintersDesigns Print(string userName, string printerName, string designName, string critaria)
+        {
+            PrintersDesigns resp = new PrintersDesigns();
+            try
+            {
+
+                if (clientSocket != null && serverStream != null && serverStream.CanWrite)
+                {
+                    string xmlstr = string.Concat(userName, "|print|", printerName, "|", designName, "|", critaria);
+                    Logger.I(xmlstr);
+                    byte[] outStream = Encoding.GetEncoding("Windows-1254").GetBytes(xmlstr);
+                    serverStream.Write(outStream, 0, outStream.Length);
+                    //serverStream.Flush();
+                    Thread.Sleep(100);
+                    if (serverStream.CanRead)
+                    {
+                        byte[] bytesFrom = new byte[1024];
+                        serverStream.Read(bytesFrom, 0, bytesFrom.Length);
+                        ClientInf receiveData = ClientInf.ParsData(bytesFrom);
+                        if (receiveData != null)
+                        {
+                            resp.Massage = receiveData.Message;
+                            resp.Result = Convert.ToBoolean(receiveData.Data);
+                        }
+                    }
+                }
+            }
+            catch (IOException ie)
+            {
+                Logger.E(ie.Message);
+                return new PrintersDesigns(false, ie.Message);
+            }
+            catch (Exception e)
+            {
+                Logger.E(e.Message);
+                return new PrintersDesigns(false, e.Message);
+            }
+            return resp;
+        }
+
+        ~TcpPrinter()
+        {
+            Dispose(false);
+        }
+
+        private bool disposed = false;
+
+        private void Dispose(bool disposing)
+        {
+            if (disposed)
+                return;
+
+            if (disposing)
+            {
+                if (serverStream != null)
+                {
+                    serverStream.Flush();
+                    serverStream.Close();
+                    serverStream.Dispose();
+                }
+                serverStream = null;
+            }
+
+            disposed = true;
+        }
     }
 
 }

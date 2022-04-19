@@ -168,11 +168,11 @@ namespace MobileWhouse.Controls.Package
             try
             {
                 if (!operatorLogin.Login()) return;
-                if (!operatorLogin.Operator.pkg003)
-                {
-                    Screens.Error("Bu işlem için yetkiniz yok!");
-                    return;
-                }
+                //if (!operatorLogin.Operator.pkg003)
+                //{
+                //    Screens.Error("Bu işlem için yetkiniz yok!");
+                //    return;
+                //}
 
                 StringBuilder validate = new StringBuilder();
                 if (listView1.Items.Count == 0)
