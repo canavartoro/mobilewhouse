@@ -36,7 +36,7 @@ namespace MobileWhouse.Controls
 
             txtStok.DepoId = txtRafCikis.DepoId = txtRafGiris.DepoId =
                 ClientApplication.Instance.SelectedDepot.Id;
-            
+
 
             dcQty.Enabled = ClientApplication.Instance.ClientToken.IsQtyEnabledLocationTra;
             dcQty.Text = "1";
@@ -44,10 +44,11 @@ namespace MobileWhouse.Controls
             ServiceRequestOfDepoHareketParam serReqOfUserDepoId = new ServiceRequestOfDepoHareketParam();
             serReqOfUserDepoId.Token = ClientApplication.Instance.Token;
             serReqOfUserDepoId.Value = new DepoHareketParam();
+            serReqOfUserDepoId.Value.HedefDepoId =
             serReqOfUserDepoId.Value.DepoId = ClientApplication.Instance.SelectedDepot.Id;
 
             ServiceResultOfRafHareketM serResOfRafHareketM = ClientApplication.Instance.Service.RafHareketIlkYukleme(serReqOfUserDepoId);
-            
+
             if (!serResOfRafHareketM.Result)
                 return;
 
@@ -61,7 +62,7 @@ namespace MobileWhouse.Controls
 
             txtRafCikis.Enabled = true;
             txtRafGiris.Enabled = true;
-            
+
             if (serResOfRafHareketM.Value.DocTra.Status == (int)InventoryStatus.Giris)
             {
                 txtRafCikis.Enabled = false;
@@ -85,7 +86,7 @@ namespace MobileWhouse.Controls
                 lstDetails.Items.Add(listViewItem);
             }
 
-            txtHareketKod.Enabled = false;
+            //txtHareketKod.Enabled = false;
         }
 
 
@@ -108,17 +109,17 @@ namespace MobileWhouse.Controls
                         txtRafCikis.Enabled = false;
                     }
                     else
-                    if (_SelectedDocTra.Status == (int)InventoryStatus.Cikis)
-                    {
-                        txtRafGiris.Enabled = false;
-                        txtRafCikis.Enabled = true;
-                    }
-                    else
-                    if (_SelectedDocTra.Status == (int)InventoryStatus.Transfer)
-                    {
-                        txtRafGiris.Enabled = true;
-                        txtRafCikis.Enabled = true;
-                    }
+                        if (_SelectedDocTra.Status == (int)InventoryStatus.Cikis)
+                        {
+                            txtRafGiris.Enabled = false;
+                            txtRafCikis.Enabled = true;
+                        }
+                        else
+                            if (_SelectedDocTra.Status == (int)InventoryStatus.Transfer)
+                            {
+                                txtRafGiris.Enabled = true;
+                                txtRafCikis.Enabled = true;
+                            }
                 }
             }
         }
@@ -155,27 +156,28 @@ namespace MobileWhouse.Controls
                 txtRafGiris.Text = raf.Name;
             }
             else
-            if (txtRafCikis.Focused)
-            {
-                _SelectedRaf1 = raf;
-                txtRafCikis.Text = raf.Name;
-            }
-            else
-            {
-                if (txtRafGiris.Enabled)
-                {
-                    _SelectedRaf2 = raf;
-                    txtRafGiris.Text = raf.Name;
-                }else
-                if (txtRafCikis.Enabled)
+                if (txtRafCikis.Focused)
                 {
                     _SelectedRaf1 = raf;
                     txtRafCikis.Text = raf.Name;
                 }
-            }
+                else
+                {
+                    if (txtRafGiris.Enabled)
+                    {
+                        _SelectedRaf2 = raf;
+                        txtRafGiris.Text = raf.Name;
+                    }
+                    else
+                        if (txtRafCikis.Enabled)
+                        {
+                            _SelectedRaf1 = raf;
+                            txtRafCikis.Text = raf.Name;
+                        }
+                }
             txtStok.Focus();
         }
-        
+
         public override void OnItemBarkod(MobileWhouse.UyumConnector.ItemInfo item)
         {
             try
@@ -208,7 +210,7 @@ namespace MobileWhouse.Controls
                 }
                 decimal miktar = 0;
 
-                miktar = dcQty.Value *_SelectedItem.StokMultiplier;
+                miktar = dcQty.Value * _SelectedItem.StokMultiplier;
                 if (miktar <= 0)
                 {
                     throw new Exception("Miktar 0 yada negatif olamaz");
@@ -308,6 +310,7 @@ namespace MobileWhouse.Controls
                     ServiceRequestOfRafHareketM rafM = new ServiceRequestOfRafHareketM();
                     rafM.Token = ClientApplication.Instance.Token;
                     rafM.Value = new RafHareketM();
+                    rafM.Value.Whouse2Id =
                     rafM.Value.WhouseId = ClientApplication.Instance.SelectedDepot.Id;
                     rafM.Value.DocDate = dteDocDate.Value;
                     rafM.Value.RafHareketDetay = new RafHareketD();
@@ -327,7 +330,7 @@ namespace MobileWhouse.Controls
                     rafM.Value.RafHareketDetay.QtyPrm = ((RafHareketD)(lstItem.Tag)).QtyPrm;
 
                     ServiceResultOfListOfInt32 id = ClientApplication.Instance.Service.InsertRafHareketFisiFirst(rafM);
-                   
+
                     if (!id.Result)
                     {
                         throw new Exception(id.Message);
@@ -351,7 +354,7 @@ namespace MobileWhouse.Controls
                     rafInfo.Value.RafHareketDetail.UnitId = rafHareket.UnitId;
 
                     rafInfo.Value.WhouseId = ClientApplication.Instance.SelectedDepot.Id;
-                    
+
                     ServiceResultOfInt32 id = ClientApplication.Instance.Service.InsertRafHareketFisiDevam(rafInfo);
 
                     if (!id.Result)
@@ -401,7 +404,7 @@ namespace MobileWhouse.Controls
                 param.Value = RafHareketMId;
 
                 ServiceResultOfBoolean result = ClientApplication.Instance.Service.RafHareketKaydet(param);
-                
+
                 if (!result.Result)
                 {
                     throw new Exception(result.Message);

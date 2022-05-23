@@ -33,6 +33,7 @@
             this.cmbDesign = new System.Windows.Forms.ComboBox();
             this.cmbPrinter = new System.Windows.Forms.ComboBox();
             this.btnrefresh = new System.Windows.Forms.Button();
+            this.tmDefval = new System.Windows.Forms.Timer();
             this.SuspendLayout();
             // 
             // label1
@@ -76,6 +77,11 @@
             this.btnrefresh.Text = "Yenile";
             this.btnrefresh.Click += new System.EventHandler(this.btnrefresh_Click);
             // 
+            // tmDefval
+            // 
+            this.tmDefval.Interval = 2000;
+            this.tmDefval.Tick += new System.EventHandler(this.tmDefval_Tick);
+            // 
             // UPrintControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -102,6 +108,7 @@
         private System.Windows.Forms.ComboBox cmbDesign;
         private System.Windows.Forms.ComboBox cmbPrinter;
         private System.Windows.Forms.Button btnrefresh;
+        private System.Windows.Forms.Timer tmDefval;
 
     }
 }

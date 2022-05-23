@@ -93,7 +93,7 @@ TO_CHAR(M.DOC_DATE, 'DD-MM-YYYY') AS ""DOC_DATE_S"",M.DOC_NO ""DOC_NO"",E.ENTITY
 E.ENTITY_ID ""ENTITY_ID"",M.DELIVERY_DATE ""DELIVERY_DATE"",CAST(D.CUR_RATE_TRA AS NUMERIC(18,5)) ""CUR_RATE_TRA"",
 D.CUR_TRA_ID ""CUR_TRA_ID"",D.CUR_RATE_TYPE_ID ""CUR_RATE_TYPE_ID"",CAST(M.CUR_RATE_TRA AS NUMERIC(18,5)) AS ""CUR_RATE_TRA_M"",M.CUR_TRA_ID AS ""CUR_TRA_ID_M"",
 M.CUR_RATE_TYPE_ID AS ""CUR_RATE_TYPE_ID_M"",CAST(D.UNIT_PRICE AS NUMERIC(18,5)) ""UNIT_PRICE"",D.DUE_DATE ""DUE_DATE"",D.DUE_DAY ""DUE_DAY"",
-CASE WHEN BI.TOLERANCE_MAX_PO > 0 THEN BI.TOLERANCE_MAX_PO ELSE I.TOLERANCE_MAX_PO END ""TOLERANCE_MAX_PO""
+CASE WHEN BI.TOLERANCE_MAX_PO > 0 THEN BI.TOLERANCE_MAX_PO ELSE I.TOLERANCE_MAX_PO END ""TOLERANCE_MAX_PO"",D.UNIT_PRICE_TRA AS ""UNIT_PRICE_TRA"" 
 FROM PSMT_ORDER_D D INNER JOIN PSMT_ORDER_M M ON M.ORDER_M_ID = D.ORDER_M_ID INNER JOIN 
 FIND_ENTITY E ON M.ENTITY_ID = E.ENTITY_ID INNER JOIN 
 INVD_ITEM I ON I.ITEM_ID = D.ITEM_ID INNER JOIN INVD_UNIT U ON U.UNIT_ID = I.UNIT_ID INNER JOIN 
@@ -454,9 +454,9 @@ WHERE D.ORDER_D_ID IN (", string.Join(",", orderids), ")");
                                 detail.CurTraId = orderd.CUR_TRA_ID;
                                 detail.CurRateTra = orderd.CUR_RATE_TRA;
                                 detail.CurRateTypeId = orderd.CUR_RATE_TYPE_ID;
-                                detail.Amt = Math.Round(orderd.UNIT_PRICE, 3) * info2.Qty * detail.CurRateTra;
-                                detail.AmtTra = Math.Round(orderd.UNIT_PRICE, 3) * info2.Qty;
-                                detail.UnitPrice = Math.Round(orderd.UNIT_PRICE, 3);
+                                detail.Amt = Math.Round(orderd.UNIT_PRICE_TRA * info2.Qty * detail.CurRateTra, 2);
+                                detail.AmtTra = Math.Round(orderd.UNIT_PRICE_TRA * info2.Qty, 2);
+                                detail.UnitPrice = orderd.UNIT_PRICE_TRA;
                                 detail.SourceMId = orderd.ORDER_M_ID;
                                 detail.SourceDId = info2.Id;
                                 detail.Note2 = "El terminalinden oluşturuldu";

@@ -165,9 +165,6 @@
             this.columnHeader2.Text = "Max";
             this.columnHeader2.Width = 60;
             this.img.Images.Clear();
-            this.img.Images.Add(((System.Drawing.Image)(resources.GetObject("resource"))));
-            this.img.Images.Add(((System.Drawing.Image)(resources.GetObject("resource1"))));
-            this.img.Images.Add(((System.Drawing.Image)(resources.GetObject("resource2"))));
             // 
             // lblbilgi
             // 

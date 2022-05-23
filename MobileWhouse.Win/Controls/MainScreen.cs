@@ -75,15 +75,7 @@ namespace MobileWhouse.Controls
 
         private void btnSevkiyat_Click(object sender, EventArgs e)
         {
-            using (FormSelectSevkiyat form = new FormSelectSevkiyat(ClientApplication.Instance.SelectedDepot))
-            {
-                if (form.ShowDialog() == DialogResult.OK
-                    && form.Selected != null)
-                {
-                    SevkiyatControl control = new SevkiyatControl(form.Selected);
-                    MainForm.ShowControl(control);
-                }
-            }
+            MainForm.ShowControl(new SevkControl());
         }
 
         private void btnIrsaliye_Click(object sender, EventArgs e)

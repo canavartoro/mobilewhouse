@@ -31,6 +31,7 @@
             this.uButton1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.lblokunan = new System.Windows.Forms.Label();
             this.textDepo = new MobileWhouse.GUI.ULookupEdit();
             this.txtRaf = new MobileWhouse.Controls.RafTextBox();
             this.textHareket = new MobileWhouse.GUI.ULookupEdit();
@@ -46,7 +47,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnkaydet = new System.Windows.Forms.Button();
-            this.lblokunan = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -92,6 +92,16 @@
             this.tabPage1.Size = new System.Drawing.Size(240, 252);
             this.tabPage1.Text = "Belge";
             // 
+            // lblokunan
+            // 
+            this.lblokunan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblokunan.ForeColor = System.Drawing.Color.Black;
+            this.lblokunan.Location = new System.Drawing.Point(149, 59);
+            this.lblokunan.Name = "lblokunan";
+            this.lblokunan.Size = new System.Drawing.Size(88, 20);
+            this.lblokunan.Text = "Okunan";
+            // 
             // textDepo
             // 
             this.textDepo.Browsable = true;
@@ -101,7 +111,7 @@
             this.textDepo.FilterCondition = "";
             this.textDepo.LabelText = "Depo";
             this.textDepo.LabelWidth = 50;
-            this.textDepo.Location = new System.Drawing.Point(3, 55);
+            this.textDepo.Location = new System.Drawing.Point(3, 29);
             this.textDepo.Name = "textDepo";
             this.textDepo.PurchaseSales = -1;
             this.textDepo.RememberValue = false;
@@ -116,7 +126,7 @@
             // 
             this.txtRaf.DepoId = 0;
             this.txtRaf.IsRaf = 1;
-            this.txtRaf.Location = new System.Drawing.Point(55, 31);
+            this.txtRaf.Location = new System.Drawing.Point(55, 58);
             this.txtRaf.Name = "txtRaf";
             this.txtRaf.Size = new System.Drawing.Size(88, 21);
             this.txtRaf.TabIndex = 2;
@@ -212,7 +222,7 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(3, 32);
+            this.label2.Location = new System.Drawing.Point(3, 59);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 20);
             this.label2.Text = "Raf";
@@ -221,7 +231,7 @@
             // 
             this.tabPage2.Location = new System.Drawing.Point(0, 0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(240, 252);
+            this.tabPage2.Size = new System.Drawing.Size(232, 249);
             this.tabPage2.Text = "Detaylar";
             // 
             // btnkaydet
@@ -234,15 +244,6 @@
             this.btnkaydet.TabIndex = 8;
             this.btnkaydet.Text = "Kaydet";
             this.btnkaydet.Click += new System.EventHandler(this.btnkaydet_Click);
-            // 
-            // lblokunan
-            // 
-            this.lblokunan.ForeColor = System.Drawing.Color.Black;
-            this.lblokunan.Location = new System.Drawing.Point(149, 32);
-            this.lblokunan.Name = "lblokunan";
-            this.lblokunan.Size = new System.Drawing.Size(88, 20);
-            this.lblokunan.Text = "Okunan";
-            this.lblokunan.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // AmbalajTraControl
             // 

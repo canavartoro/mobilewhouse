@@ -165,6 +165,7 @@ namespace MobileWhouse.Controls.PRD
         {
             try
             {
+                btnkaydet.Enabled = false;
                 string worder_no = "";
                 MobileWhouse.ProdConnector.PrdGobalInfo wstation = secistasyon.SelectedObject as MobileWhouse.ProdConnector.PrdGobalInfo;
                 if (wstation == null)
@@ -227,10 +228,12 @@ namespace MobileWhouse.Controls.PRD
                         context.Value.WorderOpDId = package.worder_op_d_id;
                         context.Value.IsUseSendMaterialList = false;
                         context.Value.ScrapQty = 0;
-                        context.Value.WstationId = wstation.PrdGobalId;
+                        context.Value.WstationId = package.wstation_id > 0 ? package.wstation_id : wstation.PrdGobalId;
                         context.Value.Qty = package.qty;
                         context.Value.UnitId = package.unit_id;
                         context.Value.Note = package.package_no;
+                        context.Value.PrdSourceApp = Statics.OPERASYONELURETIMGIRIS;
+                        context.Value.PrdSourceApp2 = Statics.ELTERMINALIURETIMGIRISI;
 
                         MobileWhouse.UyumSave.ServiceResultOfBoolean result = ClientApplication.Instance.SaveServ.SavePrdWorderAcOp(context);
                         if (!result.Result)
@@ -330,6 +333,7 @@ WHERE package_tra_m_id = {0} RETURNING package_no;", res.Value.PackageMId, res.V
             }
             finally
             {
+                btnkaydet.Enabled = true;
                 Screens.HideWait();
             }
         }
@@ -359,6 +363,7 @@ WHERE package_tra_m_id = {0} RETURNING package_no;", res.Value.PackageMId, res.V
             try
             {
                 mobileParam = MobileParameter.GetMobileParameter();
+                uretimgirisprint.ReleodDefaultValue();
             }
             catch (Exception exc)
             {

@@ -29,848 +29,7 @@ namespace MobileWhouse.UyumConnector {
         
         /// <remarks/>
         public MobileWhouse() {
-            this.Url = "http://localhost:4444/WebService/MW/MobileWhouse.asmx";
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetPackageInfo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfPackageDetail GetPackageInfo(ServiceRequestOfItemPickingParam param) {
-            object[] results = this.Invoke("GetPackageInfo", new object[] {
-                        param});
-            return ((ServiceResultOfPackageDetail)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginGetPackageInfo(ServiceRequestOfItemPickingParam param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("GetPackageInfo", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfPackageDetail EndGetPackageInfo(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((ServiceResultOfPackageDetail)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ChangePackageInfo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfBoolean ChangePackageInfo(ServiceRequestOfPackageDetailWithDocTra param) {
-            object[] results = this.Invoke("ChangePackageInfo", new object[] {
-                        param});
-            return ((ServiceResultOfBoolean)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginChangePackageInfo(ServiceRequestOfPackageDetailWithDocTra param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("ChangePackageInfo", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfBoolean EndChangePackageInfo(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((ServiceResultOfBoolean)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SaveItemPickingDetailForPackage", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfBoolean SaveItemPickingDetailForPackage(ServiceRequestOfItemPickingParam param) {
-            object[] results = this.Invoke("SaveItemPickingDetailForPackage", new object[] {
-                        param});
-            return ((ServiceResultOfBoolean)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginSaveItemPickingDetailForPackage(ServiceRequestOfItemPickingParam param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("SaveItemPickingDetailForPackage", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfBoolean EndSaveItemPickingDetailForPackage(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((ServiceResultOfBoolean)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ControlPackageTraDetail", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfBoolean ControlPackageTraDetail(ServiceRequestOfItemPickingParam param) {
-            object[] results = this.Invoke("ControlPackageTraDetail", new object[] {
-                        param});
-            return ((ServiceResultOfBoolean)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginControlPackageTraDetail(ServiceRequestOfItemPickingParam param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("ControlPackageTraDetail", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfBoolean EndControlPackageTraDetail(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((ServiceResultOfBoolean)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/PaketTransfer", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfPaketSayimResult PaketTransfer(ServiceRequestOfPaketInfo param) {
-            object[] results = this.Invoke("PaketTransfer", new object[] {
-                        param});
-            return ((ServiceResultOfPaketSayimResult)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginPaketTransfer(ServiceRequestOfPaketInfo param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("PaketTransfer", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfPaketSayimResult EndPaketTransfer(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((ServiceResultOfPaketSayimResult)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/PaketTransferFisi", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfPaketSayimResult PaketTransferFisi(ServiceRequestOfPackageTranInfo param) {
-            object[] results = this.Invoke("PaketTransferFisi", new object[] {
-                        param});
-            return ((ServiceResultOfPaketSayimResult)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginPaketTransferFisi(ServiceRequestOfPackageTranInfo param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("PaketTransferFisi", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfPaketSayimResult EndPaketTransferFisi(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((ServiceResultOfPaketSayimResult)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/FindItemPickingAndPackageTraMId", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfItemPickingParam FindItemPickingAndPackageTraMId(ServiceRequestOfItemPickingParam param) {
-            object[] results = this.Invoke("FindItemPickingAndPackageTraMId", new object[] {
-                        param});
-            return ((ServiceResultOfItemPickingParam)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginFindItemPickingAndPackageTraMId(ServiceRequestOfItemPickingParam param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("FindItemPickingAndPackageTraMId", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfItemPickingParam EndFindItemPickingAndPackageTraMId(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((ServiceResultOfItemPickingParam)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DeleteItemPickingDetailForPackage", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfBoolean DeleteItemPickingDetailForPackage(ServiceRequestOfItemPickingParam param) {
-            object[] results = this.Invoke("DeleteItemPickingDetailForPackage", new object[] {
-                        param});
-            return ((ServiceResultOfBoolean)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginDeleteItemPickingDetailForPackage(ServiceRequestOfItemPickingParam param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("DeleteItemPickingDetailForPackage", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfBoolean EndDeleteItemPickingDetailForPackage(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((ServiceResultOfBoolean)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetPackageTypeCode", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfListOfDocTra GetPackageTypeCode(ServiceRequestOfDocTraSelectParam param) {
-            object[] results = this.Invoke("GetPackageTypeCode", new object[] {
-                        param});
-            return ((ServiceResultOfListOfDocTra)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginGetPackageTypeCode(ServiceRequestOfDocTraSelectParam param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("GetPackageTypeCode", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfListOfDocTra EndGetPackageTypeCode(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((ServiceResultOfListOfDocTra)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SaveWaybillforPackage", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfBoolean SaveWaybillforPackage(ServiceRequestOfSelectParam2 param) {
-            object[] results = this.Invoke("SaveWaybillforPackage", new object[] {
-                        param});
-            return ((ServiceResultOfBoolean)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginSaveWaybillforPackage(ServiceRequestOfSelectParam2 param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("SaveWaybillforPackage", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfBoolean EndSaveWaybillforPackage(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((ServiceResultOfBoolean)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetReferralOrdersPackage", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfListOfNameIdItem GetReferralOrdersPackage(ServiceRequestOfSelectParam2 param) {
-            object[] results = this.Invoke("GetReferralOrdersPackage", new object[] {
-                        param});
-            return ((ServiceResultOfListOfNameIdItem)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginGetReferralOrdersPackage(ServiceRequestOfSelectParam2 param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("GetReferralOrdersPackage", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfListOfNameIdItem EndGetReferralOrdersPackage(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((ServiceResultOfListOfNameIdItem)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DeleteReservationForReferralOrders", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfBoolean DeleteReservationForReferralOrders(ServiceRequestOfItemPickingParam param) {
-            object[] results = this.Invoke("DeleteReservationForReferralOrders", new object[] {
-                        param});
-            return ((ServiceResultOfBoolean)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginDeleteReservationForReferralOrders(ServiceRequestOfItemPickingParam param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("DeleteReservationForReferralOrders", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfBoolean EndDeleteReservationForReferralOrders(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((ServiceResultOfBoolean)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/RunQueryCommand", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfBoolean RunQueryCommand(ServiceRequestOfString param) {
-            object[] results = this.Invoke("RunQueryCommand", new object[] {
-                        param});
-            return ((ServiceResultOfBoolean)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginRunQueryCommand(ServiceRequestOfString param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("RunQueryCommand", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfBoolean EndRunQueryCommand(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((ServiceResultOfBoolean)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetBranchProfile", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfListOfDocTra GetBranchProfile(ServiceRequestOfString param) {
-            object[] results = this.Invoke("GetBranchProfile", new object[] {
-                        param});
-            return ((ServiceResultOfListOfDocTra)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginGetBranchProfile(ServiceRequestOfString param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("GetBranchProfile", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfListOfDocTra EndGetBranchProfile(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((ServiceResultOfListOfDocTra)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/StokHareketKaydet", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfInt32 StokHareketKaydet(ServiceRequestOfStokHareketM param) {
-            object[] results = this.Invoke("StokHareketKaydet", new object[] {
-                        param});
-            return ((ServiceResultOfInt32)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginStokHareketKaydet(ServiceRequestOfStokHareketM param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("StokHareketKaydet", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfInt32 EndStokHareketKaydet(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((ServiceResultOfInt32)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SaveWaybill", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfBoolean SaveWaybill(ServiceRequestOfWaybillInfo param) {
-            object[] results = this.Invoke("SaveWaybill", new object[] {
-                        param});
-            return ((ServiceResultOfBoolean)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginSaveWaybill(ServiceRequestOfWaybillInfo param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("SaveWaybill", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfBoolean EndSaveWaybill(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((ServiceResultOfBoolean)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetActualImp", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfListOfSelectActualImpMForBwhInM GetActualImp(ServiceRequestOfSelectActualImpMForBwhInM param) {
-            object[] results = this.Invoke("GetActualImp", new object[] {
-                        param});
-            return ((ServiceResultOfListOfSelectActualImpMForBwhInM)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginGetActualImp(ServiceRequestOfSelectActualImpMForBwhInM param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("GetActualImp", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfListOfSelectActualImpMForBwhInM EndGetActualImp(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((ServiceResultOfListOfSelectActualImpMForBwhInM)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SaveBwhInM", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfBoolean SaveBwhInM(ServiceRequestOfSelectActualImpMForBwhInM param) {
-            object[] results = this.Invoke("SaveBwhInM", new object[] {
-                        param});
-            return ((ServiceResultOfBoolean)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginSaveBwhInM(ServiceRequestOfSelectActualImpMForBwhInM param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("SaveBwhInM", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfBoolean EndSaveBwhInM(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((ServiceResultOfBoolean)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SavePackageTraM", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfBoolean SavePackageTraM(ServiceRequestOfPackageTraMInfo param) {
-            object[] results = this.Invoke("SavePackageTraM", new object[] {
-                        param});
-            return ((ServiceResultOfBoolean)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginSavePackageTraM(ServiceRequestOfPackageTraMInfo param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("SavePackageTraM", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfBoolean EndSavePackageTraM(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((ServiceResultOfBoolean)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetSanalGirisRafInfo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfNameIdItem GetSanalGirisRafInfo(ServiceRequestOfItemSelectParam param) {
-            object[] results = this.Invoke("GetSanalGirisRafInfo", new object[] {
-                        param});
-            return ((ServiceResultOfNameIdItem)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginGetSanalGirisRafInfo(ServiceRequestOfItemSelectParam param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("GetSanalGirisRafInfo", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfNameIdItem EndGetSanalGirisRafInfo(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((ServiceResultOfNameIdItem)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetSanalCikisRafInfo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfNameIdItem GetSanalCikisRafInfo(ServiceRequestOfItemSelectParam param) {
-            object[] results = this.Invoke("GetSanalCikisRafInfo", new object[] {
-                        param});
-            return ((ServiceResultOfNameIdItem)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginGetSanalCikisRafInfo(ServiceRequestOfItemSelectParam param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("GetSanalCikisRafInfo", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfNameIdItem EndGetSanalCikisRafInfo(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((ServiceResultOfNameIdItem)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetItemInfo2", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfNameIdItem GetItemInfo2(ServiceRequestOfItemSelectParam param) {
-            object[] results = this.Invoke("GetItemInfo2", new object[] {
-                        param});
-            return ((ServiceResultOfNameIdItem)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginGetItemInfo2(ServiceRequestOfItemSelectParam param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("GetItemInfo2", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfNameIdItem EndGetItemInfo2(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((ServiceResultOfNameIdItem)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/TempRafHareketSil", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfInt32 TempRafHareketSil(ServiceRequestOfInt32 param) {
-            object[] results = this.Invoke("TempRafHareketSil", new object[] {
-                        param});
-            return ((ServiceResultOfInt32)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginTempRafHareketSil(ServiceRequestOfInt32 param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("TempRafHareketSil", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfInt32 EndTempRafHareketSil(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((ServiceResultOfInt32)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetNewCreatedDocNo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfString GetNewCreatedDocNo(ServiceRequestOfInt32 param) {
-            object[] results = this.Invoke("GetNewCreatedDocNo", new object[] {
-                        param});
-            return ((ServiceResultOfString)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginGetNewCreatedDocNo(ServiceRequestOfInt32 param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("GetNewCreatedDocNo", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfString EndGetNewCreatedDocNo(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((ServiceResultOfString)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SavePackageTraM2", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfPackageTraMInfo SavePackageTraM2(ServiceRequestOfPackageTraMInfo param) {
-            object[] results = this.Invoke("SavePackageTraM2", new object[] {
-                        param});
-            return ((ServiceResultOfPackageTraMInfo)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginSavePackageTraM2(ServiceRequestOfPackageTraMInfo param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("SavePackageTraM2", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfPackageTraMInfo EndSavePackageTraM2(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((ServiceResultOfPackageTraMInfo)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/CheckAndGetPackageInfo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfPackageDetail CheckAndGetPackageInfo(ServiceRequestOfItemPickingParam param) {
-            object[] results = this.Invoke("CheckAndGetPackageInfo", new object[] {
-                        param});
-            return ((ServiceResultOfPackageDetail)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginCheckAndGetPackageInfo(ServiceRequestOfItemPickingParam param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("CheckAndGetPackageInfo", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfPackageDetail EndCheckAndGetPackageInfo(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((ServiceResultOfPackageDetail)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/BatchExplode2", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string BatchExplode2(BatchExplodeInput param) {
-            object[] results = this.Invoke("BatchExplode2", new object[] {
-                        param});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginBatchExplode2(BatchExplodeInput param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("BatchExplode2", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public string EndBatchExplode2(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/BatchExplode3", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string BatchExplode3(BatchExplodeInput param) {
-            object[] results = this.Invoke("BatchExplode3", new object[] {
-                        param});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginBatchExplode3(BatchExplodeInput param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("BatchExplode3", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public string EndBatchExplode3(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/BatchExplode", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string BatchExplode(BatchExplodeInput param) {
-            object[] results = this.Invoke("BatchExplode", new object[] {
-                        param});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginBatchExplode(BatchExplodeInput param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("BatchExplode", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public string EndBatchExplode(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InsertAssetCardCount", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfString InsertAssetCardCount(ServiceRequestOfMWAssetCardCountM param) {
-            object[] results = this.Invoke("InsertAssetCardCount", new object[] {
-                        param});
-            return ((ServiceResultOfString)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginInsertAssetCardCount(ServiceRequestOfMWAssetCardCountM param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("InsertAssetCardCount", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfString EndInsertAssetCardCount(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((ServiceResultOfString)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAssetCard", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfString GetAssetCard(ServiceRequestOfAssetCardInfoBarkod param) {
-            object[] results = this.Invoke("GetAssetCard", new object[] {
-                        param});
-            return ((ServiceResultOfString)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginGetAssetCard(ServiceRequestOfAssetCardInfoBarkod param, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("GetAssetCard", new object[] {
-                        param}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfString EndGetAssetCard(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((ServiceResultOfString)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/BatchTransfer", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string BatchTransfer(string userName, string password, string coCode, int PrevDay) {
-            object[] results = this.Invoke("BatchTransfer", new object[] {
-                        userName,
-                        password,
-                        coCode,
-                        PrevDay});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginBatchTransfer(string userName, string password, string coCode, int PrevDay, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("BatchTransfer", new object[] {
-                        userName,
-                        password,
-                        coCode,
-                        PrevDay}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public string EndBatchTransfer(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IzBaskiBatchTransfer", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string IzBaskiBatchTransfer(string userName, string password, string coCode, int PrevDay) {
-            object[] results = this.Invoke("IzBaskiBatchTransfer", new object[] {
-                        userName,
-                        password,
-                        coCode,
-                        PrevDay});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginIzBaskiBatchTransfer(string userName, string password, string coCode, int PrevDay, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("IzBaskiBatchTransfer", new object[] {
-                        userName,
-                        password,
-                        coCode,
-                        PrevDay}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public string EndIzBaskiBatchTransfer(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/EntesBatchTransfer", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string EntesBatchTransfer(string userName, string password, string coCode, int PrevDay) {
-            object[] results = this.Invoke("EntesBatchTransfer", new object[] {
-                        userName,
-                        password,
-                        coCode,
-                        PrevDay});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginEntesBatchTransfer(string userName, string password, string coCode, int PrevDay, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("EntesBatchTransfer", new object[] {
-                        userName,
-                        password,
-                        coCode,
-                        PrevDay}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public string EndEntesBatchTransfer(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SanicaBatchTransfer", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string SanicaBatchTransfer(string userName, string password, string coCode, int PrevDay) {
-            object[] results = this.Invoke("SanicaBatchTransfer", new object[] {
-                        userName,
-                        password,
-                        coCode,
-                        PrevDay});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginSanicaBatchTransfer(string userName, string password, string coCode, int PrevDay, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("SanicaBatchTransfer", new object[] {
-                        userName,
-                        password,
-                        coCode,
-                        PrevDay}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public string EndSanicaBatchTransfer(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InsertItemConversionsM", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string InsertItemConversionsM(string userName, string password, string branchCode, string outputWhouseCode, string inputWhouseCode, string outputDocTraCode, string inputDocTraCode, int unitConvertType) {
-            object[] results = this.Invoke("InsertItemConversionsM", new object[] {
-                        userName,
-                        password,
-                        branchCode,
-                        outputWhouseCode,
-                        inputWhouseCode,
-                        outputDocTraCode,
-                        inputDocTraCode,
-                        unitConvertType});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginInsertItemConversionsM(string userName, string password, string branchCode, string outputWhouseCode, string inputWhouseCode, string outputDocTraCode, string inputDocTraCode, int unitConvertType, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("InsertItemConversionsM", new object[] {
-                        userName,
-                        password,
-                        branchCode,
-                        outputWhouseCode,
-                        inputWhouseCode,
-                        outputDocTraCode,
-                        inputDocTraCode,
-                        unitConvertType}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public string EndInsertItemConversionsM(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetBarcode", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string[] GetBarcode(string printerName) {
-            object[] results = this.Invoke("GetBarcode", new object[] {
-                        printerName});
-            return ((string[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginGetBarcode(string printerName, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("GetBarcode", new object[] {
-                        printerName}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public string[] EndGetBarcode(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((string[])(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetApprovalPdf", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        [return: System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] GetApprovalPdf(string messageIdKey) {
-            object[] results = this.Invoke("GetApprovalPdf", new object[] {
-                        messageIdKey});
-            return ((byte[])(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginGetApprovalPdf(string messageIdKey, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("GetApprovalPdf", new object[] {
-                        messageIdKey}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public byte[] EndGetApprovalPdf(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((byte[])(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SetApprovalPdf", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public string SetApprovalPdf([System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")] byte[] pdfContext, string messageIdKey) {
-            object[] results = this.Invoke("SetApprovalPdf", new object[] {
-                        pdfContext,
-                        messageIdKey});
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginSetApprovalPdf(byte[] pdfContext, string messageIdKey, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("SetApprovalPdf", new object[] {
-                        pdfContext,
-                        messageIdKey}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public string EndSetApprovalPdf(System.IAsyncResult asyncResult) {
-            object[] results = this.EndInvoke(asyncResult);
-            return ((string)(results[0]));
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SaveUploadFile", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public void SaveUploadFile([System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")] byte[] fileContext, string fileName) {
-            this.Invoke("SaveUploadFile", new object[] {
-                        fileContext,
-                        fileName});
-        }
-        
-        /// <remarks/>
-        public System.IAsyncResult BeginSaveUploadFile(byte[] fileContext, string fileName, System.AsyncCallback callback, object asyncState) {
-            return this.BeginInvoke("SaveUploadFile", new object[] {
-                        fileContext,
-                        fileName}, callback, asyncState);
-        }
-        
-        /// <remarks/>
-        public void EndSaveUploadFile(System.IAsyncResult asyncResult) {
-            this.EndInvoke(asyncResult);
+            this.Url = "https://terp.yesilay.org.tr/WebService/MW/MobileWhouse.asmx";
         }
         
         /// <remarks/>
@@ -1992,17 +1151,858 @@ namespace MobileWhouse.UyumConnector {
             object[] results = this.EndInvoke(asyncResult);
             return ((ServiceResultOfListOfNameIdItem)(results[0]));
         }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetPackageInfo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfPackageDetail GetPackageInfo(ServiceRequestOfItemPickingParam param) {
+            object[] results = this.Invoke("GetPackageInfo", new object[] {
+                        param});
+            return ((ServiceResultOfPackageDetail)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginGetPackageInfo(ServiceRequestOfItemPickingParam param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("GetPackageInfo", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfPackageDetail EndGetPackageInfo(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((ServiceResultOfPackageDetail)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ChangePackageInfo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfBoolean ChangePackageInfo(ServiceRequestOfPackageDetailWithDocTra param) {
+            object[] results = this.Invoke("ChangePackageInfo", new object[] {
+                        param});
+            return ((ServiceResultOfBoolean)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginChangePackageInfo(ServiceRequestOfPackageDetailWithDocTra param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("ChangePackageInfo", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfBoolean EndChangePackageInfo(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((ServiceResultOfBoolean)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SaveItemPickingDetailForPackage", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfBoolean SaveItemPickingDetailForPackage(ServiceRequestOfItemPickingParam param) {
+            object[] results = this.Invoke("SaveItemPickingDetailForPackage", new object[] {
+                        param});
+            return ((ServiceResultOfBoolean)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginSaveItemPickingDetailForPackage(ServiceRequestOfItemPickingParam param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("SaveItemPickingDetailForPackage", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfBoolean EndSaveItemPickingDetailForPackage(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((ServiceResultOfBoolean)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ControlPackageTraDetail", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfBoolean ControlPackageTraDetail(ServiceRequestOfItemPickingParam param) {
+            object[] results = this.Invoke("ControlPackageTraDetail", new object[] {
+                        param});
+            return ((ServiceResultOfBoolean)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginControlPackageTraDetail(ServiceRequestOfItemPickingParam param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("ControlPackageTraDetail", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfBoolean EndControlPackageTraDetail(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((ServiceResultOfBoolean)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/PaketTransfer", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfPaketSayimResult PaketTransfer(ServiceRequestOfPaketInfo param) {
+            object[] results = this.Invoke("PaketTransfer", new object[] {
+                        param});
+            return ((ServiceResultOfPaketSayimResult)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginPaketTransfer(ServiceRequestOfPaketInfo param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("PaketTransfer", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfPaketSayimResult EndPaketTransfer(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((ServiceResultOfPaketSayimResult)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/PaketTransferFisi", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfPaketSayimResult PaketTransferFisi(ServiceRequestOfPackageTranInfo param) {
+            object[] results = this.Invoke("PaketTransferFisi", new object[] {
+                        param});
+            return ((ServiceResultOfPaketSayimResult)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginPaketTransferFisi(ServiceRequestOfPackageTranInfo param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("PaketTransferFisi", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfPaketSayimResult EndPaketTransferFisi(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((ServiceResultOfPaketSayimResult)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/FindItemPickingAndPackageTraMId", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfItemPickingParam FindItemPickingAndPackageTraMId(ServiceRequestOfItemPickingParam param) {
+            object[] results = this.Invoke("FindItemPickingAndPackageTraMId", new object[] {
+                        param});
+            return ((ServiceResultOfItemPickingParam)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginFindItemPickingAndPackageTraMId(ServiceRequestOfItemPickingParam param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("FindItemPickingAndPackageTraMId", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfItemPickingParam EndFindItemPickingAndPackageTraMId(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((ServiceResultOfItemPickingParam)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DeleteItemPickingDetailForPackage", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfBoolean DeleteItemPickingDetailForPackage(ServiceRequestOfItemPickingParam param) {
+            object[] results = this.Invoke("DeleteItemPickingDetailForPackage", new object[] {
+                        param});
+            return ((ServiceResultOfBoolean)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginDeleteItemPickingDetailForPackage(ServiceRequestOfItemPickingParam param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("DeleteItemPickingDetailForPackage", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfBoolean EndDeleteItemPickingDetailForPackage(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((ServiceResultOfBoolean)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetPackageTypeCode", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfListOfDocTra GetPackageTypeCode(ServiceRequestOfDocTraSelectParam param) {
+            object[] results = this.Invoke("GetPackageTypeCode", new object[] {
+                        param});
+            return ((ServiceResultOfListOfDocTra)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginGetPackageTypeCode(ServiceRequestOfDocTraSelectParam param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("GetPackageTypeCode", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfListOfDocTra EndGetPackageTypeCode(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((ServiceResultOfListOfDocTra)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SaveWaybillforPackage", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfBoolean SaveWaybillforPackage(ServiceRequestOfSelectParam2 param) {
+            object[] results = this.Invoke("SaveWaybillforPackage", new object[] {
+                        param});
+            return ((ServiceResultOfBoolean)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginSaveWaybillforPackage(ServiceRequestOfSelectParam2 param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("SaveWaybillforPackage", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfBoolean EndSaveWaybillforPackage(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((ServiceResultOfBoolean)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetReferralOrdersPackage", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfListOfNameIdItem GetReferralOrdersPackage(ServiceRequestOfSelectParam2 param) {
+            object[] results = this.Invoke("GetReferralOrdersPackage", new object[] {
+                        param});
+            return ((ServiceResultOfListOfNameIdItem)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginGetReferralOrdersPackage(ServiceRequestOfSelectParam2 param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("GetReferralOrdersPackage", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfListOfNameIdItem EndGetReferralOrdersPackage(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((ServiceResultOfListOfNameIdItem)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DeleteReservationForReferralOrders", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfBoolean DeleteReservationForReferralOrders(ServiceRequestOfItemPickingParam param) {
+            object[] results = this.Invoke("DeleteReservationForReferralOrders", new object[] {
+                        param});
+            return ((ServiceResultOfBoolean)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginDeleteReservationForReferralOrders(ServiceRequestOfItemPickingParam param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("DeleteReservationForReferralOrders", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfBoolean EndDeleteReservationForReferralOrders(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((ServiceResultOfBoolean)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/RunQueryCommand", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfBoolean RunQueryCommand(ServiceRequestOfString param) {
+            object[] results = this.Invoke("RunQueryCommand", new object[] {
+                        param});
+            return ((ServiceResultOfBoolean)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginRunQueryCommand(ServiceRequestOfString param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("RunQueryCommand", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfBoolean EndRunQueryCommand(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((ServiceResultOfBoolean)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetBranchProfile", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfListOfDocTra GetBranchProfile(ServiceRequestOfString param) {
+            object[] results = this.Invoke("GetBranchProfile", new object[] {
+                        param});
+            return ((ServiceResultOfListOfDocTra)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginGetBranchProfile(ServiceRequestOfString param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("GetBranchProfile", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfListOfDocTra EndGetBranchProfile(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((ServiceResultOfListOfDocTra)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/StokHareketKaydet", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfInt32 StokHareketKaydet(ServiceRequestOfStokHareketM param) {
+            object[] results = this.Invoke("StokHareketKaydet", new object[] {
+                        param});
+            return ((ServiceResultOfInt32)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginStokHareketKaydet(ServiceRequestOfStokHareketM param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("StokHareketKaydet", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfInt32 EndStokHareketKaydet(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((ServiceResultOfInt32)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SaveWaybill", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfBoolean SaveWaybill(ServiceRequestOfWaybillInfo param) {
+            object[] results = this.Invoke("SaveWaybill", new object[] {
+                        param});
+            return ((ServiceResultOfBoolean)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginSaveWaybill(ServiceRequestOfWaybillInfo param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("SaveWaybill", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfBoolean EndSaveWaybill(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((ServiceResultOfBoolean)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetActualImp", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfListOfSelectActualImpMForBwhInM GetActualImp(ServiceRequestOfSelectActualImpMForBwhInM param) {
+            object[] results = this.Invoke("GetActualImp", new object[] {
+                        param});
+            return ((ServiceResultOfListOfSelectActualImpMForBwhInM)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginGetActualImp(ServiceRequestOfSelectActualImpMForBwhInM param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("GetActualImp", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfListOfSelectActualImpMForBwhInM EndGetActualImp(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((ServiceResultOfListOfSelectActualImpMForBwhInM)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SaveBwhInM", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfBoolean SaveBwhInM(ServiceRequestOfSelectActualImpMForBwhInM param) {
+            object[] results = this.Invoke("SaveBwhInM", new object[] {
+                        param});
+            return ((ServiceResultOfBoolean)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginSaveBwhInM(ServiceRequestOfSelectActualImpMForBwhInM param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("SaveBwhInM", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfBoolean EndSaveBwhInM(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((ServiceResultOfBoolean)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SavePackageTraM", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfBoolean SavePackageTraM(ServiceRequestOfPackageTraMInfo param) {
+            object[] results = this.Invoke("SavePackageTraM", new object[] {
+                        param});
+            return ((ServiceResultOfBoolean)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginSavePackageTraM(ServiceRequestOfPackageTraMInfo param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("SavePackageTraM", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfBoolean EndSavePackageTraM(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((ServiceResultOfBoolean)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetSanalGirisRafInfo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfNameIdItem GetSanalGirisRafInfo(ServiceRequestOfItemSelectParam param) {
+            object[] results = this.Invoke("GetSanalGirisRafInfo", new object[] {
+                        param});
+            return ((ServiceResultOfNameIdItem)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginGetSanalGirisRafInfo(ServiceRequestOfItemSelectParam param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("GetSanalGirisRafInfo", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfNameIdItem EndGetSanalGirisRafInfo(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((ServiceResultOfNameIdItem)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetSanalCikisRafInfo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfNameIdItem GetSanalCikisRafInfo(ServiceRequestOfItemSelectParam param) {
+            object[] results = this.Invoke("GetSanalCikisRafInfo", new object[] {
+                        param});
+            return ((ServiceResultOfNameIdItem)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginGetSanalCikisRafInfo(ServiceRequestOfItemSelectParam param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("GetSanalCikisRafInfo", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfNameIdItem EndGetSanalCikisRafInfo(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((ServiceResultOfNameIdItem)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetItemInfo2", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfNameIdItem GetItemInfo2(ServiceRequestOfItemSelectParam param) {
+            object[] results = this.Invoke("GetItemInfo2", new object[] {
+                        param});
+            return ((ServiceResultOfNameIdItem)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginGetItemInfo2(ServiceRequestOfItemSelectParam param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("GetItemInfo2", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfNameIdItem EndGetItemInfo2(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((ServiceResultOfNameIdItem)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/TempRafHareketSil", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfInt32 TempRafHareketSil(ServiceRequestOfInt32 param) {
+            object[] results = this.Invoke("TempRafHareketSil", new object[] {
+                        param});
+            return ((ServiceResultOfInt32)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginTempRafHareketSil(ServiceRequestOfInt32 param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("TempRafHareketSil", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfInt32 EndTempRafHareketSil(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((ServiceResultOfInt32)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetNewCreatedDocNo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfString GetNewCreatedDocNo(ServiceRequestOfInt32 param) {
+            object[] results = this.Invoke("GetNewCreatedDocNo", new object[] {
+                        param});
+            return ((ServiceResultOfString)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginGetNewCreatedDocNo(ServiceRequestOfInt32 param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("GetNewCreatedDocNo", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfString EndGetNewCreatedDocNo(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((ServiceResultOfString)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SavePackageTraM2", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfPackageTraMInfo SavePackageTraM2(ServiceRequestOfPackageTraMInfo param) {
+            object[] results = this.Invoke("SavePackageTraM2", new object[] {
+                        param});
+            return ((ServiceResultOfPackageTraMInfo)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginSavePackageTraM2(ServiceRequestOfPackageTraMInfo param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("SavePackageTraM2", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfPackageTraMInfo EndSavePackageTraM2(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((ServiceResultOfPackageTraMInfo)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/CheckAndGetPackageInfo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfPackageDetail CheckAndGetPackageInfo(ServiceRequestOfItemPickingParam param) {
+            object[] results = this.Invoke("CheckAndGetPackageInfo", new object[] {
+                        param});
+            return ((ServiceResultOfPackageDetail)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginCheckAndGetPackageInfo(ServiceRequestOfItemPickingParam param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("CheckAndGetPackageInfo", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfPackageDetail EndCheckAndGetPackageInfo(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((ServiceResultOfPackageDetail)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/BatchExplode2", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string BatchExplode2(BatchExplodeInput param) {
+            object[] results = this.Invoke("BatchExplode2", new object[] {
+                        param});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginBatchExplode2(BatchExplodeInput param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("BatchExplode2", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public string EndBatchExplode2(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/BatchExplode3", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string BatchExplode3(BatchExplodeInput param) {
+            object[] results = this.Invoke("BatchExplode3", new object[] {
+                        param});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginBatchExplode3(BatchExplodeInput param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("BatchExplode3", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public string EndBatchExplode3(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/BatchExplode", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string BatchExplode(BatchExplodeInput param) {
+            object[] results = this.Invoke("BatchExplode", new object[] {
+                        param});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginBatchExplode(BatchExplodeInput param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("BatchExplode", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public string EndBatchExplode(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InsertAssetCardCount", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfString InsertAssetCardCount(ServiceRequestOfMWAssetCardCountM param) {
+            object[] results = this.Invoke("InsertAssetCardCount", new object[] {
+                        param});
+            return ((ServiceResultOfString)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginInsertAssetCardCount(ServiceRequestOfMWAssetCardCountM param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("InsertAssetCardCount", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfString EndInsertAssetCardCount(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((ServiceResultOfString)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAssetCard", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfString GetAssetCard(ServiceRequestOfAssetCardInfoBarkod param) {
+            object[] results = this.Invoke("GetAssetCard", new object[] {
+                        param});
+            return ((ServiceResultOfString)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginGetAssetCard(ServiceRequestOfAssetCardInfoBarkod param, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("GetAssetCard", new object[] {
+                        param}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfString EndGetAssetCard(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((ServiceResultOfString)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/BatchTransfer", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string BatchTransfer(string userName, string password, string coCode, int PrevDay) {
+            object[] results = this.Invoke("BatchTransfer", new object[] {
+                        userName,
+                        password,
+                        coCode,
+                        PrevDay});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginBatchTransfer(string userName, string password, string coCode, int PrevDay, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("BatchTransfer", new object[] {
+                        userName,
+                        password,
+                        coCode,
+                        PrevDay}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public string EndBatchTransfer(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IzBaskiBatchTransfer", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string IzBaskiBatchTransfer(string userName, string password, string coCode, int PrevDay) {
+            object[] results = this.Invoke("IzBaskiBatchTransfer", new object[] {
+                        userName,
+                        password,
+                        coCode,
+                        PrevDay});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginIzBaskiBatchTransfer(string userName, string password, string coCode, int PrevDay, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("IzBaskiBatchTransfer", new object[] {
+                        userName,
+                        password,
+                        coCode,
+                        PrevDay}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public string EndIzBaskiBatchTransfer(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/EntesBatchTransfer", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string EntesBatchTransfer(string userName, string password, string coCode, int PrevDay) {
+            object[] results = this.Invoke("EntesBatchTransfer", new object[] {
+                        userName,
+                        password,
+                        coCode,
+                        PrevDay});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginEntesBatchTransfer(string userName, string password, string coCode, int PrevDay, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("EntesBatchTransfer", new object[] {
+                        userName,
+                        password,
+                        coCode,
+                        PrevDay}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public string EndEntesBatchTransfer(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SanicaBatchTransfer", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string SanicaBatchTransfer(string userName, string password, string coCode, int PrevDay) {
+            object[] results = this.Invoke("SanicaBatchTransfer", new object[] {
+                        userName,
+                        password,
+                        coCode,
+                        PrevDay});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginSanicaBatchTransfer(string userName, string password, string coCode, int PrevDay, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("SanicaBatchTransfer", new object[] {
+                        userName,
+                        password,
+                        coCode,
+                        PrevDay}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public string EndSanicaBatchTransfer(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InsertItemConversionsM", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string InsertItemConversionsM(string userName, string password, string branchCode, string outputWhouseCode, string inputWhouseCode, string outputDocTraCode, string inputDocTraCode, int unitConvertType) {
+            object[] results = this.Invoke("InsertItemConversionsM", new object[] {
+                        userName,
+                        password,
+                        branchCode,
+                        outputWhouseCode,
+                        inputWhouseCode,
+                        outputDocTraCode,
+                        inputDocTraCode,
+                        unitConvertType});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginInsertItemConversionsM(string userName, string password, string branchCode, string outputWhouseCode, string inputWhouseCode, string outputDocTraCode, string inputDocTraCode, int unitConvertType, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("InsertItemConversionsM", new object[] {
+                        userName,
+                        password,
+                        branchCode,
+                        outputWhouseCode,
+                        inputWhouseCode,
+                        outputDocTraCode,
+                        inputDocTraCode,
+                        unitConvertType}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public string EndInsertItemConversionsM(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetBarcode", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string[] GetBarcode(string printerName) {
+            object[] results = this.Invoke("GetBarcode", new object[] {
+                        printerName});
+            return ((string[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginGetBarcode(string printerName, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("GetBarcode", new object[] {
+                        printerName}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public string[] EndGetBarcode(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((string[])(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetApprovalPdf", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
+        public byte[] GetApprovalPdf(string messageIdKey) {
+            object[] results = this.Invoke("GetApprovalPdf", new object[] {
+                        messageIdKey});
+            return ((byte[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginGetApprovalPdf(string messageIdKey, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("GetApprovalPdf", new object[] {
+                        messageIdKey}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public byte[] EndGetApprovalPdf(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((byte[])(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SetApprovalPdf", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string SetApprovalPdf([System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")] byte[] pdfContext, string messageIdKey) {
+            object[] results = this.Invoke("SetApprovalPdf", new object[] {
+                        pdfContext,
+                        messageIdKey});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginSetApprovalPdf(byte[] pdfContext, string messageIdKey, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("SetApprovalPdf", new object[] {
+                        pdfContext,
+                        messageIdKey}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public string EndSetApprovalPdf(System.IAsyncResult asyncResult) {
+            object[] results = this.EndInvoke(asyncResult);
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SaveUploadFile", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public void SaveUploadFile([System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")] byte[] fileContext, string fileName) {
+            this.Invoke("SaveUploadFile", new object[] {
+                        fileContext,
+                        fileName});
+        }
+        
+        /// <remarks/>
+        public System.IAsyncResult BeginSaveUploadFile(byte[] fileContext, string fileName, System.AsyncCallback callback, object asyncState) {
+            return this.BeginInvoke("SaveUploadFile", new object[] {
+                        fileContext,
+                        fileName}, callback, asyncState);
+        }
+        
+        /// <remarks/>
+        public void EndSaveUploadFile(System.IAsyncResult asyncResult) {
+            this.EndInvoke(asyncResult);
+        }
     }
     
     /// <remarks/>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ServiceRequestOfItemPickingParam {
+    public partial class ServiceRequestOfBarkodBasParam {
         
         private Token tokenField;
         
-        private ItemPickingParam valueField;
+        private BarkodBasParam valueField;
         
         private int pageIndexField;
         
@@ -2021,7 +2021,7 @@ namespace MobileWhouse.UyumConnector {
         }
         
         /// <remarks/>
-        public ItemPickingParam Value {
+        public BarkodBasParam Value {
             get {
                 return this.valueField;
             }
@@ -2156,13 +2156,307 @@ namespace MobileWhouse.UyumConnector {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ServiceResultOfListOfReferralDetailInfo {
+    public partial class AssetCardInfoBarkod {
+        
+        private string[] barcodeNosField;
+        
+        /// <remarks/>
+        public string[] BarcodeNos {
+            get {
+                return this.barcodeNosField;
+            }
+            set {
+                this.barcodeNosField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ServiceRequestOfAssetCardInfoBarkod {
+        
+        private Token tokenField;
+        
+        private AssetCardInfoBarkod valueField;
+        
+        private int pageIndexField;
+        
+        private int pageSizeField;
+        
+        private string attachmentField;
+        
+        /// <remarks/>
+        public Token Token {
+            get {
+                return this.tokenField;
+            }
+            set {
+                this.tokenField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public AssetCardInfoBarkod Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageIndex {
+            get {
+                return this.pageIndexField;
+            }
+            set {
+                this.pageIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageSize {
+            get {
+                return this.pageSizeField;
+            }
+            set {
+                this.pageSizeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Attachment {
+            get {
+                return this.attachmentField;
+            }
+            set {
+                this.attachmentField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class MWAssetCardCountD {
+        
+        private string barcodeNoField;
+        
+        private int qtyField;
+        
+        /// <remarks/>
+        public string BarcodeNo {
+            get {
+                return this.barcodeNoField;
+            }
+            set {
+                this.barcodeNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Qty {
+            get {
+                return this.qtyField;
+            }
+            set {
+                this.qtyField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class MWAssetCardCountM {
+        
+        private System.DateTime docDateField;
+        
+        private string docNoField;
+        
+        private string noteLargeField;
+        
+        private MWAssetCardCountD[] assetCardCountDField;
+        
+        /// <remarks/>
+        public System.DateTime DocDate {
+            get {
+                return this.docDateField;
+            }
+            set {
+                this.docDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DocNo {
+            get {
+                return this.docNoField;
+            }
+            set {
+                this.docNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string NoteLarge {
+            get {
+                return this.noteLargeField;
+            }
+            set {
+                this.noteLargeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public MWAssetCardCountD[] AssetCardCountD {
+            get {
+                return this.assetCardCountDField;
+            }
+            set {
+                this.assetCardCountDField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ServiceRequestOfMWAssetCardCountM {
+        
+        private Token tokenField;
+        
+        private MWAssetCardCountM valueField;
+        
+        private int pageIndexField;
+        
+        private int pageSizeField;
+        
+        private string attachmentField;
+        
+        /// <remarks/>
+        public Token Token {
+            get {
+                return this.tokenField;
+            }
+            set {
+                this.tokenField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public MWAssetCardCountM Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageIndex {
+            get {
+                return this.pageIndexField;
+            }
+            set {
+                this.pageIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageSize {
+            get {
+                return this.pageSizeField;
+            }
+            set {
+                this.pageSizeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Attachment {
+            get {
+                return this.attachmentField;
+            }
+            set {
+                this.attachmentField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class BatchExplodeInput {
+        
+        private string userNameField;
+        
+        private string passwordField;
+        
+        private string coCodeField;
+        
+        private string branchCodeField;
+        
+        /// <remarks/>
+        public string UserName {
+            get {
+                return this.userNameField;
+            }
+            set {
+                this.userNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Password {
+            get {
+                return this.passwordField;
+            }
+            set {
+                this.passwordField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string CoCode {
+            get {
+                return this.coCodeField;
+            }
+            set {
+                this.coCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string BranchCode {
+            get {
+                return this.branchCodeField;
+            }
+            set {
+                this.branchCodeField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ServiceResultOfPackageTraMInfo {
         
         private string messageField;
         
         private bool resultField;
         
-        private ReferralDetailInfo[] valueField;
+        private PackageTraMInfo valueField;
         
         private int pageIndexField;
         
@@ -2189,7 +2483,7 @@ namespace MobileWhouse.UyumConnector {
         }
         
         /// <remarks/>
-        public ReferralDetailInfo[] Value {
+        public PackageTraMInfo Value {
             get {
                 return this.valueField;
             }
@@ -2215,6 +2509,1066 @@ namespace MobileWhouse.UyumConnector {
             }
             set {
                 this.totalPageField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class PackageTraMInfo {
+        
+        private System.DateTime docDateField;
+        
+        private string docNoField;
+        
+        private PackageTraDInfo[] detailsField;
+        
+        private int whouse2IdField;
+        
+        private int whouseIdField;
+        
+        private int packageTraMIdField;
+        
+        private int itemPickingMIDField;
+        
+        private bool oneriField;
+        
+        private int sourceMIdField;
+        
+        private int sourceAppField;
+        
+        private System.Nullable<decimal> packageMQtyField;
+        
+        private bool createPaletField;
+        
+        /// <remarks/>
+        public System.DateTime DocDate {
+            get {
+                return this.docDateField;
+            }
+            set {
+                this.docDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DocNo {
+            get {
+                return this.docNoField;
+            }
+            set {
+                this.docNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public PackageTraDInfo[] Details {
+            get {
+                return this.detailsField;
+            }
+            set {
+                this.detailsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Whouse2Id {
+            get {
+                return this.whouse2IdField;
+            }
+            set {
+                this.whouse2IdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int WhouseId {
+            get {
+                return this.whouseIdField;
+            }
+            set {
+                this.whouseIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PackageTraMId {
+            get {
+                return this.packageTraMIdField;
+            }
+            set {
+                this.packageTraMIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ItemPickingMID {
+            get {
+                return this.itemPickingMIDField;
+            }
+            set {
+                this.itemPickingMIDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool Oneri {
+            get {
+                return this.oneriField;
+            }
+            set {
+                this.oneriField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int SourceMId {
+            get {
+                return this.sourceMIdField;
+            }
+            set {
+                this.sourceMIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int SourceApp {
+            get {
+                return this.sourceAppField;
+            }
+            set {
+                this.sourceAppField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<decimal> PackageMQty {
+            get {
+                return this.packageMQtyField;
+            }
+            set {
+                this.packageMQtyField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool CreatePalet {
+            get {
+                return this.createPaletField;
+            }
+            set {
+                this.createPaletField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class PackageTraDInfo {
+        
+        private string packageMNoField;
+        
+        private int packageMIdField;
+        
+        private int bwhLocationIdField;
+        
+        private int itemIdField;
+        
+        private int unitIdField;
+        
+        private decimal qtyField;
+        
+        private int sourceMIdField;
+        
+        private int sourceDIdField;
+        
+        private int itemAttribute1Field;
+        
+        private int itemAttribute2Field;
+        
+        private int itemAttribute3Field;
+        
+        private int qualityIdField;
+        
+        private string qualityCodeField;
+        
+        private int colorIdField;
+        
+        private string colorCodeField;
+        
+        private int lotIdField;
+        
+        private string lotCodeField;
+        
+        /// <remarks/>
+        public string PackageMNo {
+            get {
+                return this.packageMNoField;
+            }
+            set {
+                this.packageMNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PackageMId {
+            get {
+                return this.packageMIdField;
+            }
+            set {
+                this.packageMIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int BwhLocationId {
+            get {
+                return this.bwhLocationIdField;
+            }
+            set {
+                this.bwhLocationIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ItemId {
+            get {
+                return this.itemIdField;
+            }
+            set {
+                this.itemIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int UnitId {
+            get {
+                return this.unitIdField;
+            }
+            set {
+                this.unitIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public decimal Qty {
+            get {
+                return this.qtyField;
+            }
+            set {
+                this.qtyField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int SourceMId {
+            get {
+                return this.sourceMIdField;
+            }
+            set {
+                this.sourceMIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int SourceDId {
+            get {
+                return this.sourceDIdField;
+            }
+            set {
+                this.sourceDIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ItemAttribute1 {
+            get {
+                return this.itemAttribute1Field;
+            }
+            set {
+                this.itemAttribute1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ItemAttribute2 {
+            get {
+                return this.itemAttribute2Field;
+            }
+            set {
+                this.itemAttribute2Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ItemAttribute3 {
+            get {
+                return this.itemAttribute3Field;
+            }
+            set {
+                this.itemAttribute3Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int QualityId {
+            get {
+                return this.qualityIdField;
+            }
+            set {
+                this.qualityIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string QualityCode {
+            get {
+                return this.qualityCodeField;
+            }
+            set {
+                this.qualityCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ColorId {
+            get {
+                return this.colorIdField;
+            }
+            set {
+                this.colorIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ColorCode {
+            get {
+                return this.colorCodeField;
+            }
+            set {
+                this.colorCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int LotId {
+            get {
+                return this.lotIdField;
+            }
+            set {
+                this.lotIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string LotCode {
+            get {
+                return this.lotCodeField;
+            }
+            set {
+                this.lotCodeField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ServiceRequestOfPackageTraMInfo {
+        
+        private Token tokenField;
+        
+        private PackageTraMInfo valueField;
+        
+        private int pageIndexField;
+        
+        private int pageSizeField;
+        
+        private string attachmentField;
+        
+        /// <remarks/>
+        public Token Token {
+            get {
+                return this.tokenField;
+            }
+            set {
+                this.tokenField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public PackageTraMInfo Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageIndex {
+            get {
+                return this.pageIndexField;
+            }
+            set {
+                this.pageIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageSize {
+            get {
+                return this.pageSizeField;
+            }
+            set {
+                this.pageSizeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Attachment {
+            get {
+                return this.attachmentField;
+            }
+            set {
+                this.attachmentField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ServiceResultOfListOfSelectActualImpMForBwhInM {
+        
+        private string messageField;
+        
+        private bool resultField;
+        
+        private SelectActualImpMForBwhInM[] valueField;
+        
+        private int pageIndexField;
+        
+        private int totalPageField;
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public SelectActualImpMForBwhInM[] Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageIndex {
+            get {
+                return this.pageIndexField;
+            }
+            set {
+                this.pageIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TotalPage {
+            get {
+                return this.totalPageField;
+            }
+            set {
+                this.totalPageField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class SelectActualImpMForBwhInM {
+        
+        private int coIdField;
+        
+        private int branchIdField;
+        
+        private int actualImpMIdField;
+        
+        private int fileMIdField;
+        
+        private string fileNoField;
+        
+        private int shipmentMIdField;
+        
+        private string shipmentNoField;
+        
+        private int entityIdField;
+        
+        private string entityCodeField;
+        
+        private string entityNameField;
+        
+        private bool withDetailField;
+        
+        private SelectActualImpD[] detailsField;
+        
+        private int docTraIdField;
+        
+        private int whouseIdField;
+        
+        private string docNoField;
+        
+        private System.DateTime docDateField;
+        
+        /// <remarks/>
+        public int CoId {
+            get {
+                return this.coIdField;
+            }
+            set {
+                this.coIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int BranchId {
+            get {
+                return this.branchIdField;
+            }
+            set {
+                this.branchIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ActualImpMId {
+            get {
+                return this.actualImpMIdField;
+            }
+            set {
+                this.actualImpMIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int FileMId {
+            get {
+                return this.fileMIdField;
+            }
+            set {
+                this.fileMIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string FileNo {
+            get {
+                return this.fileNoField;
+            }
+            set {
+                this.fileNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ShipmentMId {
+            get {
+                return this.shipmentMIdField;
+            }
+            set {
+                this.shipmentMIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ShipmentNo {
+            get {
+                return this.shipmentNoField;
+            }
+            set {
+                this.shipmentNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int EntityId {
+            get {
+                return this.entityIdField;
+            }
+            set {
+                this.entityIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string EntityCode {
+            get {
+                return this.entityCodeField;
+            }
+            set {
+                this.entityCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string EntityName {
+            get {
+                return this.entityNameField;
+            }
+            set {
+                this.entityNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool WithDetail {
+            get {
+                return this.withDetailField;
+            }
+            set {
+                this.withDetailField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public SelectActualImpD[] Details {
+            get {
+                return this.detailsField;
+            }
+            set {
+                this.detailsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int DocTraId {
+            get {
+                return this.docTraIdField;
+            }
+            set {
+                this.docTraIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int WhouseId {
+            get {
+                return this.whouseIdField;
+            }
+            set {
+                this.whouseIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DocNo {
+            get {
+                return this.docNoField;
+            }
+            set {
+                this.docNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime DocDate {
+            get {
+                return this.docDateField;
+            }
+            set {
+                this.docDateField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class SelectActualImpD {
+        
+        private int actualImpMIdField;
+        
+        private int actualImpDIdField;
+        
+        private int itemIdField;
+        
+        private string itemCodeField;
+        
+        private string itemNameField;
+        
+        private int unitIdField;
+        
+        private string unitCodeField;
+        
+        private decimal qtyField;
+        
+        private decimal qtyBwhField;
+        
+        private int itemAttr1IdField;
+        
+        private int itemAttr2IdField;
+        
+        private int itemAttr3IdField;
+        
+        private int colorIdField;
+        
+        private int whouseIdField;
+        
+        private string whouseCodeField;
+        
+        /// <remarks/>
+        public int ActualImpMId {
+            get {
+                return this.actualImpMIdField;
+            }
+            set {
+                this.actualImpMIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ActualImpDId {
+            get {
+                return this.actualImpDIdField;
+            }
+            set {
+                this.actualImpDIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ItemId {
+            get {
+                return this.itemIdField;
+            }
+            set {
+                this.itemIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ItemCode {
+            get {
+                return this.itemCodeField;
+            }
+            set {
+                this.itemCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ItemName {
+            get {
+                return this.itemNameField;
+            }
+            set {
+                this.itemNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int UnitId {
+            get {
+                return this.unitIdField;
+            }
+            set {
+                this.unitIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string UnitCode {
+            get {
+                return this.unitCodeField;
+            }
+            set {
+                this.unitCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public decimal Qty {
+            get {
+                return this.qtyField;
+            }
+            set {
+                this.qtyField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public decimal QtyBwh {
+            get {
+                return this.qtyBwhField;
+            }
+            set {
+                this.qtyBwhField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ItemAttr1Id {
+            get {
+                return this.itemAttr1IdField;
+            }
+            set {
+                this.itemAttr1IdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ItemAttr2Id {
+            get {
+                return this.itemAttr2IdField;
+            }
+            set {
+                this.itemAttr2IdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ItemAttr3Id {
+            get {
+                return this.itemAttr3IdField;
+            }
+            set {
+                this.itemAttr3IdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ColorId {
+            get {
+                return this.colorIdField;
+            }
+            set {
+                this.colorIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int WhouseId {
+            get {
+                return this.whouseIdField;
+            }
+            set {
+                this.whouseIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string WhouseCode {
+            get {
+                return this.whouseCodeField;
+            }
+            set {
+                this.whouseCodeField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ServiceRequestOfSelectActualImpMForBwhInM {
+        
+        private Token tokenField;
+        
+        private SelectActualImpMForBwhInM valueField;
+        
+        private int pageIndexField;
+        
+        private int pageSizeField;
+        
+        private string attachmentField;
+        
+        /// <remarks/>
+        public Token Token {
+            get {
+                return this.tokenField;
+            }
+            set {
+                this.tokenField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public SelectActualImpMForBwhInM Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageIndex {
+            get {
+                return this.pageIndexField;
+            }
+            set {
+                this.pageIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageSize {
+            get {
+                return this.pageSizeField;
+            }
+            set {
+                this.pageSizeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Attachment {
+            get {
+                return this.attachmentField;
+            }
+            set {
+                this.attachmentField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ServiceRequestOfWaybillInfo {
+        
+        private Token tokenField;
+        
+        private WaybillInfo valueField;
+        
+        private int pageIndexField;
+        
+        private int pageSizeField;
+        
+        private string attachmentField;
+        
+        /// <remarks/>
+        public Token Token {
+            get {
+                return this.tokenField;
+            }
+            set {
+                this.tokenField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public WaybillInfo Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageIndex {
+            get {
+                return this.pageIndexField;
+            }
+            set {
+                this.pageIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageSize {
+            get {
+                return this.pageSizeField;
+            }
+            set {
+                this.pageSizeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Attachment {
+            get {
+                return this.attachmentField;
+            }
+            set {
+                this.attachmentField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class WaybillInfo : SaveSevkIrsaliyeParam {
+        
+        private ReferralDetailInfo[] detailsField;
+        
+        private OrderDetailInfo[] orderDetailsField;
+        
+        private OrderDetailBarcode[] barcodeListField;
+        
+        /// <remarks/>
+        public ReferralDetailInfo[] Details {
+            get {
+                return this.detailsField;
+            }
+            set {
+                this.detailsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public OrderDetailInfo[] OrderDetails {
+            get {
+                return this.orderDetailsField;
+            }
+            set {
+                this.orderDetailsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public OrderDetailBarcode[] BarcodeList {
+            get {
+                return this.barcodeListField;
+            }
+            set {
+                this.barcodeListField = value;
             }
         }
     }
@@ -2819,13 +4173,684 @@ namespace MobileWhouse.UyumConnector {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ServiceResultOfListOfItemInfo {
+    public partial class OrderDetailInfo {
+        
+        private int orderDetailIdField;
+        
+        private int itemIdField;
+        
+        private string itemCodeField;
+        
+        private string itemNameField;
+        
+        private decimal qtyField;
+        
+        private int whouseIdField;
+        
+        private System.DateTime arrivalDateField;
+        
+        private int itemAttr1IdField;
+        
+        private int itemAttr2IdField;
+        
+        private int itemAttr3IdField;
+        
+        private int qualityIdField;
+        
+        private int lotIdField;
+        
+        private int packageTypeIdField;
+        
+        private string orderNoField;
+        
+        private int orderMIdField;
+        
+        private int unitIdField;
+        
+        /// <remarks/>
+        public int OrderDetailId {
+            get {
+                return this.orderDetailIdField;
+            }
+            set {
+                this.orderDetailIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ItemId {
+            get {
+                return this.itemIdField;
+            }
+            set {
+                this.itemIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ItemCode {
+            get {
+                return this.itemCodeField;
+            }
+            set {
+                this.itemCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ItemName {
+            get {
+                return this.itemNameField;
+            }
+            set {
+                this.itemNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public decimal Qty {
+            get {
+                return this.qtyField;
+            }
+            set {
+                this.qtyField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int WhouseId {
+            get {
+                return this.whouseIdField;
+            }
+            set {
+                this.whouseIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime ArrivalDate {
+            get {
+                return this.arrivalDateField;
+            }
+            set {
+                this.arrivalDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ItemAttr1Id {
+            get {
+                return this.itemAttr1IdField;
+            }
+            set {
+                this.itemAttr1IdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ItemAttr2Id {
+            get {
+                return this.itemAttr2IdField;
+            }
+            set {
+                this.itemAttr2IdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ItemAttr3Id {
+            get {
+                return this.itemAttr3IdField;
+            }
+            set {
+                this.itemAttr3IdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int QualityId {
+            get {
+                return this.qualityIdField;
+            }
+            set {
+                this.qualityIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int LotId {
+            get {
+                return this.lotIdField;
+            }
+            set {
+                this.lotIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PackageTypeId {
+            get {
+                return this.packageTypeIdField;
+            }
+            set {
+                this.packageTypeIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string OrderNo {
+            get {
+                return this.orderNoField;
+            }
+            set {
+                this.orderNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int OrderMId {
+            get {
+                return this.orderMIdField;
+            }
+            set {
+                this.orderMIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int UnitId {
+            get {
+                return this.unitIdField;
+            }
+            set {
+                this.unitIdField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class OrderDetailBarcode {
+        
+        private int orderDetailIdField;
+        
+        private string barcodeField;
+        
+        /// <remarks/>
+        public int OrderDetailId {
+            get {
+                return this.orderDetailIdField;
+            }
+            set {
+                this.orderDetailIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Barcode {
+            get {
+                return this.barcodeField;
+            }
+            set {
+                this.barcodeField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WaybillInfo))]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class SaveSevkIrsaliyeParam {
+        
+        private System.DateTime dateField;
+        
+        private string belgeNoField;
+        
+        private int docTraIdField;
+        
+        private int docNumberDIdField;
+        
+        private int masterIdField;
+        
+        private int packageCountField;
+        
+        private int userIdField;
+        
+        private int transportTypeIdField;
+        
+        private int transporterIdField;
+        
+        private string voucherSerialField;
+        
+        private string voucherNoField;
+        
+        private int entityIdField;
+        
+        private int[] masterIdsField;
+        
+        private bool useParamDateField;
+        
+        private int transferWhouseIdField;
+        
+        private int salesPersonIdField;
+        
+        private string note1Field;
+        
+        private string note2Field;
+        
+        private string note3Field;
+        
+        private bool insertLocationOutputField;
+        
+        private string frmPageCodeField;
+        
+        private string frmPageParamField;
+        
+        private System.Nullable<bool> isLocalCurActionField;
+        
+        private string startTimeField;
+        
+        private System.DateTime actualDespatchDateField;
+        
+        private System.DateTime inventoryDateField;
+        
+        private string licencePlateField;
+        
+        private string driverIdentifyNoField;
+        
+        private string driverNameField;
+        
+        private string driverFamilyNameField;
+        
+        private string driverGsmNoField;
+        
+        private string transportEquipmentField;
+        
+        private int vehicleIdField;
+        
+        private string issueTimeField;
+        
+        private string registerNameField;
+        
+        private string shippingDesc1Field;
+        
+        /// <remarks/>
+        public System.DateTime Date {
+            get {
+                return this.dateField;
+            }
+            set {
+                this.dateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string BelgeNo {
+            get {
+                return this.belgeNoField;
+            }
+            set {
+                this.belgeNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int DocTraId {
+            get {
+                return this.docTraIdField;
+            }
+            set {
+                this.docTraIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int DocNumberDId {
+            get {
+                return this.docNumberDIdField;
+            }
+            set {
+                this.docNumberDIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int MasterId {
+            get {
+                return this.masterIdField;
+            }
+            set {
+                this.masterIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PackageCount {
+            get {
+                return this.packageCountField;
+            }
+            set {
+                this.packageCountField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int UserId {
+            get {
+                return this.userIdField;
+            }
+            set {
+                this.userIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TransportTypeId {
+            get {
+                return this.transportTypeIdField;
+            }
+            set {
+                this.transportTypeIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TransporterId {
+            get {
+                return this.transporterIdField;
+            }
+            set {
+                this.transporterIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string VoucherSerial {
+            get {
+                return this.voucherSerialField;
+            }
+            set {
+                this.voucherSerialField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string VoucherNo {
+            get {
+                return this.voucherNoField;
+            }
+            set {
+                this.voucherNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int EntityId {
+            get {
+                return this.entityIdField;
+            }
+            set {
+                this.entityIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int[] MasterIds {
+            get {
+                return this.masterIdsField;
+            }
+            set {
+                this.masterIdsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool UseParamDate {
+            get {
+                return this.useParamDateField;
+            }
+            set {
+                this.useParamDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TransferWhouseId {
+            get {
+                return this.transferWhouseIdField;
+            }
+            set {
+                this.transferWhouseIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int SalesPersonId {
+            get {
+                return this.salesPersonIdField;
+            }
+            set {
+                this.salesPersonIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Note1 {
+            get {
+                return this.note1Field;
+            }
+            set {
+                this.note1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Note2 {
+            get {
+                return this.note2Field;
+            }
+            set {
+                this.note2Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Note3 {
+            get {
+                return this.note3Field;
+            }
+            set {
+                this.note3Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool InsertLocationOutput {
+            get {
+                return this.insertLocationOutputField;
+            }
+            set {
+                this.insertLocationOutputField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string FrmPageCode {
+            get {
+                return this.frmPageCodeField;
+            }
+            set {
+                this.frmPageCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string FrmPageParam {
+            get {
+                return this.frmPageParamField;
+            }
+            set {
+                this.frmPageParamField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<bool> isLocalCurAction {
+            get {
+                return this.isLocalCurActionField;
+            }
+            set {
+                this.isLocalCurActionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string StartTime {
+            get {
+                return this.startTimeField;
+            }
+            set {
+                this.startTimeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime ActualDespatchDate {
+            get {
+                return this.actualDespatchDateField;
+            }
+            set {
+                this.actualDespatchDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime InventoryDate {
+            get {
+                return this.inventoryDateField;
+            }
+            set {
+                this.inventoryDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string LicencePlate {
+            get {
+                return this.licencePlateField;
+            }
+            set {
+                this.licencePlateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DriverIdentifyNo {
+            get {
+                return this.driverIdentifyNoField;
+            }
+            set {
+                this.driverIdentifyNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DriverName {
+            get {
+                return this.driverNameField;
+            }
+            set {
+                this.driverNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DriverFamilyName {
+            get {
+                return this.driverFamilyNameField;
+            }
+            set {
+                this.driverFamilyNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DriverGsmNo {
+            get {
+                return this.driverGsmNoField;
+            }
+            set {
+                this.driverGsmNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string TransportEquipment {
+            get {
+                return this.transportEquipmentField;
+            }
+            set {
+                this.transportEquipmentField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int VehicleId {
+            get {
+                return this.vehicleIdField;
+            }
+            set {
+                this.vehicleIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string IssueTime {
+            get {
+                return this.issueTimeField;
+            }
+            set {
+                this.issueTimeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string RegisterName {
+            get {
+                return this.registerNameField;
+            }
+            set {
+                this.registerNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ShippingDesc1 {
+            get {
+                return this.shippingDesc1Field;
+            }
+            set {
+                this.shippingDesc1Field = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ServiceResultOfItemPickingParam {
         
         private string messageField;
         
         private bool resultField;
         
-        private ItemInfo[] valueField;
+        private ItemPickingParam valueField;
         
         private int pageIndexField;
         
@@ -2852,7 +4877,7 @@ namespace MobileWhouse.UyumConnector {
         }
         
         /// <remarks/>
-        public ItemInfo[] Value {
+        public ItemPickingParam Value {
             get {
                 return this.valueField;
             }
@@ -2878,6 +4903,1438 @@ namespace MobileWhouse.UyumConnector {
             }
             set {
                 this.totalPageField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ItemPickingParam {
+        
+        private int sevkEmriIdField;
+        
+        private string sevkEmriNoField;
+        
+        private int entityIdField;
+        
+        private System.DateTime sevkEmriDocDateField;
+        
+        private int packageTraMIdField;
+        
+        private string packageNoField;
+        
+        private int itemPickingMIdField;
+        
+        private int sevkEmriDIdField;
+        
+        private int whouseIdField;
+        
+        private decimal qtyField;
+        
+        private ItemPickingDetail[] detailsField;
+        
+        private string note1Field;
+        
+        private string note2Field;
+        
+        /// <remarks/>
+        public int SevkEmriId {
+            get {
+                return this.sevkEmriIdField;
+            }
+            set {
+                this.sevkEmriIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SevkEmriNo {
+            get {
+                return this.sevkEmriNoField;
+            }
+            set {
+                this.sevkEmriNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int EntityId {
+            get {
+                return this.entityIdField;
+            }
+            set {
+                this.entityIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime SevkEmriDocDate {
+            get {
+                return this.sevkEmriDocDateField;
+            }
+            set {
+                this.sevkEmriDocDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PackageTraMId {
+            get {
+                return this.packageTraMIdField;
+            }
+            set {
+                this.packageTraMIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string PackageNo {
+            get {
+                return this.packageNoField;
+            }
+            set {
+                this.packageNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ItemPickingMId {
+            get {
+                return this.itemPickingMIdField;
+            }
+            set {
+                this.itemPickingMIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int SevkEmriDId {
+            get {
+                return this.sevkEmriDIdField;
+            }
+            set {
+                this.sevkEmriDIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int WhouseId {
+            get {
+                return this.whouseIdField;
+            }
+            set {
+                this.whouseIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public decimal Qty {
+            get {
+                return this.qtyField;
+            }
+            set {
+                this.qtyField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public ItemPickingDetail[] Details {
+            get {
+                return this.detailsField;
+            }
+            set {
+                this.detailsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Note1 {
+            get {
+                return this.note1Field;
+            }
+            set {
+                this.note1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Note2 {
+            get {
+                return this.note2Field;
+            }
+            set {
+                this.note2Field = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ItemPickingDetail {
+        
+        private int idField;
+        
+        private int stokIdField;
+        
+        private string stokKodField;
+        
+        private string stokAdField;
+        
+        private int locationIdField;
+        
+        private string locationCodeField;
+        
+        private decimal qtyField;
+        
+        private decimal qtyShippingField;
+        
+        private int sourceDIdField;
+        
+        private decimal qtyReadField;
+        
+        private bool isRealField;
+        
+        private int readUnitIdField;
+        
+        private string readUnitCodeField;
+        
+        private int unitIdField;
+        
+        private string unitCodeField;
+        
+        private decimal qtyReadPrmField;
+        
+        private int packageTraDIdField;
+        
+        private int packageTraMIdField;
+        
+        private bool isFantomField;
+        
+        private int stokTipField;
+        
+        private int itemAttr1IdField;
+        
+        private string itemAttr1CodeField;
+        
+        private int itemAttr2IdField;
+        
+        private string itemAttr2CodeField;
+        
+        private int itemAttr3IdField;
+        
+        private string itemAttr3CodeField;
+        
+        private int qualityIdField;
+        
+        private string qualityCodeField;
+        
+        private int lotIdField;
+        
+        private string lotCodeField;
+        
+        private int colorIdField;
+        
+        private string colorCodeField;
+        
+        private int packageTypeIdField;
+        
+        private int serialMIdField;
+        
+        private int whouseIdField;
+        
+        private string whouseCodeField;
+        
+        private decimal qtyFreePrmField;
+        
+        private decimal qtyFreeSecField;
+        
+        private bool freePrmImportantField;
+        
+        private int freePrmMIdField;
+        
+        private string note1Field;
+        
+        private string note2Field;
+        
+        private string note3Field;
+        
+        private bool isSubQualityField;
+        
+        private ItemSubQuality[] subQualityListField;
+        
+        private int parentItemPickingDIdField;
+        
+        private int tempCoDocTraIdWaybillField;
+        
+        private string tempCoDocTraCodeWaybillField;
+        
+        private bool tempCoDocTraCodeIsTransferField;
+        
+        /// <remarks/>
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int StokId {
+            get {
+                return this.stokIdField;
+            }
+            set {
+                this.stokIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string StokKod {
+            get {
+                return this.stokKodField;
+            }
+            set {
+                this.stokKodField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string StokAd {
+            get {
+                return this.stokAdField;
+            }
+            set {
+                this.stokAdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int LocationId {
+            get {
+                return this.locationIdField;
+            }
+            set {
+                this.locationIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string LocationCode {
+            get {
+                return this.locationCodeField;
+            }
+            set {
+                this.locationCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public decimal Qty {
+            get {
+                return this.qtyField;
+            }
+            set {
+                this.qtyField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public decimal QtyShipping {
+            get {
+                return this.qtyShippingField;
+            }
+            set {
+                this.qtyShippingField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int SourceDId {
+            get {
+                return this.sourceDIdField;
+            }
+            set {
+                this.sourceDIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public decimal QtyRead {
+            get {
+                return this.qtyReadField;
+            }
+            set {
+                this.qtyReadField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool IsReal {
+            get {
+                return this.isRealField;
+            }
+            set {
+                this.isRealField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ReadUnitId {
+            get {
+                return this.readUnitIdField;
+            }
+            set {
+                this.readUnitIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ReadUnitCode {
+            get {
+                return this.readUnitCodeField;
+            }
+            set {
+                this.readUnitCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int UnitId {
+            get {
+                return this.unitIdField;
+            }
+            set {
+                this.unitIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string UnitCode {
+            get {
+                return this.unitCodeField;
+            }
+            set {
+                this.unitCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public decimal QtyReadPrm {
+            get {
+                return this.qtyReadPrmField;
+            }
+            set {
+                this.qtyReadPrmField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PackageTraDId {
+            get {
+                return this.packageTraDIdField;
+            }
+            set {
+                this.packageTraDIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PackageTraMId {
+            get {
+                return this.packageTraMIdField;
+            }
+            set {
+                this.packageTraMIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool IsFantom {
+            get {
+                return this.isFantomField;
+            }
+            set {
+                this.isFantomField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int StokTip {
+            get {
+                return this.stokTipField;
+            }
+            set {
+                this.stokTipField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ItemAttr1Id {
+            get {
+                return this.itemAttr1IdField;
+            }
+            set {
+                this.itemAttr1IdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ItemAttr1Code {
+            get {
+                return this.itemAttr1CodeField;
+            }
+            set {
+                this.itemAttr1CodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ItemAttr2Id {
+            get {
+                return this.itemAttr2IdField;
+            }
+            set {
+                this.itemAttr2IdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ItemAttr2Code {
+            get {
+                return this.itemAttr2CodeField;
+            }
+            set {
+                this.itemAttr2CodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ItemAttr3Id {
+            get {
+                return this.itemAttr3IdField;
+            }
+            set {
+                this.itemAttr3IdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ItemAttr3Code {
+            get {
+                return this.itemAttr3CodeField;
+            }
+            set {
+                this.itemAttr3CodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int QualityId {
+            get {
+                return this.qualityIdField;
+            }
+            set {
+                this.qualityIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string QualityCode {
+            get {
+                return this.qualityCodeField;
+            }
+            set {
+                this.qualityCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int LotId {
+            get {
+                return this.lotIdField;
+            }
+            set {
+                this.lotIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string LotCode {
+            get {
+                return this.lotCodeField;
+            }
+            set {
+                this.lotCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ColorId {
+            get {
+                return this.colorIdField;
+            }
+            set {
+                this.colorIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ColorCode {
+            get {
+                return this.colorCodeField;
+            }
+            set {
+                this.colorCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PackageTypeId {
+            get {
+                return this.packageTypeIdField;
+            }
+            set {
+                this.packageTypeIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int SerialMId {
+            get {
+                return this.serialMIdField;
+            }
+            set {
+                this.serialMIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int WhouseId {
+            get {
+                return this.whouseIdField;
+            }
+            set {
+                this.whouseIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string WhouseCode {
+            get {
+                return this.whouseCodeField;
+            }
+            set {
+                this.whouseCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public decimal QtyFreePrm {
+            get {
+                return this.qtyFreePrmField;
+            }
+            set {
+                this.qtyFreePrmField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public decimal QtyFreeSec {
+            get {
+                return this.qtyFreeSecField;
+            }
+            set {
+                this.qtyFreeSecField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool FreePrmImportant {
+            get {
+                return this.freePrmImportantField;
+            }
+            set {
+                this.freePrmImportantField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int FreePrmMId {
+            get {
+                return this.freePrmMIdField;
+            }
+            set {
+                this.freePrmMIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Note1 {
+            get {
+                return this.note1Field;
+            }
+            set {
+                this.note1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Note2 {
+            get {
+                return this.note2Field;
+            }
+            set {
+                this.note2Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Note3 {
+            get {
+                return this.note3Field;
+            }
+            set {
+                this.note3Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool IsSubQuality {
+            get {
+                return this.isSubQualityField;
+            }
+            set {
+                this.isSubQualityField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public ItemSubQuality[] SubQualityList {
+            get {
+                return this.subQualityListField;
+            }
+            set {
+                this.subQualityListField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ParentItemPickingDId {
+            get {
+                return this.parentItemPickingDIdField;
+            }
+            set {
+                this.parentItemPickingDIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TempCoDocTraIdWaybill {
+            get {
+                return this.tempCoDocTraIdWaybillField;
+            }
+            set {
+                this.tempCoDocTraIdWaybillField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string TempCoDocTraCodeWaybill {
+            get {
+                return this.tempCoDocTraCodeWaybillField;
+            }
+            set {
+                this.tempCoDocTraCodeWaybillField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool TempCoDocTraCodeIsTransfer {
+            get {
+                return this.tempCoDocTraCodeIsTransferField;
+            }
+            set {
+                this.tempCoDocTraCodeIsTransferField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ItemSubQuality {
+        
+        private int subQualityIdField;
+        
+        private string subQualityCodeField;
+        
+        /// <remarks/>
+        public int SubQualityId {
+            get {
+                return this.subQualityIdField;
+            }
+            set {
+                this.subQualityIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SubQualityCode {
+            get {
+                return this.subQualityCodeField;
+            }
+            set {
+                this.subQualityCodeField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class PackageTranInfo {
+        
+        private string docNoField;
+        
+        private System.DateTime docDateField;
+        
+        private int whouseId1Field;
+        
+        private int whouseId2Field;
+        
+        private PackageInfo[] itemsField;
+        
+        /// <remarks/>
+        public string DocNo {
+            get {
+                return this.docNoField;
+            }
+            set {
+                this.docNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime DocDate {
+            get {
+                return this.docDateField;
+            }
+            set {
+                this.docDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int WhouseId1 {
+            get {
+                return this.whouseId1Field;
+            }
+            set {
+                this.whouseId1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int WhouseId2 {
+            get {
+                return this.whouseId2Field;
+            }
+            set {
+                this.whouseId2Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public PackageInfo[] Items {
+            get {
+                return this.itemsField;
+            }
+            set {
+                this.itemsField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class PackageInfo {
+        
+        private int packageTraMIdField;
+        
+        private string packageNoField;
+        
+        private int packageMIdField;
+        
+        /// <remarks/>
+        public int PackageTraMId {
+            get {
+                return this.packageTraMIdField;
+            }
+            set {
+                this.packageTraMIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string PackageNo {
+            get {
+                return this.packageNoField;
+            }
+            set {
+                this.packageNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PackageMId {
+            get {
+                return this.packageMIdField;
+            }
+            set {
+                this.packageMIdField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ServiceRequestOfPackageTranInfo {
+        
+        private Token tokenField;
+        
+        private PackageTranInfo valueField;
+        
+        private int pageIndexField;
+        
+        private int pageSizeField;
+        
+        private string attachmentField;
+        
+        /// <remarks/>
+        public Token Token {
+            get {
+                return this.tokenField;
+            }
+            set {
+                this.tokenField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public PackageTranInfo Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageIndex {
+            get {
+                return this.pageIndexField;
+            }
+            set {
+                this.pageIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageSize {
+            get {
+                return this.pageSizeField;
+            }
+            set {
+                this.pageSizeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Attachment {
+            get {
+                return this.attachmentField;
+            }
+            set {
+                this.attachmentField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ServiceRequestOfPackageDetailWithDocTra {
+        
+        private Token tokenField;
+        
+        private PackageDetailWithDocTra valueField;
+        
+        private int pageIndexField;
+        
+        private int pageSizeField;
+        
+        private string attachmentField;
+        
+        /// <remarks/>
+        public Token Token {
+            get {
+                return this.tokenField;
+            }
+            set {
+                this.tokenField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public PackageDetailWithDocTra Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageIndex {
+            get {
+                return this.pageIndexField;
+            }
+            set {
+                this.pageIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageSize {
+            get {
+                return this.pageSizeField;
+            }
+            set {
+                this.pageSizeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Attachment {
+            get {
+                return this.attachmentField;
+            }
+            set {
+                this.attachmentField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class PackageDetailWithDocTra : PackageDetail {
+        
+        private int docTraIdForInputField;
+        
+        private int docTraIdForOutputField;
+        
+        /// <remarks/>
+        public int DocTraIdForInput {
+            get {
+                return this.docTraIdForInputField;
+            }
+            set {
+                this.docTraIdForInputField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int DocTraIdForOutput {
+            get {
+                return this.docTraIdForOutputField;
+            }
+            set {
+                this.docTraIdForOutputField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PackageDetailWithDocTra))]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class PackageDetail {
+        
+        private string packageMNoField;
+        
+        private ItemInfo itemInfoField;
+        
+        private int packageTraMIdField;
+        
+        private int packageMIdField;
+        
+        private int locationIdField;
+        
+        private decimal qtyField;
+        
+        private int packageDIdField;
+        
+        private int packageTraDIdField;
+        
+        private int itemAttribute1Field;
+        
+        private int itemAttribute2Field;
+        
+        private int itemAttribute3Field;
+        
+        private string itemAttribute1CodeField;
+        
+        private string itemAttribute2CodeField;
+        
+        private string itemAttribute3CodeField;
+        
+        private int qualityIdField;
+        
+        private string qualityCodeField;
+        
+        private int colorIdField;
+        
+        private string colorCodeField;
+        
+        private int bwhLocationIdField;
+        
+        private string locationCodeField;
+        
+        private string packageNoField;
+        
+        private int whouseIdField;
+        
+        private int unitIdField;
+        
+        private int lotIdField;
+        
+        private string lotCodeField;
+        
+        private int freePrmIdField;
+        
+        private int freeSecIdField;
+        
+        private int packageTypeIdField;
+        
+        private decimal qtyFreePrmField;
+        
+        private decimal qtyFreeSecField;
+        
+        /// <remarks/>
+        public string PackageMNo {
+            get {
+                return this.packageMNoField;
+            }
+            set {
+                this.packageMNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public ItemInfo ItemInfo {
+            get {
+                return this.itemInfoField;
+            }
+            set {
+                this.itemInfoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PackageTraMId {
+            get {
+                return this.packageTraMIdField;
+            }
+            set {
+                this.packageTraMIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PackageMId {
+            get {
+                return this.packageMIdField;
+            }
+            set {
+                this.packageMIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int LocationId {
+            get {
+                return this.locationIdField;
+            }
+            set {
+                this.locationIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public decimal Qty {
+            get {
+                return this.qtyField;
+            }
+            set {
+                this.qtyField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PackageDId {
+            get {
+                return this.packageDIdField;
+            }
+            set {
+                this.packageDIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PackageTraDId {
+            get {
+                return this.packageTraDIdField;
+            }
+            set {
+                this.packageTraDIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ItemAttribute1 {
+            get {
+                return this.itemAttribute1Field;
+            }
+            set {
+                this.itemAttribute1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ItemAttribute2 {
+            get {
+                return this.itemAttribute2Field;
+            }
+            set {
+                this.itemAttribute2Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ItemAttribute3 {
+            get {
+                return this.itemAttribute3Field;
+            }
+            set {
+                this.itemAttribute3Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ItemAttribute1Code {
+            get {
+                return this.itemAttribute1CodeField;
+            }
+            set {
+                this.itemAttribute1CodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ItemAttribute2Code {
+            get {
+                return this.itemAttribute2CodeField;
+            }
+            set {
+                this.itemAttribute2CodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ItemAttribute3Code {
+            get {
+                return this.itemAttribute3CodeField;
+            }
+            set {
+                this.itemAttribute3CodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int QualityId {
+            get {
+                return this.qualityIdField;
+            }
+            set {
+                this.qualityIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string QualityCode {
+            get {
+                return this.qualityCodeField;
+            }
+            set {
+                this.qualityCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ColorId {
+            get {
+                return this.colorIdField;
+            }
+            set {
+                this.colorIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ColorCode {
+            get {
+                return this.colorCodeField;
+            }
+            set {
+                this.colorCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int BwhLocationId {
+            get {
+                return this.bwhLocationIdField;
+            }
+            set {
+                this.bwhLocationIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string LocationCode {
+            get {
+                return this.locationCodeField;
+            }
+            set {
+                this.locationCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string PackageNo {
+            get {
+                return this.packageNoField;
+            }
+            set {
+                this.packageNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int WhouseId {
+            get {
+                return this.whouseIdField;
+            }
+            set {
+                this.whouseIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int UnitId {
+            get {
+                return this.unitIdField;
+            }
+            set {
+                this.unitIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int LotId {
+            get {
+                return this.lotIdField;
+            }
+            set {
+                this.lotIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string LotCode {
+            get {
+                return this.lotCodeField;
+            }
+            set {
+                this.lotCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int FreePrmId {
+            get {
+                return this.freePrmIdField;
+            }
+            set {
+                this.freePrmIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int FreeSecId {
+            get {
+                return this.freeSecIdField;
+            }
+            set {
+                this.freeSecIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PackageTypeId {
+            get {
+                return this.packageTypeIdField;
+            }
+            set {
+                this.packageTypeIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public decimal QtyFreePrm {
+            get {
+                return this.qtyFreePrmField;
+            }
+            set {
+                this.qtyFreePrmField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public decimal QtyFreeSec {
+            get {
+                return this.qtyFreeSecField;
+            }
+            set {
+                this.qtyFreeSecField = value;
             }
         }
     }
@@ -2947,6 +6404,12 @@ namespace MobileWhouse.UyumConnector {
         private decimal toleranceMaxSoField;
         
         private bool dimCard2UsedField;
+        
+        private decimal unitPriceTraField;
+        
+        private int priceListIdField;
+        
+        private int priceListDIdField;
         
         /// <remarks/>
         public PackageDetailType PackageDetailType {
@@ -3245,6 +6708,36 @@ namespace MobileWhouse.UyumConnector {
             }
             set {
                 this.dimCard2UsedField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public decimal UnitPriceTra {
+            get {
+                return this.unitPriceTraField;
+            }
+            set {
+                this.unitPriceTraField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PriceListId {
+            get {
+                return this.priceListIdField;
+            }
+            set {
+                this.priceListIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PriceListDId {
+            get {
+                return this.priceListDIdField;
+            }
+            set {
+                this.priceListDIdField = value;
             }
         }
     }
@@ -3563,6 +7056,511 @@ namespace MobileWhouse.UyumConnector {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ServiceResultOfPackageDetail {
+        
+        private string messageField;
+        
+        private bool resultField;
+        
+        private PackageDetail valueField;
+        
+        private int pageIndexField;
+        
+        private int totalPageField;
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public PackageDetail Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageIndex {
+            get {
+                return this.pageIndexField;
+            }
+            set {
+                this.pageIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TotalPage {
+            get {
+                return this.totalPageField;
+            }
+            set {
+                this.totalPageField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ServiceResultOfListOfReferralDetailInfo {
+        
+        private string messageField;
+        
+        private bool resultField;
+        
+        private ReferralDetailInfo[] valueField;
+        
+        private int pageIndexField;
+        
+        private int totalPageField;
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public ReferralDetailInfo[] Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageIndex {
+            get {
+                return this.pageIndexField;
+            }
+            set {
+                this.pageIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TotalPage {
+            get {
+                return this.totalPageField;
+            }
+            set {
+                this.totalPageField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class PaketSayimResult {
+        
+        private bool resultField;
+        
+        private string messageField;
+        
+        private int packageCycleMIdField;
+        
+        private int packageCycleDIdField;
+        
+        /// <remarks/>
+        public bool result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PackageCycleMId {
+            get {
+                return this.packageCycleMIdField;
+            }
+            set {
+                this.packageCycleMIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PackageCycleDId {
+            get {
+                return this.packageCycleDIdField;
+            }
+            set {
+                this.packageCycleDIdField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ServiceResultOfPaketSayimResult {
+        
+        private string messageField;
+        
+        private bool resultField;
+        
+        private PaketSayimResult valueField;
+        
+        private int pageIndexField;
+        
+        private int totalPageField;
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public PaketSayimResult Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageIndex {
+            get {
+                return this.pageIndexField;
+            }
+            set {
+                this.pageIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TotalPage {
+            get {
+                return this.totalPageField;
+            }
+            set {
+                this.totalPageField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class PaketInfo {
+        
+        private int packageCycleMIdField;
+        
+        private string docNoField;
+        
+        private System.DateTime docDateField;
+        
+        private int whouseIdField;
+        
+        private int bwhLocationIdField;
+        
+        private string packageNoField;
+        
+        private int packageCycleDIdField;
+        
+        private bool itemDeleteField;
+        
+        private bool docDeleteField;
+        
+        /// <remarks/>
+        public int PackageCycleMId {
+            get {
+                return this.packageCycleMIdField;
+            }
+            set {
+                this.packageCycleMIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DocNo {
+            get {
+                return this.docNoField;
+            }
+            set {
+                this.docNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime DocDate {
+            get {
+                return this.docDateField;
+            }
+            set {
+                this.docDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int WhouseId {
+            get {
+                return this.whouseIdField;
+            }
+            set {
+                this.whouseIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int BwhLocationId {
+            get {
+                return this.bwhLocationIdField;
+            }
+            set {
+                this.bwhLocationIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string PackageNo {
+            get {
+                return this.packageNoField;
+            }
+            set {
+                this.packageNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PackageCycleDId {
+            get {
+                return this.packageCycleDIdField;
+            }
+            set {
+                this.packageCycleDIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool ItemDelete {
+            get {
+                return this.itemDeleteField;
+            }
+            set {
+                this.itemDeleteField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool DocDelete {
+            get {
+                return this.docDeleteField;
+            }
+            set {
+                this.docDeleteField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ServiceRequestOfPaketInfo {
+        
+        private Token tokenField;
+        
+        private PaketInfo valueField;
+        
+        private int pageIndexField;
+        
+        private int pageSizeField;
+        
+        private string attachmentField;
+        
+        /// <remarks/>
+        public Token Token {
+            get {
+                return this.tokenField;
+            }
+            set {
+                this.tokenField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public PaketInfo Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageIndex {
+            get {
+                return this.pageIndexField;
+            }
+            set {
+                this.pageIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageSize {
+            get {
+                return this.pageSizeField;
+            }
+            set {
+                this.pageSizeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Attachment {
+            get {
+                return this.attachmentField;
+            }
+            set {
+                this.attachmentField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ServiceResultOfListOfItemInfo {
+        
+        private string messageField;
+        
+        private bool resultField;
+        
+        private ItemInfo[] valueField;
+        
+        private int pageIndexField;
+        
+        private int totalPageField;
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public ItemInfo[] Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageIndex {
+            get {
+                return this.pageIndexField;
+            }
+            set {
+                this.pageIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TotalPage {
+            get {
+                return this.totalPageField;
+            }
+            set {
+                this.totalPageField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class ServiceResultOfDataTable {
         
         private string messageField;
@@ -3622,6 +7620,73 @@ namespace MobileWhouse.UyumConnector {
             }
             set {
                 this.totalPageField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ServiceRequestOfString {
+        
+        private Token tokenField;
+        
+        private string valueField;
+        
+        private int pageIndexField;
+        
+        private int pageSizeField;
+        
+        private string attachmentField;
+        
+        /// <remarks/>
+        public Token Token {
+            get {
+                return this.tokenField;
+            }
+            set {
+                this.tokenField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageIndex {
+            get {
+                return this.pageIndexField;
+            }
+            set {
+                this.pageIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageSize {
+            get {
+                return this.pageSizeField;
+            }
+            set {
+                this.pageSizeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Attachment {
+            get {
+                return this.attachmentField;
+            }
+            set {
+                this.attachmentField = value;
             }
         }
     }
@@ -4617,720 +8682,6 @@ namespace MobileWhouse.UyumConnector {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WaybillInfo))]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class SaveSevkIrsaliyeParam {
-        
-        private System.DateTime dateField;
-        
-        private string belgeNoField;
-        
-        private int docTraIdField;
-        
-        private int docNumberDIdField;
-        
-        private int masterIdField;
-        
-        private int packageCountField;
-        
-        private int userIdField;
-        
-        private int transportTypeIdField;
-        
-        private int transporterIdField;
-        
-        private string voucherSerialField;
-        
-        private string voucherNoField;
-        
-        private int entityIdField;
-        
-        private int[] masterIdsField;
-        
-        private bool useParamDateField;
-        
-        private int transferWhouseIdField;
-        
-        private int salesPersonIdField;
-        
-        private string note1Field;
-        
-        private string note2Field;
-        
-        private string note3Field;
-        
-        private bool insertLocationOutputField;
-        
-        private string frmPageCodeField;
-        
-        private string frmPageParamField;
-        
-        private System.Nullable<bool> isLocalCurActionField;
-        
-        private string startTimeField;
-        
-        private System.DateTime actualDespatchDateField;
-        
-        private System.DateTime inventoryDateField;
-        
-        private string licencePlateField;
-        
-        private string driverIdentifyNoField;
-        
-        private string driverNameField;
-        
-        private string driverFamilyNameField;
-        
-        private string driverGsmNoField;
-        
-        private string transportEquipmentField;
-        
-        private int vehicleIdField;
-        
-        private string issueTimeField;
-        
-        private string registerNameField;
-        
-        private string shippingDesc1Field;
-        
-        /// <remarks/>
-        public System.DateTime Date {
-            get {
-                return this.dateField;
-            }
-            set {
-                this.dateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string BelgeNo {
-            get {
-                return this.belgeNoField;
-            }
-            set {
-                this.belgeNoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int DocTraId {
-            get {
-                return this.docTraIdField;
-            }
-            set {
-                this.docTraIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int DocNumberDId {
-            get {
-                return this.docNumberDIdField;
-            }
-            set {
-                this.docNumberDIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int MasterId {
-            get {
-                return this.masterIdField;
-            }
-            set {
-                this.masterIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PackageCount {
-            get {
-                return this.packageCountField;
-            }
-            set {
-                this.packageCountField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int UserId {
-            get {
-                return this.userIdField;
-            }
-            set {
-                this.userIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int TransportTypeId {
-            get {
-                return this.transportTypeIdField;
-            }
-            set {
-                this.transportTypeIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int TransporterId {
-            get {
-                return this.transporterIdField;
-            }
-            set {
-                this.transporterIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string VoucherSerial {
-            get {
-                return this.voucherSerialField;
-            }
-            set {
-                this.voucherSerialField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string VoucherNo {
-            get {
-                return this.voucherNoField;
-            }
-            set {
-                this.voucherNoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int EntityId {
-            get {
-                return this.entityIdField;
-            }
-            set {
-                this.entityIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int[] MasterIds {
-            get {
-                return this.masterIdsField;
-            }
-            set {
-                this.masterIdsField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool UseParamDate {
-            get {
-                return this.useParamDateField;
-            }
-            set {
-                this.useParamDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int TransferWhouseId {
-            get {
-                return this.transferWhouseIdField;
-            }
-            set {
-                this.transferWhouseIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int SalesPersonId {
-            get {
-                return this.salesPersonIdField;
-            }
-            set {
-                this.salesPersonIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Note1 {
-            get {
-                return this.note1Field;
-            }
-            set {
-                this.note1Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Note2 {
-            get {
-                return this.note2Field;
-            }
-            set {
-                this.note2Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Note3 {
-            get {
-                return this.note3Field;
-            }
-            set {
-                this.note3Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool InsertLocationOutput {
-            get {
-                return this.insertLocationOutputField;
-            }
-            set {
-                this.insertLocationOutputField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string FrmPageCode {
-            get {
-                return this.frmPageCodeField;
-            }
-            set {
-                this.frmPageCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string FrmPageParam {
-            get {
-                return this.frmPageParamField;
-            }
-            set {
-                this.frmPageParamField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<bool> isLocalCurAction {
-            get {
-                return this.isLocalCurActionField;
-            }
-            set {
-                this.isLocalCurActionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string StartTime {
-            get {
-                return this.startTimeField;
-            }
-            set {
-                this.startTimeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime ActualDespatchDate {
-            get {
-                return this.actualDespatchDateField;
-            }
-            set {
-                this.actualDespatchDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime InventoryDate {
-            get {
-                return this.inventoryDateField;
-            }
-            set {
-                this.inventoryDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string LicencePlate {
-            get {
-                return this.licencePlateField;
-            }
-            set {
-                this.licencePlateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DriverIdentifyNo {
-            get {
-                return this.driverIdentifyNoField;
-            }
-            set {
-                this.driverIdentifyNoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DriverName {
-            get {
-                return this.driverNameField;
-            }
-            set {
-                this.driverNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DriverFamilyName {
-            get {
-                return this.driverFamilyNameField;
-            }
-            set {
-                this.driverFamilyNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DriverGsmNo {
-            get {
-                return this.driverGsmNoField;
-            }
-            set {
-                this.driverGsmNoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string TransportEquipment {
-            get {
-                return this.transportEquipmentField;
-            }
-            set {
-                this.transportEquipmentField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int VehicleId {
-            get {
-                return this.vehicleIdField;
-            }
-            set {
-                this.vehicleIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string IssueTime {
-            get {
-                return this.issueTimeField;
-            }
-            set {
-                this.issueTimeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string RegisterName {
-            get {
-                return this.registerNameField;
-            }
-            set {
-                this.registerNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ShippingDesc1 {
-            get {
-                return this.shippingDesc1Field;
-            }
-            set {
-                this.shippingDesc1Field = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class WaybillInfo : SaveSevkIrsaliyeParam {
-        
-        private ReferralDetailInfo[] detailsField;
-        
-        private OrderDetailInfo[] orderDetailsField;
-        
-        private OrderDetailBarcode[] barcodeListField;
-        
-        /// <remarks/>
-        public ReferralDetailInfo[] Details {
-            get {
-                return this.detailsField;
-            }
-            set {
-                this.detailsField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public OrderDetailInfo[] OrderDetails {
-            get {
-                return this.orderDetailsField;
-            }
-            set {
-                this.orderDetailsField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public OrderDetailBarcode[] BarcodeList {
-            get {
-                return this.barcodeListField;
-            }
-            set {
-                this.barcodeListField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class OrderDetailInfo {
-        
-        private int orderDetailIdField;
-        
-        private int itemIdField;
-        
-        private string itemCodeField;
-        
-        private string itemNameField;
-        
-        private decimal qtyField;
-        
-        private int whouseIdField;
-        
-        private System.DateTime arrivalDateField;
-        
-        private int itemAttr1IdField;
-        
-        private int itemAttr2IdField;
-        
-        private int itemAttr3IdField;
-        
-        private int qualityIdField;
-        
-        private int lotIdField;
-        
-        private int packageTypeIdField;
-        
-        private string orderNoField;
-        
-        private int orderMIdField;
-        
-        private int unitIdField;
-        
-        /// <remarks/>
-        public int OrderDetailId {
-            get {
-                return this.orderDetailIdField;
-            }
-            set {
-                this.orderDetailIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ItemId {
-            get {
-                return this.itemIdField;
-            }
-            set {
-                this.itemIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ItemCode {
-            get {
-                return this.itemCodeField;
-            }
-            set {
-                this.itemCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ItemName {
-            get {
-                return this.itemNameField;
-            }
-            set {
-                this.itemNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Qty {
-            get {
-                return this.qtyField;
-            }
-            set {
-                this.qtyField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int WhouseId {
-            get {
-                return this.whouseIdField;
-            }
-            set {
-                this.whouseIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime ArrivalDate {
-            get {
-                return this.arrivalDateField;
-            }
-            set {
-                this.arrivalDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ItemAttr1Id {
-            get {
-                return this.itemAttr1IdField;
-            }
-            set {
-                this.itemAttr1IdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ItemAttr2Id {
-            get {
-                return this.itemAttr2IdField;
-            }
-            set {
-                this.itemAttr2IdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ItemAttr3Id {
-            get {
-                return this.itemAttr3IdField;
-            }
-            set {
-                this.itemAttr3IdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int QualityId {
-            get {
-                return this.qualityIdField;
-            }
-            set {
-                this.qualityIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int LotId {
-            get {
-                return this.lotIdField;
-            }
-            set {
-                this.lotIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PackageTypeId {
-            get {
-                return this.packageTypeIdField;
-            }
-            set {
-                this.packageTypeIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string OrderNo {
-            get {
-                return this.orderNoField;
-            }
-            set {
-                this.orderNoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int OrderMId {
-            get {
-                return this.orderMIdField;
-            }
-            set {
-                this.orderMIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int UnitId {
-            get {
-                return this.unitIdField;
-            }
-            set {
-                this.unitIdField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class OrderDetailBarcode {
-        
-        private int orderDetailIdField;
-        
-        private string barcodeField;
-        
-        /// <remarks/>
-        public int OrderDetailId {
-            get {
-                return this.orderDetailIdField;
-            }
-            set {
-                this.orderDetailIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Barcode {
-            get {
-                return this.barcodeField;
-            }
-            set {
-                this.barcodeField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
@@ -5621,632 +8972,6 @@ namespace MobileWhouse.UyumConnector {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ItemPickingDetail {
-        
-        private int idField;
-        
-        private int stokIdField;
-        
-        private string stokKodField;
-        
-        private string stokAdField;
-        
-        private int locationIdField;
-        
-        private string locationCodeField;
-        
-        private decimal qtyField;
-        
-        private decimal qtyShippingField;
-        
-        private int sourceDIdField;
-        
-        private decimal qtyReadField;
-        
-        private bool isRealField;
-        
-        private int readUnitIdField;
-        
-        private string readUnitCodeField;
-        
-        private int unitIdField;
-        
-        private string unitCodeField;
-        
-        private decimal qtyReadPrmField;
-        
-        private int packageTraDIdField;
-        
-        private int packageTraMIdField;
-        
-        private bool isFantomField;
-        
-        private int stokTipField;
-        
-        private int itemAttr1IdField;
-        
-        private string itemAttr1CodeField;
-        
-        private int itemAttr2IdField;
-        
-        private string itemAttr2CodeField;
-        
-        private int itemAttr3IdField;
-        
-        private string itemAttr3CodeField;
-        
-        private int qualityIdField;
-        
-        private string qualityCodeField;
-        
-        private int lotIdField;
-        
-        private string lotCodeField;
-        
-        private int colorIdField;
-        
-        private string colorCodeField;
-        
-        private int packageTypeIdField;
-        
-        private int serialMIdField;
-        
-        private int whouseIdField;
-        
-        private string whouseCodeField;
-        
-        private decimal qtyFreePrmField;
-        
-        private decimal qtyFreeSecField;
-        
-        private bool freePrmImportantField;
-        
-        private int freePrmMIdField;
-        
-        private string note1Field;
-        
-        private string note2Field;
-        
-        private string note3Field;
-        
-        private bool isSubQualityField;
-        
-        private ItemSubQuality[] subQualityListField;
-        
-        private int parentItemPickingDIdField;
-        
-        private int tempCoDocTraIdWaybillField;
-        
-        private string tempCoDocTraCodeWaybillField;
-        
-        private bool tempCoDocTraCodeIsTransferField;
-        
-        /// <remarks/>
-        public int Id {
-            get {
-                return this.idField;
-            }
-            set {
-                this.idField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int StokId {
-            get {
-                return this.stokIdField;
-            }
-            set {
-                this.stokIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string StokKod {
-            get {
-                return this.stokKodField;
-            }
-            set {
-                this.stokKodField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string StokAd {
-            get {
-                return this.stokAdField;
-            }
-            set {
-                this.stokAdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int LocationId {
-            get {
-                return this.locationIdField;
-            }
-            set {
-                this.locationIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string LocationCode {
-            get {
-                return this.locationCodeField;
-            }
-            set {
-                this.locationCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Qty {
-            get {
-                return this.qtyField;
-            }
-            set {
-                this.qtyField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal QtyShipping {
-            get {
-                return this.qtyShippingField;
-            }
-            set {
-                this.qtyShippingField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int SourceDId {
-            get {
-                return this.sourceDIdField;
-            }
-            set {
-                this.sourceDIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal QtyRead {
-            get {
-                return this.qtyReadField;
-            }
-            set {
-                this.qtyReadField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool IsReal {
-            get {
-                return this.isRealField;
-            }
-            set {
-                this.isRealField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ReadUnitId {
-            get {
-                return this.readUnitIdField;
-            }
-            set {
-                this.readUnitIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ReadUnitCode {
-            get {
-                return this.readUnitCodeField;
-            }
-            set {
-                this.readUnitCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int UnitId {
-            get {
-                return this.unitIdField;
-            }
-            set {
-                this.unitIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string UnitCode {
-            get {
-                return this.unitCodeField;
-            }
-            set {
-                this.unitCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal QtyReadPrm {
-            get {
-                return this.qtyReadPrmField;
-            }
-            set {
-                this.qtyReadPrmField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PackageTraDId {
-            get {
-                return this.packageTraDIdField;
-            }
-            set {
-                this.packageTraDIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PackageTraMId {
-            get {
-                return this.packageTraMIdField;
-            }
-            set {
-                this.packageTraMIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool IsFantom {
-            get {
-                return this.isFantomField;
-            }
-            set {
-                this.isFantomField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int StokTip {
-            get {
-                return this.stokTipField;
-            }
-            set {
-                this.stokTipField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ItemAttr1Id {
-            get {
-                return this.itemAttr1IdField;
-            }
-            set {
-                this.itemAttr1IdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ItemAttr1Code {
-            get {
-                return this.itemAttr1CodeField;
-            }
-            set {
-                this.itemAttr1CodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ItemAttr2Id {
-            get {
-                return this.itemAttr2IdField;
-            }
-            set {
-                this.itemAttr2IdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ItemAttr2Code {
-            get {
-                return this.itemAttr2CodeField;
-            }
-            set {
-                this.itemAttr2CodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ItemAttr3Id {
-            get {
-                return this.itemAttr3IdField;
-            }
-            set {
-                this.itemAttr3IdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ItemAttr3Code {
-            get {
-                return this.itemAttr3CodeField;
-            }
-            set {
-                this.itemAttr3CodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int QualityId {
-            get {
-                return this.qualityIdField;
-            }
-            set {
-                this.qualityIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string QualityCode {
-            get {
-                return this.qualityCodeField;
-            }
-            set {
-                this.qualityCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int LotId {
-            get {
-                return this.lotIdField;
-            }
-            set {
-                this.lotIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string LotCode {
-            get {
-                return this.lotCodeField;
-            }
-            set {
-                this.lotCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ColorId {
-            get {
-                return this.colorIdField;
-            }
-            set {
-                this.colorIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ColorCode {
-            get {
-                return this.colorCodeField;
-            }
-            set {
-                this.colorCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PackageTypeId {
-            get {
-                return this.packageTypeIdField;
-            }
-            set {
-                this.packageTypeIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int SerialMId {
-            get {
-                return this.serialMIdField;
-            }
-            set {
-                this.serialMIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int WhouseId {
-            get {
-                return this.whouseIdField;
-            }
-            set {
-                this.whouseIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string WhouseCode {
-            get {
-                return this.whouseCodeField;
-            }
-            set {
-                this.whouseCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal QtyFreePrm {
-            get {
-                return this.qtyFreePrmField;
-            }
-            set {
-                this.qtyFreePrmField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal QtyFreeSec {
-            get {
-                return this.qtyFreeSecField;
-            }
-            set {
-                this.qtyFreeSecField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool FreePrmImportant {
-            get {
-                return this.freePrmImportantField;
-            }
-            set {
-                this.freePrmImportantField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int FreePrmMId {
-            get {
-                return this.freePrmMIdField;
-            }
-            set {
-                this.freePrmMIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Note1 {
-            get {
-                return this.note1Field;
-            }
-            set {
-                this.note1Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Note2 {
-            get {
-                return this.note2Field;
-            }
-            set {
-                this.note2Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Note3 {
-            get {
-                return this.note3Field;
-            }
-            set {
-                this.note3Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool IsSubQuality {
-            get {
-                return this.isSubQualityField;
-            }
-            set {
-                this.isSubQualityField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public ItemSubQuality[] SubQualityList {
-            get {
-                return this.subQualityListField;
-            }
-            set {
-                this.subQualityListField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ParentItemPickingDId {
-            get {
-                return this.parentItemPickingDIdField;
-            }
-            set {
-                this.parentItemPickingDIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int TempCoDocTraIdWaybill {
-            get {
-                return this.tempCoDocTraIdWaybillField;
-            }
-            set {
-                this.tempCoDocTraIdWaybillField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string TempCoDocTraCodeWaybill {
-            get {
-                return this.tempCoDocTraCodeWaybillField;
-            }
-            set {
-                this.tempCoDocTraCodeWaybillField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool TempCoDocTraCodeIsTransfer {
-            get {
-                return this.tempCoDocTraCodeIsTransferField;
-            }
-            set {
-                this.tempCoDocTraCodeIsTransferField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ItemSubQuality {
-        
-        private int subQualityIdField;
-        
-        private string subQualityCodeField;
-        
-        /// <remarks/>
-        public int SubQualityId {
-            get {
-                return this.subQualityIdField;
-            }
-            set {
-                this.subQualityIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string SubQualityCode {
-            get {
-                return this.subQualityCodeField;
-            }
-            set {
-                this.subQualityCodeField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class ServiceRequestOfItemPickingSaveContext {
         
         private Token tokenField;
@@ -6476,405 +9201,6 @@ namespace MobileWhouse.UyumConnector {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PackageDetailWithDocTra))]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class PackageDetail {
-        
-        private string packageMNoField;
-        
-        private ItemInfo itemInfoField;
-        
-        private int packageTraMIdField;
-        
-        private int packageMIdField;
-        
-        private int locationIdField;
-        
-        private decimal qtyField;
-        
-        private int packageDIdField;
-        
-        private int packageTraDIdField;
-        
-        private int itemAttribute1Field;
-        
-        private int itemAttribute2Field;
-        
-        private int itemAttribute3Field;
-        
-        private string itemAttribute1CodeField;
-        
-        private string itemAttribute2CodeField;
-        
-        private string itemAttribute3CodeField;
-        
-        private int qualityIdField;
-        
-        private string qualityCodeField;
-        
-        private int colorIdField;
-        
-        private string colorCodeField;
-        
-        private int bwhLocationIdField;
-        
-        private string locationCodeField;
-        
-        private string packageNoField;
-        
-        private int whouseIdField;
-        
-        private int unitIdField;
-        
-        private int lotIdField;
-        
-        private string lotCodeField;
-        
-        private int freePrmIdField;
-        
-        private int freeSecIdField;
-        
-        private int packageTypeIdField;
-        
-        private decimal qtyFreePrmField;
-        
-        private decimal qtyFreeSecField;
-        
-        /// <remarks/>
-        public string PackageMNo {
-            get {
-                return this.packageMNoField;
-            }
-            set {
-                this.packageMNoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public ItemInfo ItemInfo {
-            get {
-                return this.itemInfoField;
-            }
-            set {
-                this.itemInfoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PackageTraMId {
-            get {
-                return this.packageTraMIdField;
-            }
-            set {
-                this.packageTraMIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PackageMId {
-            get {
-                return this.packageMIdField;
-            }
-            set {
-                this.packageMIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int LocationId {
-            get {
-                return this.locationIdField;
-            }
-            set {
-                this.locationIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Qty {
-            get {
-                return this.qtyField;
-            }
-            set {
-                this.qtyField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PackageDId {
-            get {
-                return this.packageDIdField;
-            }
-            set {
-                this.packageDIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PackageTraDId {
-            get {
-                return this.packageTraDIdField;
-            }
-            set {
-                this.packageTraDIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ItemAttribute1 {
-            get {
-                return this.itemAttribute1Field;
-            }
-            set {
-                this.itemAttribute1Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ItemAttribute2 {
-            get {
-                return this.itemAttribute2Field;
-            }
-            set {
-                this.itemAttribute2Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ItemAttribute3 {
-            get {
-                return this.itemAttribute3Field;
-            }
-            set {
-                this.itemAttribute3Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ItemAttribute1Code {
-            get {
-                return this.itemAttribute1CodeField;
-            }
-            set {
-                this.itemAttribute1CodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ItemAttribute2Code {
-            get {
-                return this.itemAttribute2CodeField;
-            }
-            set {
-                this.itemAttribute2CodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ItemAttribute3Code {
-            get {
-                return this.itemAttribute3CodeField;
-            }
-            set {
-                this.itemAttribute3CodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int QualityId {
-            get {
-                return this.qualityIdField;
-            }
-            set {
-                this.qualityIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string QualityCode {
-            get {
-                return this.qualityCodeField;
-            }
-            set {
-                this.qualityCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ColorId {
-            get {
-                return this.colorIdField;
-            }
-            set {
-                this.colorIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ColorCode {
-            get {
-                return this.colorCodeField;
-            }
-            set {
-                this.colorCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int BwhLocationId {
-            get {
-                return this.bwhLocationIdField;
-            }
-            set {
-                this.bwhLocationIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string LocationCode {
-            get {
-                return this.locationCodeField;
-            }
-            set {
-                this.locationCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string PackageNo {
-            get {
-                return this.packageNoField;
-            }
-            set {
-                this.packageNoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int WhouseId {
-            get {
-                return this.whouseIdField;
-            }
-            set {
-                this.whouseIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int UnitId {
-            get {
-                return this.unitIdField;
-            }
-            set {
-                this.unitIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int LotId {
-            get {
-                return this.lotIdField;
-            }
-            set {
-                this.lotIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string LotCode {
-            get {
-                return this.lotCodeField;
-            }
-            set {
-                this.lotCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int FreePrmId {
-            get {
-                return this.freePrmIdField;
-            }
-            set {
-                this.freePrmIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int FreeSecId {
-            get {
-                return this.freeSecIdField;
-            }
-            set {
-                this.freeSecIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PackageTypeId {
-            get {
-                return this.packageTypeIdField;
-            }
-            set {
-                this.packageTypeIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal QtyFreePrm {
-            get {
-                return this.qtyFreePrmField;
-            }
-            set {
-                this.qtyFreePrmField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal QtyFreeSec {
-            get {
-                return this.qtyFreeSecField;
-            }
-            set {
-                this.qtyFreeSecField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class PackageDetailWithDocTra : PackageDetail {
-        
-        private int docTraIdForInputField;
-        
-        private int docTraIdForOutputField;
-        
-        /// <remarks/>
-        public int DocTraIdForInput {
-            get {
-                return this.docTraIdForInputField;
-            }
-            set {
-                this.docTraIdForInputField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int DocTraIdForOutput {
-            get {
-                return this.docTraIdForOutputField;
-            }
-            set {
-                this.docTraIdForOutputField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
@@ -6901,49 +9227,6 @@ namespace MobileWhouse.UyumConnector {
             }
             set {
                 this.packagesField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class PackageInfo {
-        
-        private int packageTraMIdField;
-        
-        private string packageNoField;
-        
-        private int packageMIdField;
-        
-        /// <remarks/>
-        public int PackageTraMId {
-            get {
-                return this.packageTraMIdField;
-            }
-            set {
-                this.packageTraMIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string PackageNo {
-            get {
-                return this.packageNoField;
-            }
-            set {
-                this.packageNoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PackageMId {
-            get {
-                return this.packageMIdField;
-            }
-            set {
-                this.packageMIdField = value;
             }
         }
     }
@@ -7601,6 +9884,476 @@ namespace MobileWhouse.UyumConnector {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class SelectParam2 {
+        
+        private string filterField;
+        
+        private int depotIdField;
+        
+        private int depo2IdField;
+        
+        private int infoIdField;
+        
+        private System.DateTime searchDateField;
+        
+        private string searchEntityField;
+        
+        private string docTraCodeField;
+        
+        private string docTraDescField;
+        
+        private int docTraIdField;
+        
+        private int packageTypeIdField;
+        
+        private int unitIdField;
+        
+        private object[] packageTraMIdsField;
+        
+        private int entityIdField;
+        
+        private int docNumberDIdField;
+        
+        private ReferralDetailInfo[] detailsField;
+        
+        private string docNoField;
+        
+        private string note1Field;
+        
+        private string note2Field;
+        
+        private string startTimeField;
+        
+        private System.DateTime actualDespatchDateField;
+        
+        private System.DateTime inventoryDateField;
+        
+        private string licencePlateField;
+        
+        private string driverIdentifyNoField;
+        
+        private string driverNameField;
+        
+        private string driverFamilyNameField;
+        
+        private string driverGsmNoField;
+        
+        private string transportEquipmentField;
+        
+        private int vehicleIdField;
+        
+        private string issueTimeField;
+        
+        private string registerNameField;
+        
+        private string shippingDesc1Field;
+        
+        private int transporterIdField;
+        
+        private int transportTypeIdField;
+        
+        /// <remarks/>
+        public string Filter {
+            get {
+                return this.filterField;
+            }
+            set {
+                this.filterField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int DepotId {
+            get {
+                return this.depotIdField;
+            }
+            set {
+                this.depotIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Depo2Id {
+            get {
+                return this.depo2IdField;
+            }
+            set {
+                this.depo2IdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int InfoId {
+            get {
+                return this.infoIdField;
+            }
+            set {
+                this.infoIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime SearchDate {
+            get {
+                return this.searchDateField;
+            }
+            set {
+                this.searchDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SearchEntity {
+            get {
+                return this.searchEntityField;
+            }
+            set {
+                this.searchEntityField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DocTraCode {
+            get {
+                return this.docTraCodeField;
+            }
+            set {
+                this.docTraCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DocTraDesc {
+            get {
+                return this.docTraDescField;
+            }
+            set {
+                this.docTraDescField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int DocTraId {
+            get {
+                return this.docTraIdField;
+            }
+            set {
+                this.docTraIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PackageTypeId {
+            get {
+                return this.packageTypeIdField;
+            }
+            set {
+                this.packageTypeIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int UnitId {
+            get {
+                return this.unitIdField;
+            }
+            set {
+                this.unitIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public object[] PackageTraMIds {
+            get {
+                return this.packageTraMIdsField;
+            }
+            set {
+                this.packageTraMIdsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int EntityId {
+            get {
+                return this.entityIdField;
+            }
+            set {
+                this.entityIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int DocNumberDId {
+            get {
+                return this.docNumberDIdField;
+            }
+            set {
+                this.docNumberDIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public ReferralDetailInfo[] details {
+            get {
+                return this.detailsField;
+            }
+            set {
+                this.detailsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DocNo {
+            get {
+                return this.docNoField;
+            }
+            set {
+                this.docNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Note1 {
+            get {
+                return this.note1Field;
+            }
+            set {
+                this.note1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Note2 {
+            get {
+                return this.note2Field;
+            }
+            set {
+                this.note2Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string StartTime {
+            get {
+                return this.startTimeField;
+            }
+            set {
+                this.startTimeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime ActualDespatchDate {
+            get {
+                return this.actualDespatchDateField;
+            }
+            set {
+                this.actualDespatchDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime InventoryDate {
+            get {
+                return this.inventoryDateField;
+            }
+            set {
+                this.inventoryDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string LicencePlate {
+            get {
+                return this.licencePlateField;
+            }
+            set {
+                this.licencePlateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DriverIdentifyNo {
+            get {
+                return this.driverIdentifyNoField;
+            }
+            set {
+                this.driverIdentifyNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DriverName {
+            get {
+                return this.driverNameField;
+            }
+            set {
+                this.driverNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DriverFamilyName {
+            get {
+                return this.driverFamilyNameField;
+            }
+            set {
+                this.driverFamilyNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DriverGsmNo {
+            get {
+                return this.driverGsmNoField;
+            }
+            set {
+                this.driverGsmNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string TransportEquipment {
+            get {
+                return this.transportEquipmentField;
+            }
+            set {
+                this.transportEquipmentField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int VehicleId {
+            get {
+                return this.vehicleIdField;
+            }
+            set {
+                this.vehicleIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string IssueTime {
+            get {
+                return this.issueTimeField;
+            }
+            set {
+                this.issueTimeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string RegisterName {
+            get {
+                return this.registerNameField;
+            }
+            set {
+                this.registerNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ShippingDesc1 {
+            get {
+                return this.shippingDesc1Field;
+            }
+            set {
+                this.shippingDesc1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TransporterId {
+            get {
+                return this.transporterIdField;
+            }
+            set {
+                this.transporterIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TransportTypeId {
+            get {
+                return this.transportTypeIdField;
+            }
+            set {
+                this.transportTypeIdField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ServiceRequestOfSelectParam2 {
+        
+        private Token tokenField;
+        
+        private SelectParam2 valueField;
+        
+        private int pageIndexField;
+        
+        private int pageSizeField;
+        
+        private string attachmentField;
+        
+        /// <remarks/>
+        public Token Token {
+            get {
+                return this.tokenField;
+            }
+            set {
+                this.tokenField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public SelectParam2 Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageIndex {
+            get {
+                return this.pageIndexField;
+            }
+            set {
+                this.pageIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageSize {
+            get {
+                return this.pageSizeField;
+            }
+            set {
+                this.pageSizeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Attachment {
+            get {
+                return this.attachmentField;
+            }
+            set {
+                this.attachmentField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class ReferralInfo {
         
         private int idField;
@@ -7819,6 +10572,37 @@ namespace MobileWhouse.UyumConnector {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class DynamicList {
+        
+        private string dicKeyField;
+        
+        private string dicValuesField;
+        
+        /// <remarks/>
+        public string DicKey {
+            get {
+                return this.dicKeyField;
+            }
+            set {
+                this.dicKeyField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DicValues {
+            get {
+                return this.dicValuesField;
+            }
+            set {
+                this.dicValuesField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class OrderMInfo {
         
         private int idField;
@@ -7866,6 +10650,14 @@ namespace MobileWhouse.UyumConnector {
         private int transportTypeIdSalesField;
         
         private string transportTypeCodeSalesField;
+        
+        private string note1Field;
+        
+        private string note2Field;
+        
+        private string note3Field;
+        
+        private DynamicList[] masterDynamicValuesField;
         
         /// <remarks/>
         public int Id {
@@ -8096,6 +10888,46 @@ namespace MobileWhouse.UyumConnector {
                 this.transportTypeCodeSalesField = value;
             }
         }
+        
+        /// <remarks/>
+        public string Note1 {
+            get {
+                return this.note1Field;
+            }
+            set {
+                this.note1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Note2 {
+            get {
+                return this.note2Field;
+            }
+            set {
+                this.note2Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Note3 {
+            get {
+                return this.note3Field;
+            }
+            set {
+                this.note3Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public DynamicList[] MasterDynamicValues {
+            get {
+                return this.masterDynamicValuesField;
+            }
+            set {
+                this.masterDynamicValuesField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -8169,6 +11001,25 @@ namespace MobileWhouse.UyumConnector {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetDynamicField {
+        
+        private string dicKeyField;
+        
+        /// <remarks/>
+        public string DicKey {
+            get {
+                return this.dicKeyField;
+            }
+            set {
+                this.dicKeyField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class OrderMParam {
         
         private string docNoField;
@@ -8196,6 +11047,8 @@ namespace MobileWhouse.UyumConnector {
         private string itemCodeField;
         
         private string itemNameField;
+        
+        private GetDynamicField[] getDynamicValuesField;
         
         /// <remarks/>
         public string DocNo {
@@ -8324,6 +11177,16 @@ namespace MobileWhouse.UyumConnector {
             }
             set {
                 this.itemNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public GetDynamicField[] GetDynamicValues {
+            get {
+                return this.getDynamicValuesField;
+            }
+            set {
+                this.getDynamicValuesField = value;
             }
         }
     }
@@ -8822,6 +11685,8 @@ namespace MobileWhouse.UyumConnector {
         private string tempCoDocTraCodeWaybillField;
         
         private bool tempCoDocTraWaybillTransferField;
+        
+        private decimal calcQtyAvailableField;
         
         /// <remarks/>
         public int Id {
@@ -9410,6 +12275,16 @@ namespace MobileWhouse.UyumConnector {
             }
             set {
                 this.tempCoDocTraWaybillTransferField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public decimal CalcQtyAvailable {
+            get {
+                return this.calcQtyAvailableField;
+            }
+            set {
+                this.calcQtyAvailableField = value;
             }
         }
     }
@@ -11246,6 +14121,73 @@ namespace MobileWhouse.UyumConnector {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ServiceRequestOfItemPickingParam {
+        
+        private Token tokenField;
+        
+        private ItemPickingParam valueField;
+        
+        private int pageIndexField;
+        
+        private int pageSizeField;
+        
+        private string attachmentField;
+        
+        /// <remarks/>
+        public Token Token {
+            get {
+                return this.tokenField;
+            }
+            set {
+                this.tokenField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public ItemPickingParam Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageIndex {
+            get {
+                return this.pageIndexField;
+            }
+            set {
+                this.pageIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageSize {
+            get {
+                return this.pageSizeField;
+            }
+            set {
+                this.pageSizeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Attachment {
+            get {
+                return this.attachmentField;
+            }
+            set {
+                this.attachmentField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class ServiceResultOfListOfItemWithName {
         
         private string messageField;
@@ -11280,6 +14222,73 @@ namespace MobileWhouse.UyumConnector {
         
         /// <remarks/>
         public ItemWithName[] Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageIndex {
+            get {
+                return this.pageIndexField;
+            }
+            set {
+                this.pageIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TotalPage {
+            get {
+                return this.totalPageField;
+            }
+            set {
+                this.totalPageField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ServiceResultOfListOfNameIdItem {
+        
+        private string messageField;
+        
+        private bool resultField;
+        
+        private NameIdItem[] valueField;
+        
+        private int pageIndexField;
+        
+        private int totalPageField;
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public NameIdItem[] Value {
             get {
                 return this.valueField;
             }
@@ -12090,6 +15099,698 @@ namespace MobileWhouse.UyumConnector {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ServiceResultOfNameIdItem {
+        
+        private string messageField;
+        
+        private bool resultField;
+        
+        private NameIdItem valueField;
+        
+        private int pageIndexField;
+        
+        private int totalPageField;
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public NameIdItem Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageIndex {
+            get {
+                return this.pageIndexField;
+            }
+            set {
+                this.pageIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TotalPage {
+            get {
+                return this.totalPageField;
+            }
+            set {
+                this.totalPageField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class FindUnitPrice {
+        
+        private int docTraIdField;
+        
+        private int entityIdField;
+        
+        private int priceListIdField;
+        
+        private int curTraIdField;
+        
+        private System.DateTime docDateField;
+        
+        /// <remarks/>
+        public int DocTraId {
+            get {
+                return this.docTraIdField;
+            }
+            set {
+                this.docTraIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int EntityId {
+            get {
+                return this.entityIdField;
+            }
+            set {
+                this.entityIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PriceListId {
+            get {
+                return this.priceListIdField;
+            }
+            set {
+                this.priceListIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int CurTraId {
+            get {
+                return this.curTraIdField;
+            }
+            set {
+                this.curTraIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime DocDate {
+            get {
+                return this.docDateField;
+            }
+            set {
+                this.docDateField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ItemSelectParam {
+        
+        private int depotIdField;
+        
+        private string barkodField;
+        
+        private bool controlSerialField;
+        
+        private bool getBwhItemQtyField;
+        
+        private bool getDimListField;
+        
+        private bool getLastWayyBillUnitPriceField;
+        
+        private System.DateTime docDateField;
+        
+        private int curTraIdField;
+        
+        private bool getUnitPriceUsePriceListCodeField;
+        
+        private FindUnitPrice findUnitPriceField;
+        
+        /// <remarks/>
+        public int DepotId {
+            get {
+                return this.depotIdField;
+            }
+            set {
+                this.depotIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Barkod {
+            get {
+                return this.barkodField;
+            }
+            set {
+                this.barkodField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool ControlSerial {
+            get {
+                return this.controlSerialField;
+            }
+            set {
+                this.controlSerialField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool GetBwhItemQty {
+            get {
+                return this.getBwhItemQtyField;
+            }
+            set {
+                this.getBwhItemQtyField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool GetDimList {
+            get {
+                return this.getDimListField;
+            }
+            set {
+                this.getDimListField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool GetLastWayyBillUnitPrice {
+            get {
+                return this.getLastWayyBillUnitPriceField;
+            }
+            set {
+                this.getLastWayyBillUnitPriceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime DocDate {
+            get {
+                return this.docDateField;
+            }
+            set {
+                this.docDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int CurTraId {
+            get {
+                return this.curTraIdField;
+            }
+            set {
+                this.curTraIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool GetUnitPriceUsePriceListCode {
+            get {
+                return this.getUnitPriceUsePriceListCodeField;
+            }
+            set {
+                this.getUnitPriceUsePriceListCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public FindUnitPrice FindUnitPrice {
+            get {
+                return this.findUnitPriceField;
+            }
+            set {
+                this.findUnitPriceField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ServiceRequestOfItemSelectParam {
+        
+        private Token tokenField;
+        
+        private ItemSelectParam valueField;
+        
+        private int pageIndexField;
+        
+        private int pageSizeField;
+        
+        private string attachmentField;
+        
+        /// <remarks/>
+        public Token Token {
+            get {
+                return this.tokenField;
+            }
+            set {
+                this.tokenField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public ItemSelectParam Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageIndex {
+            get {
+                return this.pageIndexField;
+            }
+            set {
+                this.pageIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageSize {
+            get {
+                return this.pageSizeField;
+            }
+            set {
+                this.pageSizeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Attachment {
+            get {
+                return this.attachmentField;
+            }
+            set {
+                this.attachmentField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ServiceResultOfListOfDocTra {
+        
+        private string messageField;
+        
+        private bool resultField;
+        
+        private DocTra[] valueField;
+        
+        private int pageIndexField;
+        
+        private int totalPageField;
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public DocTra[] Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageIndex {
+            get {
+                return this.pageIndexField;
+            }
+            set {
+                this.pageIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TotalPage {
+            get {
+                return this.totalPageField;
+            }
+            set {
+                this.totalPageField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class DocTra {
+        
+        private int idField;
+        
+        private string docTraCodeField;
+        
+        private string docTraDescField;
+        
+        private int statusField;
+        
+        private int purchaseSalesField;
+        
+        private bool isNotItemRecordField;
+        
+        private int invoiceTypeField;
+        
+        private bool isreasonMondatoryField;
+        
+        private bool isTransferField;
+        
+        /// <remarks/>
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DocTraCode {
+            get {
+                return this.docTraCodeField;
+            }
+            set {
+                this.docTraCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DocTraDesc {
+            get {
+                return this.docTraDescField;
+            }
+            set {
+                this.docTraDescField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Status {
+            get {
+                return this.statusField;
+            }
+            set {
+                this.statusField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PurchaseSales {
+            get {
+                return this.purchaseSalesField;
+            }
+            set {
+                this.purchaseSalesField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool IsNotItemRecord {
+            get {
+                return this.isNotItemRecordField;
+            }
+            set {
+                this.isNotItemRecordField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int InvoiceType {
+            get {
+                return this.invoiceTypeField;
+            }
+            set {
+                this.invoiceTypeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool IsreasonMondatory {
+            get {
+                return this.isreasonMondatoryField;
+            }
+            set {
+                this.isreasonMondatoryField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool IsTransfer {
+            get {
+                return this.isTransferField;
+            }
+            set {
+                this.isTransferField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class DocTraSelectParam {
+        
+        private string docTraCodeFilterField;
+        
+        private int branchIdField;
+        
+        private int coIdField;
+        
+        private int sourceApplicationField;
+        
+        private int inventoryStatusField;
+        
+        private int purchaseSalesField;
+        
+        private int invoiceTypeField;
+        
+        private bool getIsreasonMondatoryField;
+        
+        private bool isreasonMondatoryField;
+        
+        /// <remarks/>
+        public string DocTraCodeFilter {
+            get {
+                return this.docTraCodeFilterField;
+            }
+            set {
+                this.docTraCodeFilterField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int BranchId {
+            get {
+                return this.branchIdField;
+            }
+            set {
+                this.branchIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int CoId {
+            get {
+                return this.coIdField;
+            }
+            set {
+                this.coIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int SourceApplication {
+            get {
+                return this.sourceApplicationField;
+            }
+            set {
+                this.sourceApplicationField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int InventoryStatus {
+            get {
+                return this.inventoryStatusField;
+            }
+            set {
+                this.inventoryStatusField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PurchaseSales {
+            get {
+                return this.purchaseSalesField;
+            }
+            set {
+                this.purchaseSalesField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int InvoiceType {
+            get {
+                return this.invoiceTypeField;
+            }
+            set {
+                this.invoiceTypeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool GetIsreasonMondatory {
+            get {
+                return this.getIsreasonMondatoryField;
+            }
+            set {
+                this.getIsreasonMondatoryField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool IsreasonMondatory {
+            get {
+                return this.isreasonMondatoryField;
+            }
+            set {
+                this.isreasonMondatoryField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ServiceRequestOfDocTraSelectParam {
+        
+        private Token tokenField;
+        
+        private DocTraSelectParam valueField;
+        
+        private int pageIndexField;
+        
+        private int pageSizeField;
+        
+        private string attachmentField;
+        
+        /// <remarks/>
+        public Token Token {
+            get {
+                return this.tokenField;
+            }
+            set {
+                this.tokenField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public DocTraSelectParam Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageIndex {
+            get {
+                return this.pageIndexField;
+            }
+            set {
+                this.pageIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageSize {
+            get {
+                return this.pageSizeField;
+            }
+            set {
+                this.pageSizeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Attachment {
+            get {
+                return this.attachmentField;
+            }
+            set {
+                this.attachmentField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class ServiceResultOfRafHareketM {
         
         private string messageField;
@@ -12348,121 +16049,6 @@ namespace MobileWhouse.UyumConnector {
             }
             set {
                 this.note3Field = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class DocTra {
-        
-        private int idField;
-        
-        private string docTraCodeField;
-        
-        private string docTraDescField;
-        
-        private int statusField;
-        
-        private int purchaseSalesField;
-        
-        private bool isNotItemRecordField;
-        
-        private int invoiceTypeField;
-        
-        private bool isreasonMondatoryField;
-        
-        private bool isTransferField;
-        
-        /// <remarks/>
-        public int Id {
-            get {
-                return this.idField;
-            }
-            set {
-                this.idField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DocTraCode {
-            get {
-                return this.docTraCodeField;
-            }
-            set {
-                this.docTraCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DocTraDesc {
-            get {
-                return this.docTraDescField;
-            }
-            set {
-                this.docTraDescField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int Status {
-            get {
-                return this.statusField;
-            }
-            set {
-                this.statusField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PurchaseSales {
-            get {
-                return this.purchaseSalesField;
-            }
-            set {
-                this.purchaseSalesField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool IsNotItemRecord {
-            get {
-                return this.isNotItemRecordField;
-            }
-            set {
-                this.isNotItemRecordField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int InvoiceType {
-            get {
-                return this.invoiceTypeField;
-            }
-            set {
-                this.invoiceTypeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool IsreasonMondatory {
-            get {
-                return this.isreasonMondatoryField;
-            }
-            set {
-                this.isreasonMondatoryField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool IsTransfer {
-            get {
-                return this.isTransferField;
-            }
-            set {
-                this.isTransferField = value;
             }
         }
     }
@@ -13681,6 +17267,140 @@ namespace MobileWhouse.UyumConnector {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ServiceRequestOfStokHareketM {
+        
+        private Token tokenField;
+        
+        private StokHareketM valueField;
+        
+        private int pageIndexField;
+        
+        private int pageSizeField;
+        
+        private string attachmentField;
+        
+        /// <remarks/>
+        public Token Token {
+            get {
+                return this.tokenField;
+            }
+            set {
+                this.tokenField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public StokHareketM Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageIndex {
+            get {
+                return this.pageIndexField;
+            }
+            set {
+                this.pageIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageSize {
+            get {
+                return this.pageSizeField;
+            }
+            set {
+                this.pageSizeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Attachment {
+            get {
+                return this.attachmentField;
+            }
+            set {
+                this.attachmentField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ServiceResultOfInt32 {
+        
+        private string messageField;
+        
+        private bool resultField;
+        
+        private int valueField;
+        
+        private int pageIndexField;
+        
+        private int totalPageField;
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageIndex {
+            get {
+                return this.pageIndexField;
+            }
+            set {
+                this.pageIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TotalPage {
+            get {
+                return this.totalPageField;
+            }
+            set {
+                this.totalPageField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class RafHareketInfo {
         
         private RafHareketD rafHareketDetailField;
@@ -14715,417 +18435,13 @@ namespace MobileWhouse.UyumConnector {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class BarkodBasParam {
-        
-        private int userIdField;
-        
-        private int koliSayisiField;
-        
-        private int koliBasSayisiField;
-        
-        /// <remarks/>
-        public int UserId {
-            get {
-                return this.userIdField;
-            }
-            set {
-                this.userIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int KoliSayisi {
-            get {
-                return this.koliSayisiField;
-            }
-            set {
-                this.koliSayisiField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int KoliBasSayisi {
-            get {
-                return this.koliBasSayisiField;
-            }
-            set {
-                this.koliBasSayisiField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ServiceRequestOfBarkodBasParam {
-        
-        private Token tokenField;
-        
-        private BarkodBasParam valueField;
-        
-        private int pageIndexField;
-        
-        private int pageSizeField;
-        
-        private string attachmentField;
-        
-        /// <remarks/>
-        public Token Token {
-            get {
-                return this.tokenField;
-            }
-            set {
-                this.tokenField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public BarkodBasParam Value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageIndex {
-            get {
-                return this.pageIndexField;
-            }
-            set {
-                this.pageIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageSize {
-            get {
-                return this.pageSizeField;
-            }
-            set {
-                this.pageSizeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Attachment {
-            get {
-                return this.attachmentField;
-            }
-            set {
-                this.attachmentField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class AssetCardInfoBarkod {
-        
-        private string[] barcodeNosField;
-        
-        /// <remarks/>
-        public string[] BarcodeNos {
-            get {
-                return this.barcodeNosField;
-            }
-            set {
-                this.barcodeNosField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ServiceRequestOfAssetCardInfoBarkod {
-        
-        private Token tokenField;
-        
-        private AssetCardInfoBarkod valueField;
-        
-        private int pageIndexField;
-        
-        private int pageSizeField;
-        
-        private string attachmentField;
-        
-        /// <remarks/>
-        public Token Token {
-            get {
-                return this.tokenField;
-            }
-            set {
-                this.tokenField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public AssetCardInfoBarkod Value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageIndex {
-            get {
-                return this.pageIndexField;
-            }
-            set {
-                this.pageIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageSize {
-            get {
-                return this.pageSizeField;
-            }
-            set {
-                this.pageSizeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Attachment {
-            get {
-                return this.attachmentField;
-            }
-            set {
-                this.attachmentField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class MWAssetCardCountD {
-        
-        private string barcodeNoField;
-        
-        private int qtyField;
-        
-        /// <remarks/>
-        public string BarcodeNo {
-            get {
-                return this.barcodeNoField;
-            }
-            set {
-                this.barcodeNoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int Qty {
-            get {
-                return this.qtyField;
-            }
-            set {
-                this.qtyField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class MWAssetCardCountM {
-        
-        private System.DateTime docDateField;
-        
-        private string docNoField;
-        
-        private string noteLargeField;
-        
-        private MWAssetCardCountD[] assetCardCountDField;
-        
-        /// <remarks/>
-        public System.DateTime DocDate {
-            get {
-                return this.docDateField;
-            }
-            set {
-                this.docDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DocNo {
-            get {
-                return this.docNoField;
-            }
-            set {
-                this.docNoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string NoteLarge {
-            get {
-                return this.noteLargeField;
-            }
-            set {
-                this.noteLargeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public MWAssetCardCountD[] AssetCardCountD {
-            get {
-                return this.assetCardCountDField;
-            }
-            set {
-                this.assetCardCountDField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ServiceRequestOfMWAssetCardCountM {
-        
-        private Token tokenField;
-        
-        private MWAssetCardCountM valueField;
-        
-        private int pageIndexField;
-        
-        private int pageSizeField;
-        
-        private string attachmentField;
-        
-        /// <remarks/>
-        public Token Token {
-            get {
-                return this.tokenField;
-            }
-            set {
-                this.tokenField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public MWAssetCardCountM Value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageIndex {
-            get {
-                return this.pageIndexField;
-            }
-            set {
-                this.pageIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageSize {
-            get {
-                return this.pageSizeField;
-            }
-            set {
-                this.pageSizeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Attachment {
-            get {
-                return this.attachmentField;
-            }
-            set {
-                this.attachmentField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class BatchExplodeInput {
-        
-        private string userNameField;
-        
-        private string passwordField;
-        
-        private string coCodeField;
-        
-        private string branchCodeField;
-        
-        /// <remarks/>
-        public string UserName {
-            get {
-                return this.userNameField;
-            }
-            set {
-                this.userNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Password {
-            get {
-                return this.passwordField;
-            }
-            set {
-                this.passwordField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string CoCode {
-            get {
-                return this.coCodeField;
-            }
-            set {
-                this.coCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string BranchCode {
-            get {
-                return this.branchCodeField;
-            }
-            set {
-                this.branchCodeField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ServiceResultOfPackageTraMInfo {
+    public partial class ServiceResultOfBoolean {
         
         private string messageField;
         
         private bool resultField;
         
-        private PackageTraMInfo valueField;
+        private bool valueField;
         
         private int pageIndexField;
         
@@ -15152,292 +18468,7 @@ namespace MobileWhouse.UyumConnector {
         }
         
         /// <remarks/>
-        public PackageTraMInfo Value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageIndex {
-            get {
-                return this.pageIndexField;
-            }
-            set {
-                this.pageIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int TotalPage {
-            get {
-                return this.totalPageField;
-            }
-            set {
-                this.totalPageField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class PackageTraMInfo {
-        
-        private System.DateTime docDateField;
-        
-        private string docNoField;
-        
-        private PackageTraDInfo[] detailsField;
-        
-        private int whouse2IdField;
-        
-        private int whouseIdField;
-        
-        private int packageTraMIdField;
-        
-        private int itemPickingMIDField;
-        
-        private bool oneriField;
-        
-        private int sourceMIdField;
-        
-        /// <remarks/>
-        public System.DateTime DocDate {
-            get {
-                return this.docDateField;
-            }
-            set {
-                this.docDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DocNo {
-            get {
-                return this.docNoField;
-            }
-            set {
-                this.docNoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public PackageTraDInfo[] Details {
-            get {
-                return this.detailsField;
-            }
-            set {
-                this.detailsField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int Whouse2Id {
-            get {
-                return this.whouse2IdField;
-            }
-            set {
-                this.whouse2IdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int WhouseId {
-            get {
-                return this.whouseIdField;
-            }
-            set {
-                this.whouseIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PackageTraMId {
-            get {
-                return this.packageTraMIdField;
-            }
-            set {
-                this.packageTraMIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ItemPickingMID {
-            get {
-                return this.itemPickingMIDField;
-            }
-            set {
-                this.itemPickingMIDField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool Oneri {
-            get {
-                return this.oneriField;
-            }
-            set {
-                this.oneriField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int SourceMId {
-            get {
-                return this.sourceMIdField;
-            }
-            set {
-                this.sourceMIdField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class PackageTraDInfo {
-        
-        private string packageMNoField;
-        
-        private int packageMIdField;
-        
-        private int bwhLocationIdField;
-        
-        private int itemIdField;
-        
-        private int unitIdField;
-        
-        private decimal qtyField;
-        
-        private int sourceMIdField;
-        
-        private int sourceDIdField;
-        
-        /// <remarks/>
-        public string PackageMNo {
-            get {
-                return this.packageMNoField;
-            }
-            set {
-                this.packageMNoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PackageMId {
-            get {
-                return this.packageMIdField;
-            }
-            set {
-                this.packageMIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int BwhLocationId {
-            get {
-                return this.bwhLocationIdField;
-            }
-            set {
-                this.bwhLocationIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ItemId {
-            get {
-                return this.itemIdField;
-            }
-            set {
-                this.itemIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int UnitId {
-            get {
-                return this.unitIdField;
-            }
-            set {
-                this.unitIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Qty {
-            get {
-                return this.qtyField;
-            }
-            set {
-                this.qtyField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int SourceMId {
-            get {
-                return this.sourceMIdField;
-            }
-            set {
-                this.sourceMIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int SourceDId {
-            get {
-                return this.sourceDIdField;
-            }
-            set {
-                this.sourceDIdField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ServiceResultOfString {
-        
-        private string messageField;
-        
-        private bool resultField;
-        
-        private string valueField;
-        
-        private int pageIndexField;
-        
-        private int totalPageField;
-        
-        /// <remarks/>
-        public string Message {
-            get {
-                return this.messageField;
-            }
-            set {
-                this.messageField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Value {
+        public bool Value {
             get {
                 return this.valueField;
             }
@@ -15538,1050 +18569,35 @@ namespace MobileWhouse.UyumConnector {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ServiceResultOfNameIdItem {
+    public partial class ServiceResultOfString {
         
         private string messageField;
         
         private bool resultField;
-        
-        private NameIdItem valueField;
-        
-        private int pageIndexField;
-        
-        private int totalPageField;
-        
-        /// <remarks/>
-        public string Message {
-            get {
-                return this.messageField;
-            }
-            set {
-                this.messageField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public NameIdItem Value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageIndex {
-            get {
-                return this.pageIndexField;
-            }
-            set {
-                this.pageIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int TotalPage {
-            get {
-                return this.totalPageField;
-            }
-            set {
-                this.totalPageField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ItemSelectParam {
-        
-        private int depotIdField;
-        
-        private string barkodField;
-        
-        private bool controlSerialField;
-        
-        private bool getBwhItemQtyField;
-        
-        private bool getDimListField;
-        
-        private bool getLastWayyBillUnitPriceField;
-        
-        private System.DateTime docDateField;
-        
-        private int curTraIdField;
-        
-        /// <remarks/>
-        public int DepotId {
-            get {
-                return this.depotIdField;
-            }
-            set {
-                this.depotIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Barkod {
-            get {
-                return this.barkodField;
-            }
-            set {
-                this.barkodField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool ControlSerial {
-            get {
-                return this.controlSerialField;
-            }
-            set {
-                this.controlSerialField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool GetBwhItemQty {
-            get {
-                return this.getBwhItemQtyField;
-            }
-            set {
-                this.getBwhItemQtyField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool GetDimList {
-            get {
-                return this.getDimListField;
-            }
-            set {
-                this.getDimListField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool GetLastWayyBillUnitPrice {
-            get {
-                return this.getLastWayyBillUnitPriceField;
-            }
-            set {
-                this.getLastWayyBillUnitPriceField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime DocDate {
-            get {
-                return this.docDateField;
-            }
-            set {
-                this.docDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int CurTraId {
-            get {
-                return this.curTraIdField;
-            }
-            set {
-                this.curTraIdField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ServiceRequestOfItemSelectParam {
-        
-        private Token tokenField;
-        
-        private ItemSelectParam valueField;
-        
-        private int pageIndexField;
-        
-        private int pageSizeField;
-        
-        private string attachmentField;
-        
-        /// <remarks/>
-        public Token Token {
-            get {
-                return this.tokenField;
-            }
-            set {
-                this.tokenField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public ItemSelectParam Value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageIndex {
-            get {
-                return this.pageIndexField;
-            }
-            set {
-                this.pageIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageSize {
-            get {
-                return this.pageSizeField;
-            }
-            set {
-                this.pageSizeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Attachment {
-            get {
-                return this.attachmentField;
-            }
-            set {
-                this.attachmentField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ServiceRequestOfPackageTraMInfo {
-        
-        private Token tokenField;
-        
-        private PackageTraMInfo valueField;
-        
-        private int pageIndexField;
-        
-        private int pageSizeField;
-        
-        private string attachmentField;
-        
-        /// <remarks/>
-        public Token Token {
-            get {
-                return this.tokenField;
-            }
-            set {
-                this.tokenField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public PackageTraMInfo Value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageIndex {
-            get {
-                return this.pageIndexField;
-            }
-            set {
-                this.pageIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageSize {
-            get {
-                return this.pageSizeField;
-            }
-            set {
-                this.pageSizeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Attachment {
-            get {
-                return this.attachmentField;
-            }
-            set {
-                this.attachmentField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ServiceResultOfListOfSelectActualImpMForBwhInM {
-        
-        private string messageField;
-        
-        private bool resultField;
-        
-        private SelectActualImpMForBwhInM[] valueField;
-        
-        private int pageIndexField;
-        
-        private int totalPageField;
-        
-        /// <remarks/>
-        public string Message {
-            get {
-                return this.messageField;
-            }
-            set {
-                this.messageField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public SelectActualImpMForBwhInM[] Value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageIndex {
-            get {
-                return this.pageIndexField;
-            }
-            set {
-                this.pageIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int TotalPage {
-            get {
-                return this.totalPageField;
-            }
-            set {
-                this.totalPageField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class SelectActualImpMForBwhInM {
-        
-        private int coIdField;
-        
-        private int branchIdField;
-        
-        private int actualImpMIdField;
-        
-        private int fileMIdField;
-        
-        private string fileNoField;
-        
-        private int shipmentMIdField;
-        
-        private string shipmentNoField;
-        
-        private int entityIdField;
-        
-        private string entityCodeField;
-        
-        private string entityNameField;
-        
-        private bool withDetailField;
-        
-        private SelectActualImpD[] detailsField;
-        
-        private int docTraIdField;
-        
-        private int whouseIdField;
-        
-        private string docNoField;
-        
-        private System.DateTime docDateField;
-        
-        /// <remarks/>
-        public int CoId {
-            get {
-                return this.coIdField;
-            }
-            set {
-                this.coIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int BranchId {
-            get {
-                return this.branchIdField;
-            }
-            set {
-                this.branchIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ActualImpMId {
-            get {
-                return this.actualImpMIdField;
-            }
-            set {
-                this.actualImpMIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int FileMId {
-            get {
-                return this.fileMIdField;
-            }
-            set {
-                this.fileMIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string FileNo {
-            get {
-                return this.fileNoField;
-            }
-            set {
-                this.fileNoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ShipmentMId {
-            get {
-                return this.shipmentMIdField;
-            }
-            set {
-                this.shipmentMIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ShipmentNo {
-            get {
-                return this.shipmentNoField;
-            }
-            set {
-                this.shipmentNoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int EntityId {
-            get {
-                return this.entityIdField;
-            }
-            set {
-                this.entityIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string EntityCode {
-            get {
-                return this.entityCodeField;
-            }
-            set {
-                this.entityCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string EntityName {
-            get {
-                return this.entityNameField;
-            }
-            set {
-                this.entityNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool WithDetail {
-            get {
-                return this.withDetailField;
-            }
-            set {
-                this.withDetailField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public SelectActualImpD[] Details {
-            get {
-                return this.detailsField;
-            }
-            set {
-                this.detailsField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int DocTraId {
-            get {
-                return this.docTraIdField;
-            }
-            set {
-                this.docTraIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int WhouseId {
-            get {
-                return this.whouseIdField;
-            }
-            set {
-                this.whouseIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DocNo {
-            get {
-                return this.docNoField;
-            }
-            set {
-                this.docNoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime DocDate {
-            get {
-                return this.docDateField;
-            }
-            set {
-                this.docDateField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class SelectActualImpD {
-        
-        private int actualImpMIdField;
-        
-        private int actualImpDIdField;
-        
-        private int itemIdField;
-        
-        private string itemCodeField;
-        
-        private string itemNameField;
-        
-        private int unitIdField;
-        
-        private string unitCodeField;
-        
-        private decimal qtyField;
-        
-        private decimal qtyBwhField;
-        
-        private int itemAttr1IdField;
-        
-        private int itemAttr2IdField;
-        
-        private int itemAttr3IdField;
-        
-        private int colorIdField;
-        
-        private int whouseIdField;
-        
-        private string whouseCodeField;
-        
-        /// <remarks/>
-        public int ActualImpMId {
-            get {
-                return this.actualImpMIdField;
-            }
-            set {
-                this.actualImpMIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ActualImpDId {
-            get {
-                return this.actualImpDIdField;
-            }
-            set {
-                this.actualImpDIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ItemId {
-            get {
-                return this.itemIdField;
-            }
-            set {
-                this.itemIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ItemCode {
-            get {
-                return this.itemCodeField;
-            }
-            set {
-                this.itemCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ItemName {
-            get {
-                return this.itemNameField;
-            }
-            set {
-                this.itemNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int UnitId {
-            get {
-                return this.unitIdField;
-            }
-            set {
-                this.unitIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string UnitCode {
-            get {
-                return this.unitCodeField;
-            }
-            set {
-                this.unitCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Qty {
-            get {
-                return this.qtyField;
-            }
-            set {
-                this.qtyField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal QtyBwh {
-            get {
-                return this.qtyBwhField;
-            }
-            set {
-                this.qtyBwhField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ItemAttr1Id {
-            get {
-                return this.itemAttr1IdField;
-            }
-            set {
-                this.itemAttr1IdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ItemAttr2Id {
-            get {
-                return this.itemAttr2IdField;
-            }
-            set {
-                this.itemAttr2IdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ItemAttr3Id {
-            get {
-                return this.itemAttr3IdField;
-            }
-            set {
-                this.itemAttr3IdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ColorId {
-            get {
-                return this.colorIdField;
-            }
-            set {
-                this.colorIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int WhouseId {
-            get {
-                return this.whouseIdField;
-            }
-            set {
-                this.whouseIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string WhouseCode {
-            get {
-                return this.whouseCodeField;
-            }
-            set {
-                this.whouseCodeField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ServiceRequestOfSelectActualImpMForBwhInM {
-        
-        private Token tokenField;
-        
-        private SelectActualImpMForBwhInM valueField;
-        
-        private int pageIndexField;
-        
-        private int pageSizeField;
-        
-        private string attachmentField;
-        
-        /// <remarks/>
-        public Token Token {
-            get {
-                return this.tokenField;
-            }
-            set {
-                this.tokenField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public SelectActualImpMForBwhInM Value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageIndex {
-            get {
-                return this.pageIndexField;
-            }
-            set {
-                this.pageIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageSize {
-            get {
-                return this.pageSizeField;
-            }
-            set {
-                this.pageSizeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Attachment {
-            get {
-                return this.attachmentField;
-            }
-            set {
-                this.attachmentField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ServiceRequestOfWaybillInfo {
-        
-        private Token tokenField;
-        
-        private WaybillInfo valueField;
-        
-        private int pageIndexField;
-        
-        private int pageSizeField;
-        
-        private string attachmentField;
-        
-        /// <remarks/>
-        public Token Token {
-            get {
-                return this.tokenField;
-            }
-            set {
-                this.tokenField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public WaybillInfo Value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageIndex {
-            get {
-                return this.pageIndexField;
-            }
-            set {
-                this.pageIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageSize {
-            get {
-                return this.pageSizeField;
-            }
-            set {
-                this.pageSizeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Attachment {
-            get {
-                return this.attachmentField;
-            }
-            set {
-                this.attachmentField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ServiceResultOfInt32 {
-        
-        private string messageField;
-        
-        private bool resultField;
-        
-        private int valueField;
-        
-        private int pageIndexField;
-        
-        private int totalPageField;
-        
-        /// <remarks/>
-        public string Message {
-            get {
-                return this.messageField;
-            }
-            set {
-                this.messageField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int Value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageIndex {
-            get {
-                return this.pageIndexField;
-            }
-            set {
-                this.pageIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int TotalPage {
-            get {
-                return this.totalPageField;
-            }
-            set {
-                this.totalPageField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ServiceRequestOfStokHareketM {
-        
-        private Token tokenField;
-        
-        private StokHareketM valueField;
-        
-        private int pageIndexField;
-        
-        private int pageSizeField;
-        
-        private string attachmentField;
-        
-        /// <remarks/>
-        public Token Token {
-            get {
-                return this.tokenField;
-            }
-            set {
-                this.tokenField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public StokHareketM Value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageIndex {
-            get {
-                return this.pageIndexField;
-            }
-            set {
-                this.pageIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageSize {
-            get {
-                return this.pageSizeField;
-            }
-            set {
-                this.pageSizeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Attachment {
-            get {
-                return this.attachmentField;
-            }
-            set {
-                this.attachmentField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ServiceRequestOfString {
-        
-        private Token tokenField;
         
         private string valueField;
         
         private int pageIndexField;
         
-        private int pageSizeField;
-        
-        private string attachmentField;
+        private int totalPageField;
         
         /// <remarks/>
-        public Token Token {
+        public string Message {
             get {
-                return this.tokenField;
+                return this.messageField;
             }
             set {
-                this.tokenField = value;
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
             }
         }
         
@@ -16606,83 +18622,6 @@ namespace MobileWhouse.UyumConnector {
         }
         
         /// <remarks/>
-        public int PageSize {
-            get {
-                return this.pageSizeField;
-            }
-            set {
-                this.pageSizeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Attachment {
-            get {
-                return this.attachmentField;
-            }
-            set {
-                this.attachmentField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ServiceResultOfListOfNameIdItem {
-        
-        private string messageField;
-        
-        private bool resultField;
-        
-        private NameIdItem[] valueField;
-        
-        private int pageIndexField;
-        
-        private int totalPageField;
-        
-        /// <remarks/>
-        public string Message {
-            get {
-                return this.messageField;
-            }
-            set {
-                this.messageField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public NameIdItem[] Value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageIndex {
-            get {
-                return this.pageIndexField;
-            }
-            set {
-                this.pageIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
         public int TotalPage {
             get {
                 return this.totalPageField;
@@ -16697,1586 +18636,41 @@ namespace MobileWhouse.UyumConnector {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class SelectParam2 {
+    public partial class BarkodBasParam {
         
-        private string filterField;
+        private int userIdField;
         
-        private int depotIdField;
+        private int koliSayisiField;
         
-        private int depo2IdField;
+        private int koliBasSayisiField;
         
-        private int infoIdField;
-        
-        private System.DateTime searchDateField;
-        
-        private string searchEntityField;
-        
-        private string docTraCodeField;
-        
-        private string docTraDescField;
-        
-        private int docTraIdField;
-        
-        private int packageTypeIdField;
-        
-        private int unitIdField;
-        
-        private object[] packageTraMIdsField;
-        
-        private int entityIdField;
-        
-        private int docNumberDIdField;
-        
-        private ReferralDetailInfo[] detailsField;
-        
-        private string docNoField;
-        
-        private string note1Field;
-        
-        private string note2Field;
-        
-        private string startTimeField;
-        
-        private System.DateTime actualDespatchDateField;
-        
-        private System.DateTime inventoryDateField;
-        
-        private string licencePlateField;
-        
-        private string driverIdentifyNoField;
-        
-        private string driverNameField;
-        
-        private string driverFamilyNameField;
-        
-        private string driverGsmNoField;
-        
-        private string transportEquipmentField;
-        
-        private int vehicleIdField;
-        
-        private string issueTimeField;
-        
-        private string registerNameField;
-        
-        private string shippingDesc1Field;
-        
-        private int transporterIdField;
-        
-        private int transportTypeIdField;
-        
-        /// <remarks/>
-        public string Filter {
-            get {
-                return this.filterField;
-            }
-            set {
-                this.filterField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int DepotId {
-            get {
-                return this.depotIdField;
-            }
-            set {
-                this.depotIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int Depo2Id {
-            get {
-                return this.depo2IdField;
-            }
-            set {
-                this.depo2IdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int InfoId {
-            get {
-                return this.infoIdField;
-            }
-            set {
-                this.infoIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime SearchDate {
-            get {
-                return this.searchDateField;
-            }
-            set {
-                this.searchDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string SearchEntity {
-            get {
-                return this.searchEntityField;
-            }
-            set {
-                this.searchEntityField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DocTraCode {
-            get {
-                return this.docTraCodeField;
-            }
-            set {
-                this.docTraCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DocTraDesc {
-            get {
-                return this.docTraDescField;
-            }
-            set {
-                this.docTraDescField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int DocTraId {
-            get {
-                return this.docTraIdField;
-            }
-            set {
-                this.docTraIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PackageTypeId {
-            get {
-                return this.packageTypeIdField;
-            }
-            set {
-                this.packageTypeIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int UnitId {
-            get {
-                return this.unitIdField;
-            }
-            set {
-                this.unitIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public object[] PackageTraMIds {
-            get {
-                return this.packageTraMIdsField;
-            }
-            set {
-                this.packageTraMIdsField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int EntityId {
-            get {
-                return this.entityIdField;
-            }
-            set {
-                this.entityIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int DocNumberDId {
-            get {
-                return this.docNumberDIdField;
-            }
-            set {
-                this.docNumberDIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public ReferralDetailInfo[] details {
-            get {
-                return this.detailsField;
-            }
-            set {
-                this.detailsField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DocNo {
-            get {
-                return this.docNoField;
-            }
-            set {
-                this.docNoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Note1 {
-            get {
-                return this.note1Field;
-            }
-            set {
-                this.note1Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Note2 {
-            get {
-                return this.note2Field;
-            }
-            set {
-                this.note2Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string StartTime {
-            get {
-                return this.startTimeField;
-            }
-            set {
-                this.startTimeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime ActualDespatchDate {
-            get {
-                return this.actualDespatchDateField;
-            }
-            set {
-                this.actualDespatchDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime InventoryDate {
-            get {
-                return this.inventoryDateField;
-            }
-            set {
-                this.inventoryDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string LicencePlate {
-            get {
-                return this.licencePlateField;
-            }
-            set {
-                this.licencePlateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DriverIdentifyNo {
-            get {
-                return this.driverIdentifyNoField;
-            }
-            set {
-                this.driverIdentifyNoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DriverName {
-            get {
-                return this.driverNameField;
-            }
-            set {
-                this.driverNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DriverFamilyName {
-            get {
-                return this.driverFamilyNameField;
-            }
-            set {
-                this.driverFamilyNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DriverGsmNo {
-            get {
-                return this.driverGsmNoField;
-            }
-            set {
-                this.driverGsmNoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string TransportEquipment {
-            get {
-                return this.transportEquipmentField;
-            }
-            set {
-                this.transportEquipmentField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int VehicleId {
-            get {
-                return this.vehicleIdField;
-            }
-            set {
-                this.vehicleIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string IssueTime {
-            get {
-                return this.issueTimeField;
-            }
-            set {
-                this.issueTimeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string RegisterName {
-            get {
-                return this.registerNameField;
-            }
-            set {
-                this.registerNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ShippingDesc1 {
-            get {
-                return this.shippingDesc1Field;
-            }
-            set {
-                this.shippingDesc1Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int TransporterId {
-            get {
-                return this.transporterIdField;
-            }
-            set {
-                this.transporterIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int TransportTypeId {
-            get {
-                return this.transportTypeIdField;
-            }
-            set {
-                this.transportTypeIdField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ServiceRequestOfSelectParam2 {
-        
-        private Token tokenField;
-        
-        private SelectParam2 valueField;
-        
-        private int pageIndexField;
-        
-        private int pageSizeField;
-        
-        private string attachmentField;
-        
-        /// <remarks/>
-        public Token Token {
-            get {
-                return this.tokenField;
-            }
-            set {
-                this.tokenField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public SelectParam2 Value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageIndex {
-            get {
-                return this.pageIndexField;
-            }
-            set {
-                this.pageIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageSize {
-            get {
-                return this.pageSizeField;
-            }
-            set {
-                this.pageSizeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Attachment {
-            get {
-                return this.attachmentField;
-            }
-            set {
-                this.attachmentField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ServiceResultOfListOfDocTra {
-        
-        private string messageField;
-        
-        private bool resultField;
-        
-        private DocTra[] valueField;
-        
-        private int pageIndexField;
-        
-        private int totalPageField;
-        
-        /// <remarks/>
-        public string Message {
-            get {
-                return this.messageField;
-            }
-            set {
-                this.messageField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public DocTra[] Value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageIndex {
-            get {
-                return this.pageIndexField;
-            }
-            set {
-                this.pageIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int TotalPage {
-            get {
-                return this.totalPageField;
-            }
-            set {
-                this.totalPageField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class DocTraSelectParam {
-        
-        private string docTraCodeFilterField;
-        
-        private int branchIdField;
-        
-        private int coIdField;
-        
-        private int sourceApplicationField;
-        
-        private int inventoryStatusField;
-        
-        private int purchaseSalesField;
-        
-        private int invoiceTypeField;
-        
-        private bool getIsreasonMondatoryField;
-        
-        private bool isreasonMondatoryField;
-        
-        /// <remarks/>
-        public string DocTraCodeFilter {
-            get {
-                return this.docTraCodeFilterField;
-            }
-            set {
-                this.docTraCodeFilterField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int BranchId {
-            get {
-                return this.branchIdField;
-            }
-            set {
-                this.branchIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int CoId {
-            get {
-                return this.coIdField;
-            }
-            set {
-                this.coIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int SourceApplication {
-            get {
-                return this.sourceApplicationField;
-            }
-            set {
-                this.sourceApplicationField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int InventoryStatus {
-            get {
-                return this.inventoryStatusField;
-            }
-            set {
-                this.inventoryStatusField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PurchaseSales {
-            get {
-                return this.purchaseSalesField;
-            }
-            set {
-                this.purchaseSalesField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int InvoiceType {
-            get {
-                return this.invoiceTypeField;
-            }
-            set {
-                this.invoiceTypeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool GetIsreasonMondatory {
-            get {
-                return this.getIsreasonMondatoryField;
-            }
-            set {
-                this.getIsreasonMondatoryField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool IsreasonMondatory {
-            get {
-                return this.isreasonMondatoryField;
-            }
-            set {
-                this.isreasonMondatoryField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ServiceRequestOfDocTraSelectParam {
-        
-        private Token tokenField;
-        
-        private DocTraSelectParam valueField;
-        
-        private int pageIndexField;
-        
-        private int pageSizeField;
-        
-        private string attachmentField;
-        
-        /// <remarks/>
-        public Token Token {
-            get {
-                return this.tokenField;
-            }
-            set {
-                this.tokenField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public DocTraSelectParam Value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageIndex {
-            get {
-                return this.pageIndexField;
-            }
-            set {
-                this.pageIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageSize {
-            get {
-                return this.pageSizeField;
-            }
-            set {
-                this.pageSizeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Attachment {
-            get {
-                return this.attachmentField;
-            }
-            set {
-                this.attachmentField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ServiceResultOfItemPickingParam {
-        
-        private string messageField;
-        
-        private bool resultField;
-        
-        private ItemPickingParam valueField;
-        
-        private int pageIndexField;
-        
-        private int totalPageField;
-        
-        /// <remarks/>
-        public string Message {
-            get {
-                return this.messageField;
-            }
-            set {
-                this.messageField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public ItemPickingParam Value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageIndex {
-            get {
-                return this.pageIndexField;
-            }
-            set {
-                this.pageIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int TotalPage {
-            get {
-                return this.totalPageField;
-            }
-            set {
-                this.totalPageField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ItemPickingParam {
-        
-        private int sevkEmriIdField;
-        
-        private string sevkEmriNoField;
-        
-        private int entityIdField;
-        
-        private System.DateTime sevkEmriDocDateField;
-        
-        private int packageTraMIdField;
-        
-        private string packageNoField;
-        
-        private int itemPickingMIdField;
-        
-        private int sevkEmriDIdField;
-        
-        private int whouseIdField;
-        
-        private decimal qtyField;
-        
-        private ItemPickingDetail[] detailsField;
-        
-        private string note1Field;
-        
-        private string note2Field;
-        
-        /// <remarks/>
-        public int SevkEmriId {
-            get {
-                return this.sevkEmriIdField;
-            }
-            set {
-                this.sevkEmriIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string SevkEmriNo {
-            get {
-                return this.sevkEmriNoField;
-            }
-            set {
-                this.sevkEmriNoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int EntityId {
-            get {
-                return this.entityIdField;
-            }
-            set {
-                this.entityIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime SevkEmriDocDate {
-            get {
-                return this.sevkEmriDocDateField;
-            }
-            set {
-                this.sevkEmriDocDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PackageTraMId {
-            get {
-                return this.packageTraMIdField;
-            }
-            set {
-                this.packageTraMIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string PackageNo {
-            get {
-                return this.packageNoField;
-            }
-            set {
-                this.packageNoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int ItemPickingMId {
-            get {
-                return this.itemPickingMIdField;
-            }
-            set {
-                this.itemPickingMIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int SevkEmriDId {
-            get {
-                return this.sevkEmriDIdField;
-            }
-            set {
-                this.sevkEmriDIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int WhouseId {
-            get {
-                return this.whouseIdField;
-            }
-            set {
-                this.whouseIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public decimal Qty {
-            get {
-                return this.qtyField;
-            }
-            set {
-                this.qtyField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public ItemPickingDetail[] Details {
-            get {
-                return this.detailsField;
-            }
-            set {
-                this.detailsField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Note1 {
-            get {
-                return this.note1Field;
-            }
-            set {
-                this.note1Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Note2 {
-            get {
-                return this.note2Field;
-            }
-            set {
-                this.note2Field = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class PackageTranInfo {
-        
-        private string docNoField;
-        
-        private System.DateTime docDateField;
-        
-        private int whouseId1Field;
-        
-        private int whouseId2Field;
-        
-        private PackageInfo[] itemsField;
-        
-        /// <remarks/>
-        public string DocNo {
-            get {
-                return this.docNoField;
-            }
-            set {
-                this.docNoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime DocDate {
-            get {
-                return this.docDateField;
-            }
-            set {
-                this.docDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int WhouseId1 {
-            get {
-                return this.whouseId1Field;
-            }
-            set {
-                this.whouseId1Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int WhouseId2 {
-            get {
-                return this.whouseId2Field;
-            }
-            set {
-                this.whouseId2Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        public PackageInfo[] Items {
-            get {
-                return this.itemsField;
-            }
-            set {
-                this.itemsField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ServiceRequestOfPackageTranInfo {
-        
-        private Token tokenField;
-        
-        private PackageTranInfo valueField;
-        
-        private int pageIndexField;
-        
-        private int pageSizeField;
-        
-        private string attachmentField;
-        
-        /// <remarks/>
-        public Token Token {
-            get {
-                return this.tokenField;
-            }
-            set {
-                this.tokenField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public PackageTranInfo Value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageIndex {
-            get {
-                return this.pageIndexField;
-            }
-            set {
-                this.pageIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageSize {
-            get {
-                return this.pageSizeField;
-            }
-            set {
-                this.pageSizeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Attachment {
-            get {
-                return this.attachmentField;
-            }
-            set {
-                this.attachmentField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class PaketSayimResult {
-        
-        private bool resultField;
-        
-        private string messageField;
-        
-        private int packageCycleMIdField;
-        
-        private int packageCycleDIdField;
-        
-        /// <remarks/>
-        public bool result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string message {
-            get {
-                return this.messageField;
-            }
-            set {
-                this.messageField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PackageCycleMId {
-            get {
-                return this.packageCycleMIdField;
-            }
-            set {
-                this.packageCycleMIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PackageCycleDId {
-            get {
-                return this.packageCycleDIdField;
-            }
-            set {
-                this.packageCycleDIdField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ServiceResultOfPaketSayimResult {
-        
-        private string messageField;
-        
-        private bool resultField;
-        
-        private PaketSayimResult valueField;
-        
-        private int pageIndexField;
-        
-        private int totalPageField;
-        
-        /// <remarks/>
-        public string Message {
-            get {
-                return this.messageField;
-            }
-            set {
-                this.messageField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public PaketSayimResult Value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageIndex {
-            get {
-                return this.pageIndexField;
-            }
-            set {
-                this.pageIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int TotalPage {
-            get {
-                return this.totalPageField;
-            }
-            set {
-                this.totalPageField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class PaketInfo {
-        
-        private int packageCycleMIdField;
-        
-        private string docNoField;
-        
-        private System.DateTime docDateField;
-        
-        private int whouseIdField;
-        
-        private int bwhLocationIdField;
-        
-        private string packageNoField;
-        
-        private int packageCycleDIdField;
-        
-        private bool itemDeleteField;
-        
-        private bool docDeleteField;
-        
-        /// <remarks/>
-        public int PackageCycleMId {
-            get {
-                return this.packageCycleMIdField;
-            }
-            set {
-                this.packageCycleMIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DocNo {
-            get {
-                return this.docNoField;
-            }
-            set {
-                this.docNoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime DocDate {
-            get {
-                return this.docDateField;
-            }
-            set {
-                this.docDateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int WhouseId {
-            get {
-                return this.whouseIdField;
-            }
-            set {
-                this.whouseIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int BwhLocationId {
-            get {
-                return this.bwhLocationIdField;
-            }
-            set {
-                this.bwhLocationIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string PackageNo {
-            get {
-                return this.packageNoField;
-            }
-            set {
-                this.packageNoField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PackageCycleDId {
-            get {
-                return this.packageCycleDIdField;
-            }
-            set {
-                this.packageCycleDIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool ItemDelete {
-            get {
-                return this.itemDeleteField;
-            }
-            set {
-                this.itemDeleteField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool DocDelete {
-            get {
-                return this.docDeleteField;
-            }
-            set {
-                this.docDeleteField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ServiceRequestOfPaketInfo {
-        
-        private Token tokenField;
-        
-        private PaketInfo valueField;
-        
-        private int pageIndexField;
-        
-        private int pageSizeField;
-        
-        private string attachmentField;
-        
-        /// <remarks/>
-        public Token Token {
-            get {
-                return this.tokenField;
-            }
-            set {
-                this.tokenField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public PaketInfo Value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageIndex {
-            get {
-                return this.pageIndexField;
-            }
-            set {
-                this.pageIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageSize {
-            get {
-                return this.pageSizeField;
-            }
-            set {
-                this.pageSizeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Attachment {
-            get {
-                return this.attachmentField;
-            }
-            set {
-                this.attachmentField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ServiceResultOfBoolean {
-        
-        private string messageField;
-        
-        private bool resultField;
-        
-        private bool valueField;
-        
-        private int pageIndexField;
-        
-        private int totalPageField;
-        
-        /// <remarks/>
-        public string Message {
-            get {
-                return this.messageField;
-            }
-            set {
-                this.messageField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool Value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageIndex {
-            get {
-                return this.pageIndexField;
-            }
-            set {
-                this.pageIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int TotalPage {
-            get {
-                return this.totalPageField;
-            }
-            set {
-                this.totalPageField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ServiceRequestOfPackageDetailWithDocTra {
-        
-        private Token tokenField;
-        
-        private PackageDetailWithDocTra valueField;
-        
-        private int pageIndexField;
-        
-        private int pageSizeField;
-        
-        private string attachmentField;
-        
-        /// <remarks/>
-        public Token Token {
-            get {
-                return this.tokenField;
-            }
-            set {
-                this.tokenField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public PackageDetailWithDocTra Value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageIndex {
-            get {
-                return this.pageIndexField;
-            }
-            set {
-                this.pageIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageSize {
-            get {
-                return this.pageSizeField;
-            }
-            set {
-                this.pageSizeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Attachment {
-            get {
-                return this.attachmentField;
-            }
-            set {
-                this.attachmentField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class ServiceResultOfPackageDetail {
-        
-        private string messageField;
-        
-        private bool resultField;
-        
-        private PackageDetail valueField;
-        
-        private int pageIndexField;
-        
-        private int totalPageField;
-        
-        /// <remarks/>
-        public string Message {
-            get {
-                return this.messageField;
-            }
-            set {
-                this.messageField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public bool Result {
-            get {
-                return this.resultField;
-            }
-            set {
-                this.resultField = value;
-            }
-        }
-        
         /// <remarks/>
-        public PackageDetail Value {
+        public int UserId {
             get {
-                return this.valueField;
+                return this.userIdField;
             }
             set {
-                this.valueField = value;
+                this.userIdField = value;
             }
         }
         
         /// <remarks/>
-        public int PageIndex {
+        public int KoliSayisi {
             get {
-                return this.pageIndexField;
+                return this.koliSayisiField;
             }
             set {
-                this.pageIndexField = value;
+                this.koliSayisiField = value;
             }
         }
         
         /// <remarks/>
-        public int TotalPage {
+        public int KoliBasSayisi {
             get {
-                return this.totalPageField;
+                return this.koliBasSayisiField;
             }
             set {
-                this.totalPageField = value;
+                this.koliBasSayisiField = value;
             }
         }
     }

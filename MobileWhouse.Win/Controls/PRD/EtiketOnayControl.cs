@@ -58,6 +58,8 @@ namespace MobileWhouse.Controls.PRD
         {
             try
             {
+                textbarkod.Enabled = false;
+                btnbarkod.Enabled = false;
                 if (wstation == null)
                 {
                     Screens.Error("İş istasyonu seçilmelidir!");
@@ -104,6 +106,8 @@ namespace MobileWhouse.Controls.PRD
                 context.Value.Qty = package.qty;
                 context.Value.UnitId = package.unit_id;
                 context.Value.Note = package.package_no;
+                context.Value.PrdSourceApp = Statics.OPERASYONELURETIMGIRIS;
+                context.Value.PrdSourceApp2 = Statics.ELTERMINALIURETIMGIRISI;
 
                 if (worder_acop.Employee != null && worder_acop.Employee.Count > 0)
                 {
@@ -133,6 +137,8 @@ namespace MobileWhouse.Controls.PRD
             finally
             {
                 Cursor.Current = Cursors.Default;
+                textbarkod.Enabled = true;
+                btnbarkod.Enabled = true;
                 textbarkod.Text = "";
                 textbarkod.Focus();
             }

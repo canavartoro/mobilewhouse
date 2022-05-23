@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SevkiyatControl));
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBarkod = new System.Windows.Forms.TextBox();
+            this.txtRaf = new MobileWhouse.Controls.RafTextBox();
             this.tabControlPalet = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.lvwItems = new System.Windows.Forms.ListView();
@@ -54,12 +56,10 @@
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.txtMiktar = new MobileWhouse.Controls.DecimalTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtRaf = new MobileWhouse.Controls.RafTextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblSevkEmri = new System.Windows.Forms.Label();
             this.lblMusteri = new System.Windows.Forms.Label();
-            this.textBarkod = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -116,17 +116,31 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.textBarkod);
+            this.tabPage1.Controls.Add(this.txtRaf);
             this.tabPage1.Controls.Add(this.tabControlPalet);
             this.tabPage1.Controls.Add(this.txtMiktar);
             this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.txtRaf);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.lblSevkEmri);
             this.tabPage1.Controls.Add(this.lblMusteri);
             this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.textBarkod);
             resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
+            // 
+            // textBarkod
+            // 
+            resources.ApplyResources(this.textBarkod, "textBarkod");
+            this.textBarkod.Name = "textBarkod";
+            this.textBarkod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBarkod_KeyPress);
+            // 
+            // txtRaf
+            // 
+            resources.ApplyResources(this.txtRaf, "txtRaf");
+            this.txtRaf.DepoId = 0;
+            this.txtRaf.IsRaf = 1;
+            this.txtRaf.IsTransfer = false;
+            this.txtRaf.Name = "txtRaf";
             // 
             // tabControlPalet
             // 
@@ -269,22 +283,6 @@
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
             // 
-            // txtItemCode
-            // 
-            // 
-            // txtRaf
-            // 
-            resources.ApplyResources(this.txtRaf, "txtRaf");
-            this.txtRaf.DepoId = 0;
-            this.txtRaf.IsRaf = 1;
-            this.txtRaf.IsTransfer = false;
-            this.txtRaf.Name = "txtRaf";
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
-            // 
             // label2
             // 
             resources.ApplyResources(this.label2, "label2");
@@ -300,11 +298,10 @@
             resources.ApplyResources(this.lblMusteri, "lblMusteri");
             this.lblMusteri.Name = "lblMusteri";
             // 
-            // textBarkod
+            // label3
             // 
-            resources.ApplyResources(this.textBarkod, "textBarkod");
-            this.textBarkod.Name = "textBarkod";
-            this.textBarkod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBarkod_KeyPress);
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
             // 
             // tabPage4
             // 

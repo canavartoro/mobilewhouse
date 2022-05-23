@@ -127,6 +127,10 @@ namespace MobileWhouse.Controls.Package
         {
             try
             {
+                depo = ClientApplication.Instance.SelectedDepot;
+                textDepo.Text = depo.Code;
+                textDepo.OnPress();
+                txtRaf.DepoId = depo.Id;
                 //string selectedAmbDocTra = FileHelper.ReadFile("ambTraDocTra.xml");
                 //if (!string.IsNullOrEmpty(selectedAmbDocTra))
                 //{
@@ -188,6 +192,12 @@ namespace MobileWhouse.Controls.Package
                 {
                     validate.AppendLine("Depo seçilmedi!");
                 }
+
+                if (depo.Id == ClientApplication.Instance.SelectedDepot.Id && _SelectedRaf == null)
+                {
+                    validate.AppendLine("Depo içi raf hareketinde Raf kodu zorunludur!");
+                }
+
                 DepotExtention depoext = new DepotExtention(depo);
                 if (depoext.is_location_track && depoext.input_location_id == 0)
                 {
@@ -256,7 +266,10 @@ namespace MobileWhouse.Controls.Package
                     ambhareket.UyumDetailItem[i].PackageMNo = package.PackageNo;
                     ////if (_SelectedRaf != null)
                     {
-                        ambhareket.UyumDetailItem[i].BwhLocationId = depoext.input_location_id;//_SelectedRaf.Id;
+                        if (_SelectedRaf != null)
+                            ambhareket.UyumDetailItem[i].BwhLocationId = _SelectedRaf.Id;
+                        else
+                            ambhareket.UyumDetailItem[i].BwhLocationId = depoext.input_location_id;//_SelectedRaf.Id;
                         //ambdetay.LocationCode = _SelectedRaf.Name;//sakın gönderme valla patlar
                     }
                     ambhareket.UyumDetailItem[i].PackageOperationType = ambhareket.PackageOperationType;
@@ -297,6 +310,11 @@ namespace MobileWhouse.Controls.Package
         private void textDepo_OnSelected(object sender, object obj)
         {
             depo = obj as Depot;
+            if (depo != null)
+            {
+                _SelectedRaf = null;
+                txtRaf.DepoId = depo.Id;
+            }
         }
     }
 }

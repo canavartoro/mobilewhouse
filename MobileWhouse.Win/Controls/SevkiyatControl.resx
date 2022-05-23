@@ -118,47 +118,47 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="t2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>61, 3</value>
+  <data name="textBarkod.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 41</value>
   </data>
-  <data name="t2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+  <data name="textBarkod.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="t2.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="textBarkod.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
   </data>
-  <data name="&gt;&gt;t2.Name" xml:space="preserve">
-    <value>t2</value>
+  <data name="&gt;&gt;textBarkod.Name" xml:space="preserve">
+    <value>textBarkod</value>
   </data>
-  <data name="&gt;&gt;t2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;textBarkod.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;t2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;textBarkod.Parent" xml:space="preserve">
     <value>tabPage1</value>
   </data>
-  <data name="&gt;&gt;t2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;textBarkod.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="t1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="txtRaf.Location" type="System.Drawing.Point, System.Drawing">
+    <value>41, 21</value>
   </data>
-  <data name="t1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+  <data name="txtRaf.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
   </data>
-  <data name="t1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="txtRaf.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
   </data>
-  <data name="&gt;&gt;t1.Name" xml:space="preserve">
-    <value>t1</value>
+  <data name="&gt;&gt;txtRaf.Name" xml:space="preserve">
+    <value>txtRaf</value>
   </data>
-  <data name="&gt;&gt;t1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;txtRaf.Type" xml:space="preserve">
+    <value>MobileWhouse.Controls.RafTextBox, MobileWhouse, Version=2.1.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;t1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;txtRaf.Parent" xml:space="preserve">
     <value>tabPage1</value>
   </data>
-  <data name="&gt;&gt;t1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;txtRaf.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
@@ -507,72 +507,6 @@
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="txtItemCode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 43</value>
-  </data>
-  <data name="txtItemCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <data name="txtItemCode.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;txtItemCode.Name" xml:space="preserve">
-    <value>txtItemCode</value>
-  </data>
-  <data name="&gt;&gt;txtItemCode.Type" xml:space="preserve">
-    <value>MobileWhouse.Controls.BarkodTextBox, MobileWhouse, Version=2.1.1.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;txtItemCode.Parent" xml:space="preserve">
-    <value>tabPage1</value>
-  </data>
-  <data name="&gt;&gt;txtItemCode.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="txtRaf.Location" type="System.Drawing.Point, System.Drawing">
-    <value>41, 21</value>
-  </data>
-  <data name="txtRaf.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
-  </data>
-  <data name="txtRaf.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;txtRaf.Name" xml:space="preserve">
-    <value>txtRaf</value>
-  </data>
-  <data name="&gt;&gt;txtRaf.Type" xml:space="preserve">
-    <value>MobileWhouse.Controls.RafTextBox, MobileWhouse, Version=2.1.1.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;txtRaf.Parent" xml:space="preserve">
-    <value>tabPage1</value>
-  </data>
-  <data name="&gt;&gt;txtRaf.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 45</value>
-  </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 15</value>
-  </data>
-  <data name="label3.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>Stok</value>
-  </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
-  </data>
-  <data name="&gt;&gt;label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
-    <value>tabPage1</value>
-  </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 23</value>
   </data>
@@ -595,7 +529,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>5</value>
   </data>
   <data name="lblSevkEmri.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 1</value>
@@ -619,13 +553,13 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;lblSevkEmri.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>6</value>
   </data>
   <data name="lblMusteri.Location" type="System.Drawing.Point, System.Drawing">
-    <value>82, 25</value>
+    <value>89, 2</value>
   </data>
   <data name="lblMusteri.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 16</value>
+    <value>147, 23</value>
   </data>
   <data name="lblMusteri.TabIndex" type="System.Int32, mscorlib">
     <value>31</value>
@@ -643,28 +577,31 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;lblMusteri.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>7</value>
   </data>
-  <data name="textBarkod.Location" type="System.Drawing.Point, System.Drawing">
-    <value>98, 40</value>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 45</value>
   </data>
-  <data name="textBarkod.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 20</value>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 15</value>
   </data>
-  <data name="textBarkod.TabIndex" type="System.Int32, mscorlib">
-    <value>32</value>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
   </data>
-  <data name="&gt;&gt;textBarkod.Name" xml:space="preserve">
-    <value>textBarkod</value>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Stok</value>
   </data>
-  <data name="&gt;&gt;textBarkod.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
   </data>
-  <data name="&gt;&gt;textBarkod.Parent" xml:space="preserve">
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
     <value>tabPage1</value>
   </data>
-  <data name="&gt;&gt;textBarkod.ZOrder" xml:space="preserve">
-    <value>11</value>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>

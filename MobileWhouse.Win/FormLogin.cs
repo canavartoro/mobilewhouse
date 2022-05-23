@@ -58,10 +58,11 @@ namespace MobileWhouse
                 ServiceResultOfLoginResult result = ClientApplication.Instance.Service.Login(token);
                 if (result.Result)
                 {
-                    if ((result.Value.ServerDate.Date != DateTime.Now.Date && result.Value.ServerDate.Hour != DateTime.Now.Hour) &&
-                        Screens.Question(string.Concat("Cihaz tarihi ve sistem tarihi farklı. Sistem Tarih:", result.Value.ServerDate, ", Cihaz tarihi güncellensin mi?")))
+                    if ((result.Value.ServerDate.Date != DateTime.Now.Date || result.Value.ServerDate.Hour != DateTime.Now.Hour))
                     {
+                        Screens.Warning(string.Concat("Cihaz tarihi ve sistem tarihi farklı. Sistem Tarih:", result.Value.ServerDate, ", Cihaz tirihi güncellenecek kontrol edin."));
                         DeviceUtil.SetDatetime(result.Value.ServerDate.ToString("dd.MM.yyyy HH:mm:ss"));
+                        Application.Exit();
                     }
 
                     ClientApplication.Instance.ClientToken = result.Value;
@@ -69,6 +70,12 @@ namespace MobileWhouse
                     token.Value.CoId = result.Value.CoId;
                     token.Value.BranchDesc = result.Value.BranchDesc;
                     ClientApplication.Instance.Token = token.Value;
+
+                    var userBrachParamResult = ClientApplication.Instance.UTermService.HandsetBranchParametre(new MobileWhouse.UTermConnector.ServiceRequestOfInt32 { Token = ClientApplication.Instance.UTermToken, Value = result.Value.BranchId });
+                    if (userBrachParamResult.Result)
+                    {
+                        ClientApplication.Instance.HandsetParam = new ReadUserParam(userBrachParamResult.Value);
+                    }
 
                     try
                     {

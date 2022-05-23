@@ -231,6 +231,7 @@ namespace MobileWhouse.GUI
             if (!Utility.IsDesignMode)
             {
                 new Thread(new ThreadStart(LoadArguments)).Start();
+                tmDefval.Enabled = true;
             }
 
         }
@@ -248,6 +249,47 @@ namespace MobileWhouse.GUI
         public bool IsSelectPrinter
         {
             get { return !string.IsNullOrEmpty(printerName); }
+        }
+
+        private void tmDefval_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                tmDefval.Enabled = false;
+                string cmbDesignval = AppCache.ReadCache(string.Concat(this.Name, cmbDesign.Name), "");
+                if (!string.IsNullOrEmpty(cmbDesignval) && cmbDesign.Items.Count > 0)
+                {
+                    for (int i = 0; i < cmbDesign.Items.Count; i++)
+                    {
+                        if (cmbDesign.Items[i].ToString() == cmbDesignval)
+                        {
+                            cmbDesign.SelectedIndex = i;
+                            break;
+                        }
+                    }
+                }
+                string cmbPrinterval = AppCache.ReadCache(string.Concat(this.Name, cmbPrinter.Name), "");
+                if (!string.IsNullOrEmpty(cmbPrinterval) && cmbPrinter.Items.Count > 0)
+                {
+                    for (int i = 0; i < cmbPrinter.Items.Count; i++)
+                    {
+                        if (cmbPrinter.Items[i].ToString() == cmbPrinterval)
+                        {
+                            cmbPrinter.SelectedIndex = i;
+                            break;
+                        }
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                Logger.E(exc);
+            }
+        }
+
+        public void ReleodDefaultValue()
+        {
+            tmDefval_Tick(tmDefval, EventArgs.Empty);
         }
 
     }

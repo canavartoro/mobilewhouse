@@ -239,6 +239,24 @@
     <Compile Include="Controls\PSM\CariBazindaSatinalmaControl.Designer.cs">
       <DependentUpon>CariBazindaSatinalmaControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\PSM\FrmAracBilgi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\PSM\FrmAracBilgi.Designer.cs">
+      <DependentUpon>FrmAracBilgi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PSM\FrmIrsaliye.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\PSM\FrmIrsaliye.Designer.cs">
+      <DependentUpon>FrmIrsaliye.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PSM\Frm_PaletSevk.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PSM\Frm_PaletSevk.Designer.cs">
+      <DependentUpon>Frm_PaletSevk.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PSM\MalKabulControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -256,6 +274,12 @@
     </Compile>
     <Compile Include="Controls\PSM\SatinalmaMalKabulEtiketlemeControl.Designer.cs">
       <DependentUpon>SatinalmaMalKabulEtiketlemeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PSM\SevkControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PSM\SevkControl.Designer.cs">
+      <DependentUpon>SevkControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\QLT\AmbalajBlokeControl.cs">
       <SubType>UserControl</SubType>
@@ -470,6 +494,18 @@
     <Compile Include="Forms\FormTus.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmArama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmArama.Designer.cs">
+      <DependentUpon>FrmArama.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAramaFirma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAramaFirma.Designer.cs">
+      <DependentUpon>FrmAramaFirma.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\UButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -511,6 +547,7 @@
     <Compile Include="Models\PurchaseOrderDModel.cs" />
     <Compile Include="Net\ClientInf.cs" />
     <Compile Include="Net\TcpPrinterClient.cs" />
+    <Compile Include="ReadUserParam.cs" />
     <Compile Include="Util\AppCache.cs" />
     <Compile Include="Util\AppConfig.cs" />
     <Compile Include="Models\invd_item.cs" />
@@ -674,10 +711,10 @@
       <CachedSettingsPropName>
       </CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost:4444/WebService/ERP/UyumSaveWebService.asmx">
+    <WebReferenceUrl Include="http://192.168.3.216//WebService/ERP/UyumSaveWebService.asmx">
       <UrlBehavior>Static</UrlBehavior>
       <RelPath>Web References\UyumSave\</RelPath>
-      <UpdateFromURL>http://localhost:4444/WebService/ERP/UyumSaveWebService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://192.168.3.216//WebService/ERP/UyumSaveWebService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -713,10 +750,10 @@
       <CachedSettingsPropName>
       </CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://localhost:4444/WebService/MW/MobileWhouse.asmx">
+    <WebReferenceUrl Include="https://terp.yesilay.org.tr/WebService/MW/MobileWhouse.asmx">
       <UrlBehavior>Static</UrlBehavior>
       <RelPath>Web References\UyumConnector\</RelPath>
-      <UpdateFromURL>http://localhost:4444/WebService/MW/MobileWhouse.asmx</UpdateFromURL>
+      <UpdateFromURL>https://terp.yesilay.org.tr/WebService/MW/MobileWhouse.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -1002,11 +1039,23 @@
     <EmbeddedResource Include="Controls\PSM\CariBazindaSatinalmaControl.resx">
       <DependentUpon>CariBazindaSatinalmaControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PSM\FrmAracBilgi.resx">
+      <DependentUpon>FrmAracBilgi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PSM\FrmIrsaliye.resx">
+      <DependentUpon>FrmIrsaliye.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PSM\Frm_PaletSevk.resx">
+      <DependentUpon>Frm_PaletSevk.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\PSM\SatinalmaMalKabulControl.resx">
       <DependentUpon>SatinalmaMalKabulControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\PSM\SatinalmaMalKabulEtiketlemeControl.resx">
       <DependentUpon>SatinalmaMalKabulEtiketlemeControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PSM\SevkControl.resx">
+      <DependentUpon>SevkControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\QLT\AmbalajBlokeControl.resx">
       <DependentUpon>AmbalajBlokeControl.cs</DependentUpon>
@@ -1050,6 +1099,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormInput.resx">
       <DependentUpon>FormInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmArama.resx">
+      <DependentUpon>FrmArama.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAramaFirma.resx">
+      <DependentUpon>FrmAramaFirma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ComboControl.resx">
       <DependentUpon>ComboControl.cs</DependentUpon>

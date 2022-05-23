@@ -27,6 +27,7 @@ namespace MobileWhouse.Controls.QLT
         private EmployeeLogin operatorLogin = new EmployeeLogin();
         private MobileWhouse.ProdConnector.PrdGobalInfo wstation = null;
         private worder_ac_op worder_acop = null;
+        private worder_ac_op worder_acopBreak = null;
 
         private void GetProducts()
         {
@@ -43,6 +44,32 @@ namespace MobileWhouse.Controls.QLT
                     lblstokad.Text = string.Concat(worder_acop.item_code, " ", worder_acop.item_name);
                 }
                 else
+                {
+                    Screens.Error("İstasyonda açık üretim bulunamadı!");
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                Screens.Error(ex);
+            }
+            finally
+            {
+                Cursor.Current = Cursors.Default;
+                GetBreakProducts();
+            }
+        }
+
+        private void GetBreakProducts()
+        {
+            try
+            {
+                if (wstation == null) return;
+
+                Cursor.Current = Cursors.WaitCursor;
+
+                worder_acopBreak = worder_ac_op.GetProductWithBreak(wstation.PrdGobalId);
+                if (worder_acopBreak == null)
                 {
                     Screens.Error("İstasyonda açık üretim bulunamadı!");
                     return;
@@ -331,6 +358,8 @@ namespace MobileWhouse.Controls.QLT
             {
                 if (worder_acop == null) return;
 
+
+
                 MobileWhouse.UyumConnector.ServiceRequestOfString param = new MobileWhouse.UyumConnector.ServiceRequestOfString();
                 param.Token = ClientApplication.Instance.Token;
                 param.Value = string.Format("UPDATE uyumsoft.zz_worder_ac_op SET update_date = CURRENT_TIMESTAMP,update_user_id = '{0}',quality_id='{1}',is_approved=1,is_break=0,worder_break_id = NULL WHERE worder_ac_op_id = {2}",
@@ -346,14 +375,28 @@ namespace MobileWhouse.Controls.QLT
                     }
                     else
                     {
-                        param.Value = string.Concat("UPDATE prdd_free_break_worder SET update_date = CURRENT_TIMESTAMP,end_date = CURRENT_TIMESTAMP,net_time = (EXTRACT(EPOCH FROM NOW()::TIMESTAMP) - EXTRACT(EPOCH FROM start_date::TIMESTAMP)) / 60,description = '",
-                            operatorLogin.Operator.citizenship_no, "' WHERE free_break_worder_id = ", worder_acop.worder_break_id);
-                        Logger.I(param.Value);
-                        res = ClientApplication.Instance.Service.ExecuteSQL(param);
-                        if (res.Result == false)
+                        if (worder_acopBreak != null)
                         {
-                            MobileWhouse.Util.Screens.Error(string.Concat("Sunucu hatası:", res.Message));
+                            param.Value = string.Format("UPDATE uyumsoft.zz_worder_ac_op SET update_date = CURRENT_TIMESTAMP,update_user_id = '{0}',is_break=0 WHERE worder_ac_op_id = {1}",
+                                ClientApplication.Instance.ClientToken.UserId, worder_acopBreak.worder_ac_op_id);
+                            Logger.I(param.Value);
+                            res = ClientApplication.Instance.Service.ExecuteSQL(param);
+                            if (res.Result == false)
+                            {
+                                MobileWhouse.Util.Screens.Error(string.Concat("Sunucu hatası:", res.Message));
+                            }
+
+                            param.Value = string.Concat("UPDATE prdd_free_break_worder SET update_date = CURRENT_TIMESTAMP,end_date = CURRENT_TIMESTAMP,net_time = (EXTRACT(EPOCH FROM NOW()::TIMESTAMP) - EXTRACT(EPOCH FROM start_date::TIMESTAMP)) / 60,description = '",
+                                                        operatorLogin.Operator.citizenship_no, "' WHERE free_break_worder_id = ", worder_acopBreak.worder_break_id);
+                            Logger.I(param.Value);
+                            res = ClientApplication.Instance.Service.ExecuteSQL(param);
+                            if (res.Result == false)
+                            {
+                                MobileWhouse.Util.Screens.Error(string.Concat("Sunucu hatası:", res.Message));
+                            }
                         }
+
+
                     }
                 }
             }

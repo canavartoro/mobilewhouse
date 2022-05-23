@@ -18,6 +18,8 @@ namespace MobileWhouse
     {
         public event EventHandler SelectedDepotChanged;
 
+        public ReadUserParam HandsetParam = new ReadUserParam("");
+
         private static ClientApplication _Instance;
 
         private ProdConnector.Production _prodService;
@@ -30,6 +32,15 @@ namespace MobileWhouse
         private FormMain _MainForm;
         private CultureInfo _Culture;
         private Depot _SelectedDepot;
+        public bool _IsQuality = false;
+        public bool _IsColor = false;
+        public bool _IsLot = false;
+        public bool _IsAttribute1 = false;
+        public bool _IsAttribute2 = false;
+        public bool _IsAttribute3 = false;
+        public bool _IsFreeUnit1 = false;
+        public bool _PurchaseReturnDisplay = false;
+        
 
         public static ClientApplication Instance
         {

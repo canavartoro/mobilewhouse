@@ -246,6 +246,42 @@ WHERE op.""wstation_id"" = '{0}' AND op.""is_closed"" = 0 ", wstation_id);
             return null;
         }
 
+        public static worder_ac_op GetProductWithBreak(int wstation_id)
+        {
+
+            StringBuilder sbSqlString = new StringBuilder();
+            sbSqlString.AppendFormat(@"SELECT op.""worder_ac_op_id"",op.""create_user_id"",op.""create_date"",op.""worder_m_id"",m.""worder_no"",
+op.""item_id"",it.""item_code"",it.""item_name"",op.""qty"",op.""qty_net"",op.""unit_id"",op.""worder_op_d_id"",op.""operation_id"",op.""operation_no"",op.""wstation_id"",op.""start_date"",op.""shifts_id"",op.""is_approved"",it.""density"",op.""worder_break_id"" 
+FROM ""uyumsoft"".""zz_worder_ac_op"" op LEFT JOIN 
+uyumsoft.""prdt_worder_m"" m ON op.""worder_m_id"" = m.""worder_m_id"" LEFT JOIN 
+uyumsoft.""invd_item"" it ON op.""item_id"" = it.""item_id"" 
+WHERE op.""wstation_id"" = '{0}' AND op.""is_break"" = 1 ORDER BY worder_ac_op_id DESC LIMIT 1 ", wstation_id);
+
+            MobileWhouse.UyumConnector.ServiceRequestOfString param = new MobileWhouse.UyumConnector.ServiceRequestOfString();
+            param.Token = ClientApplication.Instance.Token;
+            param.Value = sbSqlString.ToString();
+            Logger.I(param.Value);
+
+            MobileWhouse.UyumConnector.ServiceResultOfDataTable res = ClientApplication.Instance.Service.ExecuteSQL(param);
+            if (res != null)
+            {
+                if (res.Result == false)
+                {
+                    MobileWhouse.Util.Screens.Error(string.Concat("Sunucu hatası:", res.Message));
+                }
+                else
+                {
+                    if (res.Value != null && res.Value.Rows.Count > 0)
+                    {
+                        List<worder_ac_op> acop = DataProvider.TableToList(res.Value, typeof(worder_ac_op)) as List<worder_ac_op>;
+                        if (acop != null && acop.Count > 0) return acop[0];
+                        //return new worder_ac_op(res.Value.Rows[0]);
+                    }
+                }
+            }
+            return null;
+        }
+
         public void GetEmployee()
         {
             StringBuilder sbSqlString = new StringBuilder();

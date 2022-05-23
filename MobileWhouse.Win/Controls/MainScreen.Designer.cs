@@ -100,7 +100,7 @@
             this.btnSevkiyat.Name = "btnSevkiyat";
             this.btnSevkiyat.Size = new System.Drawing.Size(109, 20);
             this.btnSevkiyat.TabIndex = 3;
-            this.btnSevkiyat.Text = "Mal Hazırlama";
+            this.btnSevkiyat.Text = "Sevkiyat";
             this.btnSevkiyat.Click += new System.EventHandler(this.btnSevkiyat_Click);
             // 
             // btnStokRafDurumu

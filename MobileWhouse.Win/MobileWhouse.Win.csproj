@@ -211,6 +211,24 @@
     <Compile Include="Controls\PSM\CariBazindaSatinalmaControl.Designer.cs">
       <DependentUpon>CariBazindaSatinalmaControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\PSM\FrmAracBilgi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\PSM\FrmAracBilgi.Designer.cs">
+      <DependentUpon>FrmAracBilgi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PSM\FrmIrsaliye.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\PSM\FrmIrsaliye.Designer.cs">
+      <DependentUpon>FrmIrsaliye.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PSM\Frm_PaletSevk.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PSM\Frm_PaletSevk.Designer.cs">
+      <DependentUpon>Frm_PaletSevk.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PSM\MalKabulControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -228,6 +246,12 @@
     </Compile>
     <Compile Include="Controls\PSM\SatinalmaMalKabulEtiketlemeControl.Designer.cs">
       <DependentUpon>SatinalmaMalKabulEtiketlemeControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PSM\SevkControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PSM\SevkControl.Designer.cs">
+      <DependentUpon>SevkControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\QLT\AmbalajBlokeControl.cs">
       <SubType>UserControl</SubType>
@@ -442,6 +466,18 @@
     <Compile Include="Forms\FormTus.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmArama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmArama.Designer.cs">
+      <DependentUpon>FrmArama.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAramaFirma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAramaFirma.Designer.cs">
+      <DependentUpon>FrmAramaFirma.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ComboControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -586,6 +622,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="ReadUserParam.cs" />
     <Compile Include="Statics.cs" />
     <Compile Include="Updater\UpdateHelper.cs" />
     <Compile Include="Util\AppCache.cs" />
@@ -645,10 +682,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>MobileWhouse_Win_AppServ_Service</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://10.0.0.250:400/WebService/ERP/UyumSaveWebService.asmx">
+    <WebReferenceUrl Include="http://192.168.3.216/WebService/ERP/UyumSaveWebService.asmx">
       <UrlBehavior>Static</UrlBehavior>
       <RelPath>Web References\UyumSave\</RelPath>
-      <UpdateFromURL>http://10.0.0.250:400/WebService/ERP/UyumSaveWebService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://192.168.3.216/WebService/ERP/UyumSaveWebService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

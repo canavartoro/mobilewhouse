@@ -37,6 +37,7 @@ namespace MobileWhouse.Controls.PRD
         const int KOLIICI = 10;
         const int STOKKOD = 12;
         const int STOKAD = 13;
+        const int PALET_SAYISI = 14;
 
         private MobileWhouse.ProdConnector.WorderMInfo worderM = null;
 
@@ -58,7 +59,7 @@ namespace MobileWhouse.Controls.PRD
                 sbSqlString.AppendFormat(@"SELECT wm.qty,SUM(acop.qty) acop_qty,COUNT(acop.*) acop_caount,TO_CHAR(wm.start_date, 'DD.MM.YYYY') start_date,
 wm.qty - SUM(acop.qty) qty_reain,CASE WHEN it.density > 0 THEN TRUNC((wm.qty - SUM(acop.qty)) / it.density) ELSE 0 END qty_remain2,
 ws.wstation_code,ws.description,TO_CHAR(zacop.start_date, 'DD.MM.YYYY') prod_start,zacop.worder_ac_op_id,it.density,
-wm.worder_m_id,it.item_code,it.item_name 
+wm.worder_m_id,it.item_code,it.item_name,(SELECT COUNT(*) FROM (SELECT x.palette_no FROM zz_package_m x WHERE x.palette_no IS NOT NULL AND x.worder_m_id = wm.worder_m_id GROUP BY x.palette_no) t) palette_count 
 FROM prdt_worder_m wm LEFT JOIN prdt_worder_ac_op acop ON wm.worder_m_id = acop.worder_m_id LEFT JOIN 
 zz_worder_ac_op zacop ON wm.worder_m_id = zacop.worder_m_id AND zacop.is_closed = 0 LEFT JOIN 
 prdd_wstation ws ON zacop.wstation_id = ws.wstation_id INNER JOIN invd_item it ON wm.item_id = it.item_id
@@ -81,12 +82,12 @@ GROUP BY wm.qty,wm.start_date,ws.wstation_code,ws.description,zacop.start_date,z
                     {
                         if (res.Value != null && res.Value.Rows.Count > 0)
                         {
-                            listBox1.Items.Add(string.Format("İş Emri Başlangıç:\t{0}", res.Value.Rows[0][ISEMRITARIHI]));//
+                            listBox1.Items.Add(string.Format("İş Emri Başlangıç:\t{0}", res.Value.Rows[0][ISEMRITARIHI]));
                             listBox1.Items.Add(string.Format("İş Emri Miktarı:\t{0}", StringUtil.ToDecimal(res.Value.Rows[0][ISEMRIMIKTAR]).ToString(Statics.DECIMAL_STRING_FORMAT)));
                             listBox1.Items.Add(string.Format("İş Emri Kalan Miktarı:\t{0}", StringUtil.ToDecimal(res.Value.Rows[0][ISEMRIKALAN]).ToString(Statics.DECIMAL_STRING_FORMAT)));
                             listBox1.Items.Add(string.Format("Üretilen Miktarı:\t{0}", StringUtil.ToDecimal(res.Value.Rows[0][1]).ToString(Statics.DECIMAL_STRING_FORMAT)));
-                            listBox1.Items.Add(string.Format("Koli Sayısı:\t{0}\t Kalan Koli:{1}", StringUtil.ToDecimal(res.Value.Rows[0][URETIMSAYISI]).ToString(Statics.DECIMAL_STRING_FORMAT),
-                                StringUtil.ToDecimal(res.Value.Rows[0][KALANKOLI]).ToString(Statics.DECIMAL_STRING_FORMAT)));
+                            listBox1.Items.Add(string.Format("Koli Sayısı:\t{0}\t Kalan Koli:{1}\tPalet:{2}", StringUtil.ToDecimal(res.Value.Rows[0][URETIMSAYISI]).ToString(Statics.DECIMAL_STRING_FORMAT),
+                                StringUtil.ToDecimal(res.Value.Rows[0][KALANKOLI]).ToString(Statics.DECIMAL_STRING_FORMAT), StringUtil.ToDecimal(res.Value.Rows[0][PALET_SAYISI]).ToString(Statics.DECIMAL_STRING_FORMAT)));
                             listBox1.Items.Add(string.Format("Kutu İçi:\t{0}", StringUtil.ToDecimal(res.Value.Rows[0][KOLIICI]).ToString(Statics.DECIMAL_STRING_FORMAT)));
                             listBox1.Items.Add(string.Format("Çalışan Tezgah:\t{0} {1}", res.Value.Rows[0][ISTASYONKOD].ToString(), res.Value.Rows[0][ISTASYONAD].ToString()));
                             listBox1.Items.Add(string.Format("Çalışan Stok:\t{0} {1}", res.Value.Rows[0][STOKKOD].ToString(), res.Value.Rows[0][STOKAD].ToString()));

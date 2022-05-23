@@ -252,8 +252,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.Controls.Add(this.tabControl1);
             this.Name = "UretimGirisControl";
-            this.OnLoad += new System.EventHandler(UretimGirisControl_OnLoad);
             this.Size = new System.Drawing.Size(240, 320);
+            this.OnLoad += new System.EventHandler(this.UretimGirisControl_OnLoad);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);

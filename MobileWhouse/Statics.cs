@@ -7,6 +7,8 @@ namespace MobileWhouse
 {
     public sealed class Statics
     {
+        public const int OPERASYONELURETIMGIRIS = 10;
+        public const int ELTERMINALIURETIMGIRISI = 80;
         public const int USTUN_WCENTER_ID = 249; //Ü-01
         public const string DECIMAL_STRING_FORMAT = "0.#####";
         //public const string DECIMAL_STRING_FORMAT = "0,000.#####";

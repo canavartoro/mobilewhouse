@@ -53,7 +53,8 @@ namespace MobileWhouse.Util
             }
             catch (Exception exc)
             {
-                Logger.E(exc);
+                Screens.Error(exc);
+                //Logger.E(exc);
             }
             return dvalue;
         }
@@ -113,7 +114,8 @@ namespace MobileWhouse.Util
             }
             catch (Exception exc)
             {
-                Logger.E(exc);
+                Screens.Error(exc);
+                //Logger.E(exc);
             }
         }
     }

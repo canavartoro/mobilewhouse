@@ -30,6 +30,7 @@ namespace MobileWhouse.Models
         public decimal CUR_RATE_TRA { get; set; }
         public int CUR_RATE_TYPE_ID { get; set; }
         public decimal UNIT_PRICE { get; set; }
+        public decimal UNIT_PRICE_TRA { get; set; }
 
         public int CUR_TRA_ID_M { get; set; }
         public decimal CUR_RATE_TRA_M { get; set; }
