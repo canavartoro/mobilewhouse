@@ -67,13 +67,11 @@
     <Reference Include="System.Web.Services">
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq">
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Drawing">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.Windows.Forms">
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml">
@@ -711,10 +709,10 @@
       <CachedSettingsPropName>
       </CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://192.168.3.216//WebService/ERP/UyumSaveWebService.asmx">
+    <WebReferenceUrl Include="http://159.253.81.186:400/WebService/ERP/UyumSaveWebService.asmx">
       <UrlBehavior>Static</UrlBehavior>
       <RelPath>Web References\UyumSave\</RelPath>
-      <UpdateFromURL>http://192.168.3.216//WebService/ERP/UyumSaveWebService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://159.253.81.186:400/WebService/ERP/UyumSaveWebService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -975,6 +973,9 @@
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\UyumConnector\ServiceResultOfPackageTraMInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\UyumSave\ServiceResultOfString.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\UyumWebService\Reference.map">

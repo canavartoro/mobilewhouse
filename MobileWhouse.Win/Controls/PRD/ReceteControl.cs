@@ -35,7 +35,7 @@ namespace MobileWhouse.Controls.PRD
                 sbSqlString.Append("SELECT B.ITEM_ID,I.ITEM_CODE,I.ITEM_NAME,B.UNIT_ID,U.UNIT_CODE,B.QTY_BASE_BOM QTY,COALESCE(BWH.QTY_PRM,0) ONHAND, ");
                 sbSqlString.Append("B.WORDER_BOM_D_ID,B.BOM_LINE_TYPE,B.LINE_NO,B.WHOUSE_ID,W.WHOUSE_CODE ");
                 sbSqlString.Append("FROM PRDT_WORDER_BOM_D B INNER JOIN INVD_ITEM I ON B.ITEM_ID = I.ITEM_ID INNER JOIN ");
-                sbSqlString.Append("INVD_UNIT U ON B.UNIT_ID = U.UNIT_ID INNER JOIN INVD_WHOUSE W ON B.WHOUSE_ID = W.WHOUSE_ID LEFT JOIN ");
+                sbSqlString.Append("INVD_UNIT U ON B.UNIT_ID = U.UNIT_ID LEFT JOIN INVD_WHOUSE W ON B.WHOUSE_ID = W.WHOUSE_ID LEFT JOIN ");
                 sbSqlString.Append("INVD_BWH_ITEM_D BWH ON B.ITEM_ID = BWH.ITEM_ID AND B.WHOUSE_ID = BWH.WHOUSE_ID ");
                 sbSqlString.AppendFormat("WHERE B.BRANCH_ID = {0} AND B.CO_ID = {1} ", ClientApplication.Instance.Token.BranchId, ClientApplication.Instance.Token.CoId);
                 sbSqlString.AppendFormat(" AND B.WORDER_M_ID = {0} ", worderM.Id);

@@ -456,7 +456,7 @@ WHERE D.ORDER_D_ID IN (", string.Join(",", orderids), ")");
                                 detail.CurRateTypeId = orderd.CUR_RATE_TYPE_ID;
                                 detail.Amt = Math.Round(orderd.UNIT_PRICE_TRA * info2.Qty * detail.CurRateTra, 2);
                                 detail.AmtTra = Math.Round(orderd.UNIT_PRICE_TRA * info2.Qty, 2);
-                                detail.UnitPrice = orderd.UNIT_PRICE_TRA;
+                                detail.UnitPriceTra = orderd.UNIT_PRICE_TRA;
                                 detail.SourceMId = orderd.ORDER_M_ID;
                                 detail.SourceDId = info2.Id;
                                 detail.Note2 = "El terminalinden oluşturuldu";

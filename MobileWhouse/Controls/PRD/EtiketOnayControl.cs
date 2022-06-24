@@ -60,17 +60,17 @@ namespace MobileWhouse.Controls.PRD
             {
                 textbarkod.Enabled = false;
                 btnbarkod.Enabled = false;
-                if (wstation == null)
-                {
-                    Screens.Error("İş istasyonu seçilmelidir!");
-                    return;
-                }
+                //if (wstation == null)
+                //{
+                //    Screens.Error("İş istasyonu seçilmelidir!");
+                //    return;
+                //}
 
-                if (worder_acop == null)
-                {
-                    Screens.Error("İstasyonda açık üretim bulunamadı!");
-                    return;
-                }
+                //if (worder_acop == null)
+                //{
+                //    Screens.Error("İstasyonda açık üretim bulunamadı!");
+                //    return;
+                //}
                 if (string.IsNullOrEmpty(textbarkod.Text))
                 {
                     textbarkod.Focus();
@@ -90,6 +90,8 @@ namespace MobileWhouse.Controls.PRD
                     Screens.Error("Okutulan barkod onaylanmış! " + package.palette_no);
                     return;
                 }
+
+                if (wstation == null) secistasyon.SetText(package.wstation_code);
 
                 MobileWhouse.UyumSave.UyumServiceRequestOfPrdWorderDef context = new MobileWhouse.UyumSave.UyumServiceRequestOfPrdWorderDef();
                 context.Token = new MobileWhouse.UyumSave.UyumToken();
@@ -125,9 +127,9 @@ namespace MobileWhouse.Controls.PRD
                 {
                     Screens.Error(result.Message);
                 }
-                else 
+                else
                 {
-                   package_m.UpdatePackage(package, StringUtil.ToInteger(result.Message));
+                    package_m.UpdatePackage(package, StringUtil.ToInteger(result.Message));
                 }
             }
             catch (Exception ex)

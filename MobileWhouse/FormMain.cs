@@ -25,23 +25,30 @@ namespace MobileWhouse
             }
             set
             {
-                if (_SelectedPage != null)
+                try
                 {
-                    _SelectedPage.Parent = null;
-                    _SelectedPage.Dispose();
+                    if (_SelectedPage != null)
+                    {
+                        _SelectedPage.Parent = null;
+                        _SelectedPage.Dispose();
+                    }
+                    _SelectedPage = value;
+                    if (_SelectedPage != null)
+                    {
+                        _ButtonPanel.Visible = false;
+                        _SelectedPage.Dock = DockStyle.Fill;
+                        _SelectedPage.MainForm = this;
+                        _SelectedPage.Parent = pnlContainer;
+                    }
+                    else
+                    {
+                        _ButtonPanel.Visible = true;
+                        _ButtonPanel.Focus();
+                    }
                 }
-                _SelectedPage = value;
-                if (_SelectedPage != null)
+                catch (Exception exc)
                 {
-                    _ButtonPanel.Visible = false;
-                    _SelectedPage.Dock = DockStyle.Fill;
-                    _SelectedPage.MainForm = this;
-                    _SelectedPage.Parent = pnlContainer;
-                }
-                else
-                {
-                    _ButtonPanel.Visible = true;
-                    _ButtonPanel.Focus();
+                    MobileWhouse.Util.Screens.Error(exc);
                 }
             }
         }

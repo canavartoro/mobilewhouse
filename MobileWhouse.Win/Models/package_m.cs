@@ -96,6 +96,7 @@ namespace MobileWhouse.Models
         private int _erp_worder_ac_op_id = 0;
         private DateTime _create_date;
         private int _wstation_id = 0;
+        private string _wstation_code = "";
 
         public DateTime create_date
         {
@@ -257,6 +258,11 @@ namespace MobileWhouse.Models
             get { return _wstation_id; }
             set { _wstation_id = value; }
         }
+        public string wstation_code
+        {
+            get { return _wstation_code; }
+            set { _wstation_code = value; }
+        }
 
         public static package_m GetPackage(string package_no)
         {
@@ -264,10 +270,10 @@ namespace MobileWhouse.Models
             sbSqlString.AppendFormat(@"SELECT pkg.package_id,pkg.palette_no,pkg.worder_ac_op_id,pkg.operation_id,pkg.operation_no,pkg.package_no,pkg.item_id,it.item_code,it.item_name,
 pkg.unit_id,un.unit_code,pkg.qty,pkg.worder_m_id,pkg.worder_op_d_id,wm.worder_no,pkg.whouse_id,wh.whouse_code,wh.description whouse_desc,pkg.create_date,pkg.is_closed,pkg.is_created,
 pkg.is_scrapt,pkg.is_real,pkg.scrap_reason_id,pkg.scrap_result_type,pkg.worder_ac_bom_m_id,pkg.worder_ac_bom_d_id,pkg.diff_item_id,pkg.diff_unit_id,pkg.worder_ac_bom_d_line_no,pkg.erp_worder_ac_op_id,
-op.""wstation_id""   
+op.""wstation_id"",ws.wstation_code    
 FROM uyumsoft.zz_package_m pkg LEFT JOIN invd_item it ON pkg.item_id = it.item_id LEFT JOIN 
 invd_unit un ON pkg.unit_id = un.unit_id LEFT JOIN prdt_worder_m wm ON pkg.worder_m_id = wm.worder_m_id LEFT JOIN 
-invd_whouse wh ON pkg.whouse_id = wh.whouse_id LEFT JOIN ""uyumsoft"".""zz_worder_ac_op"" op ON pkg.worder_ac_op_id = op.worder_ac_op_id
+invd_whouse wh ON pkg.whouse_id = wh.whouse_id LEFT JOIN ""uyumsoft"".""zz_worder_ac_op"" op ON pkg.worder_ac_op_id = op.worder_ac_op_id  LEFT JOIN prdd_wstation ws ON op.""wstation_id"" = ws.wstation_id  
 WHERE pkg.package_no = '{0}' ", package_no.Replace("'", "`"));
 
             MobileWhouse.UyumConnector.ServiceRequestOfString param = new MobileWhouse.UyumConnector.ServiceRequestOfString();

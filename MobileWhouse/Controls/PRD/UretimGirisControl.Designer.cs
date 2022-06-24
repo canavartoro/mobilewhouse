@@ -46,9 +46,13 @@
             this.secistasyon = new MobileWhouse.GUI.ULookupEdit();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.uretimgirisprint = new MobileWhouse.GUI.UPrintControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.txtisemri = new MobileWhouse.GUI.ULookupEdit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnKapat
@@ -171,6 +175,7 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular);
@@ -234,7 +239,7 @@
             this.tabPage2.Controls.Add(this.uretimgirisprint);
             this.tabPage2.Location = new System.Drawing.Point(0, 0);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(240, 295);
+            this.tabPage2.Size = new System.Drawing.Size(232, 293);
             this.tabPage2.Text = "Ayarlar";
             // 
             // uretimgirisprint
@@ -243,8 +248,49 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.uretimgirisprint.Location = new System.Drawing.Point(3, 3);
             this.uretimgirisprint.Name = "uretimgirisprint";
-            this.uretimgirisprint.Size = new System.Drawing.Size(234, 74);
+            this.uretimgirisprint.Size = new System.Drawing.Size(226, 74);
             this.uretimgirisprint.TabIndex = 0;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.listBox1);
+            this.tabPage3.Controls.Add(this.txtisemri);
+            this.tabPage3.Location = new System.Drawing.Point(0, 0);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(240, 295);
+            this.tabPage3.Text = "Rapor";
+            // 
+            // listBox1
+            // 
+            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBox1.Location = new System.Drawing.Point(4, 44);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(233, 240);
+            this.listBox1.TabIndex = 28;
+            // 
+            // txtisemri
+            // 
+            this.txtisemri.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtisemri.Browsable = false;
+            this.txtisemri.DataFieldName = "";
+            this.txtisemri.DataType = MobileWhouse.Enums.DataSourceType.IsEmri;
+            this.txtisemri.Description = "";
+            this.txtisemri.FilterCondition = "";
+            this.txtisemri.LabelText = "İş Emri";
+            this.txtisemri.LabelWidth = 60;
+            this.txtisemri.Location = new System.Drawing.Point(4, 11);
+            this.txtisemri.Name = "txtisemri";
+            this.txtisemri.PurchaseSales = -1;
+            this.txtisemri.RememberValue = false;
+            this.txtisemri.ShowDescription = false;
+            this.txtisemri.ShowLabelText = false;
+            this.txtisemri.Size = new System.Drawing.Size(233, 27);
+            this.txtisemri.SourceApplication = 0;
+            this.txtisemri.TabIndex = 27;
+            this.txtisemri.OnSelected += new MobileWhouse.OnSelectedObject(this.txtisemri_OnSelected);
             // 
             // UretimGirisControl
             // 
@@ -257,6 +303,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -283,5 +330,8 @@
         private MobileWhouse.GUI.UPrintControl uretimgirisprint;
         private MobileWhouse.GUI.ULookupEdit secistasyon;
         private System.Windows.Forms.Label lblIsEmri;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.ListBox listBox1;
+        private MobileWhouse.GUI.ULookupEdit txtisemri;
     }
 }

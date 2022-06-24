@@ -135,6 +135,7 @@ namespace MobileWhouse.Controls.PRD
                 transferM.WhouseId = depo.Id;
                 transferM.TransferWorderList = new MobileWhouse.ProdConnector.TransferWorderInfo[listisemri.Items.Count];
                 transferM.IsOut = false;
+                transferM.IsTransferDCreate = true;//belge detaylarini otomatik olusturma
                 //transferM.IsTransferDCreate = checkTransfer.Checked;
 
                 for (int i = 0; i < listisemri.Items.Count; i++)

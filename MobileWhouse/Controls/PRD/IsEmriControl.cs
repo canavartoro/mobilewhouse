@@ -18,12 +18,32 @@ namespace MobileWhouse.Controls.PRD
             InitializeComponent();
         }
 
-        public IsEmriControl(string worder_no)
+        private MobileWhouse.ProdConnector.WorderMInfo worderM = null;
+
+        private void txtisemri_OnSelected(object sender, object obj)
         {
-            InitializeComponent();
-            this.txtisemri.SetText(worder_no);
+            worderM = obj as MobileWhouse.ProdConnector.WorderMInfo;
+            if (worderM != null)
+            {
+                listBox1.Items.Clear();
+                IsEmriRaporHelper help = new IsEmriRaporHelper(worderM);
+                if (help.WorderInfos != null)
+                {
+                    for (int i = 0; i < help.WorderInfos.Count; i++) 
+                        listBox1.Items.Add(help.WorderInfos[i]);
+                }
+            }
         }
 
+        private void btnKapat_Click(object sender, EventArgs e)
+        {
+            MainForm.ShowControl(new PRD.PrdControl());
+        }
+
+    }
+
+    class IsEmriRaporHelper
+    {
         const int ISEMRIMIKTAR = 0;
         const int URETILENMIKTAR = 1;
         const int URETIMSAYISI = 2;
@@ -39,7 +59,19 @@ namespace MobileWhouse.Controls.PRD
         const int STOKAD = 13;
         const int PALET_SAYISI = 14;
 
+        public IsEmriRaporHelper(MobileWhouse.ProdConnector.WorderMInfo worder)
+        {
+            this.worderM = worder;
+            if (this.worderM != null) GetWorderInfo();
+        }
+
         private MobileWhouse.ProdConnector.WorderMInfo worderM = null;
+        private List<string> worderInfos = null;
+
+        public List<string> WorderInfos
+        {
+            get { return worderInfos; }
+        }
 
         private void GetWorderInfo()
         {
@@ -82,16 +114,17 @@ GROUP BY wm.qty,wm.start_date,ws.wstation_code,ws.description,zacop.start_date,z
                     {
                         if (res.Value != null && res.Value.Rows.Count > 0)
                         {
-                            listBox1.Items.Add(string.Format("İş Emri Başlangıç:\t{0}", res.Value.Rows[0][ISEMRITARIHI]));
-                            listBox1.Items.Add(string.Format("İş Emri Miktarı:\t{0}", StringUtil.ToDecimal(res.Value.Rows[0][ISEMRIMIKTAR]).ToString(Statics.DECIMAL_STRING_FORMAT)));
-                            listBox1.Items.Add(string.Format("İş Emri Kalan Miktarı:\t{0}", StringUtil.ToDecimal(res.Value.Rows[0][ISEMRIKALAN]).ToString(Statics.DECIMAL_STRING_FORMAT)));
-                            listBox1.Items.Add(string.Format("Üretilen Miktarı:\t{0}", StringUtil.ToDecimal(res.Value.Rows[0][1]).ToString(Statics.DECIMAL_STRING_FORMAT)));
-                            listBox1.Items.Add(string.Format("Koli Sayısı:\t{0}\t Kalan Koli:{1}\tPalet:{2}", StringUtil.ToDecimal(res.Value.Rows[0][URETIMSAYISI]).ToString(Statics.DECIMAL_STRING_FORMAT),
+                            worderInfos = new List<string>();
+                            worderInfos.Add(string.Format("İş Emri Başlangıç:\t{0}", res.Value.Rows[0][ISEMRITARIHI]));
+                            worderInfos.Add(string.Format("İş Emri Miktarı:\t{0}", StringUtil.ToDecimal(res.Value.Rows[0][ISEMRIMIKTAR]).ToString(Statics.DECIMAL_STRING_FORMAT)));
+                            worderInfos.Add(string.Format("İş Emri Kalan Miktarı:\t{0}", StringUtil.ToDecimal(res.Value.Rows[0][ISEMRIKALAN]).ToString(Statics.DECIMAL_STRING_FORMAT)));
+                            worderInfos.Add(string.Format("Üretilen Miktarı:\t{0}", StringUtil.ToDecimal(res.Value.Rows[0][1]).ToString(Statics.DECIMAL_STRING_FORMAT)));
+                            worderInfos.Add(string.Format("Koli Sayısı:\t{0}\t Kalan Koli:{1}\tPalet:{2}", StringUtil.ToDecimal(res.Value.Rows[0][URETIMSAYISI]).ToString(Statics.DECIMAL_STRING_FORMAT),
                                 StringUtil.ToDecimal(res.Value.Rows[0][KALANKOLI]).ToString(Statics.DECIMAL_STRING_FORMAT), StringUtil.ToDecimal(res.Value.Rows[0][PALET_SAYISI]).ToString(Statics.DECIMAL_STRING_FORMAT)));
-                            listBox1.Items.Add(string.Format("Kutu İçi:\t{0}", StringUtil.ToDecimal(res.Value.Rows[0][KOLIICI]).ToString(Statics.DECIMAL_STRING_FORMAT)));
-                            listBox1.Items.Add(string.Format("Çalışan Tezgah:\t{0} {1}", res.Value.Rows[0][ISTASYONKOD].ToString(), res.Value.Rows[0][ISTASYONAD].ToString()));
-                            listBox1.Items.Add(string.Format("Çalışan Stok:\t{0} {1}", res.Value.Rows[0][STOKKOD].ToString(), res.Value.Rows[0][STOKAD].ToString()));
-                            listBox1.Items.Add(string.Format("Üretim Başlangıç:\t{0}", res.Value.Rows[0][URETIMBASLAMA].ToString()));
+                            worderInfos.Add(string.Format("Kutu İçi:\t{0}", StringUtil.ToDecimal(res.Value.Rows[0][KOLIICI]).ToString(Statics.DECIMAL_STRING_FORMAT)));
+                            worderInfos.Add(string.Format("Çalışan Tezgah:\t{0} {1}", res.Value.Rows[0][ISTASYONKOD].ToString(), res.Value.Rows[0][ISTASYONAD].ToString()));
+                            worderInfos.Add(string.Format("Çalışan Stok:\t{0} {1}", res.Value.Rows[0][STOKKOD].ToString(), res.Value.Rows[0][STOKAD].ToString()));
+                            worderInfos.Add(string.Format("Üretim Başlangıç:\t{0}", res.Value.Rows[0][URETIMBASLAMA].ToString()));
                             int worderacop = StringUtil.ToInteger(res.Value.Rows[0][URETIMID].ToString());
                             if (worderacop > 0) GetEmployees(worderacop);
                         }
@@ -134,12 +167,12 @@ WHERE we.""worder_ac_op_id"" = {0} ", worder_ac_op_id);
                     }
                     else
                     {
-                        listBox1.Items.Add("\tPersoneller");
+                        worderInfos.Add("\tPersoneller");
                         if (res.Value != null && res.Value.Rows.Count > 0)
                         {
                             for (int i = 0; i < res.Value.Rows.Count; i++)
                             {
-                                listBox1.Items.Add(res.Value.Rows[i][3].ToString());
+                                worderInfos.Add(res.Value.Rows[i][3].ToString());
                             }
                         }
                     }
@@ -180,12 +213,12 @@ WHERE pkg.worder_ac_op_id = {0} ORDER BY pkg.package_id DESC ", worder_ac_op_id)
                     }
                     else
                     {
-                        listBox1.Items.Add("\tEtiketler");
+                        worderInfos.Add("\tEtiketler");
                         if (res.Value != null && res.Value.Rows.Count > 0)
                         {
                             for (int i = 0; i < res.Value.Rows.Count; i++)
                             {
-                                listBox1.Items.Add(string.Format("{0}\t{1}\t{2}", res.Value.Rows[i][0].ToString(), res.Value.Rows[i][1].ToString(), res.Value.Rows[i][2].ToString()));
+                                worderInfos.Add(string.Format("{0}\t{1}\t{2}", res.Value.Rows[i][0].ToString(), res.Value.Rows[i][1].ToString(), res.Value.Rows[i][2].ToString()));
                             }
                         }
                     }
@@ -199,21 +232,6 @@ WHERE pkg.worder_ac_op_id = {0} ORDER BY pkg.package_id DESC ", worder_ac_op_id)
             {
                 Cursor.Current = Cursors.Default;
             }
-        }
-
-        private void txtisemri_OnSelected(object sender, object obj)
-        {
-            worderM = obj as MobileWhouse.ProdConnector.WorderMInfo;
-            if (worderM != null)
-            {
-                listBox1.Items.Clear();
-                GetWorderInfo();
-            }
-        }
-
-        private void btnKapat_Click(object sender, EventArgs e)
-        {
-            MainForm.ShowControl(new PRD.PrdControl());
         }
     }
 }

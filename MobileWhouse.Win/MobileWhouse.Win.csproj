@@ -45,6 +45,9 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.EnterpriseServices" />
@@ -682,10 +685,10 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>MobileWhouse_Win_AppServ_Service</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://192.168.3.216/WebService/ERP/UyumSaveWebService.asmx">
+    <WebReferenceUrl Include="http://159.253.81.186:400/WebService/ERP/UyumSaveWebService.asmx">
       <UrlBehavior>Static</UrlBehavior>
       <RelPath>Web References\UyumSave\</RelPath>
-      <UpdateFromURL>http://192.168.3.216/WebService/ERP/UyumSaveWebService.asmx</UpdateFromURL>
+      <UpdateFromURL>http://159.253.81.186:400/WebService/ERP/UyumSaveWebService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -878,6 +881,9 @@
     <None Include="Resources\quest.png" />
     <None Include="Resources\warn.png" />
     <Content Include="run.ico" />
+    <None Include="Web References\UyumSave\ServiceResultOfString.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\UyumWebService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

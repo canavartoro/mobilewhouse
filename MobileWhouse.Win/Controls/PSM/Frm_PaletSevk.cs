@@ -221,18 +221,18 @@ namespace MobileWhouse.Controls
             }
             #endregion
             #region Eğer Sevk Emri içerisinde Hizmet Satırı var ise En az bir adet hizmet satırı seçilmek zorundadır.
-            DataRow pHizmetVar = null;//DtOrder.AsEnumerable().Where(t => t.Field<string>("LINE_TYPE") == "H").FirstOrDefault();
-            //if (pHizmetVar != null)
-            //{
-            //    DataRow pSeciliHizmetVar = DtOrder.AsEnumerable().Where(t => t.Field<string>("LINE_TYPE") == "H" &&
-            //                                                               t.Field<bool>("CREATE_WAYBILL") == true).FirstOrDefault();
-            //    if (pSeciliHizmetVar == null)
-            //    {
-            //        Screens.Error("Hizmet Kartı Olan Bir Sevk Emrinde, İrsaliye Oluşturmak için En az 1 Adet Hizmet Seçilmelidir");
-            //        btnIrsaliyeOlustur.Enabled = true;
-            //        return;
-            //    }
-            //}
+            DataRow pHizmetVar = DtOrder.AsEnumerable().Where(t => t.Field<string>("LINE_TYPE") == "H").FirstOrDefault();
+            if (pHizmetVar != null)
+            {
+                DataRow pSeciliHizmetVar = DtOrder.AsEnumerable().Where(t => t.Field<string>("LINE_TYPE") == "H" &&
+                                                                           t.Field<bool>("CREATE_WAYBILL") == true).FirstOrDefault();
+                if (pSeciliHizmetVar == null)
+                {
+                    Screens.Error("Hizmet Kartı Olan Bir Sevk Emrinde, İrsaliye Oluşturmak için En az 1 Adet Hizmet Seçilmelidir");
+                    btnIrsaliyeOlustur.Enabled = true;
+                    return;
+                }
+            }
             #endregion
             FrmIrsaliye Fi = new FrmIrsaliye(false, 1, 2, pTempCoDocTraIdWaybill, pTempCoDocTraCodeWaybill, false);
             Fi.ShowDialog();
@@ -795,7 +795,7 @@ namespace MobileWhouse.Controls
                 var readPackageMid = Convert.ToInt32(drPack["PACKAGE_M_ID"]);
                 if (readPackageMid == inOutPacKageD.PackageMId)
                 {
-                    MessageBox.Show("Bu Ambalaj Daha Önce Okunmuştur[1]");
+                    Screens.Error("Bu Ambalaj Daha Önce Okunmuştur[1]");
                     _Okutma_HataVar = true;
                     return;
                 }
@@ -1241,6 +1241,12 @@ namespace MobileWhouse.Controls
                 Screens.Error("Hata : " + _Ex.Message.ToString());
                 return;
             }
+            finally
+            {
+                Tx_Miktar.Text = "1";
+                Tx_Barcode.Text = "";
+                Tx_Barcode.Focus();
+            }
 
             gridOrder.Refresh();
             bool pStokOkutmaBitti = false;
@@ -1404,7 +1410,7 @@ namespace MobileWhouse.Controls
                     var readPackageMid = Convert.ToInt32(drPack["PACKAGE_M_ID"]);
                     if (readPackageMid == _PacKageD.PackageMId)
                     {
-                        MessageBox.Show("Bu Ambalaj Daha Önce Okunmuştur [2]");
+                        Screens.Error("Bu Ambalaj Daha Önce Okunmuştur [2]");
                         return;
                     }
                 }
@@ -1812,7 +1818,7 @@ namespace MobileWhouse.Controls
 
                         if (ToleranceMin > 0 && minReadCouldValue > MasterOrderItem.QtyReferral)
                         {
-                            MessageBox.Show(string.Format("{0}. Satırda Okunan Miktar :{1} dir. Fakat {2} küçük olamaz.", lineNo, MasterOrderItem.QtyReferral, minReadCouldValue));
+                            Screens.Error(string.Format("{0}. Satırda Okunan Miktar :{1} dir. Fakat {2} küçük olamaz.", lineNo, MasterOrderItem.QtyReferral, minReadCouldValue));
                             btnIrsaliyeOlustur.Enabled = true;
                             return;
                         }
@@ -1825,7 +1831,7 @@ namespace MobileWhouse.Controls
 
                         if (maxCouldReadValue < (MasterOrderItem.QtyReferral))
                         {
-                            MessageBox.Show(string.Format("{2}. Satırda Miktarı aşıyorsunuz İzin Verilen:{0} Girilen:{1} ", maxCouldReadValue, MasterOrderItem.QtyReferral, lineNo));
+                            Screens.Error(string.Format("{2}. Satırda Miktarı aşıyorsunuz İzin Verilen:{0} Girilen:{1} ", maxCouldReadValue, MasterOrderItem.QtyReferral, lineNo));
                             btnIrsaliyeOlustur.Enabled = true;
                             return;
                         }
@@ -1905,11 +1911,11 @@ namespace MobileWhouse.Controls
                     });
                     if (resPrint.Result)
                     {
-                        MessageBox.Show(string.Format("İrsaliye Yazdırıldı \n İrs.Ref.Id : {0} ", pItemMId));
+                        Screens.Error(string.Format("İrsaliye Yazdırıldı \n İrs.Ref.Id : {0} ", pItemMId));
                     }
                     else
                     {
-                        MessageBox.Show(string.Format("İrsaliye Yazdırılırken Hata Oluştu. \n İrs.Ref.Id : {0} \n Hata : {1}", pItemMId, res.Message));
+                        Screens.Error(string.Format("İrsaliye Yazdırılırken Hata Oluştu. \n İrs.Ref.Id : {0} \n Hata : {1}", pItemMId, res.Message));
                     }
                 }
                 #endregion İrsaliye Yazdırma Rapor ServerDan
@@ -1918,7 +1924,7 @@ namespace MobileWhouse.Controls
             }
             else
             {
-                Screens.Error(res.Message);
+                Screens.Error(string.Concat("Hata:", res.Message, ", Detay:", FileHelper.ToXml(prm)));
                 btnIrsaliyeOlustur.Enabled = true;
                 return;
             }
@@ -2166,7 +2172,7 @@ namespace MobileWhouse.Controls
             }
             catch (SystemException ex)
             {
-                MessageBox.Show("Hata-003 :" + ex.Message);
+                Screens.Error("Hata-003 :" + ex.Message);
             }
         }
 
@@ -2310,7 +2316,7 @@ namespace MobileWhouse.Controls
             }
             catch (SystemException ex)
             {
-                MessageBox.Show(string.Format("Hata : ", ex.Message));
+                Screens.Error(string.Format("Hata : ", ex.Message));
             }
         }
 
@@ -2349,7 +2355,7 @@ namespace MobileWhouse.Controls
 
                     if (_PacRes.Result == false)
                     {
-                        MessageBox.Show(_PacRes.Message.ToString());
+                        Screens.Error(_PacRes.Message.ToString());
                         Tx_PackageNoRevort.Focus();
                         Btn_PackRelease.Enabled = false;
                         return;
@@ -2695,7 +2701,7 @@ namespace MobileWhouse.Controls
 
             if (maxCouldReadValue < (masterReadQty + bomItem.Qty))
             {
-                MessageBox.Show(string.Format("Miktarı aşıyorsunuz [2] [QtyControl_AddItemRowData] Satır No:{0} İzin Verilen:{1} Girilen:{2} ", masterLineNo, maxCouldReadValue, masterReadQty + bomItem.Qty));
+                Screens.Error(string.Format("Miktarı aşıyorsunuz [2] [QtyControl_AddItemRowData] Satır No:{0} İzin Verilen:{1} Girilen:{2} ", masterLineNo, maxCouldReadValue, masterReadQty + bomItem.Qty));
                 return false;
             }
 

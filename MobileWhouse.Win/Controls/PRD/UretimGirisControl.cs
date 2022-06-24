@@ -317,7 +317,9 @@ WHERE package_tra_m_id = {0} RETURNING package_no;", res.Value.PackageMId, res.V
 
                     if (Screens.Question(string.Concat("Palet oluşturuldu. ", lblbilgi.Text, " İş emri raporu açılsın mı?")))
                     {
-                        MainForm.ShowControl(new IsEmriControl(worder_no));
+                        txtisemri.SetText(worder_no);
+                        tabControl1.SelectedIndex = 1;
+                        //MainForm.ShowControl(new IsEmriControl());
                         return;
                     }
                 }
@@ -372,6 +374,21 @@ WHERE package_tra_m_id = {0} RETURNING package_no;", res.Value.PackageMId, res.V
             finally
             {
                 Screens.HideWait();
+            }
+        }
+
+        private void txtisemri_OnSelected(object sender, object obj)
+        {
+            MobileWhouse.ProdConnector.WorderMInfo worderM = obj as MobileWhouse.ProdConnector.WorderMInfo;
+            if (worderM != null)
+            {
+                listBox1.Items.Clear();
+                IsEmriRaporHelper help = new IsEmriRaporHelper(worderM);
+                if (help.WorderInfos != null)
+                {
+                    for (int i = 0; i < help.WorderInfos.Count; i++)
+                        listBox1.Items.Add(help.WorderInfos[i]);
+                }
             }
         }
     }

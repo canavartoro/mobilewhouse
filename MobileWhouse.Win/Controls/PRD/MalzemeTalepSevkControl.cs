@@ -182,6 +182,40 @@ UYUMSOFT.PRDT_WORDER_M ON PRDT_TRANSFER_D.WORDER_M_ID = PRDT_WORDER_M.WORDER_M_I
             }
         }
 
+        private void GirisRafBul()
+        {
+            try
+            {
+                if (txtraf.Tag != null) return;
+                txtraf.Tag = 1;
+                MobileWhouse.UyumConnector.ServiceRequestOfSelectParam param = new MobileWhouse.UyumConnector.ServiceRequestOfSelectParam();
+                param.Token = ClientApplication.Instance.Token;
+                param.Value = new MobileWhouse.UyumConnector.SelectParam();
+                param.Value.Filter = txtraf.Text;
+                param.Value.DepotId = ClientApplication.Instance.SelectedDepot.Id;
+
+                MobileWhouse.UyumConnector.ServiceResultOfListOfNameIdItem raflar = ClientApplication.Instance.Service.GetRaflar(param);
+                if (raflar.Result)
+                {
+                    _SelectedRaf = raflar.Value[0];
+                    txtraf.Text = _SelectedRaf.Name;
+                }
+                else
+                {
+                    _SelectedRaf = null;
+                    txtraf.Text = string.Empty;
+                }
+            }
+            catch (Exception exc)
+            {
+                Screens.Error(exc);
+            }
+            finally
+            {
+                Screens.HideWait();
+            }
+        }
+
         private void Ekle()
         {
             try
@@ -290,6 +324,7 @@ UYUMSOFT.PRDT_WORDER_M ON PRDT_TRANSFER_D.WORDER_M_ID = PRDT_WORDER_M.WORDER_M_I
             if (listtalep.Items.Count > 0 && listtalep.SelectedIndices.Count > 0)
             {
                 selectedWorderOut = listtalep.Items[listtalep.SelectedIndices[0]].Tag as DataRow;
+                GirisRafBul();
                 TalepDetay();
             }
         }
@@ -409,6 +444,9 @@ UYUMSOFT.PRDT_WORDER_M ON PRDT_TRANSFER_D.WORDER_M_ID = PRDT_WORDER_M.WORDER_M_I
                     return;
                 }
 
+                List<WhouseInfo> infos = GetWhouseInfo(StringUtil.ToInteger(selectedWorderOut["WHOUSE_ID"]),
+                    StringUtil.ToInteger(selectedWorderOut["TRANSFER_WHOUSE_ID"]));
+
                 Screens.ShowWait();
 
                 MobileWhouse.ProdConnector.ServiceRequestOfTransferMInfo param = new MobileWhouse.ProdConnector.ServiceRequestOfTransferMInfo();
@@ -432,11 +470,33 @@ UYUMSOFT.PRDT_WORDER_M ON PRDT_TRANSFER_D.WORDER_M_ID = PRDT_WORDER_M.WORDER_M_I
                         detail.WorderMId = detay.WORDER_M_ID;
                         detail.WorderMQty = detay.WORDER_QTY;
                         detail.WorderUnitId = detay.WORDER_UNIT_ID;
-                        detail.BwhLocationOutId = 166;//detay.LOCATION_ID;
+                        detail.BwhLocationOutId = detay.LOCATION_ID;
                         detail.BwhLocationInId = 168;//detay.LOCATION_ID;
                         detail.PackageMId = detay.PACKAGE_M_ID;
                         detail.PackageMNo = detay.PACKAGE_NO;
                         detail.QtyTrailing = detay.QTY_READ;
+
+                        if (detail.BwhLocationOutId == 0)
+                        {
+                            int isource = infos.FindIndex(p => p.whouse_id == param.Value.WhouseId);
+                            if (isource != -1)
+                            {
+                                if (infos[isource].is_location_track)
+                                    detail.BwhLocationOutId = infos[isource].bwh_output_location_id;
+                                else
+                                    detail.BwhLocationOutId = 0;
+                            }
+                        }
+
+                        int itarget = infos.FindIndex(p => p.whouse_id == param.Value.TransferWhouseId);
+                        if (itarget != -1)
+                        {
+                            if (infos[itarget].is_location_track)
+                                detail.BwhLocationInId = infos[itarget].bwh_input_location_id;
+                            else
+                                detail.BwhLocationInId = 0;
+                        }
+
                         details.Add(detail);
                     }
                 }
@@ -477,5 +537,55 @@ UYUMSOFT.PRDT_WORDER_M ON PRDT_TRANSFER_D.WORDER_M_ID = PRDT_WORDER_M.WORDER_M_I
             txtbarkod_KeyPress(txtbarkod, new KeyPressEventArgs((char)13));
         }
 
+        private List<WhouseInfo> GetWhouseInfo(int whouseId, int whouse2Id)
+        {
+            List<WhouseInfo> result = new List<WhouseInfo>();
+            try
+            {
+                Screens.ShowWait();
+
+                StringBuilder s = new StringBuilder();
+                s.AppendFormat(@"SELECT bw.is_location_track,bw.bwh_input_location_id,bw.bwh_output_location_id,wh.whouse_id FROM invd_whouse wh INNER JOIN invd_branch_whouse bw ON wh.whouse_id = bw.whouse_id AND bw.branch_id = {0}
+WHERE wh.whouse_id = {1}
+UNION
+SELECT bw.is_location_track,bw.bwh_input_location_id,bw.bwh_output_location_id,wh.whouse_id FROM invd_whouse wh INNER JOIN invd_branch_whouse bw ON wh.whouse_id = bw.whouse_id AND bw.branch_id = {0}
+WHERE wh.whouse_id = {2}", ClientApplication.Instance.Token.BranchId, whouseId, whouse2Id);
+
+                MobileWhouse.UyumConnector.ServiceRequestOfString param = new MobileWhouse.UyumConnector.ServiceRequestOfString();
+                param.Token = ClientApplication.Instance.Token;
+                param.Value = s.ToString();
+                MobileWhouse.UyumConnector.ServiceResultOfDataTable whouses = ClientApplication.Instance.Service.ExecuteSQL(param);
+                if (whouses.Result)
+                {
+                    for (int i = 0; i < whouses.Value.Rows.Count; i++)
+                    {
+                        WhouseInfo wh = new WhouseInfo();
+                        wh.is_location_track = Convert.ToInt32(whouses.Value.Rows[i][0]) == 1;
+                        wh.bwh_input_location_id = Convert.ToInt32(whouses.Value.Rows[i][1]);
+                        wh.bwh_output_location_id = Convert.ToInt32(whouses.Value.Rows[i][2]);
+                        wh.whouse_id = Convert.ToInt32(whouses.Value.Rows[i][3]);
+                        result.Add(wh);
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                Screens.Error(exc);
+            }
+            finally
+            {
+                Screens.HideWait();
+            }
+            return result;
+        }
+
+    }
+
+    struct WhouseInfo
+    {
+        public bool is_location_track { get; set; }
+        public int bwh_input_location_id { get; set; }
+        public int bwh_output_location_id { get; set; }
+        public int whouse_id { get; set; }
     }
 }

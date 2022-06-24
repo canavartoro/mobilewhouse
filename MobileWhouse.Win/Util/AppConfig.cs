@@ -100,9 +100,10 @@ namespace MobileWhouse.Util
                 if (File.Exists(configFile))
                 {
                     using (Stream stream = new FileStream(configFile, FileMode.Open, FileAccess.Read, FileShare.Read))
+                    using (TextReader reader = new StreamReader(stream, System.Text.Encoding.GetEncoding("windows-1254")))
                     {
                         XmlSerializer xmlserializer = new XmlSerializer(typeof(AppConfig));
-                        _default = (AppConfig)xmlserializer.Deserialize(stream);
+                        _default = (AppConfig)xmlserializer.Deserialize(reader);
                         stream.Close();
                     }
                 }
@@ -122,9 +123,10 @@ namespace MobileWhouse.Util
             try
             {
                 using (Stream stream = new FileStream(string.Concat(Util.Utility.AppPath, "\\config.xml"), FileMode.Create, FileAccess.Write, FileShare.Write))
+                using (TextWriter writer = new StreamWriter(stream, System.Text.Encoding.GetEncoding("windows-1254")))
                 {
                     XmlSerializer xmlserializer = new XmlSerializer(typeof(AppConfig));
-                    xmlserializer.Serialize(stream, AppConfig.Default);
+                    xmlserializer.Serialize(writer, AppConfig.Default);
                     stream.Close();
                 }
             }

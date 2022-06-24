@@ -77,10 +77,10 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.textdetail.BackColor = System.Drawing.SystemColors.Info;
             this.textdetail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textdetail.Location = new System.Drawing.Point(17, 59);
+            this.textdetail.Location = new System.Drawing.Point(8, 59);
             this.textdetail.Multiline = true;
             this.textdetail.Name = "textdetail";
-            this.textdetail.Size = new System.Drawing.Size(206, 178);
+            this.textdetail.Size = new System.Drawing.Size(221, 179);
             this.textdetail.TabIndex = 2;
             // 
             // textCaption

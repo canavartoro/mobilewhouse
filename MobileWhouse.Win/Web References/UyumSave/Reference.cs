@@ -85,17 +85,17 @@ namespace MobileWhouse.UyumSave {
         
         private System.Threading.SendOrPostCallback InsertCoEntityAddressOperationCompleted;
         
-        private System.Threading.SendOrPostCallback SaveItemMOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback SaveItemMMultiOperationCompleted;
-        
-        private System.Threading.SendOrPostCallback SaveWaybillOperationCompleted;
-        
         private System.Threading.SendOrPostCallback PurchaseEDespatchProccessOperationCompleted;
         
         private System.Threading.SendOrPostCallback SendEDespatchOperationCompleted;
         
+        private System.Threading.SendOrPostCallback SaveItemMOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SaveItemMMultiOperationCompleted;
+        
         private System.Threading.SendOrPostCallback SaveWaybillByReferralOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SaveWaybillOperationCompleted;
         
         private System.Threading.SendOrPostCallback SaveWaybillMultiOperationCompleted;
         
@@ -105,11 +105,17 @@ namespace MobileWhouse.UyumSave {
         
         private System.Threading.SendOrPostCallback DeleteWaybillOperationCompleted;
         
+        private System.Threading.SendOrPostCallback DeleteAccMMOperationCompleted;
+        
         private System.Threading.SendOrPostCallback SaveItemOperationCompleted;
         
         private System.Threading.SendOrPostCallback SaveExpenseOperationCompleted;
         
         private System.Threading.SendOrPostCallback SaveItemBarcodeOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback SaveCycleCountOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback BulkFileByObjectOperationCompleted;
         
         private System.Threading.SendOrPostCallback SaveCrmPriceListOperationCompleted;
         
@@ -131,7 +137,7 @@ namespace MobileWhouse.UyumSave {
         
         /// <remarks/>
         public UyumSaveWebService() {
-            this.Url = "http://192.168.3.216/WebService/ERP/UyumSaveWebService.asmx";
+            this.Url = "http://159.253.81.186:400/WebService/ERP/UyumSaveWebService.asmx";
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
@@ -226,22 +232,22 @@ namespace MobileWhouse.UyumSave {
         public event InsertCoEntityAddressCompletedEventHandler InsertCoEntityAddressCompleted;
         
         /// <remarks/>
-        public event SaveItemMCompletedEventHandler SaveItemMCompleted;
-        
-        /// <remarks/>
-        public event SaveItemMMultiCompletedEventHandler SaveItemMMultiCompleted;
-        
-        /// <remarks/>
-        public event SaveWaybillCompletedEventHandler SaveWaybillCompleted;
-        
-        /// <remarks/>
         public event PurchaseEDespatchProccessCompletedEventHandler PurchaseEDespatchProccessCompleted;
         
         /// <remarks/>
         public event SendEDespatchCompletedEventHandler SendEDespatchCompleted;
         
         /// <remarks/>
+        public event SaveItemMCompletedEventHandler SaveItemMCompleted;
+        
+        /// <remarks/>
+        public event SaveItemMMultiCompletedEventHandler SaveItemMMultiCompleted;
+        
+        /// <remarks/>
         public event SaveWaybillByReferralCompletedEventHandler SaveWaybillByReferralCompleted;
+        
+        /// <remarks/>
+        public event SaveWaybillCompletedEventHandler SaveWaybillCompleted;
         
         /// <remarks/>
         public event SaveWaybillMultiCompletedEventHandler SaveWaybillMultiCompleted;
@@ -256,6 +262,9 @@ namespace MobileWhouse.UyumSave {
         public event DeleteWaybillCompletedEventHandler DeleteWaybillCompleted;
         
         /// <remarks/>
+        public event DeleteAccMMCompletedEventHandler DeleteAccMMCompleted;
+        
+        /// <remarks/>
         public event SaveItemCompletedEventHandler SaveItemCompleted;
         
         /// <remarks/>
@@ -263,6 +272,12 @@ namespace MobileWhouse.UyumSave {
         
         /// <remarks/>
         public event SaveItemBarcodeCompletedEventHandler SaveItemBarcodeCompleted;
+        
+        /// <remarks/>
+        public event SaveCycleCountCompletedEventHandler SaveCycleCountCompleted;
+        
+        /// <remarks/>
+        public event BulkFileByObjectCompletedEventHandler BulkFileByObjectCompleted;
         
         /// <remarks/>
         public event SaveCrmPriceListCompletedEventHandler SaveCrmPriceListCompleted;
@@ -869,93 +884,6 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SaveItemM", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfBoolean SaveItemM(UyumServiceRequestOfItemDef Context) {
-            object[] results = this.Invoke("SaveItemM", new object[] {
-                        Context});
-            return ((ServiceResultOfBoolean)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void SaveItemMAsync(UyumServiceRequestOfItemDef Context) {
-            this.SaveItemMAsync(Context, null);
-        }
-        
-        /// <remarks/>
-        public void SaveItemMAsync(UyumServiceRequestOfItemDef Context, object userState) {
-            if ((this.SaveItemMOperationCompleted == null)) {
-                this.SaveItemMOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSaveItemMOperationCompleted);
-            }
-            this.InvokeAsync("SaveItemM", new object[] {
-                        Context}, this.SaveItemMOperationCompleted, userState);
-        }
-        
-        private void OnSaveItemMOperationCompleted(object arg) {
-            if ((this.SaveItemMCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.SaveItemMCompleted(this, new SaveItemMCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SaveItemMMulti", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfBoolean SaveItemMMulti(UyumServiceRequestOfArrayOfItemDef Context) {
-            object[] results = this.Invoke("SaveItemMMulti", new object[] {
-                        Context});
-            return ((ServiceResultOfBoolean)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void SaveItemMMultiAsync(UyumServiceRequestOfArrayOfItemDef Context) {
-            this.SaveItemMMultiAsync(Context, null);
-        }
-        
-        /// <remarks/>
-        public void SaveItemMMultiAsync(UyumServiceRequestOfArrayOfItemDef Context, object userState) {
-            if ((this.SaveItemMMultiOperationCompleted == null)) {
-                this.SaveItemMMultiOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSaveItemMMultiOperationCompleted);
-            }
-            this.InvokeAsync("SaveItemMMulti", new object[] {
-                        Context}, this.SaveItemMMultiOperationCompleted, userState);
-        }
-        
-        private void OnSaveItemMMultiOperationCompleted(object arg) {
-            if ((this.SaveItemMMultiCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.SaveItemMMultiCompleted(this, new SaveItemMMultiCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SaveWaybill", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public ServiceResultOfBoolean SaveWaybill(UyumServiceRequestOfItemDef Context) {
-            object[] results = this.Invoke("SaveWaybill", new object[] {
-                        Context});
-            return ((ServiceResultOfBoolean)(results[0]));
-        }
-        
-        /// <remarks/>
-        public void SaveWaybillAsync(UyumServiceRequestOfItemDef Context) {
-            this.SaveWaybillAsync(Context, null);
-        }
-        
-        /// <remarks/>
-        public void SaveWaybillAsync(UyumServiceRequestOfItemDef Context, object userState) {
-            if ((this.SaveWaybillOperationCompleted == null)) {
-                this.SaveWaybillOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSaveWaybillOperationCompleted);
-            }
-            this.InvokeAsync("SaveWaybill", new object[] {
-                        Context}, this.SaveWaybillOperationCompleted, userState);
-        }
-        
-        private void OnSaveWaybillOperationCompleted(object arg) {
-            if ((this.SaveWaybillCompleted != null)) {
-                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.SaveWaybillCompleted(this, new SaveWaybillCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
-            }
-        }
-        
-        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/PurchaseEDespatchProccess", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public ServiceResultOfBoolean PurchaseEDespatchProccess(UyumServiceRequestOfEDespatchDef Context) {
             object[] results = this.Invoke("PurchaseEDespatchProccess", new object[] {
@@ -1014,6 +942,64 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SaveItemM", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfBoolean SaveItemM(UyumServiceRequestOfItemDef Context) {
+            object[] results = this.Invoke("SaveItemM", new object[] {
+                        Context});
+            return ((ServiceResultOfBoolean)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SaveItemMAsync(UyumServiceRequestOfItemDef Context) {
+            this.SaveItemMAsync(Context, null);
+        }
+        
+        /// <remarks/>
+        public void SaveItemMAsync(UyumServiceRequestOfItemDef Context, object userState) {
+            if ((this.SaveItemMOperationCompleted == null)) {
+                this.SaveItemMOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSaveItemMOperationCompleted);
+            }
+            this.InvokeAsync("SaveItemM", new object[] {
+                        Context}, this.SaveItemMOperationCompleted, userState);
+        }
+        
+        private void OnSaveItemMOperationCompleted(object arg) {
+            if ((this.SaveItemMCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SaveItemMCompleted(this, new SaveItemMCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SaveItemMMulti", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfBoolean SaveItemMMulti(UyumServiceRequestOfArrayOfItemDef Context) {
+            object[] results = this.Invoke("SaveItemMMulti", new object[] {
+                        Context});
+            return ((ServiceResultOfBoolean)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SaveItemMMultiAsync(UyumServiceRequestOfArrayOfItemDef Context) {
+            this.SaveItemMMultiAsync(Context, null);
+        }
+        
+        /// <remarks/>
+        public void SaveItemMMultiAsync(UyumServiceRequestOfArrayOfItemDef Context, object userState) {
+            if ((this.SaveItemMMultiOperationCompleted == null)) {
+                this.SaveItemMMultiOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSaveItemMMultiOperationCompleted);
+            }
+            this.InvokeAsync("SaveItemMMulti", new object[] {
+                        Context}, this.SaveItemMMultiOperationCompleted, userState);
+        }
+        
+        private void OnSaveItemMMultiOperationCompleted(object arg) {
+            if ((this.SaveItemMMultiCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SaveItemMMultiCompleted(this, new SaveItemMMultiCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SaveWaybillByReferral", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public ServiceResultOfBoolean SaveWaybillByReferral(ServiceRequestOfWaybillInfo param) {
             object[] results = this.Invoke("SaveWaybillByReferral", new object[] {
@@ -1039,6 +1025,35 @@ namespace MobileWhouse.UyumSave {
             if ((this.SaveWaybillByReferralCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.SaveWaybillByReferralCompleted(this, new SaveWaybillByReferralCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SaveWaybill", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfBoolean SaveWaybill(UyumServiceRequestOfItemDef Context) {
+            object[] results = this.Invoke("SaveWaybill", new object[] {
+                        Context});
+            return ((ServiceResultOfBoolean)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SaveWaybillAsync(UyumServiceRequestOfItemDef Context) {
+            this.SaveWaybillAsync(Context, null);
+        }
+        
+        /// <remarks/>
+        public void SaveWaybillAsync(UyumServiceRequestOfItemDef Context, object userState) {
+            if ((this.SaveWaybillOperationCompleted == null)) {
+                this.SaveWaybillOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSaveWaybillOperationCompleted);
+            }
+            this.InvokeAsync("SaveWaybill", new object[] {
+                        Context}, this.SaveWaybillOperationCompleted, userState);
+        }
+        
+        private void OnSaveWaybillOperationCompleted(object arg) {
+            if ((this.SaveWaybillCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SaveWaybillCompleted(this, new SaveWaybillCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -1159,6 +1174,35 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/DeleteAccMM", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfBoolean DeleteAccMM(UyumServiceRequestOfInt32 Context) {
+            object[] results = this.Invoke("DeleteAccMM", new object[] {
+                        Context});
+            return ((ServiceResultOfBoolean)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void DeleteAccMMAsync(UyumServiceRequestOfInt32 Context) {
+            this.DeleteAccMMAsync(Context, null);
+        }
+        
+        /// <remarks/>
+        public void DeleteAccMMAsync(UyumServiceRequestOfInt32 Context, object userState) {
+            if ((this.DeleteAccMMOperationCompleted == null)) {
+                this.DeleteAccMMOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDeleteAccMMOperationCompleted);
+            }
+            this.InvokeAsync("DeleteAccMM", new object[] {
+                        Context}, this.DeleteAccMMOperationCompleted, userState);
+        }
+        
+        private void OnDeleteAccMMOperationCompleted(object arg) {
+            if ((this.DeleteAccMMCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DeleteAccMMCompleted(this, new DeleteAccMMCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SaveItem", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public ServiceResultOfBoolean SaveItem(UyumServiceRequestOfItemCardDef Context) {
             object[] results = this.Invoke("SaveItem", new object[] {
@@ -1242,6 +1286,64 @@ namespace MobileWhouse.UyumSave {
             if ((this.SaveItemBarcodeCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.SaveItemBarcodeCompleted(this, new SaveItemBarcodeCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SaveCycleCount", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfBoolean SaveCycleCount(UyumServiceRequestOfCycleCountMDef Context) {
+            object[] results = this.Invoke("SaveCycleCount", new object[] {
+                        Context});
+            return ((ServiceResultOfBoolean)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SaveCycleCountAsync(UyumServiceRequestOfCycleCountMDef Context) {
+            this.SaveCycleCountAsync(Context, null);
+        }
+        
+        /// <remarks/>
+        public void SaveCycleCountAsync(UyumServiceRequestOfCycleCountMDef Context, object userState) {
+            if ((this.SaveCycleCountOperationCompleted == null)) {
+                this.SaveCycleCountOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSaveCycleCountOperationCompleted);
+            }
+            this.InvokeAsync("SaveCycleCount", new object[] {
+                        Context}, this.SaveCycleCountOperationCompleted, userState);
+        }
+        
+        private void OnSaveCycleCountOperationCompleted(object arg) {
+            if ((this.SaveCycleCountCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SaveCycleCountCompleted(this, new SaveCycleCountCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/BulkFileByObject", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public ServiceResultOfString BulkFileByObject(UyumServiceRequestOfBulkFileDef Context) {
+            object[] results = this.Invoke("BulkFileByObject", new object[] {
+                        Context});
+            return ((ServiceResultOfString)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void BulkFileByObjectAsync(UyumServiceRequestOfBulkFileDef Context) {
+            this.BulkFileByObjectAsync(Context, null);
+        }
+        
+        /// <remarks/>
+        public void BulkFileByObjectAsync(UyumServiceRequestOfBulkFileDef Context, object userState) {
+            if ((this.BulkFileByObjectOperationCompleted == null)) {
+                this.BulkFileByObjectOperationCompleted = new System.Threading.SendOrPostCallback(this.OnBulkFileByObjectOperationCompleted);
+            }
+            this.InvokeAsync("BulkFileByObject", new object[] {
+                        Context}, this.BulkFileByObjectOperationCompleted, userState);
+        }
+        
+        private void OnBulkFileByObjectOperationCompleted(object arg) {
+            if ((this.BulkFileByObjectCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.BulkFileByObjectCompleted(this, new BulkFileByObjectCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -2693,8 +2795,6 @@ namespace MobileWhouse.UyumSave {
         
         private System.Nullable<bool> isLotGenerateField;
         
-        private int productInputWhouseIdField;
-        
         private int shiftsIdField;
         
         private string noteField;
@@ -2948,16 +3048,6 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        public int ProductInputWhouseId {
-            get {
-                return this.productInputWhouseIdField;
-            }
-            set {
-                this.productInputWhouseIdField = value;
-            }
-        }
-        
-        /// <remarks/>
         public int ShiftsId {
             get {
                 return this.shiftsIdField;
@@ -3059,15 +3149,15 @@ namespace MobileWhouse.UyumSave {
         
         private LineType lineTypeField;
         
-        private System.Nullable<int> dcardIdField;
+        private int dcardIdField;
         
-        private System.Nullable<int> itemIdField;
+        private int itemIdField;
         
         private string dcardCodeField;
         
         private string dcardNameField;
         
-        private System.Nullable<int> unitIdField;
+        private int unitIdField;
         
         private string unitCodeField;
         
@@ -3075,27 +3165,27 @@ namespace MobileWhouse.UyumSave {
         
         private string itemCodeField;
         
-        private System.Nullable<decimal> unitPriceTraField;
+        private decimal unitPriceTraField;
         
-        private System.Nullable<int> curTraIdField;
+        private int curTraIdField;
         
         private string curCodeField;
         
         private string isoCurrencyCodeField;
         
-        private System.Nullable<int> disc1IdField;
+        private int disc1IdField;
         
         private string discCode1Field;
         
-        private System.Nullable<decimal> disc1RateField;
+        private decimal disc1RateField;
         
-        private System.Nullable<VatStatus> vatStatusField;
+        private VatStatus vatStatusField;
         
-        private System.Nullable<System.DateTime> startDateField;
+        private System.DateTime startDateField;
         
-        private System.Nullable<System.DateTime> endDateField;
+        private System.DateTime endDateField;
         
-        private System.Nullable<bool> ispassiveField;
+        private bool ispassiveField;
         
         private SourceApplication sourceAppField;
         
@@ -3120,8 +3210,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> DcardId {
+        public int DcardId {
             get {
                 return this.dcardIdField;
             }
@@ -3131,8 +3220,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> ItemId {
+        public int ItemId {
             get {
                 return this.itemIdField;
             }
@@ -3162,8 +3250,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> UnitId {
+        public int UnitId {
             get {
                 return this.unitIdField;
             }
@@ -3203,8 +3290,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<decimal> UnitPriceTra {
+        public decimal UnitPriceTra {
             get {
                 return this.unitPriceTraField;
             }
@@ -3214,8 +3300,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> CurTraId {
+        public int CurTraId {
             get {
                 return this.curTraIdField;
             }
@@ -3245,8 +3330,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> Disc1Id {
+        public int Disc1Id {
             get {
                 return this.disc1IdField;
             }
@@ -3266,8 +3350,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<decimal> Disc1Rate {
+        public decimal Disc1Rate {
             get {
                 return this.disc1RateField;
             }
@@ -3277,8 +3360,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<VatStatus> VatStatus {
+        public VatStatus VatStatus {
             get {
                 return this.vatStatusField;
             }
@@ -3288,8 +3370,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<System.DateTime> StartDate {
+        public System.DateTime StartDate {
             get {
                 return this.startDateField;
             }
@@ -3299,8 +3380,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<System.DateTime> EndDate {
+        public System.DateTime EndDate {
             get {
                 return this.endDateField;
             }
@@ -3310,8 +3390,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<bool> Ispassive {
+        public bool Ispassive {
             get {
                 return this.ispassiveField;
             }
@@ -3700,6 +3779,12 @@ namespace MobileWhouse.UyumSave {
         UrunYenidenIslemCikis,
         
         /// <remarks/>
+        YenidenIslemGiris,
+        
+        /// <remarks/>
+        YenidenIslemTransfer,
+        
+        /// <remarks/>
         MalzemeCikis,
         
         /// <remarks/>
@@ -3853,6 +3938,9 @@ namespace MobileWhouse.UyumSave {
         CRMWeb,
         
         /// <remarks/>
+        CRMProgress,
+        
+        /// <remarks/>
         CRMMusteriAday,
         
         /// <remarks/>
@@ -3904,10 +3992,13 @@ namespace MobileWhouse.UyumSave {
         SözleşmeTakibi,
         
         /// <remarks/>
-        TartimFisi,
+        MiktarsalSozlesme,
         
         /// <remarks/>
-        MiktarsalSozlesme,
+        Quotation,
+        
+        /// <remarks/>
+        TartimFisi,
         
         /// <remarks/>
         KantarFisi,
@@ -4061,6 +4152,15 @@ namespace MobileWhouse.UyumSave {
         
         /// <remarks/>
         Mustahsil,
+        
+        /// <remarks/>
+        GiderPusulası,
+        
+        /// <remarks/>
+        SMMustahsil,
+        
+        /// <remarks/>
+        Kist,
         
         /// <remarks/>
         DepoSayim,
@@ -5023,6 +5123,21 @@ namespace MobileWhouse.UyumSave {
         KgmAmatorTelsizTahsilat,
         
         /// <remarks/>
+        KgmRuhsatDenizTahsilat,
+        
+        /// <remarks/>
+        KgmRuhsatHavaTahsilat,
+        
+        /// <remarks/>
+        KgmRuhsatKaraDenizTahsilat,
+        
+        /// <remarks/>
+        KgmRuhsatKaraHavaTahsilat,
+        
+        /// <remarks/>
+        KgmInmarsatTahsilat,
+        
+        /// <remarks/>
         BBMDemirbasIslemleri,
         
         /// <remarks/>
@@ -5050,6 +5165,9 @@ namespace MobileWhouse.UyumSave {
         RiskLimitTalep,
         
         /// <remarks/>
+        OkulYonetimiKitapSatis,
+        
+        /// <remarks/>
         OkulYonetimi,
         
         /// <remarks/>
@@ -5063,9 +5181,6 @@ namespace MobileWhouse.UyumSave {
         
         /// <remarks/>
         OkulCekEsleme,
-        
-        /// <remarks/>
-        OkulYonetimiKitapSatis,
         
         /// <remarks/>
         SabitKiymetCikisFatura,
@@ -5428,6 +5543,12 @@ namespace MobileWhouse.UyumSave {
         ÜrünTakipSistemi,
         
         /// <remarks/>
+        TipmedTransfer,
+        
+        /// <remarks/>
+        TipmedSevkiyat,
+        
+        /// <remarks/>
         BakimIsEmri,
         
         /// <remarks/>
@@ -5524,13 +5645,13 @@ namespace MobileWhouse.UyumSave {
         YesilayEBAAktarim,
         
         /// <remarks/>
-        YildizMekatronikTeklif,
-        
-        /// <remarks/>
         CRMAnketYayinlama,
         
         /// <remarks/>
         CRMAnket2,
+        
+        /// <remarks/>
+        YildizMekatronikTeklif,
         
         /// <remarks/>
         EkNotŞablonTanım,
@@ -5563,10 +5684,25 @@ namespace MobileWhouse.UyumSave {
         SalesOrder,
         
         /// <remarks/>
+        InTransit,
+        
+        /// <remarks/>
+        SupplierInvoice,
+        
+        /// <remarks/>
+        ItemTransfer,
+        
+        /// <remarks/>
+        Transhipment,
+        
+        /// <remarks/>
         IthalatIsyeriDepoGirisi,
         
         /// <remarks/>
         BankStatement,
+        
+        /// <remarks/>
+        ShortShipment,
         
         /// <remarks/>
         SglmBlkcPulTemizleme,
@@ -5641,6 +5777,12 @@ namespace MobileWhouse.UyumSave {
         PusulaOlusturmaSatisFaturasi,
         
         /// <remarks/>
+        DışServisSevk,
+        
+        /// <remarks/>
+        DışServisKabul,
+        
+        /// <remarks/>
         UymPersonelTakip,
         
         /// <remarks/>
@@ -5677,13 +5819,19 @@ namespace MobileWhouse.UyumSave {
         TeparIsistasyonMaliyetOranServis,
         
         /// <remarks/>
+        BestelastTartımEkranı,
+        
+        /// <remarks/>
         EmriEtiket,
         
         /// <remarks/>
         SanicaIsEmriEtiket,
         
         /// <remarks/>
-        BestelastTartımEkranı,
+        ElTerminaliHavuz,
+        
+        /// <remarks/>
+        Mobil,
     }
     
     /// <remarks/>
@@ -5696,27 +5844,27 @@ namespace MobileWhouse.UyumSave {
         
         private int idField;
         
-        private System.Nullable<int> coIdField;
+        private int coIdField;
         
         private string coCodeField;
         
-        private System.Nullable<int> branchIdField;
+        private int branchIdField;
         
         private string branchCodeField;
         
-        private System.Nullable<int> entityIdField;
+        private int entityIdField;
         
         private string entityCodeField;
         
-        private System.Nullable<int> priceListIdField;
+        private int priceListIdField;
         
         private string priceListCodeField;
         
         private string priceListDescField;
         
-        private System.Nullable<PurchaseSalesType> purchaseSalesField;
+        private PurchaseSalesType purchaseSalesField;
         
-        private System.Nullable<bool> ispassiveField;
+        private bool ispassiveField;
         
         private string description1Field;
         
@@ -5733,8 +5881,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> CoId {
+        public int CoId {
             get {
                 return this.coIdField;
             }
@@ -5754,8 +5901,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> BranchId {
+        public int BranchId {
             get {
                 return this.branchIdField;
             }
@@ -5775,8 +5921,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> EntityId {
+        public int EntityId {
             get {
                 return this.entityIdField;
             }
@@ -5796,8 +5941,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> PriceListId {
+        public int PriceListId {
             get {
                 return this.priceListIdField;
             }
@@ -5827,8 +5971,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<PurchaseSalesType> PurchaseSales {
+        public PurchaseSalesType PurchaseSales {
             get {
                 return this.purchaseSalesField;
             }
@@ -5838,8 +5981,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<bool> Ispassive {
+        public bool Ispassive {
             get {
                 return this.ispassiveField;
             }
@@ -5957,51 +6099,898 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class ServiceResultOfString {
+        
+        private string messageField;
+        
+        private bool resultField;
+        
+        private string valueField;
+        
+        private int pageIndexField;
+        
+        private int totalPageField;
+        
+        /// <remarks/>
+        public string Message {
+            get {
+                return this.messageField;
+            }
+            set {
+                this.messageField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public bool Result {
+            get {
+                return this.resultField;
+            }
+            set {
+                this.resultField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageIndex {
+            get {
+                return this.pageIndexField;
+            }
+            set {
+                this.pageIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int TotalPage {
+            get {
+                return this.totalPageField;
+            }
+            set {
+                this.totalPageField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class BulkFileDef {
+        
+        private string pFilesPathField;
+        
+        private string pObjectNameField;
+        
+        private string pTargetFieldNameField;
+        
+        private string pFileDescriptionField;
+        
+        /// <remarks/>
+        public string pFilesPath {
+            get {
+                return this.pFilesPathField;
+            }
+            set {
+                this.pFilesPathField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string pObjectName {
+            get {
+                return this.pObjectNameField;
+            }
+            set {
+                this.pObjectNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string pTargetFieldName {
+            get {
+                return this.pTargetFieldNameField;
+            }
+            set {
+                this.pTargetFieldNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string pFileDescription {
+            get {
+                return this.pFileDescriptionField;
+            }
+            set {
+                this.pFileDescriptionField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class UyumServiceRequestOfBulkFileDef {
+        
+        private UyumToken tokenField;
+        
+        private BulkFileDef valueField;
+        
+        private int topField;
+        
+        private int pageIndexField;
+        
+        private int pageSizeField;
+        
+        /// <remarks/>
+        public UyumToken Token {
+            get {
+                return this.tokenField;
+            }
+            set {
+                this.tokenField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public BulkFileDef Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Top {
+            get {
+                return this.topField;
+            }
+            set {
+                this.topField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageIndex {
+            get {
+                return this.pageIndexField;
+            }
+            set {
+                this.pageIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageSize {
+            get {
+                return this.pageSizeField;
+            }
+            set {
+                this.pageSizeField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class CycleCountPersonelDef {
+        
+        private int registerIdField;
+        
+        private string registerFullNameField;
+        
+        /// <remarks/>
+        public int RegisterId {
+            get {
+                return this.registerIdField;
+            }
+            set {
+                this.registerIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string RegisterFullName {
+            get {
+                return this.registerFullNameField;
+            }
+            set {
+                this.registerFullNameField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class CycleCountDDef {
+        
+        private int itemIdField;
+        
+        private string itemCodeField;
+        
+        private decimal qtyPrmField;
+        
+        private int bwhLocationIdField;
+        
+        private string locationCodeField;
+        
+        private int lotIdField;
+        
+        private string lotCodeField;
+        
+        private int qualityIdField;
+        
+        private string qualityCodeField;
+        
+        private decimal qtyFreePrmField;
+        
+        private int freePrmMIdField;
+        
+        private string freePrmMCodeField;
+        
+        private int freeSecMIdField;
+        
+        private string freeSecMCodeField;
+        
+        private decimal qtyFreeSecField;
+        
+        private int itemAttribute1IdField;
+        
+        private string itemAttributeCode1Field;
+        
+        private int itemAttribute2IdField;
+        
+        private string itemAttributeCode2Field;
+        
+        private int itemAttribute3IdField;
+        
+        private string itemAttributeCode3Field;
+        
+        private int dimCardId1Field;
+        
+        private string dimCardCode1Field;
+        
+        private int dimCardId2Field;
+        
+        private string dimCardCode2Field;
+        
+        private ReservationType reservationTypeField;
+        
+        private int salesOrderItemIdField;
+        
+        private string salesOrderItemCodeField;
+        
+        private int serialMIdField;
+        
+        private string serialNoField;
+        
+        private string note1Field;
+        
+        private string barcodeField;
+        
+        /// <remarks/>
+        public int ItemId {
+            get {
+                return this.itemIdField;
+            }
+            set {
+                this.itemIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ItemCode {
+            get {
+                return this.itemCodeField;
+            }
+            set {
+                this.itemCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public decimal QtyPrm {
+            get {
+                return this.qtyPrmField;
+            }
+            set {
+                this.qtyPrmField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int BwhLocationId {
+            get {
+                return this.bwhLocationIdField;
+            }
+            set {
+                this.bwhLocationIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string LocationCode {
+            get {
+                return this.locationCodeField;
+            }
+            set {
+                this.locationCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int LotId {
+            get {
+                return this.lotIdField;
+            }
+            set {
+                this.lotIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string LotCode {
+            get {
+                return this.lotCodeField;
+            }
+            set {
+                this.lotCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int QualityId {
+            get {
+                return this.qualityIdField;
+            }
+            set {
+                this.qualityIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string QualityCode {
+            get {
+                return this.qualityCodeField;
+            }
+            set {
+                this.qualityCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public decimal QtyFreePrm {
+            get {
+                return this.qtyFreePrmField;
+            }
+            set {
+                this.qtyFreePrmField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int FreePrmMId {
+            get {
+                return this.freePrmMIdField;
+            }
+            set {
+                this.freePrmMIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string FreePrmMCode {
+            get {
+                return this.freePrmMCodeField;
+            }
+            set {
+                this.freePrmMCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int FreeSecMId {
+            get {
+                return this.freeSecMIdField;
+            }
+            set {
+                this.freeSecMIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string FreeSecMCode {
+            get {
+                return this.freeSecMCodeField;
+            }
+            set {
+                this.freeSecMCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public decimal QtyFreeSec {
+            get {
+                return this.qtyFreeSecField;
+            }
+            set {
+                this.qtyFreeSecField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ItemAttribute1Id {
+            get {
+                return this.itemAttribute1IdField;
+            }
+            set {
+                this.itemAttribute1IdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ItemAttributeCode1 {
+            get {
+                return this.itemAttributeCode1Field;
+            }
+            set {
+                this.itemAttributeCode1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ItemAttribute2Id {
+            get {
+                return this.itemAttribute2IdField;
+            }
+            set {
+                this.itemAttribute2IdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ItemAttributeCode2 {
+            get {
+                return this.itemAttributeCode2Field;
+            }
+            set {
+                this.itemAttributeCode2Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int ItemAttribute3Id {
+            get {
+                return this.itemAttribute3IdField;
+            }
+            set {
+                this.itemAttribute3IdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ItemAttributeCode3 {
+            get {
+                return this.itemAttributeCode3Field;
+            }
+            set {
+                this.itemAttributeCode3Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int DimCardId1 {
+            get {
+                return this.dimCardId1Field;
+            }
+            set {
+                this.dimCardId1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DimCardCode1 {
+            get {
+                return this.dimCardCode1Field;
+            }
+            set {
+                this.dimCardCode1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int DimCardId2 {
+            get {
+                return this.dimCardId2Field;
+            }
+            set {
+                this.dimCardId2Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DimCardCode2 {
+            get {
+                return this.dimCardCode2Field;
+            }
+            set {
+                this.dimCardCode2Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public ReservationType ReservationType {
+            get {
+                return this.reservationTypeField;
+            }
+            set {
+                this.reservationTypeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int SalesOrderItemId {
+            get {
+                return this.salesOrderItemIdField;
+            }
+            set {
+                this.salesOrderItemIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SalesOrderItemCode {
+            get {
+                return this.salesOrderItemCodeField;
+            }
+            set {
+                this.salesOrderItemCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int SerialMId {
+            get {
+                return this.serialMIdField;
+            }
+            set {
+                this.serialMIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SerialNo {
+            get {
+                return this.serialNoField;
+            }
+            set {
+                this.serialNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Note1 {
+            get {
+                return this.note1Field;
+            }
+            set {
+                this.note1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Barcode {
+            get {
+                return this.barcodeField;
+            }
+            set {
+                this.barcodeField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public enum ReservationType {
+        
+        /// <remarks/>
+        İş_Emri,
+        
+        /// <remarks/>
+        Satış_Siparişi,
+        
+        /// <remarks/>
+        Cari_Sipariş_Referansı,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class CycleCountMDef {
+        
+        private int coIdField;
+        
+        private string coCodeField;
+        
+        private int branchIdField;
+        
+        private string branchCodeField;
+        
+        private int whouseIdField;
+        
+        private string whouseCodeField;
+        
+        private string docNoField;
+        
+        private System.DateTime docDateField;
+        
+        private string note1Field;
+        
+        private CycleCountDDef[] cycleCountDListField;
+        
+        private CycleCountPersonelDef[] cyclePersonelListField;
+        
+        /// <remarks/>
+        public int CoId {
+            get {
+                return this.coIdField;
+            }
+            set {
+                this.coIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string CoCode {
+            get {
+                return this.coCodeField;
+            }
+            set {
+                this.coCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int BranchId {
+            get {
+                return this.branchIdField;
+            }
+            set {
+                this.branchIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string BranchCode {
+            get {
+                return this.branchCodeField;
+            }
+            set {
+                this.branchCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int WhouseId {
+            get {
+                return this.whouseIdField;
+            }
+            set {
+                this.whouseIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string WhouseCode {
+            get {
+                return this.whouseCodeField;
+            }
+            set {
+                this.whouseCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DocNo {
+            get {
+                return this.docNoField;
+            }
+            set {
+                this.docNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime DocDate {
+            get {
+                return this.docDateField;
+            }
+            set {
+                this.docDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Note1 {
+            get {
+                return this.note1Field;
+            }
+            set {
+                this.note1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public CycleCountDDef[] CycleCountDList {
+            get {
+                return this.cycleCountDListField;
+            }
+            set {
+                this.cycleCountDListField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public CycleCountPersonelDef[] CyclePersonelList {
+            get {
+                return this.cyclePersonelListField;
+            }
+            set {
+                this.cyclePersonelListField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class UyumServiceRequestOfCycleCountMDef {
+        
+        private UyumToken tokenField;
+        
+        private CycleCountMDef valueField;
+        
+        private int topField;
+        
+        private int pageIndexField;
+        
+        private int pageSizeField;
+        
+        /// <remarks/>
+        public UyumToken Token {
+            get {
+                return this.tokenField;
+            }
+            set {
+                this.tokenField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public CycleCountMDef Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Top {
+            get {
+                return this.topField;
+            }
+            set {
+                this.topField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageIndex {
+            get {
+                return this.pageIndexField;
+            }
+            set {
+                this.pageIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageSize {
+            get {
+                return this.pageSizeField;
+            }
+            set {
+                this.pageSizeField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class ItemBarcodeDef {
         
-        private System.Nullable<int> lineNoField;
+        private int lineNoField;
         
-        private System.Nullable<int> itemIdField;
+        private int itemIdField;
         
         private string itemCodeField;
         
         private string barcodeField;
         
-        private System.Nullable<int> colorIdField;
+        private int colorIdField;
         
         private string colorCodeField;
         
-        private System.Nullable<int> unitIdField;
+        private int unitIdField;
         
         private string unitCodeField;
         
-        private System.Nullable<int> lotIdField;
+        private int lotIdField;
         
         private string lotCodeField;
         
-        private System.Nullable<int> qualityIdField;
+        private int qualityIdField;
         
         private string qualityCodeField;
         
-        private System.Nullable<int> brandIdField;
+        private int brandIdField;
         
         private string brandCodeField;
         
-        private System.Nullable<int> curIdField;
+        private int curIdField;
         
         private string curCodeField;
         
-        private System.Nullable<int> packageTypeIdField;
+        private int packageTypeIdField;
         
         private string packageTypeCodeField;
         
-        private System.Nullable<decimal> qtyField;
+        private decimal qtyField;
         
-        private System.Nullable<int> itemAttribute1IdField;
+        private int itemAttribute1IdField;
         
-        private System.Nullable<int> itemAttribute2IdField;
+        private int itemAttribute2IdField;
         
-        private System.Nullable<int> itemAttribute3IdField;
+        private int itemAttribute3IdField;
         
         private string itemAttributeCode1Field;
         
@@ -6015,19 +7004,18 @@ namespace MobileWhouse.UyumSave {
         
         private string itemGnlAttributeCode3Field;
         
-        private System.Nullable<int> itemGnlAttribute1IdField;
+        private int itemGnlAttribute1IdField;
         
-        private System.Nullable<int> itemGnlAttribute2IdField;
+        private int itemGnlAttribute2IdField;
         
-        private System.Nullable<int> itemGnlAttribute3IdField;
+        private int itemGnlAttribute3IdField;
         
-        private System.Nullable<int> invBarcodeTypeIdField;
+        private int invBarcodeTypeIdField;
         
         private string invBarcodeTypeCodeField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> LineNo {
+        public int LineNo {
             get {
                 return this.lineNoField;
             }
@@ -6037,8 +7025,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> ItemId {
+        public int ItemId {
             get {
                 return this.itemIdField;
             }
@@ -6068,8 +7055,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> ColorId {
+        public int ColorId {
             get {
                 return this.colorIdField;
             }
@@ -6089,8 +7075,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> UnitId {
+        public int UnitId {
             get {
                 return this.unitIdField;
             }
@@ -6110,8 +7095,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> LotId {
+        public int LotId {
             get {
                 return this.lotIdField;
             }
@@ -6131,8 +7115,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> QualityId {
+        public int QualityId {
             get {
                 return this.qualityIdField;
             }
@@ -6152,8 +7135,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> BrandId {
+        public int BrandId {
             get {
                 return this.brandIdField;
             }
@@ -6173,8 +7155,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> CurId {
+        public int CurId {
             get {
                 return this.curIdField;
             }
@@ -6194,8 +7175,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> PackageTypeId {
+        public int PackageTypeId {
             get {
                 return this.packageTypeIdField;
             }
@@ -6215,8 +7195,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<decimal> Qty {
+        public decimal Qty {
             get {
                 return this.qtyField;
             }
@@ -6226,8 +7205,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> ItemAttribute1Id {
+        public int ItemAttribute1Id {
             get {
                 return this.itemAttribute1IdField;
             }
@@ -6237,8 +7215,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> ItemAttribute2Id {
+        public int ItemAttribute2Id {
             get {
                 return this.itemAttribute2IdField;
             }
@@ -6248,8 +7225,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> ItemAttribute3Id {
+        public int ItemAttribute3Id {
             get {
                 return this.itemAttribute3IdField;
             }
@@ -6319,8 +7295,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> ItemGnlAttribute1Id {
+        public int ItemGnlAttribute1Id {
             get {
                 return this.itemGnlAttribute1IdField;
             }
@@ -6330,8 +7305,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> ItemGnlAttribute2Id {
+        public int ItemGnlAttribute2Id {
             get {
                 return this.itemGnlAttribute2IdField;
             }
@@ -6341,8 +7315,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> ItemGnlAttribute3Id {
+        public int ItemGnlAttribute3Id {
             get {
                 return this.itemGnlAttribute3IdField;
             }
@@ -6352,8 +7325,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> InvBarcodeTypeId {
+        public int InvBarcodeTypeId {
             get {
                 return this.invBarcodeTypeIdField;
             }
@@ -6450,7 +7422,7 @@ namespace MobileWhouse.UyumSave {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class ExpenseTaxCardDef {
         
-        private System.Nullable<int> countryIdField;
+        private int countryIdField;
         
         private string countryCodeField;
         
@@ -6458,7 +7430,7 @@ namespace MobileWhouse.UyumSave {
         
         private string taxCodeField;
         
-        private System.Nullable<PurchaseSales> purchaseSalesField;
+        private PurchaseSales purchaseSalesField;
         
         private System.Nullable<System.DateTime> startDateField;
         
@@ -6467,8 +7439,7 @@ namespace MobileWhouse.UyumSave {
         private string note1Field;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> CountryId {
+        public int CountryId {
             get {
                 return this.countryIdField;
             }
@@ -6509,8 +7480,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<PurchaseSales> PurchaseSales {
+        public PurchaseSales PurchaseSales {
             get {
                 return this.purchaseSalesField;
             }
@@ -6976,24 +7946,25 @@ namespace MobileWhouse.UyumSave {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class ItemTaxCardDef {
         
-        private int countryIdField;
+        private System.Nullable<int> countryIdField;
         
         private string countryCodeField;
         
         private string isoCountryCodeField;
         
-        private int taxIdField;
+        private System.Nullable<int> taxIdField;
         
         private string taxCodeField;
         
-        private PurchaseSales purchaseSalesField;
+        private System.Nullable<PurchaseSales> purchaseSalesField;
         
-        private System.DateTime startDateField;
+        private System.Nullable<System.DateTime> startDateField;
         
-        private System.DateTime endDateField;
+        private System.Nullable<System.DateTime> endDateField;
         
         /// <remarks/>
-        public int CountryId {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> CountryId {
             get {
                 return this.countryIdField;
             }
@@ -7023,7 +7994,8 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        public int TaxId {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> TaxId {
             get {
                 return this.taxIdField;
             }
@@ -7043,7 +8015,8 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        public PurchaseSales PurchaseSales {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<PurchaseSales> PurchaseSales {
             get {
                 return this.purchaseSalesField;
             }
@@ -7053,7 +8026,8 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        public System.DateTime StartDate {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> StartDate {
             get {
                 return this.startDateField;
             }
@@ -7063,7 +8037,8 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        public System.DateTime EndDate {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<System.DateTime> EndDate {
             get {
                 return this.endDateField;
             }
@@ -7113,7 +8088,7 @@ namespace MobileWhouse.UyumSave {
         
         private System.Nullable<int> categories12IdField;
         
-        private System.Nullable<int> categories13IdField;
+        private int categories13IdField;
         
         private System.Nullable<int> categories14IdField;
         
@@ -7381,8 +8356,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> Categories13Id {
+        public int Categories13Id {
             get {
                 return this.categories13IdField;
             }
@@ -9497,181 +10471,6 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class EDespatchDetails {
-        
-        private int eDespatchDIdField;
-        
-        private System.Nullable<decimal> receivedQuantityField;
-        
-        private System.Nullable<decimal> shortQuantityField;
-        
-        private System.Nullable<decimal> rejectedQuantityField;
-        
-        private System.Nullable<decimal> oversupplyQuantityField;
-        
-        /// <remarks/>
-        public int EDespatchDId {
-            get {
-                return this.eDespatchDIdField;
-            }
-            set {
-                this.eDespatchDIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<decimal> ReceivedQuantity {
-            get {
-                return this.receivedQuantityField;
-            }
-            set {
-                this.receivedQuantityField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<decimal> ShortQuantity {
-            get {
-                return this.shortQuantityField;
-            }
-            set {
-                this.shortQuantityField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<decimal> RejectedQuantity {
-            get {
-                return this.rejectedQuantityField;
-            }
-            set {
-                this.rejectedQuantityField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<decimal> OversupplyQuantity {
-            get {
-                return this.oversupplyQuantityField;
-            }
-            set {
-                this.oversupplyQuantityField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class EDespatchDef {
-        
-        private string eTTNField;
-        
-        private EDespatchDetails[] eDespatchDetailsField;
-        
-        /// <remarks/>
-        public string ETTN {
-            get {
-                return this.eTTNField;
-            }
-            set {
-                this.eTTNField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public EDespatchDetails[] eDespatchDetails {
-            get {
-                return this.eDespatchDetailsField;
-            }
-            set {
-                this.eDespatchDetailsField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class UyumServiceRequestOfEDespatchDef {
-        
-        private UyumToken tokenField;
-        
-        private EDespatchDef valueField;
-        
-        private int topField;
-        
-        private int pageIndexField;
-        
-        private int pageSizeField;
-        
-        /// <remarks/>
-        public UyumToken Token {
-            get {
-                return this.tokenField;
-            }
-            set {
-                this.tokenField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public EDespatchDef Value {
-            get {
-                return this.valueField;
-            }
-            set {
-                this.valueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int Top {
-            get {
-                return this.topField;
-            }
-            set {
-                this.topField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageIndex {
-            get {
-                return this.pageIndexField;
-            }
-            set {
-                this.pageIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int PageSize {
-            get {
-                return this.pageSizeField;
-            }
-            set {
-                this.pageSizeField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class UyumServiceRequestOfArrayOfItemDef {
         
         private UyumToken tokenField;
@@ -9769,8 +10568,6 @@ namespace MobileWhouse.UyumSave {
         
         private System.Nullable<decimal> longitudeField;
         
-        private string sourceGuidField;
-        
         private System.Nullable<InvoiceStatus> invoiceStatusField;
         
         private System.Nullable<System.DateTime> receiptDateField;
@@ -9781,21 +10578,11 @@ namespace MobileWhouse.UyumSave {
         
         private System.Nullable<bool> riskControlField;
         
-        private string vehicleCodeField;
-        
-        private System.Nullable<int> vehicleIdField;
-        
-        private string driverIdentifyNoField;
-        
         private string licensePlateField;
         
         private string driverIdentityNoField;
         
         private string driverNameField;
-        
-        private string driverFamilyNameField;
-        
-        private string driverGsmNoField;
         
         private string driverNoteField;
         
@@ -9818,10 +10605,6 @@ namespace MobileWhouse.UyumSave {
         private System.Nullable<bool> forTransferField;
         
         private string eTTNField;
-        
-        private string transportEquipmentField;
-        
-        private string shippingDesc1Field;
         
         private string promptValuesField;
         
@@ -9962,16 +10745,6 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        public string SourceGuid {
-            get {
-                return this.sourceGuidField;
-            }
-            set {
-                this.sourceGuidField = value;
-            }
-        }
-        
-        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public System.Nullable<InvoiceStatus> InvoiceStatus {
             get {
@@ -10027,37 +10800,6 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        public string VehicleCode {
-            get {
-                return this.vehicleCodeField;
-            }
-            set {
-                this.vehicleCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> VehicleId {
-            get {
-                return this.vehicleIdField;
-            }
-            set {
-                this.vehicleIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DriverIdentifyNo {
-            get {
-                return this.driverIdentifyNoField;
-            }
-            set {
-                this.driverIdentifyNoField = value;
-            }
-        }
-        
-        /// <remarks/>
         public string LicensePlate {
             get {
                 return this.licensePlateField;
@@ -10084,26 +10826,6 @@ namespace MobileWhouse.UyumSave {
             }
             set {
                 this.driverNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DriverFamilyName {
-            get {
-                return this.driverFamilyNameField;
-            }
-            set {
-                this.driverFamilyNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DriverGsmNo {
-            get {
-                return this.driverGsmNoField;
-            }
-            set {
-                this.driverGsmNoField = value;
             }
         }
         
@@ -10218,26 +10940,6 @@ namespace MobileWhouse.UyumSave {
             }
             set {
                 this.eTTNField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string TransportEquipment {
-            get {
-                return this.transportEquipmentField;
-            }
-            set {
-                this.transportEquipmentField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string ShippingDesc1 {
-            get {
-                return this.shippingDesc1Field;
-            }
-            set {
-                this.shippingDesc1Field = value;
             }
         }
         
@@ -10363,7 +11065,7 @@ namespace MobileWhouse.UyumSave {
         
         private System.Nullable<int> campaignIdField;
         
-        private System.Nullable<decimal> unitPriceTraField;
+        private decimal unitPriceTraField;
         
         private System.Nullable<decimal> unitPriceField;
         
@@ -10499,7 +11201,7 @@ namespace MobileWhouse.UyumSave {
         
         private string registerFullNameField;
         
-        private int locationIdField;
+        private System.Nullable<int> locationIdField;
         
         private string locationCodeField;
         
@@ -10663,8 +11365,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<decimal> UnitPriceTra {
+        public decimal UnitPriceTra {
             get {
                 return this.unitPriceTraField;
             }
@@ -11387,7 +12088,8 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        public int LocationId {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> LocationId {
             get {
                 return this.locationIdField;
             }
@@ -11885,7 +12587,7 @@ namespace MobileWhouse.UyumSave {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
     public partial class AccDetailDef : DetailFields {
         
-        private System.Nullable<System.DateTime> createDateField;
+        private System.DateTime createDateField;
         
         private System.Nullable<int> accIdField;
         
@@ -11914,8 +12616,7 @@ namespace MobileWhouse.UyumSave {
         private System.Nullable<int> ebookPaymentMethodField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<System.DateTime> CreateDate {
+        public System.DateTime CreateDate {
             get {
                 return this.createDateField;
             }
@@ -12082,7 +12783,7 @@ namespace MobileWhouse.UyumSave {
         
         private decimal amtTraField;
         
-        private System.Nullable<System.DateTime> dueDateField;
+        private System.DateTime dueDateField;
         
         private EntityDef entityInfoField;
         
@@ -12105,6 +12806,8 @@ namespace MobileWhouse.UyumSave {
         private System.Nullable<int> formContractMIdField;
         
         private string formContractCodeField;
+        
+        private string cashDocTraCodeField;
         
         private System.Nullable<int> cashDocTraIdField;
         
@@ -12181,8 +12884,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<System.DateTime> DueDate {
+        public System.DateTime DueDate {
             get {
                 return this.dueDateField;
             }
@@ -12303,6 +13005,16 @@ namespace MobileWhouse.UyumSave {
             }
             set {
                 this.formContractCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string CashDocTraCode {
+            get {
+                return this.cashDocTraCodeField;
+            }
+            set {
+                this.cashDocTraCodeField = value;
             }
         }
         
@@ -12525,6 +13237,8 @@ namespace MobileWhouse.UyumSave {
         private CoEntityIntegration[] coEntityIntegrationListField;
         
         private string zipCodeField;
+        
+        private string passportNoField;
         
         /// <remarks/>
         public string EntityCode {
@@ -13572,6 +14286,16 @@ namespace MobileWhouse.UyumSave {
                 this.zipCodeField = value;
             }
         }
+        
+        /// <remarks/>
+        public string PassportNo {
+            get {
+                return this.passportNoField;
+            }
+            set {
+                this.passportNoField = value;
+            }
+        }
     }
     
     /// <remarks/>
@@ -13687,6 +14411,15 @@ namespace MobileWhouse.UyumSave {
         
         /// <remarks/>
         Varış,
+        
+        /// <remarks/>
+        Muhasebe,
+        
+        /// <remarks/>
+        MuhasebeAySonu,
+        
+        /// <remarks/>
+        FaturaAySonu,
     }
     
     /// <remarks/>
@@ -14043,7 +14776,7 @@ namespace MobileWhouse.UyumSave {
         
         private System.Nullable<int> vatIdField;
         
-        private System.Nullable<decimal> amtVatField;
+        private decimal amtVatField;
         
         private string abtActCodeField;
         
@@ -14057,7 +14790,7 @@ namespace MobileWhouse.UyumSave {
         
         private string oIVCodeField;
         
-        private System.Nullable<VatStatus> vatStatusField;
+        private VatStatus vatStatusField;
         
         private System.Nullable<bool> useExpBudgetField;
         
@@ -14168,8 +14901,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<decimal> AmtVat {
+        public decimal AmtVat {
             get {
                 return this.amtVatField;
             }
@@ -14241,8 +14973,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<VatStatus> VatStatus {
+        public VatStatus VatStatus {
             get {
                 return this.vatStatusField;
             }
@@ -14297,6 +15028,9 @@ namespace MobileWhouse.UyumSave {
         
         /// <remarks/>
         GeriGonderildi,
+        
+        /// <remarks/>
+        Yok,
     }
     
     /// <remarks/>
@@ -14494,6 +15228,9 @@ namespace MobileWhouse.UyumSave {
         
         /// <remarks/>
         KDV_SonucHesaplarıOzelMatrah,
+        
+        /// <remarks/>
+        KDV_7326SayiliKanunMadKapsamindakiİslemler,
         
         /// <remarks/>
         KDV_TamKismiIstisnaBildirim,
@@ -14830,6 +15567,8 @@ namespace MobileWhouse.UyumSave {
         
         private System.Nullable<int> coEntityAddressIdField;
         
+        private System.Nullable<bool> isShippingAddressTypeField;
+        
         private string webAddressField;
         
         private string firstNameField;
@@ -14843,6 +15582,22 @@ namespace MobileWhouse.UyumSave {
         private string zipCodeField;
         
         private string shippingZipCodeField;
+        
+        private string vehicleCodeField;
+        
+        private System.Nullable<int> vehicleIdField;
+        
+        private string driverIdentifyNoField;
+        
+        private string driverGsmNoField;
+        
+        private string shippingDesc1Field;
+        
+        private string transportEquipmentField;
+        
+        private string driverFamilyNameField;
+        
+        private string licencePlateField;
         
         private System.Nullable<int> disc0IdField;
         
@@ -15434,6 +16189,17 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<bool> IsShippingAddressType {
+            get {
+                return this.isShippingAddressTypeField;
+            }
+            set {
+                this.isShippingAddressTypeField = value;
+            }
+        }
+        
+        /// <remarks/>
         public string WebAddress {
             get {
                 return this.webAddressField;
@@ -15501,6 +16267,87 @@ namespace MobileWhouse.UyumSave {
             }
             set {
                 this.shippingZipCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string VehicleCode {
+            get {
+                return this.vehicleCodeField;
+            }
+            set {
+                this.vehicleCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> VehicleId {
+            get {
+                return this.vehicleIdField;
+            }
+            set {
+                this.vehicleIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DriverIdentifyNo {
+            get {
+                return this.driverIdentifyNoField;
+            }
+            set {
+                this.driverIdentifyNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DriverGsmNo {
+            get {
+                return this.driverGsmNoField;
+            }
+            set {
+                this.driverGsmNoField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ShippingDesc1 {
+            get {
+                return this.shippingDesc1Field;
+            }
+            set {
+                this.shippingDesc1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string TransportEquipment {
+            get {
+                return this.transportEquipmentField;
+            }
+            set {
+                this.transportEquipmentField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DriverFamilyName {
+            get {
+                return this.driverFamilyNameField;
+            }
+            set {
+                this.driverFamilyNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string LicencePlate {
+            get {
+                return this.licencePlateField;
+            }
+            set {
+                this.licencePlateField = value;
             }
         }
         
@@ -15583,7 +16430,7 @@ namespace MobileWhouse.UyumSave {
         
         private string branchCodeField;
         
-        private System.Nullable<System.DateTime> docDateField;
+        private System.DateTime docDateField;
         
         private string docNoField;
         
@@ -15623,7 +16470,13 @@ namespace MobileWhouse.UyumSave {
         
         private System.Nullable<System.DateTime> entityOrderDateField;
         
-        private bool isCountWithLocationField;
+        private string cashDocTraCodeField;
+        
+        private System.Nullable<int> cashDocTraIdField;
+        
+        private string sourceGuidField;
+        
+        private System.Nullable<bool> isCountWithLocationField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
@@ -15668,8 +16521,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<System.DateTime> DocDate {
+        public System.DateTime DocDate {
             get {
                 return this.docDateField;
             }
@@ -15879,7 +16731,39 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        public bool IsCountWithLocation {
+        public string CashDocTraCode {
+            get {
+                return this.cashDocTraCodeField;
+            }
+            set {
+                this.cashDocTraCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> CashDocTraId {
+            get {
+                return this.cashDocTraIdField;
+            }
+            set {
+                this.cashDocTraIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string SourceGuid {
+            get {
+                return this.sourceGuidField;
+            }
+            set {
+                this.sourceGuidField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<bool> IsCountWithLocation {
             get {
                 return this.isCountWithLocationField;
             }
@@ -16101,7 +16985,7 @@ namespace MobileWhouse.UyumSave {
         
         private System.Nullable<int> accMIdField;
         
-        private System.Nullable<AccReceipt> accReceiptField;
+        private AccReceipt accReceiptField;
         
         private decimal amtCreditField;
         
@@ -16121,8 +17005,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<AccReceipt> AccReceipt {
+        public AccReceipt AccReceipt {
             get {
                 return this.accReceiptField;
             }
@@ -16621,17 +17504,11 @@ namespace MobileWhouse.UyumSave {
         
         private System.Nullable<decimal> longitudeField;
         
-        private string sourceGuidField;
-        
         private System.Nullable<decimal> amtDiscTotalField;
         
         private InvoiceDetailDef[] detailsField;
         
         private System.Nullable<InvoiceProfile> eInvoiceProfileField;
-        
-        private string cashDocTraCodeField;
-        
-        private System.Nullable<int> cashDocTraIdField;
         
         private System.Nullable<CashInvoiceType> isCashInvoiceField;
         
@@ -16777,16 +17654,6 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        public string SourceGuid {
-            get {
-                return this.sourceGuidField;
-            }
-            set {
-                this.sourceGuidField = value;
-            }
-        }
-        
-        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public System.Nullable<decimal> AmtDiscTotal {
             get {
@@ -16815,27 +17682,6 @@ namespace MobileWhouse.UyumSave {
             }
             set {
                 this.eInvoiceProfileField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string CashDocTraCode {
-            get {
-                return this.cashDocTraCodeField;
-            }
-            set {
-                this.cashDocTraCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<int> CashDocTraId {
-            get {
-                return this.cashDocTraIdField;
-            }
-            set {
-                this.cashDocTraIdField = value;
             }
         }
         
@@ -17015,9 +17861,6 @@ namespace MobileWhouse.UyumSave {
         
         /// <remarks/>
         CashInvoice,
-        
-        /// <remarks/>
-        DiffrentPeriods,
     }
     
     /// <remarks/>
@@ -17034,11 +17877,11 @@ namespace MobileWhouse.UyumSave {
         
         private System.Nullable<bool> isLocalCurActionField;
         
-        private System.Nullable<OrderStatus> orderStatusField;
-        
         private System.Nullable<bool> isApproveByMasterField;
         
         private System.Nullable<int> formContractMIdField;
+        
+        private System.Nullable<OrderStatus> orderStatusField;
         
         private OrderDetailDef[] detailsField;
         
@@ -17078,17 +17921,6 @@ namespace MobileWhouse.UyumSave {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<OrderStatus> OrderStatus {
-            get {
-                return this.orderStatusField;
-            }
-            set {
-                this.orderStatusField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
         public System.Nullable<bool> IsApproveByMaster {
             get {
                 return this.isApproveByMasterField;
@@ -17106,6 +17938,17 @@ namespace MobileWhouse.UyumSave {
             }
             set {
                 this.formContractMIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<OrderStatus> OrderStatus {
+            get {
+                return this.orderStatusField;
+            }
+            set {
+                this.orderStatusField = value;
             }
         }
         
@@ -17174,6 +18017,181 @@ namespace MobileWhouse.UyumSave {
         
         /// <remarks/>
         public ItemDef Value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Top {
+            get {
+                return this.topField;
+            }
+            set {
+                this.topField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageIndex {
+            get {
+                return this.pageIndexField;
+            }
+            set {
+                this.pageIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int PageSize {
+            get {
+                return this.pageSizeField;
+            }
+            set {
+                this.pageSizeField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class EDespatchDetails {
+        
+        private int eDespatchDIdField;
+        
+        private System.Nullable<decimal> receivedQuantityField;
+        
+        private System.Nullable<decimal> shortQuantityField;
+        
+        private System.Nullable<decimal> rejectedQuantityField;
+        
+        private System.Nullable<decimal> oversupplyQuantityField;
+        
+        /// <remarks/>
+        public int EDespatchDId {
+            get {
+                return this.eDespatchDIdField;
+            }
+            set {
+                this.eDespatchDIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<decimal> ReceivedQuantity {
+            get {
+                return this.receivedQuantityField;
+            }
+            set {
+                this.receivedQuantityField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<decimal> ShortQuantity {
+            get {
+                return this.shortQuantityField;
+            }
+            set {
+                this.shortQuantityField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<decimal> RejectedQuantity {
+            get {
+                return this.rejectedQuantityField;
+            }
+            set {
+                this.rejectedQuantityField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<decimal> OversupplyQuantity {
+            get {
+                return this.oversupplyQuantityField;
+            }
+            set {
+                this.oversupplyQuantityField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class EDespatchDef {
+        
+        private string eTTNField;
+        
+        private EDespatchDetails[] eDespatchDetailsField;
+        
+        /// <remarks/>
+        public string ETTN {
+            get {
+                return this.eTTNField;
+            }
+            set {
+                this.eTTNField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public EDespatchDetails[] eDespatchDetails {
+            get {
+                return this.eDespatchDetailsField;
+            }
+            set {
+                this.eDespatchDetailsField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class UyumServiceRequestOfEDespatchDef {
+        
+        private UyumToken tokenField;
+        
+        private EDespatchDef valueField;
+        
+        private int topField;
+        
+        private int pageIndexField;
+        
+        private int pageSizeField;
+        
+        /// <remarks/>
+        public UyumToken Token {
+            get {
+                return this.tokenField;
+            }
+            set {
+                this.tokenField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public EDespatchDef Value {
             get {
                 return this.valueField;
             }
@@ -17600,7 +18618,7 @@ namespace MobileWhouse.UyumSave {
         
         private System.Nullable<AccBookType> accBookTypeField;
         
-        private System.Nullable<GainLoss> gainLossField;
+        private GainLoss gainLossField;
         
         private string mainCodeField;
         
@@ -17726,8 +18744,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<GainLoss> GainLoss {
+        public GainLoss GainLoss {
             get {
                 return this.gainLossField;
             }
@@ -17996,7 +19013,7 @@ namespace MobileWhouse.UyumSave {
         
         private GainLoss gainLossField;
         
-        private int eSMMStatusField;
+        private System.Nullable<int> eSMMStatusField;
         
         private AccGainLossDetailDef[] detailsField;
         
@@ -18034,7 +19051,8 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        public int ESMMStatus {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<int> ESMMStatus {
             get {
                 return this.eSMMStatusField;
             }
@@ -19446,13 +20464,13 @@ namespace MobileWhouse.UyumSave {
         
         private decimal curRateTraField;
         
-        private System.Nullable<decimal> amtDebitField;
+        private decimal amtDebitField;
         
-        private System.Nullable<decimal> amtCreditField;
+        private decimal amtCreditField;
         
-        private decimal amtTraDebitField;
+        private System.Nullable<decimal> amtTraDebitField;
         
-        private decimal amtTraCreditField;
+        private System.Nullable<decimal> amtTraCreditField;
         
         private string note1Field;
         
@@ -19484,7 +20502,7 @@ namespace MobileWhouse.UyumSave {
         
         private System.Nullable<System.DateTime> documentDateField;
         
-        private decimal qtyField;
+        private System.Nullable<decimal> qtyField;
         
         private string itemCodeField;
         
@@ -19584,8 +20602,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<decimal> AmtDebit {
+        public decimal AmtDebit {
             get {
                 return this.amtDebitField;
             }
@@ -19595,8 +20612,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<decimal> AmtCredit {
+        public decimal AmtCredit {
             get {
                 return this.amtCreditField;
             }
@@ -19606,7 +20622,8 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        public decimal AmtTraDebit {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<decimal> AmtTraDebit {
             get {
                 return this.amtTraDebitField;
             }
@@ -19616,7 +20633,8 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        public decimal AmtTraCredit {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<decimal> AmtTraCredit {
             get {
                 return this.amtTraCreditField;
             }
@@ -19784,7 +20802,8 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        public decimal Qty {
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<decimal> Qty {
             get {
                 return this.qtyField;
             }
@@ -19979,7 +20998,7 @@ namespace MobileWhouse.UyumSave {
         
         private string coCodeField;
         
-        private System.Nullable<System.DateTime> docDateField;
+        private System.DateTime docDateField;
         
         private string docNoField;
         
@@ -19995,7 +21014,7 @@ namespace MobileWhouse.UyumSave {
         
         private string note1Field;
         
-        private System.Nullable<AccReceipt> accReceiptField;
+        private AccReceipt accReceiptField;
         
         private AccDetailDefMM[] detailsField;
         
@@ -20034,8 +21053,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<System.DateTime> DocDate {
+        public System.DateTime DocDate {
             get {
                 return this.docDateField;
             }
@@ -20118,8 +21136,7 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<AccReceipt> AccReceipt {
+        public AccReceipt AccReceipt {
             get {
                 return this.accReceiptField;
             }
@@ -20712,11 +21729,11 @@ namespace MobileWhouse.UyumSave {
         
         private string subjectField;
         
-        private string smsAccountIdentifierField;
+        private string toField;
         
         private string bodyXsltIdentifierField;
         
-        private string toField;
+        private string smsAccountIdentifierField;
         
         /// <remarks/>
         public string Subject {
@@ -20730,12 +21747,12 @@ namespace MobileWhouse.UyumSave {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string SmsAccountIdentifier {
+        public string To {
             get {
-                return this.smsAccountIdentifierField;
+                return this.toField;
             }
             set {
-                this.smsAccountIdentifierField = value;
+                this.toField = value;
             }
         }
         
@@ -20752,12 +21769,12 @@ namespace MobileWhouse.UyumSave {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string To {
+        public string SmsAccountIdentifier {
             get {
-                return this.toField;
+                return this.smsAccountIdentifierField;
             }
             set {
-                this.toField = value;
+                this.smsAccountIdentifierField = value;
             }
         }
     }
@@ -20835,13 +21852,13 @@ namespace MobileWhouse.UyumSave {
         
         private MailAttachmentInformation attachmentField;
         
-        private string bodyXsltIdentifierField;
-        
-        private string emailAccountIdentifierField;
-        
         private bool enableNotificationField;
         
         private string toField;
+        
+        private string bodyXsltIdentifierField;
+        
+        private string emailAccountIdentifierField;
         
         /// <remarks/>
         public string Subject {
@@ -20865,28 +21882,6 @@ namespace MobileWhouse.UyumSave {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string BodyXsltIdentifier {
-            get {
-                return this.bodyXsltIdentifierField;
-            }
-            set {
-                this.bodyXsltIdentifierField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string EmailAccountIdentifier {
-            get {
-                return this.emailAccountIdentifierField;
-            }
-            set {
-                this.emailAccountIdentifierField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
         public bool EnableNotification {
             get {
                 return this.enableNotificationField;
@@ -20904,6 +21899,28 @@ namespace MobileWhouse.UyumSave {
             }
             set {
                 this.toField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string BodyXsltIdentifier {
+            get {
+                return this.bodyXsltIdentifierField;
+            }
+            set {
+                this.bodyXsltIdentifierField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string EmailAccountIdentifier {
+            get {
+                return this.emailAccountIdentifierField;
+            }
+            set {
+                this.emailAccountIdentifierField = value;
             }
         }
     }
@@ -21418,73 +22435,73 @@ namespace MobileWhouse.UyumSave {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DebitLineAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PayableAlternativeAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PriceAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RequiredFeeAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PerUnitAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrepaidAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxEnergyAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RoundingAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SettlementDiscountAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PenaltyAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumPaidAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumAdvertisementAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PayableAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PayableRoundingAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaidAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PartyCapacityAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalPaymentAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalTaskAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalDebitAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalInvoiceAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValueAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalTaxAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransactionCurrencyTaxAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalCreditAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxExclusiveAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxInclusiveAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxEnergyBalanceAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxEnergyOnAccountAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalBalanceAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxableAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ThresholdAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MarketValueAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChargeTotalAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CallBaseAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CallExtensionAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BalanceAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BaseAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChargeTotalAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CorrectionUnitAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CreditLineAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DebitLineAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CorrectionAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AdvertisementAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumPaidAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CorrectionUnitAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BaseAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AllowanceTotalAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AverageAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AverageSubsequentContractAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AmountType2))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AdvertisementAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AverageSubsequentContractAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BalanceAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AnnualAverageAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HigherTenderAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AverageAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(InsurancePremiumAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FeeAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FreeOnBoardValueAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(InsuranceValueAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FreeOnBoardValueAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HigherTenderAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LineExtensionAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LowerTenderAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(InventoryValueAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LiabilityAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DeclaredCustomsValueAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FeeAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DeclaredForCarriageValueAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumAdvertisementAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DeclaredCarriageValueAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DeclaredStatisticsValueAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DeclaredCarriageValueAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DeclaredCustomsValueAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(EstimatedOverallContractAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(FaceValueAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentationFeeAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(EstimatedAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ThresholdAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalCreditAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalBalanceAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxableAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxEnergyOnAccountAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxEnergyBalanceAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxInclusiveAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxExclusiveAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValueAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransactionCurrencyTaxAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MarketValueAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalTaxAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalInvoiceAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalDebitAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalTaskAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalPaymentAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PayableRoundingAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PayableAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PartyCapacityAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaidAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PayableAlternativeAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SettlementDiscountAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RoundingAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxEnergyAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RequiredFeeAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PerUnitAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PenaltyAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PriceAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrepaidAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CorporateStockAmountType))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
     [System.SerializableAttribute()]
@@ -21496,73 +22513,73 @@ namespace MobileWhouse.UyumSave {
     
     /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AmountType1))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DebitLineAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PayableAlternativeAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PriceAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RequiredFeeAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PerUnitAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrepaidAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxEnergyAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RoundingAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SettlementDiscountAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PenaltyAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumPaidAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumAdvertisementAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PayableAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PayableRoundingAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaidAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PartyCapacityAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalPaymentAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalTaskAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalDebitAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalInvoiceAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValueAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalTaxAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransactionCurrencyTaxAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalCreditAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxExclusiveAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxInclusiveAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxEnergyBalanceAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxEnergyOnAccountAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalBalanceAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxableAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ThresholdAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MarketValueAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChargeTotalAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CallBaseAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CallExtensionAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BalanceAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BaseAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChargeTotalAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CorrectionUnitAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CreditLineAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DebitLineAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CorrectionAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AdvertisementAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumPaidAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CorrectionUnitAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BaseAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AllowanceTotalAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AverageAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AverageSubsequentContractAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AmountType2))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AdvertisementAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AverageSubsequentContractAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BalanceAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AnnualAverageAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HigherTenderAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AverageAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(InsurancePremiumAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FeeAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FreeOnBoardValueAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(InsuranceValueAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FreeOnBoardValueAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HigherTenderAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LineExtensionAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LowerTenderAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(InventoryValueAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LiabilityAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DeclaredCustomsValueAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FeeAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DeclaredForCarriageValueAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumAdvertisementAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DeclaredCarriageValueAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DeclaredStatisticsValueAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DeclaredCarriageValueAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DeclaredCustomsValueAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(EstimatedOverallContractAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(FaceValueAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentationFeeAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(EstimatedAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ThresholdAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalCreditAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalBalanceAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxableAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxEnergyOnAccountAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxEnergyBalanceAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxInclusiveAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxExclusiveAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValueAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransactionCurrencyTaxAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MarketValueAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalTaxAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalInvoiceAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalDebitAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalTaskAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalPaymentAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PayableRoundingAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PayableAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PartyCapacityAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaidAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PayableAlternativeAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SettlementDiscountAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RoundingAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxEnergyAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RequiredFeeAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PerUnitAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PenaltyAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PriceAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrepaidAmountType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CorporateStockAmountType))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
     [System.SerializableAttribute()]
@@ -21617,7 +22634,322 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class DebitLineAmountType : AmountType1 {
+    public partial class PayableAlternativeAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PriceAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class RequiredFeeAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PerUnitAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PrepaidAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TaxAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TaxEnergyAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class RoundingAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SettlementDiscountAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PenaltyAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class MaximumPaidAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class MinimumAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class MaximumAdvertisementAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class MaximumAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PayableAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PayableRoundingAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PaidAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PartyCapacityAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TotalPaymentAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TotalTaskAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TotalDebitAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TotalInvoiceAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ValueAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TotalTaxAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TransactionCurrencyTaxAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TotalCreditAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TaxExclusiveAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TaxInclusiveAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TaxEnergyBalanceAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TaxEnergyOnAccountAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TotalAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TotalBalanceAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TaxableAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ThresholdAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class MarketValueAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ChargeTotalAmountType : AmountType1 {
     }
     
     /// <remarks/>
@@ -21644,43 +22976,16 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class BalanceAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class BaseAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ChargeTotalAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CorrectionUnitAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
     public partial class CreditLineAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class DebitLineAmountType : AmountType1 {
     }
     
     /// <remarks/>
@@ -21698,7 +23003,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MaximumAmountType : AmountType1 {
+    public partial class CorrectionUnitAmountType : AmountType1 {
     }
     
     /// <remarks/>
@@ -21707,25 +23012,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class AdvertisementAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MinimumAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MaximumPaidAmountType : AmountType1 {
+    public partial class BaseAmountType : AmountType1 {
     }
     
     /// <remarks/>
@@ -21735,24 +23022,6 @@ namespace MobileWhouse.UyumSave {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
     public partial class AllowanceTotalAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class AverageAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class AverageSubsequentContractAmountType : AmountType1 {
     }
     
     /// <remarks/>
@@ -21770,6 +23039,33 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class AdvertisementAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class AverageSubsequentContractAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class BalanceAmountType : AmountType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
     public partial class AnnualAverageAmountType : AmountType1 {
     }
     
@@ -21779,7 +23075,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class HigherTenderAmountType : AmountType1 {
+    public partial class AverageAmountType : AmountType1 {
     }
     
     /// <remarks/>
@@ -21797,7 +23093,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class FeeAmountType : AmountType1 {
+    public partial class InsuranceValueAmountType : AmountType1 {
     }
     
     /// <remarks/>
@@ -21815,7 +23111,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class InsuranceValueAmountType : AmountType1 {
+    public partial class HigherTenderAmountType : AmountType1 {
     }
     
     /// <remarks/>
@@ -21851,7 +23147,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class DeclaredCustomsValueAmountType : AmountType1 {
+    public partial class FeeAmountType : AmountType1 {
     }
     
     /// <remarks/>
@@ -21869,7 +23165,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MaximumAdvertisementAmountType : AmountType1 {
+    public partial class DeclaredStatisticsValueAmountType : AmountType1 {
     }
     
     /// <remarks/>
@@ -21887,7 +23183,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class DeclaredStatisticsValueAmountType : AmountType1 {
+    public partial class DeclaredCustomsValueAmountType : AmountType1 {
     }
     
     /// <remarks/>
@@ -21924,285 +23220,6 @@ namespace MobileWhouse.UyumSave {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
     public partial class EstimatedAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TotalAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ThresholdAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TotalCreditAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TotalBalanceAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TaxableAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TaxEnergyOnAccountAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TaxEnergyBalanceAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TaxInclusiveAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TaxExclusiveAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ValueAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TransactionCurrencyTaxAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MarketValueAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TotalTaxAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TotalInvoiceAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TotalDebitAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TotalTaskAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TotalPaymentAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PayableRoundingAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PayableAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PartyCapacityAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PaidAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PayableAlternativeAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SettlementDiscountAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RoundingAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TaxEnergyAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TaxAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RequiredFeeAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PerUnitAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PenaltyAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PriceAmountType : AmountType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PrepaidAmountType : AmountType1 {
     }
     
     /// <remarks/>
@@ -22285,220 +23302,220 @@ namespace MobileWhouse.UyumSave {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionReasonCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExpressionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FeatureTacticTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FinancingInstrumentCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FullnessIndicationCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExemptionReasonCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExpenseCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExpressionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExceptionResolutionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExceptionStatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExecutionRequirementCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FeatureTacticTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FormatCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FinancingInstrumentCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FreightRateClassCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GenderCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FundingProgramCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ForecastPurposeCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ForecastTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EvidenceTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FormatCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExecutionRequirementCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentStatusReasonCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DutyCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DispositionCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentCurrencyCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentStatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DespatchAdviceTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DirectionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DisplayTacticTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentStatusReasonCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EmergencyProceduresCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EvidenceTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExceptionResolutionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExceptionStatusCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(EncodingCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(EnvironmentalEmissionTypeCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(EvaluationCriterionTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DutyCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EmergencyProceduresCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportHandlingUnitTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HandlingCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HazardousCategoryCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FundingProgramCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GenderCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(GuaranteeTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HazardousRegulationCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportEventTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportEquipmentTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ImportanceCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HeatingTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IdentificationCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportExecutionStatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FullnessIndicationCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValidationResultCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UtilityStatementTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UrgencyCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WorkPhaseCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WeightingAlgorithmCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WeekDayCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UNDGCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportModeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportMeansTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FreightRateClassCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportationStatusTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportServiceCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DescriptionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ApplicationStatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvailabilityStatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AwardingCriterionTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AdjustmentReasonCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AdmissionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AllowanceChargeReasonCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AwardingMethodTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CardChipCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CardTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CargoTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CalculationExpressionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CalculationMethodCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CapabilityTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AddressTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ResolutionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ServiceInformationPreferenceCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ServiceTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ActionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ActivityTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AddressFormatCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AccountFormatCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AccountTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AccountingCostCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CoordinateSystemCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CorporateRegistrationTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CorrectionTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContractTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContractingSystemCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CountrySubentityCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CustomsStatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DataSourceCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DeclarationTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CreditNoteTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CurrencyCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CurrentChargeTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionLevelCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CollaborationPriorityCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CommodityCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CompanyLegalFormCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CertificateTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChannelCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CharacterSetCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CompanyLiquidationStatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConstitutionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumerIncentiveTacticTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumersEnergyLevelCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ComparisonDataCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ComparisonDataSourceCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConditionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IndustryClassificationCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TariffClassCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProcedureCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProcessReasonCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PricingCurrencyCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrivacyCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TariffCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProcurementSubTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TargetCurrencyCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SupplyChainActivityTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SubstitutionStatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProcurementTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProfileStatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PromotionalEventTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PriceTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxLevelCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxExemptionReasonCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentPurposeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentFrequencyCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentMeansCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PerformanceMetricTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxCurrencyCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PreviousMeterReadingMethodCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PriceEvaluationCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PositionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PreferenceCriterionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PreviousCancellationReasonCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SubscriberTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ShortageActionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RequestedInvoiceCurrencyCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ResidenceTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReminderTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SourceCurrencyCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SizeTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SealStatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SecurityClassificationCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SealIssuerTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ShippingPriorityLevelCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RetailEventStatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RevisionStatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RoleCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RejectReasonCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PurposeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(QualityControlCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(QuantityDiscrepancyCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SubmissionMethodCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SubcontractingConditionsCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProviderTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReceiptAdviceTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SpecificationTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReferenceEventCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RejectActionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StatusReasonCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StatementTypeCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LongitudeDirectionCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LossRiskResponsibilityCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ResponseCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TimingComplaintCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MandateTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LineStatusCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LocaleCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LocationTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MandateTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MedicalFirstAidGuideCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeterConstantCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeterReadingTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TimeFrequencyCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ThresholdValueComparisonCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MathematicOperatorCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TrackingDeviceCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportEmergencyCardCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportAuthorizationCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ItemClassificationCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InhalationToxicityZoneCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InspectionMethodCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LatestMeterReadingMethodCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransitDirectionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TradeServiceCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TradeItemPackingLabelingTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LatitudeDirectionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LifeCycleStatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LineStatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PackingCriteriaCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TelecommunicationsSupplyTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TelecommunicationsServiceCategoryCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PackagingTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OwnerTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PackLevelCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PackageLevelCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TelecommunicationsServiceCallCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentChannelCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentCurrencyCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentAlternativeCurrencyCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ParentDocumentTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PartPresentationCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PartyTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NotificationTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OneTimeChargeTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TendererRoleCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NatureCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MimeCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MiscellaneousEventTypeCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(NameCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrderTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TenderResultCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MedicalFirstAidGuideCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeterConstantCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeterReadingTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LifeCycleStatusCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HeatingTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IdentificationCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ImportanceCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HandlingCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HazardousCategoryCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HazardousRegulationCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IndustryClassificationCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ItemClassificationCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LatestMeterReadingMethodCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LatitudeDirectionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InhalationToxicityZoneCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InspectionMethodCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DisplayTacticTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AwardingMethodTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CalculationExpressionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CalculationMethodCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ApplicationStatusCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvailabilityStatusCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AwardingCriterionTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CapabilityTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CertificateTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChannelCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CharacterSetCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CardChipCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CardTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CargoTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AllowanceChargeReasonCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AccountFormatCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AccountTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AccountingCostCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AddressTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AdjustmentReasonCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AdmissionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ActionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ActivityTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AddressFormatCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CountrySubentityCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CreditNoteTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CurrencyCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CoordinateSystemCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CorporateRegistrationTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CorrectionTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CurrentChargeTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DescriptionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DespatchAdviceTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DirectionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CustomsStatusCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DataSourceCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DeclarationTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContractingSystemCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CompanyLiquidationStatusCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ComparisonDataCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ComparisonDataSourceCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CollaborationPriorityCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CommodityCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CompanyLegalFormCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConditionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionLevelCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContractTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConstitutionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumerIncentiveTacticTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumersEnergyLevelCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TariffCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxCurrencyCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxExemptionReasonCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TariffClassCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SubstitutionStatusCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SupplyChainActivityTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TargetCurrencyCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TelecommunicationsSupplyTypeCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TenderEnvelopeTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrderResponseCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TendererRequirementTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TenderResultCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TelecommunicationsServiceCategoryCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxLevelCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TelecommunicationsServiceCallCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SubscriberTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ShippingPriorityLevelCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ShortageActionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SizeTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ServiceTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SealStatusCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SecurityClassificationCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ServiceInformationPreferenceCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StatusReasonCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SubcontractingConditionsCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SubmissionMethodCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StatusCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SourceCurrencyCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SpecificationTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StatementTypeCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TenderTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UNDGCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UrgencyCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportationStatusTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportMeansTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportModeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportServiceCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WorkPhaseCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WeightingAlgorithmCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UtilityStatementTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValidationResultCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WeekDayCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportHandlingUnitTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TimingComplaintCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TrackingDeviceCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TradeItemPackingLabelingTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TimeFrequencyCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TendererRequirementTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TendererRoleCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ThresholdValueComparisonCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportEquipmentTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportEventTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportExecutionStatusCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportEmergencyCardCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TradeServiceCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransitDirectionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportAuthorizationCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ParentDocumentTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProcurementTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProviderTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PromotionalEventTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProcedureCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrivacyCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProcurementSubTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProcessReasonCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RejectActionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReferenceEventCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PackagingTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PackingCriteriaCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(QualityControlCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PurposeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReceiptAdviceTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(QuantityDiscrepancyCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentFrequencyCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentCurrencyCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentPurposeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentMeansCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PartyTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PartPresentationCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentChannelCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentAlternativeCurrencyCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PriceEvaluationCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PreviousMeterReadingMethodCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PricingCurrencyCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PriceTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PositionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PerformanceMetricTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PreviousCancellationReasonCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PreferenceCriterionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ResidenceTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ResolutionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RequestedInvoiceCurrencyCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NotificationTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NatureCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ResponseCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SealIssuerTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProfileStatusCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RoleCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RetailEventStatusCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RevisionStatusCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OneTimeChargeTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PackageLevelCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PackLevelCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReminderTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RejectReasonCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OwnerTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrderResponseCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrderTypeCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(InvoiceTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionReasonCodeType))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -22509,220 +23526,220 @@ namespace MobileWhouse.UyumSave {
     
     /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CodeType1))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionReasonCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExpressionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FeatureTacticTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FinancingInstrumentCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FullnessIndicationCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExemptionReasonCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExpenseCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExpressionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExceptionResolutionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExceptionStatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExecutionRequirementCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FeatureTacticTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FormatCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FinancingInstrumentCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FreightRateClassCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GenderCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FundingProgramCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ForecastPurposeCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ForecastTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EvidenceTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FormatCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExecutionRequirementCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentStatusReasonCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DutyCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DispositionCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentCurrencyCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentStatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DespatchAdviceTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DirectionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DisplayTacticTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentStatusReasonCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EmergencyProceduresCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EvidenceTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExceptionResolutionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExceptionStatusCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(EncodingCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(EnvironmentalEmissionTypeCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(EvaluationCriterionTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DutyCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EmergencyProceduresCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportHandlingUnitTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HandlingCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HazardousCategoryCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FundingProgramCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GenderCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(GuaranteeTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HazardousRegulationCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportEventTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportEquipmentTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ImportanceCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HeatingTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IdentificationCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportExecutionStatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FullnessIndicationCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValidationResultCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UtilityStatementTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UrgencyCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WorkPhaseCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WeightingAlgorithmCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WeekDayCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UNDGCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportModeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportMeansTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FreightRateClassCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportationStatusTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportServiceCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DescriptionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ApplicationStatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvailabilityStatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AwardingCriterionTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AdjustmentReasonCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AdmissionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AllowanceChargeReasonCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AwardingMethodTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CardChipCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CardTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CargoTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CalculationExpressionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CalculationMethodCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CapabilityTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AddressTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ResolutionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ServiceInformationPreferenceCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ServiceTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ActionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ActivityTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AddressFormatCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AccountFormatCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AccountTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AccountingCostCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CoordinateSystemCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CorporateRegistrationTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CorrectionTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContractTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContractingSystemCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CountrySubentityCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CustomsStatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DataSourceCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DeclarationTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CreditNoteTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CurrencyCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CurrentChargeTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionLevelCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CollaborationPriorityCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CommodityCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CompanyLegalFormCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CertificateTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChannelCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CharacterSetCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CompanyLiquidationStatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConstitutionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumerIncentiveTacticTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumersEnergyLevelCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ComparisonDataCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ComparisonDataSourceCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConditionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IndustryClassificationCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TariffClassCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProcedureCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProcessReasonCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PricingCurrencyCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrivacyCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TariffCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProcurementSubTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TargetCurrencyCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SupplyChainActivityTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SubstitutionStatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProcurementTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProfileStatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PromotionalEventTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PriceTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxLevelCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxExemptionReasonCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentPurposeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentFrequencyCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentMeansCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PerformanceMetricTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxCurrencyCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PreviousMeterReadingMethodCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PriceEvaluationCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PositionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PreferenceCriterionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PreviousCancellationReasonCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SubscriberTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ShortageActionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RequestedInvoiceCurrencyCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ResidenceTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReminderTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SourceCurrencyCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SizeTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SealStatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SecurityClassificationCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SealIssuerTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ShippingPriorityLevelCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RetailEventStatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RevisionStatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RoleCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RejectReasonCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PurposeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(QualityControlCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(QuantityDiscrepancyCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SubmissionMethodCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SubcontractingConditionsCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProviderTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReceiptAdviceTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SpecificationTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReferenceEventCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RejectActionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StatusReasonCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StatementTypeCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LongitudeDirectionCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LossRiskResponsibilityCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ResponseCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TimingComplaintCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MandateTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LineStatusCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LocaleCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LocationTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MandateTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MedicalFirstAidGuideCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeterConstantCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeterReadingTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TimeFrequencyCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ThresholdValueComparisonCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MathematicOperatorCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TrackingDeviceCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportEmergencyCardCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportAuthorizationCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ItemClassificationCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InhalationToxicityZoneCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InspectionMethodCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LatestMeterReadingMethodCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransitDirectionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TradeServiceCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TradeItemPackingLabelingTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LatitudeDirectionCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LifeCycleStatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LineStatusCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PackingCriteriaCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TelecommunicationsSupplyTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TelecommunicationsServiceCategoryCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PackagingTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OwnerTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PackLevelCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PackageLevelCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TelecommunicationsServiceCallCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentChannelCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentCurrencyCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentAlternativeCurrencyCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ParentDocumentTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PartPresentationCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PartyTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NotificationTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OneTimeChargeTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TendererRoleCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NatureCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MimeCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MiscellaneousEventTypeCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(NameCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrderTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TenderResultCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MedicalFirstAidGuideCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeterConstantCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeterReadingTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LifeCycleStatusCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HeatingTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IdentificationCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ImportanceCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HandlingCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HazardousCategoryCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HazardousRegulationCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IndustryClassificationCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ItemClassificationCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LatestMeterReadingMethodCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LatitudeDirectionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InhalationToxicityZoneCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InspectionMethodCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DisplayTacticTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AwardingMethodTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CalculationExpressionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CalculationMethodCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ApplicationStatusCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AvailabilityStatusCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AwardingCriterionTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CapabilityTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CertificateTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChannelCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CharacterSetCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CardChipCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CardTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CargoTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AllowanceChargeReasonCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AccountFormatCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AccountTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AccountingCostCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AddressTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AdjustmentReasonCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AdmissionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ActionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ActivityTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AddressFormatCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CountrySubentityCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CreditNoteTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CurrencyCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CoordinateSystemCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CorporateRegistrationTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CorrectionTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CurrentChargeTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DescriptionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DespatchAdviceTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DirectionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CustomsStatusCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DataSourceCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DeclarationTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContractingSystemCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CompanyLiquidationStatusCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ComparisonDataCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ComparisonDataSourceCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CollaborationPriorityCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CommodityCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CompanyLegalFormCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConditionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionLevelCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContractTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConstitutionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumerIncentiveTacticTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumersEnergyLevelCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TariffCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxCurrencyCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxExemptionReasonCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TariffClassCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SubstitutionStatusCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SupplyChainActivityTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TargetCurrencyCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TelecommunicationsSupplyTypeCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TenderEnvelopeTypeCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrderResponseCodeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TendererRequirementTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TenderResultCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TelecommunicationsServiceCategoryCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxLevelCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TelecommunicationsServiceCallCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SubscriberTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ShippingPriorityLevelCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ShortageActionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SizeTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ServiceTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SealStatusCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SecurityClassificationCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ServiceInformationPreferenceCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StatusReasonCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SubcontractingConditionsCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SubmissionMethodCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StatusCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SourceCurrencyCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SpecificationTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StatementTypeCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TenderTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UNDGCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UrgencyCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportationStatusTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportMeansTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportModeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportServiceCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WorkPhaseCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WeightingAlgorithmCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UtilityStatementTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValidationResultCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WeekDayCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportHandlingUnitTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TimingComplaintCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TrackingDeviceCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TradeItemPackingLabelingTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TimeFrequencyCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TendererRequirementTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TendererRoleCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ThresholdValueComparisonCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportEquipmentTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportEventTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportExecutionStatusCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportEmergencyCardCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TradeServiceCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransitDirectionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportAuthorizationCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ParentDocumentTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProcurementTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProviderTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PromotionalEventTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProcedureCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrivacyCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProcurementSubTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProcessReasonCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RejectActionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReferenceEventCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PackagingTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PackingCriteriaCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(QualityControlCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PurposeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReceiptAdviceTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(QuantityDiscrepancyCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentFrequencyCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentCurrencyCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentPurposeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentMeansCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PartyTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PartPresentationCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentChannelCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentAlternativeCurrencyCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PriceEvaluationCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PreviousMeterReadingMethodCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PricingCurrencyCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PriceTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PositionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PerformanceMetricTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PreviousCancellationReasonCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PreferenceCriterionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ResidenceTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ResolutionCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RequestedInvoiceCurrencyCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NotificationTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NatureCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ResponseCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SealIssuerTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProfileStatusCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RoleCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RetailEventStatusCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RevisionStatusCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OneTimeChargeTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PackageLevelCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PackLevelCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReminderTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RejectReasonCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OwnerTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrderResponseCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrderTypeCodeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(InvoiceTypeCodeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionReasonCodeType))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -22866,8 +23883,35 @@ namespace MobileWhouse.UyumSave {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2")]
-    public partial class ExtensionReasonCodeType : CodeType1 {
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ExpressionCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class FeatureTacticTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class FinancingInstrumentCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class FullnessIndicationCodeType : CodeType1 {
     }
     
     /// <remarks/>
@@ -22894,7 +23938,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ExpressionCodeType : CodeType1 {
+    public partial class FreightRateClassCodeType : CodeType1 {
     }
     
     /// <remarks/>
@@ -22903,7 +23947,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ExceptionResolutionCodeType : CodeType1 {
+    public partial class GenderCodeType : CodeType1 {
     }
     
     /// <remarks/>
@@ -22912,43 +23956,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ExceptionStatusCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ExecutionRequirementCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class FeatureTacticTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class FormatCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class FinancingInstrumentCodeType : CodeType1 {
+    public partial class FundingProgramCodeType : CodeType1 {
     }
     
     /// <remarks/>
@@ -22975,7 +23983,43 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class EvidenceTypeCodeType : CodeType1 {
+    public partial class FormatCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ExecutionRequirementCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class DocumentStatusReasonCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class DocumentTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class DutyCodeType : CodeType1 {
     }
     
     /// <remarks/>
@@ -23011,7 +24055,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class DespatchAdviceTypeCodeType : CodeType1 {
+    public partial class EmergencyProceduresCodeType : CodeType1 {
     }
     
     /// <remarks/>
@@ -23020,7 +24064,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class DirectionCodeType : CodeType1 {
+    public partial class EvidenceTypeCodeType : CodeType1 {
     }
     
     /// <remarks/>
@@ -23029,7 +24073,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class DisplayTacticTypeCodeType : CodeType1 {
+    public partial class ExceptionResolutionCodeType : CodeType1 {
     }
     
     /// <remarks/>
@@ -23038,7 +24082,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class DocumentStatusReasonCodeType : CodeType1 {
+    public partial class ExceptionStatusCodeType : CodeType1 {
     }
     
     /// <remarks/>
@@ -23074,1222 +24118,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class DocumentTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class DutyCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class EmergencyProceduresCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TransportHandlingUnitTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class HandlingCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class HazardousCategoryCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class FundingProgramCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class GenderCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
     public partial class GuaranteeTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class HazardousRegulationCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TransportEventTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TransportEquipmentTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ImportanceCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class HeatingTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class IdentificationCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TransportExecutionStatusCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class FullnessIndicationCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ValidationResultCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class UtilityStatementTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class UrgencyCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class WorkPhaseCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class WeightingAlgorithmCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class WeekDayCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class UNDGCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TransportModeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TransportMeansTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class FreightRateClassCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TransportationStatusTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TransportServiceCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class DescriptionCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ApplicationStatusCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class AvailabilityStatusCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class AwardingCriterionTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class AdjustmentReasonCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class AdmissionCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class AllowanceChargeReasonCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class AwardingMethodTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CardChipCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CardTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CargoTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CalculationExpressionCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CalculationMethodCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CapabilityTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class AddressTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ResolutionCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ServiceInformationPreferenceCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ServiceTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ActionCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ActivityTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class AddressFormatCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class AccountFormatCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class AccountTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class AccountingCostCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CoordinateSystemCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CorporateRegistrationTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CorrectionTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ConsumptionTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ContractTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ContractingSystemCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CountrySubentityCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CustomsStatusCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class DataSourceCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class DeclarationTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CreditNoteTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CurrencyCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CurrentChargeTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ConsumptionLevelCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CollaborationPriorityCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CommodityCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CompanyLegalFormCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CertificateTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ChannelCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CharacterSetCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CompanyLiquidationStatusCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ConstitutionCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ConsumerIncentiveTacticTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ConsumersEnergyLevelCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ComparisonDataCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ComparisonDataSourceCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ConditionCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class IndustryClassificationCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TariffClassCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ProcedureCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ProcessReasonCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PricingCurrencyCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PrivacyCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TariffCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ProcurementSubTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TargetCurrencyCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SupplyChainActivityTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SubstitutionStatusCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ProcurementTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ProfileStatusCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PromotionalEventTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PriceTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TaxLevelCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TaxExemptionReasonCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PaymentPurposeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PaymentFrequencyCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PaymentMeansCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TaxTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PerformanceMetricTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TaxCurrencyCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PreviousMeterReadingMethodCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PriceEvaluationCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PositionCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PreferenceCriterionCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PreviousCancellationReasonCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SubscriberTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ShortageActionCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RequestedInvoiceCurrencyCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ResidenceTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ReminderTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SizeTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SealStatusCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SecurityClassificationCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SealIssuerTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ShippingPriorityLevelCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RetailEventStatusCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RevisionStatusCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RoleCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RejectReasonCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PurposeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class QualityControlCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class QuantityDiscrepancyCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SubmissionMethodCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SubcontractingConditionsCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ProviderTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ReceiptAdviceTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SpecificationTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ReferenceEventCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RejectActionCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class StatusReasonCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class StatusCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class StatementTypeCodeType : CodeType1 {
     }
     
     /// <remarks/>
@@ -24316,7 +24145,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ResponseCodeType : CodeType1 {
+    public partial class MandateTypeCodeType : CodeType1 {
     }
     
     /// <remarks/>
@@ -24325,7 +24154,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TimingComplaintCodeType : CodeType1 {
+    public partial class LineStatusCodeType : CodeType1 {
     }
     
     /// <remarks/>
@@ -24352,340 +24181,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MandateTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MedicalFirstAidGuideCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MeterConstantCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MeterReadingTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TimeFrequencyCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ThresholdValueComparisonCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
     public partial class MathematicOperatorCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TrackingDeviceCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TransportEmergencyCardCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TransportAuthorizationCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ItemClassificationCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class InhalationToxicityZoneCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class InspectionMethodCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class LatestMeterReadingMethodCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TransitDirectionCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TradeServiceCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TradeItemPackingLabelingTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class LatitudeDirectionCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class LifeCycleStatusCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class LineStatusCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PackingCriteriaCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TelecommunicationsSupplyTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TelecommunicationsServiceCategoryCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PackagingTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class OwnerTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PackLevelCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PackageLevelCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TelecommunicationsServiceCallCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PaymentChannelCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PaymentCurrencyCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PaymentAlternativeCurrencyCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ParentDocumentTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PartPresentationCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PartyTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class NotificationTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class OneTimeChargeTypeCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TendererRoleCodeType : CodeType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class NatureCodeType : CodeType1 {
     }
     
     /// <remarks/>
@@ -24721,7 +24217,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class OrderTypeCodeType : CodeType1 {
+    public partial class MedicalFirstAidGuideCodeType : CodeType1 {
     }
     
     /// <remarks/>
@@ -24730,7 +24226,664 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TenderResultCodeType : CodeType1 {
+    public partial class MeterConstantCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class MeterReadingTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class LifeCycleStatusCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class HeatingTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class IdentificationCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ImportanceCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class HandlingCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class HazardousCategoryCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class HazardousRegulationCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class IndustryClassificationCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ItemClassificationCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class LatestMeterReadingMethodCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class LatitudeDirectionCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class InhalationToxicityZoneCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class InspectionMethodCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class DisplayTacticTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class AwardingMethodTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CalculationExpressionCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CalculationMethodCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ApplicationStatusCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class AvailabilityStatusCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class AwardingCriterionTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CapabilityTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CertificateTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ChannelCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CharacterSetCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CardChipCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CardTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CargoTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class AllowanceChargeReasonCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class AccountFormatCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class AccountTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class AccountingCostCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class AddressTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class AdjustmentReasonCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class AdmissionCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ActionCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ActivityTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class AddressFormatCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CountrySubentityCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CreditNoteTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CurrencyCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CoordinateSystemCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CorporateRegistrationTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CorrectionTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CurrentChargeTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class DescriptionCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class DespatchAdviceTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class DirectionCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CustomsStatusCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class DataSourceCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class DeclarationTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ContractingSystemCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CompanyLiquidationStatusCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ComparisonDataCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ComparisonDataSourceCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CollaborationPriorityCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CommodityCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CompanyLegalFormCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ConditionCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ConsumptionLevelCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ConsumptionTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ContractTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ConstitutionCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ConsumerIncentiveTacticTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ConsumersEnergyLevelCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TariffCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TaxCurrencyCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TaxExemptionReasonCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TariffClassCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SubstitutionStatusCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SupplyChainActivityTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TargetCurrencyCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TelecommunicationsSupplyTypeCodeType : CodeType1 {
     }
     
     /// <remarks/>
@@ -24748,7 +24901,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class OrderResponseCodeType : CodeType1 {
+    public partial class TenderResultCodeType : CodeType1 {
     }
     
     /// <remarks/>
@@ -24757,7 +24910,160 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TendererRequirementTypeCodeType : CodeType1 {
+    public partial class TelecommunicationsServiceCategoryCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TaxLevelCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TaxTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TelecommunicationsServiceCallCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SubscriberTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ShippingPriorityLevelCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ShortageActionCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SizeTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ServiceTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SealStatusCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SecurityClassificationCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ServiceInformationPreferenceCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class StatusReasonCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SubcontractingConditionsCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SubmissionMethodCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class StatusCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SpecificationTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class StatementTypeCodeType : CodeType1 {
     }
     
     /// <remarks/>
@@ -24775,7 +25081,718 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class UNDGCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class UrgencyCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TransportationStatusTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TransportMeansTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TransportModeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TransportServiceCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class WorkPhaseCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class WeightingAlgorithmCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class UtilityStatementTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ValidationResultCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class WeekDayCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TransportHandlingUnitTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TimingComplaintCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TrackingDeviceCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TradeItemPackingLabelingTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TimeFrequencyCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TendererRequirementTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TendererRoleCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ThresholdValueComparisonCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TransportEquipmentTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TransportEventTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TransportExecutionStatusCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TransportEmergencyCardCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TradeServiceCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TransitDirectionCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TransportAuthorizationCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ParentDocumentTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ProcurementTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ProviderTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PromotionalEventTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ProcedureCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PrivacyCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ProcurementSubTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ProcessReasonCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class RejectActionCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ReferenceEventCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PackagingTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PackingCriteriaCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class QualityControlCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PurposeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ReceiptAdviceTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class QuantityDiscrepancyCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PaymentFrequencyCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PaymentCurrencyCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PaymentPurposeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PaymentMeansCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PartyTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PartPresentationCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PaymentChannelCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PaymentAlternativeCurrencyCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PriceEvaluationCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PreviousMeterReadingMethodCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PricingCurrencyCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PriceTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PositionCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PerformanceMetricTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PreviousCancellationReasonCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PreferenceCriterionCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ResidenceTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ResolutionCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class RequestedInvoiceCurrencyCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class NotificationTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class NatureCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ResponseCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SealIssuerTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ProfileStatusCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class RoleCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class RetailEventStatusCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class RevisionStatusCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class OneTimeChargeTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PackageLevelCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PackLevelCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ReminderTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class RejectReasonCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class OwnerTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class OrderResponseCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class OrderTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
     public partial class InvoiceTypeCodeType : CodeType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2")]
+    public partial class ExtensionReasonCodeType : CodeType1 {
     }
     
     /// <remarks/>
@@ -24788,12 +25805,12 @@ namespace MobileWhouse.UyumSave {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CalculationRateType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrderableUnitFactorRateType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TargetCurrencyBaseRateType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RateType1))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SourceCurrencyBaseRateType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AmountRateType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CalculationRateType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RateType1))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TargetCurrencyBaseRateType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrderableUnitFactorRateType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SourceCurrencyBaseRateType))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -24803,46 +25820,46 @@ namespace MobileWhouse.UyumSave {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValueType1))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RateType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AmountRateType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CalculationRateType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RateType1))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TargetCurrencyBaseRateType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrderableUnitFactorRateType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SourceCurrencyBaseRateType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PercentType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ParticipationPercentType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AirFlowPercentType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TargetServicePercentType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SettlementDiscountPercentType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PartecipationPercentType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TierRatePercentType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentPercentType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PenaltySurchargePercentType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProgressPercentType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PercentType1))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(HumidityPercentType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumPercentType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumPercentType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReliabilityPercentType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProgressPercentType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SettlementDiscountPercentType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TierRatePercentType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TargetServicePercentType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentPercentType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ParticipationPercentType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PartecipationPercentType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PercentType1))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PenaltySurchargePercentType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AirFlowPercentType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RateType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CalculationRateType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrderableUnitFactorRateType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TargetCurrencyBaseRateType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RateType1))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SourceCurrencyBaseRateType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AmountRateType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValueType1))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(NumericType1))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrderQuantityIncrementNumericType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PackSizeNumericType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumNumberNumericType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MultiplierFactorNumericType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrderIntervalDaysNumericType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReminderSequenceNumericType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SequenceNumericType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WeightNumericType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BudgetYearNumericType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CalculationSequenceNumericType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumPaymentInstructionsNumericType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumCopiesNumericType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumNumberNumericType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumPaymentInstructionsNumericType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FrozenPeriodDaysNumericType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LineNumberNumericType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReminderSequenceNumericType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ResidentOccupantsNumericType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PackSizeNumericType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrderIntervalDaysNumericType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrderQuantityIncrementNumericType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LineNumberNumericType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FrozenPeriodDaysNumericType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BudgetYearNumericType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CalculationSequenceNumericType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SequenceNumericType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WeightNumericType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LineCountNumericType))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
     [System.SerializableAttribute()]
@@ -24879,35 +25896,116 @@ namespace MobileWhouse.UyumSave {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="ValueType", Namespace="urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2")]
-    public partial class ValueType1 : NumericType {
-    }
-    
-    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ParticipationPercentType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AirFlowPercentType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TargetServicePercentType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SettlementDiscountPercentType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PartecipationPercentType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TierRatePercentType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentPercentType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PenaltySurchargePercentType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProgressPercentType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PercentType1))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(HumidityPercentType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumPercentType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumPercentType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReliabilityPercentType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProgressPercentType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SettlementDiscountPercentType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TierRatePercentType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TargetServicePercentType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentPercentType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ParticipationPercentType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PartecipationPercentType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PercentType1))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PenaltySurchargePercentType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AirFlowPercentType))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2")]
     public partial class PercentType : NumericType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ParticipationPercentType : PercentType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class AirFlowPercentType : PercentType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TargetServicePercentType : PercentType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SettlementDiscountPercentType : PercentType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PartecipationPercentType : PercentType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TierRatePercentType : PercentType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PaymentPercentType : PercentType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PenaltySurchargePercentType : PercentType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ProgressPercentType : PercentType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="PercentType", Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PercentType1 : PercentType {
     }
     
     /// <remarks/>
@@ -24951,108 +26049,27 @@ namespace MobileWhouse.UyumSave {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ProgressPercentType : PercentType {
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="ValueType", Namespace="urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2")]
+    public partial class ValueType1 : NumericType {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SettlementDiscountPercentType : PercentType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TierRatePercentType : PercentType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TargetServicePercentType : PercentType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PaymentPercentType : PercentType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ParticipationPercentType : PercentType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PartecipationPercentType : PercentType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="PercentType", Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PercentType1 : PercentType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PenaltySurchargePercentType : PercentType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class AirFlowPercentType : PercentType {
-    }
-    
-    /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrderQuantityIncrementNumericType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PackSizeNumericType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumNumberNumericType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MultiplierFactorNumericType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrderIntervalDaysNumericType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReminderSequenceNumericType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SequenceNumericType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WeightNumericType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BudgetYearNumericType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CalculationSequenceNumericType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumPaymentInstructionsNumericType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumCopiesNumericType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumNumberNumericType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumPaymentInstructionsNumericType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FrozenPeriodDaysNumericType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LineNumberNumericType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReminderSequenceNumericType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ResidentOccupantsNumericType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PackSizeNumericType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrderIntervalDaysNumericType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrderQuantityIncrementNumericType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LineNumberNumericType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FrozenPeriodDaysNumericType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BudgetYearNumericType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CalculationSequenceNumericType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SequenceNumericType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WeightNumericType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LineCountNumericType))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
     [System.SerializableAttribute()]
@@ -25060,24 +26077,6 @@ namespace MobileWhouse.UyumSave {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(TypeName="NumericType", Namespace="urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2")]
     public partial class NumericType1 : NumericType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class OrderQuantityIncrementNumericType : NumericType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PackSizeNumericType : NumericType1 {
     }
     
     /// <remarks/>
@@ -25104,52 +26103,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class OrderIntervalDaysNumericType : NumericType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ReminderSequenceNumericType : NumericType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SequenceNumericType : NumericType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class WeightNumericType : NumericType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class BudgetYearNumericType : NumericType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CalculationSequenceNumericType : NumericType1 {
+    public partial class MaximumPaymentInstructionsNumericType : NumericType1 {
     }
     
     /// <remarks/>
@@ -25176,25 +26130,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MaximumPaymentInstructionsNumericType : NumericType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class FrozenPeriodDaysNumericType : NumericType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class LineNumberNumericType : NumericType1 {
+    public partial class ReminderSequenceNumericType : NumericType1 {
     }
     
     /// <remarks/>
@@ -25212,6 +26148,87 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PackSizeNumericType : NumericType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class OrderIntervalDaysNumericType : NumericType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class OrderQuantityIncrementNumericType : NumericType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class LineNumberNumericType : NumericType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class FrozenPeriodDaysNumericType : NumericType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class BudgetYearNumericType : NumericType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CalculationSequenceNumericType : NumericType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SequenceNumericType : NumericType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class WeightNumericType : NumericType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
     public partial class LineCountNumericType : NumericType1 {
     }
     
@@ -25221,16 +26238,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class OrderableUnitFactorRateType : RateType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TargetCurrencyBaseRateType : RateType {
+    public partial class AmountRateType : RateType {
     }
     
     /// <remarks/>
@@ -25248,7 +26256,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SourceCurrencyBaseRateType : RateType {
+    public partial class TargetCurrencyBaseRateType : RateType {
     }
     
     /// <remarks/>
@@ -25257,7 +26265,16 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class AmountRateType : RateType {
+    public partial class OrderableUnitFactorRateType : RateType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SourceCurrencyBaseRateType : RateType {
     }
     
     /// <remarks/>
@@ -25918,95 +26935,99 @@ namespace MobileWhouse.UyumSave {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionReasonType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionAgencyNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportationServiceDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportUserRemarksType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportUserSpecialTermsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TradingRestrictionsType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TitleType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TimingComplaintType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TextType2))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TradingRestrictionsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TierRangeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TestMethodType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TimezoneOffsetType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TimeAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValidateProcessType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportationServiceDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValidateToolVersionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValidateToolType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportServiceProviderSpecialTermsType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportServiceProviderRemarksType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValueType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WarrantyInformationType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WeightType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValueQualifierType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValidateProcessType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValidateToolType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValidateToolVersionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TelecommunicationsServiceCategoryType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportUserSpecialTermsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportUserRemarksType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StatusReasonType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SpecialTransportRequirementsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SummaryDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SubscriberTypeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SpecialInstructionsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SpecialTermsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SpecialServiceInstructionsType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TelecommunicationsSupplyTypeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TelefaxType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TelecommunicationsServiceCallType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxExemptionReasonType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TechnicalCommitteeDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TimeAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TimezoneOffsetType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TimingComplaintType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TierRangeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TelecommunicationsServiceCategoryType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TelephoneType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TestMethodType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TextType2))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WorkPhaseType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TelefaxType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxExemptionReasonType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TariffDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TelecommunicationsServiceCallType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TechnicalCommitteeDescriptionType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(XPathType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FeeDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WorkPhaseType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValueType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValueQualifierType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WeightType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WarrantyInformationType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExemptionReasonType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExpressionType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExclusionReasonType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExemptionReasonType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FloorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HandlingInstructionsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HashAlgorithmMethodType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ElectronicDeviceDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ElectronicMailType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FrequencyType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(FundingProgramType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ForwarderServiceInstructionsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FrequencyType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ElectronicMailType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DistrictType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FeeDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FloorType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DepartmentType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DeliveryInstructionsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DescriptionType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DemurrageInstructionsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DutyType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ElectronicDeviceDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DataSendingCapabilityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DeliveryInstructionsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DistrictType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentTypeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentHashType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DutyType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentStatusReasonDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ListValueType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LocationType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LineType1))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentHashType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LegalReferenceType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LimitationDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LoginType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MarkCareType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumValueType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MarkAttentionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LossRiskType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LowTendersDescriptionType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LatestMeterReadingMethodType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InhouseMailType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InstructionNoteType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InformationType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HaulageInstructionsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HeatingTypeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InstructionsType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(JustificationType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(KeywordType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LineType1))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LossRiskType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LowTendersDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LoginType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ListValueType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LocationType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HeatingTypeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InformationType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HaulageInstructionsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HandlingInstructionsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HashAlgorithmMethodType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InhouseMailType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(JobTitleType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(JustificationDescriptionType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(InvoicingPartyReferenceType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(JobTitleType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BuildingNumberType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BuyerReferenceType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InstructionNoteType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InstructionsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DamageRemarksType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BirthplaceNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AwardingCriterionDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BuildingNumberType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BackorderReasonType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CalculationExpressionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CarrierServiceInstructionsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CertificateTypeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CanonicalizationMethodType1))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CancellationNoteType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CandidateStatementType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ApprovalStatusType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AwardingCriterionDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BuyerReferenceType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CanonicalizationMethodType1))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CarrierServiceInstructionsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CandidateStatementType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CalculationExpressionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CancellationNoteType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AcceptedVariantsDescriptionType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AccountingCostType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AgencyNameType))]
@@ -26014,99 +27035,95 @@ namespace MobileWhouse.UyumSave {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AdditionalInformationType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ActivityTypeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AdditionalConditionsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContractTypeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CorrectionTypeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContractNameType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContractSubdivisionType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContentType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContractNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CountrySubentityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DamageRemarksType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DataSendingCapabilityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionLevelType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionTypeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContractTypeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CustomerReferenceType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CustomsClearanceServiceInstructionsType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CurrentChargeTypeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CustomerReferenceType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionTypeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CodeValueType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CommentType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CorrectionTypeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CountrySubentityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CharacteristicsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChangeConditionsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CodeValueType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChannelType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CompanyLegalFormType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumersEnergyLevelType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionLevelType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CertificateTypeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChangeConditionsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CommentType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConditionsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConditionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumersEnergyLevelType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConditionsDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeterConstantType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProcessDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProcessReasonType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrizeDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrintQualifierType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PriorityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CompanyLegalFormType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConditionType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PurposeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RegistrationNationalityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RegulatoryDomainType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RegionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RankType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReferenceType1))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PlacardNotationType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PlotIdentificationType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PlacardEndorsementType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PersonalSituationType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PhoneNumberType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PostalZoneType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PriceRevisionFormulaDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PriceTypeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PriceChangeReasonType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PostboxType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PreviousMeterReadingMethodType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SpecialInstructionsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SpecialServiceInstructionsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SignatureMethodType1))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ShippingMarksType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ShipsRequirementsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SpecialTermsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SummaryDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TariffDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SubscriberTypeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SpecialTransportRequirementsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StatusReasonType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReplenishmentOwnerDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ResidenceTypeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RemarksType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RejectReasonType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RejectionNoteType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ResolutionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ServiceNumberCalledType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ServiceTypeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SealingPartyTypeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RoleDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RoomType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentOrderReferenceType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OtherInstructionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OutstandingReasonType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrganizationDepartmentType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OptionsDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrderableUnitType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProcessReasonType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PackingMaterialType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PayerReferenceType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PayPerViewType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PartyTypeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PasswordType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OneTimeChargeTypeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeterReadingTypeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumImprovementBidType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeterReadingCommentsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeterNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeterNumberType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumValueType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NegotiationDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NameSuffixType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PayPerViewType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProcessDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrizeDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RegistrationNationalityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RegionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RejectReasonType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RegulatoryDomainType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OtherInstructionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OutstandingReasonType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReferenceType1))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RankType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PayerReferenceType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PreviousMeterReadingMethodType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PriceChangeReasonType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PostalZoneType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PostboxType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrintQualifierType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PriorityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PriceRevisionFormulaDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PriceTypeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentOrderReferenceType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PersonalSituationType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentNoteType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PlacardNotationType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PlotIdentificationType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PhoneNumberType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PlacardEndorsementType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MonetaryScopeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MovieTitleType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentNoteType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumImprovementBidType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumValueType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OneTimeChargeTypeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NameSuffixType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NegotiationDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumValueType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeterConstantType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MarkAttentionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MarkCareType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeterReadingCommentsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeterReadingTypeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeterNameType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeterNumberType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OptionsDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RoleDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ResolutionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SealingPartyTypeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RoomType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RemarksType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RejectionNoteType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ResidenceTypeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReplenishmentOwnerDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SignatureMethodType1))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrganizationDepartmentType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrderableUnitType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ShipsRequirementsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ServiceTypeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ServiceNumberCalledType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ShippingMarksType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(NoteType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionReasonType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionAgencyNameType))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -26117,119 +27134,123 @@ namespace MobileWhouse.UyumSave {
     
     /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(NameType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StreetNameType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HolderNameType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MiddleNameType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ModelNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HolderNameType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FamilyNameType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(FileNameType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(FirstNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NameType1))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OtherNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RoamingPartnerNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RegistrationNameType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(RetailEventNameType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RoamingPartnerNameType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ServiceNameType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NameType1))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RegistrationNameType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AdditionalStreetNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AliasNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BlockNameType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BrandNameType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CategoryNameType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CityNameType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CitySubdivisionNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FamilyNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BrandNameType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AliasNameType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BlockNameType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BuildingNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CategoryNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StreetNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(VesselNameType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TechnicalNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ServiceNameType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(VesselNameType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OtherNameType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TextType1))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionReasonType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionAgencyNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportationServiceDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportUserRemarksType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportUserSpecialTermsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TradingRestrictionsType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TitleType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TimingComplaintType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TextType2))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TradingRestrictionsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TierRangeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TestMethodType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TimezoneOffsetType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TimeAmountType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValidateProcessType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportationServiceDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValidateToolVersionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValidateToolType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportServiceProviderSpecialTermsType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportServiceProviderRemarksType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValueType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WarrantyInformationType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WeightType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValueQualifierType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValidateProcessType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValidateToolType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValidateToolVersionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TelecommunicationsServiceCategoryType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportUserSpecialTermsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportUserRemarksType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StatusReasonType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SpecialTransportRequirementsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SummaryDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SubscriberTypeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SpecialInstructionsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SpecialTermsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SpecialServiceInstructionsType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TelecommunicationsSupplyTypeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TelefaxType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TelecommunicationsServiceCallType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxExemptionReasonType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TechnicalCommitteeDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TimeAmountType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TimezoneOffsetType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TimingComplaintType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TierRangeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TelecommunicationsServiceCategoryType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TelephoneType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TestMethodType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TextType2))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WorkPhaseType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TelefaxType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxExemptionReasonType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TariffDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TelecommunicationsServiceCallType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TechnicalCommitteeDescriptionType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(XPathType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FeeDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WorkPhaseType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValueType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValueQualifierType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WeightType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WarrantyInformationType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExemptionReasonType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExpressionType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExclusionReasonType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExemptionReasonType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FloorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HandlingInstructionsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HashAlgorithmMethodType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ElectronicDeviceDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ElectronicMailType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FrequencyType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(FundingProgramType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ForwarderServiceInstructionsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FrequencyType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ElectronicMailType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DistrictType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FeeDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FloorType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DepartmentType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DeliveryInstructionsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DescriptionType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DemurrageInstructionsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DutyType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ElectronicDeviceDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DataSendingCapabilityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DeliveryInstructionsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DistrictType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentTypeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentHashType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DutyType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentStatusReasonDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ListValueType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LocationType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LineType1))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentHashType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LegalReferenceType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LimitationDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LoginType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MarkCareType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumValueType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MarkAttentionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LossRiskType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LowTendersDescriptionType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LatestMeterReadingMethodType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InhouseMailType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InstructionNoteType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InformationType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HaulageInstructionsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HeatingTypeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InstructionsType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(JustificationType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(KeywordType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LineType1))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LossRiskType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LowTendersDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LoginType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ListValueType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LocationType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HeatingTypeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InformationType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HaulageInstructionsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HandlingInstructionsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HashAlgorithmMethodType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InhouseMailType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(JobTitleType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(JustificationDescriptionType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(InvoicingPartyReferenceType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(JobTitleType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BuildingNumberType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BuyerReferenceType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InstructionNoteType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InstructionsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DamageRemarksType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BirthplaceNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AwardingCriterionDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BuildingNumberType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BackorderReasonType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CalculationExpressionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CarrierServiceInstructionsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CertificateTypeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CanonicalizationMethodType1))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CancellationNoteType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CandidateStatementType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ApprovalStatusType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AwardingCriterionDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BuyerReferenceType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CanonicalizationMethodType1))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CarrierServiceInstructionsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CandidateStatementType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CalculationExpressionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CancellationNoteType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AcceptedVariantsDescriptionType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AccountingCostType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AgencyNameType))]
@@ -26237,99 +27258,95 @@ namespace MobileWhouse.UyumSave {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AdditionalInformationType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ActivityTypeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AdditionalConditionsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContractTypeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CorrectionTypeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContractNameType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContractSubdivisionType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContentType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContractNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CountrySubentityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DamageRemarksType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DataSendingCapabilityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionLevelType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionTypeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContractTypeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CustomerReferenceType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CustomsClearanceServiceInstructionsType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CurrentChargeTypeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CustomerReferenceType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionTypeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CodeValueType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CommentType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CorrectionTypeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CountrySubentityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CharacteristicsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChangeConditionsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CodeValueType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChannelType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CompanyLegalFormType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumersEnergyLevelType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionLevelType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CertificateTypeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChangeConditionsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CommentType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConditionsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConditionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumersEnergyLevelType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConditionsDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeterConstantType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProcessDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProcessReasonType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrizeDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrintQualifierType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PriorityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CompanyLegalFormType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConditionType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PurposeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RegistrationNationalityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RegulatoryDomainType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RegionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RankType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReferenceType1))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PlacardNotationType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PlotIdentificationType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PlacardEndorsementType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PersonalSituationType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PhoneNumberType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PostalZoneType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PriceRevisionFormulaDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PriceTypeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PriceChangeReasonType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PostboxType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PreviousMeterReadingMethodType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SpecialInstructionsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SpecialServiceInstructionsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SignatureMethodType1))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ShippingMarksType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ShipsRequirementsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SpecialTermsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SummaryDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TariffDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SubscriberTypeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SpecialTransportRequirementsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StatusReasonType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReplenishmentOwnerDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ResidenceTypeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RemarksType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RejectReasonType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RejectionNoteType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ResolutionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ServiceNumberCalledType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ServiceTypeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SealingPartyTypeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RoleDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RoomType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentOrderReferenceType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OtherInstructionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OutstandingReasonType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrganizationDepartmentType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OptionsDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrderableUnitType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProcessReasonType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PackingMaterialType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PayerReferenceType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PayPerViewType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PartyTypeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PasswordType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OneTimeChargeTypeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeterReadingTypeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumImprovementBidType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeterReadingCommentsType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeterNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeterNumberType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumValueType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NegotiationDescriptionType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NameSuffixType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PayPerViewType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProcessDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrizeDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RegistrationNationalityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RegionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RejectReasonType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RegulatoryDomainType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OtherInstructionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OutstandingReasonType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReferenceType1))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RankType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PayerReferenceType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PreviousMeterReadingMethodType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PriceChangeReasonType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PostalZoneType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PostboxType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrintQualifierType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PriorityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PriceRevisionFormulaDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PriceTypeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentOrderReferenceType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PersonalSituationType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentNoteType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PlacardNotationType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PlotIdentificationType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PhoneNumberType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PlacardEndorsementType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MonetaryScopeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MovieTitleType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentNoteType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumImprovementBidType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumValueType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OneTimeChargeTypeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NameSuffixType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NegotiationDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumValueType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeterConstantType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MarkAttentionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MarkCareType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeterReadingCommentsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeterReadingTypeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeterNameType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeterNumberType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OptionsDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RoleDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ResolutionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SealingPartyTypeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RoomType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RemarksType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RejectionNoteType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ResidenceTypeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReplenishmentOwnerDescriptionType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SignatureMethodType1))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrganizationDepartmentType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrderableUnitType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ShipsRequirementsType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ServiceTypeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ServiceNumberCalledType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ShippingMarksType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(NoteType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionReasonType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionAgencyNameType))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -26378,35 +27395,53 @@ namespace MobileWhouse.UyumSave {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StreetNameType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HolderNameType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MiddleNameType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ModelNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HolderNameType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FamilyNameType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(FileNameType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(FirstNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NameType1))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OtherNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RoamingPartnerNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RegistrationNameType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(RetailEventNameType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RoamingPartnerNameType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ServiceNameType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NameType1))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RegistrationNameType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AdditionalStreetNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AliasNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BlockNameType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BrandNameType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CategoryNameType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CityNameType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CitySubdivisionNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FamilyNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BrandNameType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AliasNameType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BlockNameType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BuildingNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CategoryNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StreetNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(VesselNameType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TechnicalNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ServiceNameType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(VesselNameType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OtherNameType))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2")]
     public partial class NameType : TextType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class StreetNameType : NameType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class HolderNameType : NameType {
     }
     
     /// <remarks/>
@@ -26433,7 +27468,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class HolderNameType : NameType {
+    public partial class FamilyNameType : NameType {
     }
     
     /// <remarks/>
@@ -26459,17 +27494,8 @@ namespace MobileWhouse.UyumSave {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="NameType", Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class NameType1 : NameType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class OtherNameType : NameType {
+    public partial class RetailEventNameType : NameType {
     }
     
     /// <remarks/>
@@ -26487,7 +27513,16 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RegistrationNameType : NameType {
+    public partial class ServiceNameType : NameType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="NameType", Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class NameType1 : NameType {
     }
     
     /// <remarks/>
@@ -26496,7 +27531,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RetailEventNameType : NameType {
+    public partial class RegistrationNameType : NameType {
     }
     
     /// <remarks/>
@@ -26514,7 +27549,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class AliasNameType : NameType {
+    public partial class BrandNameType : NameType {
     }
     
     /// <remarks/>
@@ -26523,7 +27558,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class BlockNameType : NameType {
+    public partial class CategoryNameType : NameType {
     }
     
     /// <remarks/>
@@ -26550,7 +27585,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class FamilyNameType : NameType {
+    public partial class AliasNameType : NameType {
     }
     
     /// <remarks/>
@@ -26559,7 +27594,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class BrandNameType : NameType {
+    public partial class BlockNameType : NameType {
     }
     
     /// <remarks/>
@@ -26577,16 +27612,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CategoryNameType : NameType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class StreetNameType : NameType {
+    public partial class TechnicalNameType : NameType {
     }
     
     /// <remarks/>
@@ -26604,7 +27630,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TechnicalNameType : NameType {
+    public partial class OtherNameType : NameType {
     }
     
     /// <remarks/>
@@ -26613,25 +27639,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ServiceNameType : NameType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2")]
-    public partial class ExtensionReasonType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2")]
-    public partial class ExtensionAgencyNameType : TextType1 {
+    public partial class TitleType : TextType1 {
     }
     
     /// <remarks/>
@@ -26640,7 +27648,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TransportationServiceDescriptionType : TextType1 {
+    public partial class TimingComplaintType : TextType1 {
     }
     
     /// <remarks/>
@@ -26648,17 +27656,8 @@ namespace MobileWhouse.UyumSave {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TransportUserRemarksType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TransportUserSpecialTermsType : TextType1 {
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="TextType", Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TextType2 : TextType1 {
     }
     
     /// <remarks/>
@@ -26676,7 +27675,70 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TitleType : TextType1 {
+    public partial class TierRangeType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TestMethodType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TimezoneOffsetType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TimeAmountType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ValidateProcessType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TransportationServiceDescriptionType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ValidateToolVersionType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ValidateToolType : TextType1 {
     }
     
     /// <remarks/>
@@ -26703,7 +27765,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ValueType : TextType1 {
+    public partial class TransportUserSpecialTermsType : TextType1 {
     }
     
     /// <remarks/>
@@ -26712,7 +27774,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class WarrantyInformationType : TextType1 {
+    public partial class TransportUserRemarksType : TextType1 {
     }
     
     /// <remarks/>
@@ -26721,7 +27783,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class WeightType : TextType1 {
+    public partial class StatusReasonType : TextType1 {
     }
     
     /// <remarks/>
@@ -26730,7 +27792,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ValueQualifierType : TextType1 {
+    public partial class SpecialTransportRequirementsType : TextType1 {
     }
     
     /// <remarks/>
@@ -26739,7 +27801,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ValidateProcessType : TextType1 {
+    public partial class SummaryDescriptionType : TextType1 {
     }
     
     /// <remarks/>
@@ -26748,7 +27810,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ValidateToolType : TextType1 {
+    public partial class SubscriberTypeType : TextType1 {
     }
     
     /// <remarks/>
@@ -26757,7 +27819,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ValidateToolVersionType : TextType1 {
+    public partial class SpecialInstructionsType : TextType1 {
     }
     
     /// <remarks/>
@@ -26766,7 +27828,16 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TelecommunicationsServiceCategoryType : TextType1 {
+    public partial class SpecialTermsType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SpecialServiceInstructionsType : TextType1 {
     }
     
     /// <remarks/>
@@ -26784,70 +27855,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TelefaxType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TelecommunicationsServiceCallType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TaxExemptionReasonType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TechnicalCommitteeDescriptionType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TimeAmountType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TimezoneOffsetType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TimingComplaintType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TierRangeType : TextType1 {
+    public partial class TelecommunicationsServiceCategoryType : TextType1 {
     }
     
     /// <remarks/>
@@ -26865,16 +27873,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TestMethodType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="TextType", Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TextType2 : TextType1 {
+    public partial class TelefaxType : TextType1 {
     }
     
     /// <remarks/>
@@ -26883,7 +27882,34 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class WorkPhaseType : TextType1 {
+    public partial class TaxExemptionReasonType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TariffDescriptionType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TelecommunicationsServiceCallType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TechnicalCommitteeDescriptionType : TextType1 {
     }
     
     /// <remarks/>
@@ -26901,7 +27927,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ExtensionType : TextType1 {
+    public partial class WorkPhaseType : TextType1 {
     }
     
     /// <remarks/>
@@ -26910,7 +27936,43 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class FeeDescriptionType : TextType1 {
+    public partial class ValueType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ValueQualifierType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class WeightType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class WarrantyInformationType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ExemptionReasonType : TextType1 {
     }
     
     /// <remarks/>
@@ -26937,7 +27999,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ExemptionReasonType : TextType1 {
+    public partial class ElectronicDeviceDescriptionType : TextType1 {
     }
     
     /// <remarks/>
@@ -26946,7 +28008,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class FloorType : TextType1 {
+    public partial class ElectronicMailType : TextType1 {
     }
     
     /// <remarks/>
@@ -26955,7 +28017,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class HandlingInstructionsType : TextType1 {
+    public partial class ExtensionType : TextType1 {
     }
     
     /// <remarks/>
@@ -26964,7 +28026,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class HashAlgorithmMethodType : TextType1 {
+    public partial class FrequencyType : TextType1 {
     }
     
     /// <remarks/>
@@ -26991,7 +28053,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class FrequencyType : TextType1 {
+    public partial class FeeDescriptionType : TextType1 {
     }
     
     /// <remarks/>
@@ -27000,25 +28062,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ElectronicMailType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class DescriptionType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class DistrictType : TextType1 {
+    public partial class FloorType : TextType1 {
     }
     
     /// <remarks/>
@@ -27036,7 +28080,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class DeliveryInstructionsType : TextType1 {
+    public partial class DescriptionType : TextType1 {
     }
     
     /// <remarks/>
@@ -27054,7 +28098,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class DocumentDescriptionType : TextType1 {
+    public partial class DataSendingCapabilityType : TextType1 {
     }
     
     /// <remarks/>
@@ -27063,7 +28107,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class DutyType : TextType1 {
+    public partial class DeliveryInstructionsType : TextType1 {
     }
     
     /// <remarks/>
@@ -27072,7 +28116,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ElectronicDeviceDescriptionType : TextType1 {
+    public partial class DistrictType : TextType1 {
     }
     
     /// <remarks/>
@@ -27090,7 +28134,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class DocumentHashType : TextType1 {
+    public partial class DutyType : TextType1 {
     }
     
     /// <remarks/>
@@ -27108,7 +28152,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ListValueType : TextType1 {
+    public partial class DocumentDescriptionType : TextType1 {
     }
     
     /// <remarks/>
@@ -27117,16 +28161,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class LocationType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="LineType", Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class LineType1 : TextType1 {
+    public partial class DocumentHashType : TextType1 {
     }
     
     /// <remarks/>
@@ -27153,7 +28188,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class LoginType : TextType1 {
+    public partial class LatestMeterReadingMethodType : TextType1 {
     }
     
     /// <remarks/>
@@ -27162,7 +28197,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MarkCareType : TextType1 {
+    public partial class JustificationType : TextType1 {
     }
     
     /// <remarks/>
@@ -27171,7 +28206,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MaximumValueType : TextType1 {
+    public partial class KeywordType : TextType1 {
     }
     
     /// <remarks/>
@@ -27179,8 +28214,8 @@ namespace MobileWhouse.UyumSave {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MarkAttentionType : TextType1 {
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="LineType", Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class LineType1 : TextType1 {
     }
     
     /// <remarks/>
@@ -27207,7 +28242,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class LatestMeterReadingMethodType : TextType1 {
+    public partial class LoginType : TextType1 {
     }
     
     /// <remarks/>
@@ -27216,7 +28251,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class InhouseMailType : TextType1 {
+    public partial class ListValueType : TextType1 {
     }
     
     /// <remarks/>
@@ -27225,7 +28260,16 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class InstructionNoteType : TextType1 {
+    public partial class LocationType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class HeatingTypeType : TextType1 {
     }
     
     /// <remarks/>
@@ -27252,7 +28296,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class HeatingTypeType : TextType1 {
+    public partial class HandlingInstructionsType : TextType1 {
     }
     
     /// <remarks/>
@@ -27261,7 +28305,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class InstructionsType : TextType1 {
+    public partial class HashAlgorithmMethodType : TextType1 {
     }
     
     /// <remarks/>
@@ -27270,7 +28314,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class JustificationType : TextType1 {
+    public partial class InhouseMailType : TextType1 {
     }
     
     /// <remarks/>
@@ -27279,7 +28323,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class KeywordType : TextType1 {
+    public partial class JobTitleType : TextType1 {
     }
     
     /// <remarks/>
@@ -27306,7 +28350,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class JobTitleType : TextType1 {
+    public partial class InstructionNoteType : TextType1 {
     }
     
     /// <remarks/>
@@ -27315,7 +28359,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class BuildingNumberType : TextType1 {
+    public partial class InstructionsType : TextType1 {
     }
     
     /// <remarks/>
@@ -27324,7 +28368,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class BuyerReferenceType : TextType1 {
+    public partial class DamageRemarksType : TextType1 {
     }
     
     /// <remarks/>
@@ -27342,7 +28386,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class AwardingCriterionDescriptionType : TextType1 {
+    public partial class BuildingNumberType : TextType1 {
     }
     
     /// <remarks/>
@@ -27360,7 +28404,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CalculationExpressionType : TextType1 {
+    public partial class ApprovalStatusType : TextType1 {
     }
     
     /// <remarks/>
@@ -27369,7 +28413,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CarrierServiceInstructionsType : TextType1 {
+    public partial class AwardingCriterionDescriptionType : TextType1 {
     }
     
     /// <remarks/>
@@ -27378,7 +28422,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CertificateTypeType : TextType1 {
+    public partial class BuyerReferenceType : TextType1 {
     }
     
     /// <remarks/>
@@ -27396,7 +28440,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CancellationNoteType : TextType1 {
+    public partial class CarrierServiceInstructionsType : TextType1 {
     }
     
     /// <remarks/>
@@ -27414,7 +28458,16 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ApprovalStatusType : TextType1 {
+    public partial class CalculationExpressionType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CancellationNoteType : TextType1 {
     }
     
     /// <remarks/>
@@ -27486,16 +28539,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ContractTypeType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CorrectionTypeType : TextType1 {
+    public partial class ContractNameType : TextType1 {
     }
     
     /// <remarks/>
@@ -27522,7 +28566,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ContractNameType : TextType1 {
+    public partial class ConsumptionLevelType : TextType1 {
     }
     
     /// <remarks/>
@@ -27531,7 +28575,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CountrySubentityType : TextType1 {
+    public partial class ConsumptionTypeType : TextType1 {
     }
     
     /// <remarks/>
@@ -27540,7 +28584,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class DamageRemarksType : TextType1 {
+    public partial class ContractTypeType : TextType1 {
     }
     
     /// <remarks/>
@@ -27549,7 +28593,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class DataSendingCapabilityType : TextType1 {
+    public partial class CustomerReferenceType : TextType1 {
     }
     
     /// <remarks/>
@@ -27576,7 +28620,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CustomerReferenceType : TextType1 {
+    public partial class CorrectionTypeType : TextType1 {
     }
     
     /// <remarks/>
@@ -27585,25 +28629,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ConsumptionTypeType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CodeValueType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CommentType : TextType1 {
+    public partial class CountrySubentityType : TextType1 {
     }
     
     /// <remarks/>
@@ -27621,7 +28647,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ChangeConditionsType : TextType1 {
+    public partial class CodeValueType : TextType1 {
     }
     
     /// <remarks/>
@@ -27639,7 +28665,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CompanyLegalFormType : TextType1 {
+    public partial class CertificateTypeType : TextType1 {
     }
     
     /// <remarks/>
@@ -27648,7 +28674,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ConsumersEnergyLevelType : TextType1 {
+    public partial class ChangeConditionsType : TextType1 {
     }
     
     /// <remarks/>
@@ -27657,7 +28683,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ConsumptionLevelType : TextType1 {
+    public partial class CommentType : TextType1 {
     }
     
     /// <remarks/>
@@ -27675,7 +28701,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ConditionType : TextType1 {
+    public partial class ConsumersEnergyLevelType : TextType1 {
     }
     
     /// <remarks/>
@@ -27693,7 +28719,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MeterConstantType : TextType1 {
+    public partial class CompanyLegalFormType : TextType1 {
     }
     
     /// <remarks/>
@@ -27702,43 +28728,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ProcessDescriptionType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ProcessReasonType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PrizeDescriptionType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PrintQualifierType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PriorityType : TextType1 {
+    public partial class ConditionType : TextType1 {
     }
     
     /// <remarks/>
@@ -27756,394 +28746,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RegistrationNationalityType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RegulatoryDomainType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RegionType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RankType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="ReferenceType", Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ReferenceType1 : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PlacardNotationType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PlotIdentificationType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PlacardEndorsementType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PersonalSituationType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PhoneNumberType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PostalZoneType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PriceRevisionFormulaDescriptionType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PriceTypeType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PriceChangeReasonType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PostboxType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PreviousMeterReadingMethodType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SpecialInstructionsType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SpecialServiceInstructionsType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="SignatureMethodType", Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SignatureMethodType1 : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ShippingMarksType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ShipsRequirementsType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SpecialTermsType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SummaryDescriptionType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TariffDescriptionType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SubscriberTypeType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SpecialTransportRequirementsType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class StatusReasonType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ReplenishmentOwnerDescriptionType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ResidenceTypeType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RemarksType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RejectReasonType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RejectionNoteType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ResolutionType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ServiceNumberCalledType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ServiceTypeType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SealingPartyTypeType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RoleDescriptionType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RoomType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PaymentOrderReferenceType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class OtherInstructionType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class OutstandingReasonType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class OrganizationDepartmentType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class OptionsDescriptionType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class OrderableUnitType : TextType1 {
+    public partial class ProcessReasonType : TextType1 {
     }
     
     /// <remarks/>
@@ -28153,33 +28756,6 @@ namespace MobileWhouse.UyumSave {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
     public partial class PackingMaterialType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PayerReferenceType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PaymentDescriptionType : TextType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PayPerViewType : TextType1 {
     }
     
     /// <remarks/>
@@ -28206,7 +28782,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class OneTimeChargeTypeType : TextType1 {
+    public partial class PayPerViewType : TextType1 {
     }
     
     /// <remarks/>
@@ -28215,7 +28791,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MeterReadingTypeType : TextType1 {
+    public partial class ProcessDescriptionType : TextType1 {
     }
     
     /// <remarks/>
@@ -28224,7 +28800,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MinimumImprovementBidType : TextType1 {
+    public partial class PrizeDescriptionType : TextType1 {
     }
     
     /// <remarks/>
@@ -28233,7 +28809,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MeterReadingCommentsType : TextType1 {
+    public partial class RegistrationNationalityType : TextType1 {
     }
     
     /// <remarks/>
@@ -28242,7 +28818,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MeterNameType : TextType1 {
+    public partial class RegionType : TextType1 {
     }
     
     /// <remarks/>
@@ -28251,7 +28827,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MeterNumberType : TextType1 {
+    public partial class RejectReasonType : TextType1 {
     }
     
     /// <remarks/>
@@ -28260,7 +28836,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MinimumValueType : TextType1 {
+    public partial class RegulatoryDomainType : TextType1 {
     }
     
     /// <remarks/>
@@ -28269,7 +28845,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class NegotiationDescriptionType : TextType1 {
+    public partial class OtherInstructionType : TextType1 {
     }
     
     /// <remarks/>
@@ -28278,7 +28854,178 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class NameSuffixType : TextType1 {
+    public partial class OutstandingReasonType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="ReferenceType", Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ReferenceType1 : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class RankType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PayerReferenceType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PreviousMeterReadingMethodType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PriceChangeReasonType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PostalZoneType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PostboxType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PrintQualifierType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PriorityType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PriceRevisionFormulaDescriptionType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PriceTypeType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PaymentOrderReferenceType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PersonalSituationType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PaymentDescriptionType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PaymentNoteType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PlacardNotationType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PlotIdentificationType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PhoneNumberType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PlacardEndorsementType : TextType1 {
     }
     
     /// <remarks/>
@@ -28305,7 +29052,277 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PaymentNoteType : TextType1 {
+    public partial class MinimumImprovementBidType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class MinimumValueType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class OneTimeChargeTypeType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class NameSuffixType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class NegotiationDescriptionType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class MaximumValueType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class MeterConstantType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class MarkAttentionType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class MarkCareType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class MeterReadingCommentsType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class MeterReadingTypeType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class MeterNameType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class MeterNumberType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class OptionsDescriptionType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class RoleDescriptionType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ResolutionType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SealingPartyTypeType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class RoomType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class RemarksType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class RejectionNoteType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ResidenceTypeType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ReplenishmentOwnerDescriptionType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="SignatureMethodType", Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SignatureMethodType1 : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class OrganizationDepartmentType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class OrderableUnitType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ShipsRequirementsType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ServiceTypeType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ServiceNumberCalledType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ShippingMarksType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2")]
+    public partial class ExtensionReasonType : TextType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2")]
+    public partial class ExtensionAgencyNameType : TextType1 {
     }
     
     /// <remarks/>
@@ -28405,36 +29422,36 @@ namespace MobileWhouse.UyumSave {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EstimatedDeliveryTimeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EstimatedDespatchTimeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EarliestPickupTimeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(EndTimeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExpiryTimeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LastRevisionTimeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LatestDeliveryTimeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GuaranteedDespatchTimeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EffectiveTimeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ComparisonForecastIssueTimeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EarliestPickupTimeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EstimatedDeliveryTimeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GuaranteedDespatchTimeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExpiryTimeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EstimatedDespatchTimeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ActualDeliveryTimeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AwardTimeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CallTimeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ActualDespatchTimeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ActualPickupTimeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ResponseTimeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RevisionTimeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RequiredDeliveryTimeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ResolutionTimeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValidationTimeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EffectiveTimeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SourceForecastIssueTimeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StartTimeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OccurrenceTimeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaidTimeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LatestPickupTimeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NominationTimeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ResponseTimeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(RequestedDespatchTimeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ManufactureTimeType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReferenceTimeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RequiredDeliveryTimeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StartTimeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SourceForecastIssueTimeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RevisionTimeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValidationTimeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(RegisteredTimeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LatestPickupTimeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ManufactureTimeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LastRevisionTimeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LatestDeliveryTimeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaidTimeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReferenceTimeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OccurrenceTimeType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NominationTimeType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(IssueTimeType))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
     [System.SerializableAttribute()]
@@ -28463,7 +29480,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class EstimatedDeliveryTimeType : TimeType {
+    public partial class EndTimeType : TimeType {
     }
     
     /// <remarks/>
@@ -28472,7 +29489,16 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class EstimatedDespatchTimeType : TimeType {
+    public partial class EffectiveTimeType : TimeType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ComparisonForecastIssueTimeType : TimeType {
     }
     
     /// <remarks/>
@@ -28490,34 +29516,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class EndTimeType : TimeType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ExpiryTimeType : TimeType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class LastRevisionTimeType : TimeType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class LatestDeliveryTimeType : TimeType {
+    public partial class EstimatedDeliveryTimeType : TimeType {
     }
     
     /// <remarks/>
@@ -28535,7 +29534,16 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ComparisonForecastIssueTimeType : TimeType {
+    public partial class ExpiryTimeType : TimeType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class EstimatedDespatchTimeType : TimeType {
     }
     
     /// <remarks/>
@@ -28589,33 +29597,6 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ResponseTimeType : TimeType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RevisionTimeType : TimeType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RequiredDeliveryTimeType : TimeType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
     public partial class ResolutionTimeType : TimeType {
     }
     
@@ -28625,61 +29606,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ValidationTimeType : TimeType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class EffectiveTimeType : TimeType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SourceForecastIssueTimeType : TimeType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class OccurrenceTimeType : TimeType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PaidTimeType : TimeType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class LatestPickupTimeType : TimeType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class NominationTimeType : TimeType {
+    public partial class ResponseTimeType : TimeType {
     }
     
     /// <remarks/>
@@ -28697,7 +29624,88 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class RequiredDeliveryTimeType : TimeType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SourceForecastIssueTimeType : TimeType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class RevisionTimeType : TimeType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ValidationTimeType : TimeType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class RegisteredTimeType : TimeType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class LatestPickupTimeType : TimeType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
     public partial class ManufactureTimeType : TimeType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class LastRevisionTimeType : TimeType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class LatestDeliveryTimeType : TimeType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PaidTimeType : TimeType {
     }
     
     /// <remarks/>
@@ -28715,7 +29723,16 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RegisteredTimeType : TimeType {
+    public partial class OccurrenceTimeType : TimeType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class NominationTimeType : TimeType {
     }
     
     /// <remarks/>
@@ -28737,31 +29754,31 @@ namespace MobileWhouse.UyumSave {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NetTonnageMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumMeasureType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(NetNetWeightMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LongitudeMinutesMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeasureType2))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValueMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PostEventNotificationDurationMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NetWeightMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NetVolumeMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NetTonnageMeasureType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TareWeightMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SourceValueMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumMeasureType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PreEventNotificationDurationMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChargeableWeightMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ComparedValueMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SourceValueMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValueMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NetVolumeMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NetWeightMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PostEventNotificationDurationMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LongitudeMinutesMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeasureType2))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LoadingLengthMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LongitudeDegreesMeasureType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AltitudeMeasureType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BaseUnitMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GrossTonnageMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LatitudeMinutesMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LeadTimeMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LoadingLengthMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GrossVolumeMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GrossWeightMeasureType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LatitudeDegreesMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LongitudeDegreesMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GrossWeightMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChargeableWeightMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LatitudeMinutesMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GrossVolumeMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ComparedValueMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LeadTimeMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GrossTonnageMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumMeasureType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DurationMeasureType))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
     [System.SerializableAttribute()]
@@ -28773,31 +29790,31 @@ namespace MobileWhouse.UyumSave {
     
     /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeasureType1))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NetTonnageMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumMeasureType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(NetNetWeightMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LongitudeMinutesMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeasureType2))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValueMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PostEventNotificationDurationMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NetWeightMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NetVolumeMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NetTonnageMeasureType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TareWeightMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SourceValueMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumMeasureType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PreEventNotificationDurationMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChargeableWeightMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ComparedValueMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SourceValueMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValueMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NetVolumeMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NetWeightMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PostEventNotificationDurationMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LongitudeMinutesMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MeasureType2))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LoadingLengthMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LongitudeDegreesMeasureType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AltitudeMeasureType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BaseUnitMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GrossTonnageMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LatitudeMinutesMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LeadTimeMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LoadingLengthMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GrossVolumeMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GrossWeightMeasureType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LatitudeDegreesMeasureType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LongitudeDegreesMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GrossWeightMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChargeableWeightMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LatitudeMinutesMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GrossVolumeMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ComparedValueMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LeadTimeMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GrossTonnageMeasureType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumMeasureType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(DurationMeasureType))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
     [System.SerializableAttribute()]
@@ -28852,24 +29869,6 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class NetTonnageMeasureType : MeasureType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MinimumMeasureType : MeasureType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
     public partial class NetNetWeightMeasureType : MeasureType1 {
     }
     
@@ -28879,61 +29878,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class LongitudeMinutesMeasureType : MeasureType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MaximumMeasureType : MeasureType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="MeasureType", Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MeasureType2 : MeasureType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ValueMeasureType : MeasureType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PostEventNotificationDurationMeasureType : MeasureType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class NetWeightMeasureType : MeasureType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class NetVolumeMeasureType : MeasureType1 {
+    public partial class NetTonnageMeasureType : MeasureType1 {
     }
     
     /// <remarks/>
@@ -28951,7 +29896,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SourceValueMeasureType : MeasureType1 {
+    public partial class MinimumMeasureType : MeasureType1 {
     }
     
     /// <remarks/>
@@ -28969,7 +29914,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ChargeableWeightMeasureType : MeasureType1 {
+    public partial class SourceValueMeasureType : MeasureType1 {
     }
     
     /// <remarks/>
@@ -28978,7 +29923,70 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ComparedValueMeasureType : MeasureType1 {
+    public partial class ValueMeasureType : MeasureType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class NetVolumeMeasureType : MeasureType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class NetWeightMeasureType : MeasureType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PostEventNotificationDurationMeasureType : MeasureType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class LongitudeMinutesMeasureType : MeasureType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="MeasureType", Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class MeasureType2 : MeasureType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class LoadingLengthMeasureType : MeasureType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class LongitudeDegreesMeasureType : MeasureType1 {
     }
     
     /// <remarks/>
@@ -29005,43 +30013,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class GrossTonnageMeasureType : MeasureType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class LatitudeMinutesMeasureType : MeasureType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class LeadTimeMeasureType : MeasureType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class LoadingLengthMeasureType : MeasureType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class GrossVolumeMeasureType : MeasureType1 {
+    public partial class LatitudeDegreesMeasureType : MeasureType1 {
     }
     
     /// <remarks/>
@@ -29059,7 +30031,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class LatitudeDegreesMeasureType : MeasureType1 {
+    public partial class ChargeableWeightMeasureType : MeasureType1 {
     }
     
     /// <remarks/>
@@ -29068,7 +30040,52 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class LongitudeDegreesMeasureType : MeasureType1 {
+    public partial class LatitudeMinutesMeasureType : MeasureType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class GrossVolumeMeasureType : MeasureType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ComparedValueMeasureType : MeasureType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class LeadTimeMeasureType : MeasureType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class GrossTonnageMeasureType : MeasureType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class MaximumMeasureType : MeasureType1 {
     }
     
     /// <remarks/>
@@ -29227,118 +30244,118 @@ namespace MobileWhouse.UyumSave {
     
     /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReferencedSignatureIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionAgencyIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionAgencyURIType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionVersionIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionURIType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IdentificationIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HazardClassIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FreightForwarderAssignedIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CustomizationIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CustomerAssignedAccountIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SalesOrderLineIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SchemeURIType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SecurityIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RequiredCustomsIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RevisedForecastLineIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SalesOrderIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SerialIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ShippingOrderIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SignatureIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SellerEventIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SequenceIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SequenceNumberIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProfileIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RadioCallSignIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RailCarIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrimaryAccountNumberIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProductTraceIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProfileExecutionIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RegistrationNationalityIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReleaseIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RequestForQuotationLineIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReferenceIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReferencedConsignmentIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RegistrationIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(VariantIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(VersionIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(VesselIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UUIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UpperOrangeHazardPlacardIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValidatorIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WebsiteURIType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SupplierAssignedAccountIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TenderEnvelopeIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TraceIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SpecificationIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SubscriberIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SuccessiveSequenceIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportationServiceDetailsURIType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(URIType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TrackingIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TrainIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportExecutionPlanReferenceIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsignorAssignedIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsigneeAssignedIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionReportIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CarrierAssignedIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CV2IDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CompanyIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChipApplicationIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContractFolderIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EndpointIDType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(EconomicOperatorRegistryURIType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtendedIDType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExchangeMarketIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EndpointIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ImmobilizationCertificateIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LogoReferenceIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LotNumberIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LoadingSequenceIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LocationIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NationalityIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NetworkIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LowerOrangeHazardPlacardIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MarkingIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IssueNumberIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IssuerIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InformationURIType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InstructionIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LicensePlateIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LineIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(JourneyIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LanguageIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CustomerAssignedAccountIDType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContractedCarrierAssignedIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AircraftIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CustomizationIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BuyerProfileURIType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AccountIDType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AgencyIDType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AdditionalAccountIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AttributeIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BarcodeSymbologyIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AwardingCriterionIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AuctionURIType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SchemeURIType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AccountIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CompanyIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChipApplicationIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CarrierAssignedIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsignorAssignedIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContractFolderIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionReportIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BusinessIdentityEvidenceIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AircraftIDType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BusinessClassificationEvidenceIDType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BrokerAssignedIDType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BuyerEventIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CV2IDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsigneeAssignedIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BuyerProfileURIType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TenderEnvelopeIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SupplierAssignedAccountIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SuccessiveSequenceIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TraceIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportExecutionPlanReferenceIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TrainIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TrackingIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SubscriberIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SequenceNumberIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SequenceIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SellerEventIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SerialIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SpecificationIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SignatureIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ShippingOrderIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WebsiteURIType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(VesselIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(VersionIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(URIType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportationServiceDetailsURIType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UUIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(VariantIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValidatorIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UpperOrangeHazardPlacardIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SecurityIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PerformingCarrierAssignedIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentTermsDetailsURIType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentMeansIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BusinessIdentityEvidenceIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AuctionURIType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AttributeIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BarcodeSymbologyIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AwardingCriterionIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OriginalContractingSystemIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OpenTenderIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ParentDocumentIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OriginalJobIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NationalityIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MarkingIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OntologyURIType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NetworkIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ParentDocumentLineReferenceIDType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrepaidPaymentReferenceIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrimaryAccountNumberIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PerformingCarrierAssignedIDType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PreviousVersionIDType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PreviousJobIDType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OriginalContractingSystemIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OpenTenderIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OntologyURIType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OriginalJobIDType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ParentDocumentVersionIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ParentDocumentLineReferenceIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ParentDocumentIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RequestForQuotationLineIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReleaseIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RegistrationNationalityIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RequiredCustomsIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SalesOrderLineIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SalesOrderIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RevisedForecastLineIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RegistrationIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProfileIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProfileExecutionIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProductTraceIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RadioCallSignIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReferencedConsignmentIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReferenceIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RailCarIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentTermsDetailsURIType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentMeansIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LowerOrangeHazardPlacardIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InformationURIType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ImmobilizationCertificateIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IssueNumberIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InstructionIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HazardClassIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FreightForwarderAssignedIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IdentificationIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IssuerIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LocationIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LoadingSequenceIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LotNumberIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LogoReferenceIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LanguageIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(JourneyIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LineIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LicensePlateIDType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(UBLVersionIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionURIType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionVersionIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionAgencyIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionAgencyURIType))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -29350,118 +30367,118 @@ namespace MobileWhouse.UyumSave {
     /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(IdentifierType1))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReferencedSignatureIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionAgencyIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionAgencyURIType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionVersionIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionURIType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IdentificationIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HazardClassIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FreightForwarderAssignedIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CustomizationIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CustomerAssignedAccountIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SalesOrderLineIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SchemeURIType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SecurityIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RequiredCustomsIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RevisedForecastLineIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SalesOrderIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SerialIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ShippingOrderIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SignatureIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SellerEventIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SequenceIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SequenceNumberIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProfileIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RadioCallSignIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RailCarIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrimaryAccountNumberIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProductTraceIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProfileExecutionIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RegistrationNationalityIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReleaseIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RequestForQuotationLineIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReferenceIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReferencedConsignmentIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RegistrationIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(VariantIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(VersionIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(VesselIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UUIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UpperOrangeHazardPlacardIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValidatorIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WebsiteURIType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SupplierAssignedAccountIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TenderEnvelopeIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TraceIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SpecificationIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SubscriberIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SuccessiveSequenceIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportationServiceDetailsURIType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(URIType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TrackingIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TrainIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportExecutionPlanReferenceIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsignorAssignedIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsigneeAssignedIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionReportIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CarrierAssignedIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CV2IDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CompanyIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChipApplicationIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContractFolderIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EndpointIDType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(EconomicOperatorRegistryURIType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtendedIDType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExchangeMarketIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EndpointIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ImmobilizationCertificateIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LogoReferenceIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LotNumberIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LoadingSequenceIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LocationIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NationalityIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NetworkIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LowerOrangeHazardPlacardIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MarkingIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IssueNumberIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IssuerIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InformationURIType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InstructionIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LicensePlateIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LineIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(JourneyIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LanguageIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CustomerAssignedAccountIDType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContractedCarrierAssignedIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AircraftIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DocumentIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CustomizationIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BuyerProfileURIType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AccountIDType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AgencyIDType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(AdditionalAccountIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AttributeIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BarcodeSymbologyIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AwardingCriterionIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AuctionURIType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SchemeURIType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AccountIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CompanyIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChipApplicationIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CarrierAssignedIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsignorAssignedIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContractFolderIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionReportIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BusinessIdentityEvidenceIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AircraftIDType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BusinessClassificationEvidenceIDType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BrokerAssignedIDType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BuyerEventIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CV2IDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsigneeAssignedIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BuyerProfileURIType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TenderEnvelopeIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SupplierAssignedAccountIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SuccessiveSequenceIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TraceIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportExecutionPlanReferenceIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TrainIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TrackingIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SubscriberIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SequenceNumberIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SequenceIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SellerEventIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SerialIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SpecificationIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SignatureIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ShippingOrderIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(WebsiteURIType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(VesselIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(VersionIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(URIType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TransportationServiceDetailsURIType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UUIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(VariantIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValidatorIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UpperOrangeHazardPlacardIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SecurityIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PerformingCarrierAssignedIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentTermsDetailsURIType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentMeansIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BusinessIdentityEvidenceIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AuctionURIType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AttributeIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BarcodeSymbologyIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AwardingCriterionIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OriginalContractingSystemIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OpenTenderIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ParentDocumentIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OriginalJobIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NationalityIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MarkingIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OntologyURIType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NetworkIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ParentDocumentLineReferenceIDType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrepaidPaymentReferenceIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrimaryAccountNumberIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PerformingCarrierAssignedIDType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PreviousVersionIDType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PreviousJobIDType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OriginalContractingSystemIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OpenTenderIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OntologyURIType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OriginalJobIDType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ParentDocumentVersionIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ParentDocumentLineReferenceIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ParentDocumentIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RequestForQuotationLineIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReleaseIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RegistrationNationalityIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RequiredCustomsIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SalesOrderLineIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SalesOrderIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RevisedForecastLineIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RegistrationIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProfileIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProfileExecutionIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ProductTraceIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RadioCallSignIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReferencedConsignmentIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReferenceIDType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RailCarIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentTermsDetailsURIType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PaymentMeansIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LowerOrangeHazardPlacardIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InformationURIType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ImmobilizationCertificateIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IssueNumberIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InstructionIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HazardClassIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FreightForwarderAssignedIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IdentificationIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IssuerIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LocationIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LoadingSequenceIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LotNumberIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LogoReferenceIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LanguageIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(JourneyIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LineIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LicensePlateIDType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(UBLVersionIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionURIType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionVersionIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionAgencyIDType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExtensionAgencyURIType))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -29588,35 +30605,8 @@ namespace MobileWhouse.UyumSave {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2")]
-    public partial class ExtensionAgencyIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2")]
-    public partial class ExtensionAgencyURIType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2")]
-    public partial class ExtensionVersionIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2")]
-    public partial class ExtensionURIType : IdentifierType1 {
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SalesOrderLineIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -29625,7 +30615,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class IdentificationIDType : IdentifierType1 {
+    public partial class SchemeURIType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -29634,7 +30624,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class HazardClassIDType : IdentifierType1 {
+    public partial class SecurityIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -29643,7 +30633,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class FreightForwarderAssignedIDType : IdentifierType1 {
+    public partial class RequiredCustomsIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -29652,7 +30642,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class DocumentIDType : IdentifierType1 {
+    public partial class RevisedForecastLineIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -29661,7 +30651,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CustomizationIDType : IdentifierType1 {
+    public partial class SalesOrderIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -29670,7 +30660,412 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CustomerAssignedAccountIDType : IdentifierType1 {
+    public partial class SerialIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ShippingOrderIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SignatureIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SellerEventIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SequenceIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SequenceNumberIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ProfileIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class RadioCallSignIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class RailCarIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PrimaryAccountNumberIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ProductTraceIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ProfileExecutionIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class RegistrationNationalityIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ReleaseIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class RequestForQuotationLineIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ReferenceIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ReferencedConsignmentIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class RegistrationIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class VariantIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class VersionIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class VesselIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class UUIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class UpperOrangeHazardPlacardIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ValidatorIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class WebsiteURIType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SupplierAssignedAccountIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TenderEnvelopeIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TraceIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SpecificationIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SubscriberIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SuccessiveSequenceIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TransportationServiceDetailsURIType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class URIType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TrackingIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TrainIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TransportExecutionPlanReferenceIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ConsignorAssignedIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ConsigneeAssignedIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ConsumptionReportIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ConsumptionIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CarrierAssignedIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CV2IDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CompanyIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ChipApplicationIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ContractFolderIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class EndpointIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -29706,160 +31101,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class EndpointIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ImmobilizationCertificateIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class LogoReferenceIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class LotNumberIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class LoadingSequenceIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class LocationIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class NationalityIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class NetworkIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class LowerOrangeHazardPlacardIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MarkingIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class IssueNumberIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class IssuerIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class InformationURIType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class InstructionIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class LicensePlateIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class LineIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class JourneyIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class LanguageIDType : IdentifierType1 {
+    public partial class CustomerAssignedAccountIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -29877,7 +31119,34 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class AircraftIDType : IdentifierType1 {
+    public partial class DocumentIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CustomizationIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class BuyerProfileURIType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class AccountIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -29904,124 +31173,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class AttributeIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class BarcodeSymbologyIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class AwardingCriterionIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class AuctionURIType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SchemeURIType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class AccountIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CompanyIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ChipApplicationIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CarrierAssignedIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ConsignorAssignedIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ContractFolderIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ConsumptionReportIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ConsumptionIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class BusinessIdentityEvidenceIDType : IdentifierType1 {
+    public partial class AircraftIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30057,7 +31209,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CV2IDType : IdentifierType1 {
+    public partial class BusinessIdentityEvidenceIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30066,7 +31218,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ConsigneeAssignedIDType : IdentifierType1 {
+    public partial class AuctionURIType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30075,7 +31227,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class BuyerProfileURIType : IdentifierType1 {
+    public partial class AttributeIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30084,7 +31236,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TenderEnvelopeIDType : IdentifierType1 {
+    public partial class BarcodeSymbologyIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30093,7 +31245,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SupplierAssignedAccountIDType : IdentifierType1 {
+    public partial class AwardingCriterionIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30102,7 +31254,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SuccessiveSequenceIDType : IdentifierType1 {
+    public partial class OriginalContractingSystemIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30111,7 +31263,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TraceIDType : IdentifierType1 {
+    public partial class OpenTenderIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30120,7 +31272,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TransportExecutionPlanReferenceIDType : IdentifierType1 {
+    public partial class ParentDocumentIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30129,7 +31281,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TrainIDType : IdentifierType1 {
+    public partial class OriginalJobIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30138,7 +31290,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TrackingIDType : IdentifierType1 {
+    public partial class NationalityIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30147,7 +31299,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SubscriberIDType : IdentifierType1 {
+    public partial class MarkingIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30156,7 +31308,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SequenceNumberIDType : IdentifierType1 {
+    public partial class OntologyURIType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30165,7 +31317,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SequenceIDType : IdentifierType1 {
+    public partial class NetworkIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30174,160 +31326,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SellerEventIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SerialIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SpecificationIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SignatureIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ShippingOrderIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class WebsiteURIType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class VesselIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class VersionIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class URIType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TransportationServiceDetailsURIType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class UUIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class VariantIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ValidatorIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class UpperOrangeHazardPlacardIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SecurityIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PerformingCarrierAssignedIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PaymentTermsDetailsURIType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PaymentMeansIDType : IdentifierType1 {
+    public partial class ParentDocumentLineReferenceIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30345,7 +31344,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PrimaryAccountNumberIDType : IdentifierType1 {
+    public partial class PerformingCarrierAssignedIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30381,42 +31380,6 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class OriginalContractingSystemIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class OpenTenderIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class OntologyURIType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class OriginalJobIDType : IdentifierType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
     public partial class ParentDocumentVersionIDType : IdentifierType1 {
     }
     
@@ -30426,7 +31389,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ParentDocumentLineReferenceIDType : IdentifierType1 {
+    public partial class PaymentTermsDetailsURIType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30435,7 +31398,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ParentDocumentIDType : IdentifierType1 {
+    public partial class PaymentMeansIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30444,7 +31407,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RequestForQuotationLineIDType : IdentifierType1 {
+    public partial class LowerOrangeHazardPlacardIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30453,7 +31416,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ReleaseIDType : IdentifierType1 {
+    public partial class InformationURIType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30462,7 +31425,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RegistrationNationalityIDType : IdentifierType1 {
+    public partial class ImmobilizationCertificateIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30471,7 +31434,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RequiredCustomsIDType : IdentifierType1 {
+    public partial class IssueNumberIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30480,7 +31443,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SalesOrderLineIDType : IdentifierType1 {
+    public partial class InstructionIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30489,7 +31452,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SalesOrderIDType : IdentifierType1 {
+    public partial class HazardClassIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30498,7 +31461,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RevisedForecastLineIDType : IdentifierType1 {
+    public partial class FreightForwarderAssignedIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30507,7 +31470,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RegistrationIDType : IdentifierType1 {
+    public partial class IdentificationIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30516,7 +31479,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ProfileIDType : IdentifierType1 {
+    public partial class IssuerIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30525,7 +31488,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ProfileExecutionIDType : IdentifierType1 {
+    public partial class LocationIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30534,7 +31497,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ProductTraceIDType : IdentifierType1 {
+    public partial class LoadingSequenceIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30543,7 +31506,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RadioCallSignIDType : IdentifierType1 {
+    public partial class LotNumberIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30552,7 +31515,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ReferencedConsignmentIDType : IdentifierType1 {
+    public partial class LogoReferenceIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30561,7 +31524,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ReferenceIDType : IdentifierType1 {
+    public partial class LanguageIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30570,7 +31533,25 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RailCarIDType : IdentifierType1 {
+    public partial class JourneyIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class LineIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class LicensePlateIDType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -30580,6 +31561,42 @@ namespace MobileWhouse.UyumSave {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
     public partial class UBLVersionIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2")]
+    public partial class ExtensionURIType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2")]
+    public partial class ExtensionVersionIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2")]
+    public partial class ExtensionAgencyIDType : IdentifierType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2")]
+    public partial class ExtensionAgencyURIType : IdentifierType1 {
     }
     
     /// <remarks/>
@@ -31336,65 +32353,65 @@ namespace MobileWhouse.UyumSave {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PublishAwardIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrizeIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RefrigeratedIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RequiredCurriculaIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RefrigerationOnIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PricingUpdateRequestIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PartialDeliveryIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OtherConditionsIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PowerIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrepaidIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PreCarriageIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReturnabilityIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ThirdPartyPayerIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxIncludedIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ToOrderIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(VariantConstraintIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UnknownPriceIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxEvidenceIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SoleProprietorshipIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReturnableMaterialIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SpecialSecurityIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StatusAvailableIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SplitConsignmentIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrderableIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BulkCargoIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CandidateReductionConstraintIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BindingOnBuyerIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BalanceBroughtForwardIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BasedOnConsensusIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsolidatableIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContainerizedIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CompletionIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CatalogueIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChargeIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AcceptedIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AuctionConstraintIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BackOrderAllowedIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AnimalFoodIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AdValoremIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AnimalFoodApprovedIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OptionalLineItemIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IndicationIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OnCarriageIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HumanFoodApprovedIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HumanFoodIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MarkAttentionIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MarkCareIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LivestockIndicatorType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ItemUpdateRequestIndicatorType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LegalStatusIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FreeOfChargeIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FrozenDocumentIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FullyPaidSharesIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IndicationIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HumanFoodApprovedIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(HumanFoodIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(LivestockIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OptionalLineItemIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OrderableIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OnCarriageIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MarkAttentionIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MarkCareIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DangerousGoodsApprovedIndicatorType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(FollowupContractIndicatorType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CustomsImportClassifiedIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DangerousGoodsApprovedIndicatorType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GeneralCargoIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContainerizedIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FreeOfChargeIndicatorType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(GovernmentAgreementConstraintIndicatorType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(HazardousRiskIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(GeneralCargoIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FrozenDocumentIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(FullyPaidSharesIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OtherConditionsIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SplitConsignmentIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(StatusAvailableIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SpecialSecurityIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReturnableMaterialIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SoleProprietorshipIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxEvidenceIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(UnknownPriceIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(VariantConstraintIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ToOrderIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TaxIncludedIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ThirdPartyPayerIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrepaidIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PricingUpdateRequestIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PreCarriageIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PartialDeliveryIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PowerIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PrizeIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RequiredCurriculaIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReturnabilityIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RefrigerationOnIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PublishAwardIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RefrigeratedIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsolidatableIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AnimalFoodApprovedIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AdValoremIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AuctionConstraintIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AnimalFoodIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AcceptedIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CatalogueIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CandidateReductionConstraintIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CompletionIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChargeIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BulkCargoIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BalanceBroughtForwardIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BackOrderAllowedIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BindingOnBuyerIndicatorType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BasedOnConsensusIndicatorType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CopyIndicatorType))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
     [System.SerializableAttribute()]
@@ -31423,7 +32440,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PublishAwardIndicatorType : IndicatorType {
+    public partial class ItemUpdateRequestIndicatorType : IndicatorType {
     }
     
     /// <remarks/>
@@ -31432,349 +32449,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PrizeIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RefrigeratedIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RequiredCurriculaIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RefrigerationOnIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PricingUpdateRequestIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PartialDeliveryIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class OtherConditionsIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PowerIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PrepaidIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PreCarriageIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ReturnabilityIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ThirdPartyPayerIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TaxIncludedIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ToOrderIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class VariantConstraintIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class UnknownPriceIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TaxEvidenceIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ReturnableMaterialIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SpecialSecurityIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class StatusAvailableIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SplitConsignmentIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class OrderableIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class BulkCargoIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CandidateReductionConstraintIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class BindingOnBuyerIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class BalanceBroughtForwardIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class BasedOnConsensusIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ConsolidatableIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ContainerizedIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CompletionIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CatalogueIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ChargeIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class AcceptedIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class AuctionConstraintIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class BackOrderAllowedIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class AnimalFoodIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class AdValoremIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class AnimalFoodApprovedIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class OptionalLineItemIndicatorType : IndicatorType {
+    public partial class LegalStatusIndicatorType : IndicatorType {
     }
     
     /// <remarks/>
@@ -31784,15 +32459,6 @@ namespace MobileWhouse.UyumSave {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
     public partial class IndicationIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class OnCarriageIndicatorType : IndicatorType {
     }
     
     /// <remarks/>
@@ -31819,6 +32485,42 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class LivestockIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class OptionalLineItemIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class OrderableIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class OnCarriageIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
     public partial class MarkAttentionIndicatorType : IndicatorType {
     }
     
@@ -31837,52 +32539,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class LivestockIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ItemUpdateRequestIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class LegalStatusIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class FreeOfChargeIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class FrozenDocumentIndicatorType : IndicatorType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class FullyPaidSharesIndicatorType : IndicatorType {
+    public partial class DangerousGoodsApprovedIndicatorType : IndicatorType {
     }
     
     /// <remarks/>
@@ -31909,7 +32566,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class DangerousGoodsApprovedIndicatorType : IndicatorType {
+    public partial class ContainerizedIndicatorType : IndicatorType {
     }
     
     /// <remarks/>
@@ -31918,7 +32575,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class GeneralCargoIndicatorType : IndicatorType {
+    public partial class FreeOfChargeIndicatorType : IndicatorType {
     }
     
     /// <remarks/>
@@ -31937,6 +32594,366 @@ namespace MobileWhouse.UyumSave {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
     public partial class HazardousRiskIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class GeneralCargoIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class FrozenDocumentIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class FullyPaidSharesIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class OtherConditionsIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SplitConsignmentIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class StatusAvailableIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SpecialSecurityIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ReturnableMaterialIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TaxEvidenceIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class UnknownPriceIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class VariantConstraintIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ToOrderIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TaxIncludedIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ThirdPartyPayerIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PrepaidIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PricingUpdateRequestIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PreCarriageIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PartialDeliveryIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PowerIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PrizeIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class RequiredCurriculaIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ReturnabilityIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class RefrigerationOnIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PublishAwardIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class RefrigeratedIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ConsolidatableIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class AnimalFoodApprovedIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class AdValoremIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class AuctionConstraintIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class AnimalFoodIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class AcceptedIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CatalogueIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CandidateReductionConstraintIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CompletionIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ChargeIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class BulkCargoIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class BalanceBroughtForwardIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class BackOrderAllowedIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class BindingOnBuyerIndicatorType : IndicatorType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class BasedOnConsensusIndicatorType : IndicatorType {
     }
     
     /// <remarks/>
@@ -32433,9 +33450,9 @@ namespace MobileWhouse.UyumSave {
     
     /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SoundType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(VideoType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PictureType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(GraphicType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(VideoType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BinaryObjectType1))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(EmbeddedDocumentBinaryObjectType))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
@@ -32552,15 +33569,6 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2")]
-    public partial class VideoType : BinaryObjectType {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2")]
     public partial class PictureType : BinaryObjectType {
     }
     
@@ -32571,6 +33579,15 @@ namespace MobileWhouse.UyumSave {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2")]
     public partial class GraphicType : BinaryObjectType {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:UnqualifiedDataTypes-2")]
+    public partial class VideoType : BinaryObjectType {
     }
     
     /// <remarks/>
@@ -32925,70 +33942,70 @@ namespace MobileWhouse.UyumSave {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalConsumedQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ShortQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SharesNumberQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RejectedQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TargetInventoryQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TimeDeltaDaysQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ThresholdQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValueQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalTransportHandlingUnitQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(VarianceQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalPackagesQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalGoodsItemQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalDeliveredQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalPackageQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalGoodsItemQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalConsumedQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ThresholdQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TimeDeltaDaysQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalMeteredQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChildConsignmentQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsignmentQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BatchQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChargeableQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumerUnitQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContentUnitQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CreditedQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionEnergyQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionWaterQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumInventoryQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumOrderQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BaseQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BasicConsumedQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ActualTemperatureReductionQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValueQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(VarianceQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalPackageQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalPackagesQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalTransportHandlingUnitQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EstimatedConsumedQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BackorderQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CrewQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ActualTemperatureReductionQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EstimatedOverallContractQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InvoicedQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LatestMeterQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumBackorderQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(GasPressureQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InvoicedQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumOperatorQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumVariantQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumBackorderQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumOrderQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DeliveredQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DifferenceTemperatureReductionQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CustomsTariffQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DebitedQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EmployeeQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExpectedOperatorQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DifferenceTemperatureReductionQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExpectedQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EstimatedConsumedQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EstimatedOverallContractQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OversupplyQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NormalTemperatureReductionQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CreditedQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContentUnitQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionWaterQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CrewQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DeliveredQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DebitedQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CustomsTariffQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionEnergyQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BatchQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EmployeeQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BaseQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChargeableQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumerUnitQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsignmentQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChildConsignmentQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumOperatorQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PreviousMeterQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MultipleOrderQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PerformanceValueQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PassengerQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PackQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReceivedElectronicTenderQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReturnableQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PassengerQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(OutstandingQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(OperatingYearsQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReceivedForeignTenderQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReceivedTenderQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PackQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OversupplyQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ShortQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SharesNumberQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BasicConsumedQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TargetInventoryQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReturnableQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReceivedQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReceivedForeignTenderQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RejectedQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReceivedTenderQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumVariantQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MultipleOrderQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumOrderQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumInventoryQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumBackorderQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumOrderQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NormalTemperatureReductionQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(QuantityType2))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
     [System.SerializableAttribute()]
@@ -33000,70 +34017,70 @@ namespace MobileWhouse.UyumSave {
     
     /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(QuantityType1))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalConsumedQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ShortQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SharesNumberQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RejectedQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TargetInventoryQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TimeDeltaDaysQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ThresholdQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValueQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalTransportHandlingUnitQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(VarianceQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalPackagesQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalGoodsItemQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalDeliveredQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalPackageQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalGoodsItemQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalConsumedQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ThresholdQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TimeDeltaDaysQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalMeteredQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChildConsignmentQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsignmentQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BatchQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChargeableQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumerUnitQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContentUnitQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CreditedQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionEnergyQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionWaterQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumInventoryQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumOrderQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BaseQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BasicConsumedQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ActualTemperatureReductionQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ValueQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(VarianceQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalPackageQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalPackagesQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TotalTransportHandlingUnitQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EstimatedConsumedQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BackorderQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CrewQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ActualTemperatureReductionQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EstimatedOverallContractQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InvoicedQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(LatestMeterQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumBackorderQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(GasPressureQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(InvoicedQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumOperatorQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumVariantQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumBackorderQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumOrderQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DeliveredQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DifferenceTemperatureReductionQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CustomsTariffQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DebitedQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EmployeeQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExpectedOperatorQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DifferenceTemperatureReductionQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ExpectedQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EstimatedConsumedQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EstimatedOverallContractQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OversupplyQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NormalTemperatureReductionQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CreditedQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ContentUnitQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionWaterQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CrewQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DeliveredQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(DebitedQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(CustomsTariffQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumptionEnergyQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BatchQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EmployeeQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BaseQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChargeableQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsumerUnitQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ConsignmentQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ChildConsignmentQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumOperatorQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PreviousMeterQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MultipleOrderQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PerformanceValueQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PassengerQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PackQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReceivedElectronicTenderQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReturnableQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PassengerQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(OutstandingQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(OperatingYearsQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReceivedForeignTenderQuantityType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReceivedTenderQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PackQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(OversupplyQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ShortQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SharesNumberQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(BasicConsumedQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TargetInventoryQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReturnableQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReceivedQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReceivedForeignTenderQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RejectedQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ReceivedTenderQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumVariantQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MultipleOrderQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumOrderQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MaximumQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumInventoryQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumBackorderQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(MinimumOrderQuantityType))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(NormalTemperatureReductionQuantityType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(QuantityType2))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
     [System.SerializableAttribute()]
@@ -33144,97 +34161,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TotalConsumedQuantityType : QuantityType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ShortQuantityType : QuantityType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class SharesNumberQuantityType : QuantityType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class RejectedQuantityType : QuantityType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TargetInventoryQuantityType : QuantityType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TimeDeltaDaysQuantityType : QuantityType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ThresholdQuantityType : QuantityType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ValueQuantityType : QuantityType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TotalTransportHandlingUnitQuantityType : QuantityType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class VarianceQuantityType : QuantityType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TotalPackagesQuantityType : QuantityType1 {
+    public partial class TotalDeliveredQuantityType : QuantityType1 {
     }
     
     /// <remarks/>
@@ -33252,7 +34179,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TotalDeliveredQuantityType : QuantityType1 {
+    public partial class TotalConsumedQuantityType : QuantityType1 {
     }
     
     /// <remarks/>
@@ -33261,7 +34188,16 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class TotalPackageQuantityType : QuantityType1 {
+    public partial class ThresholdQuantityType : QuantityType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TimeDeltaDaysQuantityType : QuantityType1 {
     }
     
     /// <remarks/>
@@ -33279,7 +34215,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ChildConsignmentQuantityType : QuantityType1 {
+    public partial class ValueQuantityType : QuantityType1 {
     }
     
     /// <remarks/>
@@ -33288,7 +34224,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ConsignmentQuantityType : QuantityType1 {
+    public partial class VarianceQuantityType : QuantityType1 {
     }
     
     /// <remarks/>
@@ -33297,7 +34233,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class BatchQuantityType : QuantityType1 {
+    public partial class TotalPackageQuantityType : QuantityType1 {
     }
     
     /// <remarks/>
@@ -33306,7 +34242,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ChargeableQuantityType : QuantityType1 {
+    public partial class TotalPackagesQuantityType : QuantityType1 {
     }
     
     /// <remarks/>
@@ -33315,7 +34251,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ConsumerUnitQuantityType : QuantityType1 {
+    public partial class TotalTransportHandlingUnitQuantityType : QuantityType1 {
     }
     
     /// <remarks/>
@@ -33324,79 +34260,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ContentUnitQuantityType : QuantityType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CreditedQuantityType : QuantityType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ConsumptionEnergyQuantityType : QuantityType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ConsumptionWaterQuantityType : QuantityType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MinimumInventoryQuantityType : QuantityType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MinimumOrderQuantityType : QuantityType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class BaseQuantityType : QuantityType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class BasicConsumedQuantityType : QuantityType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ActualTemperatureReductionQuantityType : QuantityType1 {
+    public partial class EstimatedConsumedQuantityType : QuantityType1 {
     }
     
     /// <remarks/>
@@ -33414,7 +34278,25 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CrewQuantityType : QuantityType1 {
+    public partial class ActualTemperatureReductionQuantityType : QuantityType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class EstimatedOverallContractQuantityType : QuantityType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class InvoicedQuantityType : QuantityType1 {
     }
     
     /// <remarks/>
@@ -33450,61 +34332,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class InvoicedQuantityType : QuantityType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MaximumOperatorQuantityType : QuantityType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MaximumVariantQuantityType : QuantityType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MinimumBackorderQuantityType : QuantityType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MaximumOrderQuantityType : QuantityType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MaximumQuantityType : QuantityType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class DeliveredQuantityType : QuantityType1 {
+    public partial class ExpectedOperatorQuantityType : QuantityType1 {
     }
     
     /// <remarks/>
@@ -33522,7 +34350,52 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class CustomsTariffQuantityType : QuantityType1 {
+    public partial class ExpectedQuantityType : QuantityType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CreditedQuantityType : QuantityType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ContentUnitQuantityType : QuantityType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ConsumptionWaterQuantityType : QuantityType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CrewQuantityType : QuantityType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class DeliveredQuantityType : QuantityType1 {
     }
     
     /// <remarks/>
@@ -33540,6 +34413,33 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class CustomsTariffQuantityType : QuantityType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ConsumptionEnergyQuantityType : QuantityType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class BatchQuantityType : QuantityType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
     public partial class EmployeeQuantityType : QuantityType1 {
     }
     
@@ -33549,7 +34449,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ExpectedOperatorQuantityType : QuantityType1 {
+    public partial class BaseQuantityType : QuantityType1 {
     }
     
     /// <remarks/>
@@ -33558,7 +34458,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ExpectedQuantityType : QuantityType1 {
+    public partial class ChargeableQuantityType : QuantityType1 {
     }
     
     /// <remarks/>
@@ -33567,7 +34467,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class EstimatedConsumedQuantityType : QuantityType1 {
+    public partial class ConsumerUnitQuantityType : QuantityType1 {
     }
     
     /// <remarks/>
@@ -33576,7 +34476,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class EstimatedOverallContractQuantityType : QuantityType1 {
+    public partial class ConsignmentQuantityType : QuantityType1 {
     }
     
     /// <remarks/>
@@ -33585,7 +34485,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class OversupplyQuantityType : QuantityType1 {
+    public partial class ChildConsignmentQuantityType : QuantityType1 {
     }
     
     /// <remarks/>
@@ -33594,7 +34494,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class NormalTemperatureReductionQuantityType : QuantityType1 {
+    public partial class MaximumOperatorQuantityType : QuantityType1 {
     }
     
     /// <remarks/>
@@ -33612,43 +34512,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MultipleOrderQuantityType : QuantityType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
     public partial class PerformanceValueQuantityType : QuantityType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PassengerQuantityType : QuantityType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class MinimumQuantityType : QuantityType1 {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class PackQuantityType : QuantityType1 {
     }
     
     /// <remarks/>
@@ -33666,7 +34530,7 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ReturnableQuantityType : QuantityType1 {
+    public partial class PassengerQuantityType : QuantityType1 {
     }
     
     /// <remarks/>
@@ -33693,7 +34557,88 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class PackQuantityType : QuantityType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class OversupplyQuantityType : QuantityType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ShortQuantityType : QuantityType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class SharesNumberQuantityType : QuantityType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class BasicConsumedQuantityType : QuantityType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class TargetInventoryQuantityType : QuantityType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ReturnableQuantityType : QuantityType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class ReceivedQuantityType : QuantityType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
     public partial class ReceivedForeignTenderQuantityType : QuantityType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class RejectedQuantityType : QuantityType1 {
     }
     
     /// <remarks/>
@@ -33711,7 +34656,79 @@ namespace MobileWhouse.UyumSave {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
-    public partial class ReceivedQuantityType : QuantityType1 {
+    public partial class MaximumVariantQuantityType : QuantityType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class MultipleOrderQuantityType : QuantityType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class MaximumOrderQuantityType : QuantityType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class MaximumQuantityType : QuantityType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class MinimumInventoryQuantityType : QuantityType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class MinimumBackorderQuantityType : QuantityType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class MinimumQuantityType : QuantityType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class MinimumOrderQuantityType : QuantityType1 {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "2.0.50727.9157")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2")]
+    public partial class NormalTemperatureReductionQuantityType : QuantityType1 {
     }
     
     /// <remarks/>
@@ -37200,11 +38217,11 @@ namespace MobileWhouse.UyumSave {
         
         private System.Xml.XmlNode[] anyField;
         
-        private string encodingField;
+        private string idField;
         
         private string mimeTypeField;
         
-        private string idField;
+        private string encodingField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlTextAttribute()]
@@ -37219,13 +38236,13 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute(DataType="anyURI")]
-        public string Encoding {
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType="ID")]
+        public string Id {
             get {
-                return this.encodingField;
+                return this.idField;
             }
             set {
-                this.encodingField = value;
+                this.idField = value;
             }
         }
         
@@ -37241,13 +38258,13 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute(DataType="ID")]
-        public string Id {
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType="anyURI")]
+        public string Encoding {
             get {
-                return this.idField;
+                return this.encodingField;
             }
             set {
-                this.idField = value;
+                this.encodingField = value;
             }
         }
     }
@@ -37399,9 +38416,9 @@ namespace MobileWhouse.UyumSave {
         
         private TransformType[] transformsField;
         
-        private string typeField;
-        
         private string uRIField;
+        
+        private string typeField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute("Transform", IsNullable=false)]
@@ -37416,23 +38433,23 @@ namespace MobileWhouse.UyumSave {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute(DataType="anyURI")]
-        public string Type {
-            get {
-                return this.typeField;
-            }
-            set {
-                this.typeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute(DataType="anyURI")]
         public string URI {
             get {
                 return this.uRIField;
             }
             set {
                 this.uRIField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType="anyURI")]
+        public string Type {
+            get {
+                return this.typeField;
+            }
+            set {
+                this.typeField = value;
             }
         }
     }
@@ -37901,11 +38918,11 @@ namespace MobileWhouse.UyumSave {
         
         private byte[] digestValueField;
         
-        private string typeField;
+        private string idField;
         
         private string uRIField;
         
-        private string idField;
+        private string typeField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute("Transform", IsNullable=false)]
@@ -37940,13 +38957,13 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute(DataType="anyURI")]
-        public string Type {
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType="ID")]
+        public string Id {
             get {
-                return this.typeField;
+                return this.idField;
             }
             set {
-                this.typeField = value;
+                this.idField = value;
             }
         }
         
@@ -37962,13 +38979,13 @@ namespace MobileWhouse.UyumSave {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute(DataType="ID")]
-        public string Id {
+        [System.Xml.Serialization.XmlAttributeAttribute(DataType="anyURI")]
+        public string Type {
             get {
-                return this.idField;
+                return this.typeField;
             }
             set {
-                this.idField = value;
+                this.typeField = value;
             }
         }
     }
@@ -38846,9 +39863,9 @@ namespace MobileWhouse.UyumSave {
         
         private System.DateTime createDateUtcField;
         
-        private string extraInformationField;
-        
         private string localDocumentIdField;
+        
+        private string extraInformationField;
         
         /// <remarks/>
         public InvoiceType Invoice {
@@ -38912,23 +39929,23 @@ namespace MobileWhouse.UyumSave {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string ExtraInformation {
-            get {
-                return this.extraInformationField;
-            }
-            set {
-                this.extraInformationField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
         public string LocalDocumentId {
             get {
                 return this.localDocumentIdField;
             }
             set {
                 this.localDocumentIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string ExtraInformation {
+            get {
+                return this.extraInformationField;
+            }
+            set {
+                this.extraInformationField = value;
             }
         }
     }
@@ -39819,84 +40836,6 @@ namespace MobileWhouse.UyumSave {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.9157")]
-    public delegate void SaveItemMCompletedEventHandler(object sender, SaveItemMCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.9157")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class SaveItemMCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal SaveItemMCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfBoolean Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((ServiceResultOfBoolean)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.9157")]
-    public delegate void SaveItemMMultiCompletedEventHandler(object sender, SaveItemMMultiCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.9157")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class SaveItemMMultiCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal SaveItemMMultiCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfBoolean Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((ServiceResultOfBoolean)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.9157")]
-    public delegate void SaveWaybillCompletedEventHandler(object sender, SaveWaybillCompletedEventArgs e);
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.9157")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class SaveWaybillCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
-        
-        private object[] results;
-        
-        internal SaveWaybillCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
-                base(exception, cancelled, userState) {
-            this.results = results;
-        }
-        
-        /// <remarks/>
-        public ServiceResultOfBoolean Result {
-            get {
-                this.RaiseExceptionIfNecessary();
-                return ((ServiceResultOfBoolean)(this.results[0]));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.9157")]
     public delegate void PurchaseEDespatchProccessCompletedEventHandler(object sender, PurchaseEDespatchProccessCompletedEventArgs e);
     
     /// <remarks/>
@@ -39949,6 +40888,58 @@ namespace MobileWhouse.UyumSave {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.9157")]
+    public delegate void SaveItemMCompletedEventHandler(object sender, SaveItemMCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.9157")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SaveItemMCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SaveItemMCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfBoolean Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((ServiceResultOfBoolean)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.9157")]
+    public delegate void SaveItemMMultiCompletedEventHandler(object sender, SaveItemMMultiCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.9157")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SaveItemMMultiCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SaveItemMMultiCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfBoolean Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((ServiceResultOfBoolean)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.9157")]
     public delegate void SaveWaybillByReferralCompletedEventHandler(object sender, SaveWaybillByReferralCompletedEventArgs e);
     
     /// <remarks/>
@@ -39960,6 +40951,32 @@ namespace MobileWhouse.UyumSave {
         private object[] results;
         
         internal SaveWaybillByReferralCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfBoolean Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((ServiceResultOfBoolean)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.9157")]
+    public delegate void SaveWaybillCompletedEventHandler(object sender, SaveWaybillCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.9157")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SaveWaybillCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SaveWaybillCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -40079,6 +41096,32 @@ namespace MobileWhouse.UyumSave {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.9157")]
+    public delegate void DeleteAccMMCompletedEventHandler(object sender, DeleteAccMMCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.9157")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class DeleteAccMMCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal DeleteAccMMCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfBoolean Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((ServiceResultOfBoolean)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.9157")]
     public delegate void SaveItemCompletedEventHandler(object sender, SaveItemCompletedEventArgs e);
     
     /// <remarks/>
@@ -40151,6 +41194,58 @@ namespace MobileWhouse.UyumSave {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((ServiceResultOfBoolean)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.9157")]
+    public delegate void SaveCycleCountCompletedEventHandler(object sender, SaveCycleCountCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.9157")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SaveCycleCountCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SaveCycleCountCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfBoolean Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((ServiceResultOfBoolean)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.9157")]
+    public delegate void BulkFileByObjectCompletedEventHandler(object sender, BulkFileByObjectCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.9157")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class BulkFileByObjectCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal BulkFileByObjectCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public ServiceResultOfString Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((ServiceResultOfString)(this.results[0]));
             }
         }
     }

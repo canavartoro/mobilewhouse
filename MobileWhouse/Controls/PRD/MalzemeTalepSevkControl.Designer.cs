@@ -347,6 +347,7 @@ namespace MobileWhouse.Controls.PRD
             this.txtraf.Name = "txtraf";
             this.txtraf.Size = new System.Drawing.Size(128, 21);
             this.txtraf.TabIndex = 1;
+            this.txtraf.Text = "00-00-1-1";
             // 
             // label3
             // 
@@ -380,16 +381,16 @@ namespace MobileWhouse.Controls.PRD
             this.tabPage3.Controls.Add(this.label6);
             this.tabPage3.Location = new System.Drawing.Point(0, 0);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(240, 272);
+            this.tabPage3.Size = new System.Drawing.Size(232, 269);
             this.tabPage3.Text = "Belge";
             // 
             // btnkaydet
             // 
             this.btnkaydet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnkaydet.Location = new System.Drawing.Point(3, 243);
+            this.btnkaydet.Location = new System.Drawing.Point(3, 240);
             this.btnkaydet.Name = "btnkaydet";
-            this.btnkaydet.Size = new System.Drawing.Size(230, 26);
+            this.btnkaydet.Size = new System.Drawing.Size(222, 26);
             this.btnkaydet.TabIndex = 5;
             this.btnkaydet.Text = "Kaydet";
             this.btnkaydet.Click += new System.EventHandler(this.btnkaydet_Click);
@@ -409,7 +410,7 @@ namespace MobileWhouse.Controls.PRD
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtaciklama.Location = new System.Drawing.Point(75, 49);
             this.txtaciklama.Name = "txtaciklama";
-            this.txtaciklama.Size = new System.Drawing.Size(161, 21);
+            this.txtaciklama.Size = new System.Drawing.Size(153, 21);
             this.txtaciklama.TabIndex = 1;
             // 
             // txtbelgeno
@@ -418,7 +419,7 @@ namespace MobileWhouse.Controls.PRD
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.txtbelgeno.Location = new System.Drawing.Point(75, 0);
             this.txtbelgeno.Name = "txtbelgeno";
-            this.txtbelgeno.Size = new System.Drawing.Size(100, 21);
+            this.txtbelgeno.Size = new System.Drawing.Size(92, 21);
             this.txtbelgeno.TabIndex = 1;
             // 
             // label8
